@@ -1,4 +1,4 @@
-package application;
+package DAL;
 import java.sql.*;
 
 public class DatabaseConnection {

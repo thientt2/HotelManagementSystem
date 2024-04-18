@@ -12,11 +12,11 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	private double x = 0;
-    private double y = 0;
+	private double y = 0;
     
     @Override
     public void start(Stage stage) throws Exception {
-       Parent root = FXMLLoader.load(getClass().getResource("DANGNHAP_UI.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("/UI/DANGNHAP_UI.fxml"));
         
         Scene scene = new Scene(root);       
         
