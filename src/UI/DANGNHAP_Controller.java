@@ -1,5 +1,6 @@
 package UI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,15 +61,12 @@ public class DANGNHAP_Controller implements Initializable {
     private StackPane stack_form;
 
     @FXML
-    private TextField usernameTxt;
+    private TextField usernameTxt;    
     
-    private Connection connect;
-    private PreparedStatement prepare;
-    private ResultSet result;
     private AlertMessage alert = new AlertMessage();
     private DANGNHAP_BLL dangnhapBLL = null;
     
-    public void login() throws SQLException{
+    public void login() throws SQLException, IOException{
     	
     	Map<String, String> data  = new HashMap<String, String>();
     	data.put("user", usernameTxt.getText());
@@ -77,69 +75,37 @@ public class DANGNHAP_Controller implements Initializable {
     	boolean check = dangnhapBLL.checkLogin(data);
     	if(check == false) {
     		String error = SystemMessage.ERROR_MESSAGE;
-    		if(error.equals("ERROR_1"))
-    			alert.errorMessage("Vui lòng nhập đầy đủ thông tin!");
-    	}else {
-    		String user = data.get("user");
-            String pass = data.get("pass");
-            String sql = "SELECT * FROM NHANVIEN WHERE TENDANGNHAP = ? AND MATKHAU = ?";
-
-            
-            connect = DatabaseConnection.connectDb();
-            
-            try{
-                
-                prepare = connect.prepareStatement(sql);
-                prepare.setString(1, user);
-                prepare.setString(2, pass);
-                
-                result = prepare.executeQuery();                
-             
-                if(result.next()){
-                    //Nếu đăng nhập thành công sẽ xuất thông báo qua Alert
-                	alert.successMessage("Đăng nhập thành công!");
-
-                    loginBtn.getScene().getWindow().hide();
-
-                    
-                    Parent root = FXMLLoader.load(getClass().getResource("MainWindow_UI.fxml"));
-
-                    root.setOnMousePressed((MouseEvent event)->{
-                        x = event.getSceneX();
-                        y = event.getSceneY();        
-                    });
-                    
-                    
-                    
-                    Stage stage = new Stage();
-                    stage.initStyle(StageStyle.TRANSPARENT);
-                    Scene scene = new Scene(root);
-                    
-                    
-                    root.setOnMouseDragged((MouseEvent event)->{
-                        stage.setX(event.getScreenX() - x);
-                        stage.setY(event.getScreenY() - y);
-                    });
-                    
-                    
-                    stage.setScene(scene);
-                    stage.show();
-                  
-                    
-                }else{
-                    //Nếu đăng nhập không thành công thì xuất ra màn hình 
-                    alert.errorMessage("Sai tài khoản hoặc mật khẩu!");
-                }
-                
-            } catch(Exception e){
-                e.printStackTrace();
-            }
-    		
+    		if(error.equals("ERROR_1")) {
+    			alert.errorMessage("Vui lòng nhập đầy đủ thông tin!");    	
+    		}else if(error.equals("ERROR_2")) {
+    			alert.errorMessage("Sai tài khoản hoặc mật khẩu!");    			
+    		}
     	}
-    	
+    	else{
+    		alert.successMessage("Đăng nhập thành công!");
+    		loginBtn.getScene().getWindow().hide();   
         
+    		Parent root = FXMLLoader.load(getClass().getResource("MainWindow_UI.fxml"));
+    		
+    		root.setOnMousePressed((MouseEvent event)->{            
+    			x = event.getSceneX();            
+    			y = event.getSceneY();    
+    		});
+    		
+    		Stage stage = new Stage();        
+    		stage.initStyle(StageStyle.TRANSPARENT);        
+    		Scene scene = new Scene(root);
         
+    		root.setOnMouseDragged((MouseEvent event)->{
+    			stage.setX(event.getScreenX() - x);            
+    			stage.setY(event.getScreenY() - y);       
+    		});
+    		
+    		stage.setScene(scene);     
+    		stage.show();
+    	}
     }
+    
     
     public void showPassword() {
     	

@@ -78,6 +78,8 @@ public class MainWindow_Controller implements Initializable {
 
     @FXML
     private Button xoaPhong_btn;
+    
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
