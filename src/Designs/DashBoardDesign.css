@@ -146,6 +146,8 @@
 
 .table-view .column-header, .label{
 	-fx-text-fill: #2b2f38;
+	-fx-font-family:"Inter";
+	-fx-font-weight: 630;
 }
 
 .search{

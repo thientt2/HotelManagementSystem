@@ -63,16 +63,15 @@ public class DANGNHAP_Controller implements Initializable {
     @FXML
     private TextField usernameTxt;    
     
-    private AlertMessage alert = new AlertMessage();
-    private DANGNHAP_BLL dangnhapBLL = null;
+    private AlertMessage alert = new AlertMessage();    
     
     public void login() throws SQLException, IOException{
     	
     	Map<String, String> data  = new HashMap<String, String>();
     	data.put("user", usernameTxt.getText());
     	data.put("pass", passwordTxt.getText());
-    	dangnhapBLL = new DANGNHAP_BLL();
-    	boolean check = dangnhapBLL.checkLogin(data);
+    	
+    	boolean check = DANGNHAP_BLL.checkLogin(data);
     	if(check == false) {
     		String error = SystemMessage.ERROR_MESSAGE;
     		if(error.equals("ERROR_1")) {
@@ -84,8 +83,9 @@ public class DANGNHAP_Controller implements Initializable {
     	else{
     		alert.successMessage("Đăng nhập thành công!");
     		loginBtn.getScene().getWindow().hide();   
-        
-    		Parent root = FXMLLoader.load(getClass().getResource("MainWindow_UI.fxml"));
+    		
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow_UI.fxml"));
+    		Parent root = loader.load();
     		
     		root.setOnMousePressed((MouseEvent event)->{            
     			x = event.getSceneX();            
@@ -101,6 +101,8 @@ public class DANGNHAP_Controller implements Initializable {
     			stage.setY(event.getScreenY() - y);       
     		});
     		
+    		MainWindow_Controller main = loader.getController();
+    		main.initData(usernameTxt.getText());
     		stage.setScene(scene);     
     		stage.show();
     	}
