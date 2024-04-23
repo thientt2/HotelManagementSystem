@@ -1,5 +1,6 @@
 package UI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,15 +19,21 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -116,7 +123,9 @@ public class MainWindow_Controller implements Initializable {
 
     @FXML
     private TableColumn<Object[], String> colTrangThai1;
-
+    
+    @FXML
+    private TableColumn<Object[], Void> colChucNang;
     
     @FXML
     private TableView<Object[]> show_room_table;
@@ -154,14 +163,14 @@ public class MainWindow_Controller implements Initializable {
     	show_room_table.setItems(dataList);    	
     }
     
-    public void selectData() {
-    	Object[] roomData = show_room_table.getSelectionModel().getSelectedItem();
-    	int num = show_room_table.getSelectionModel().getSelectedIndex();
-    	
-    	if((num - 1) < -1) {
-    		return;
-    	}
-    }
+//    public void selectData() {
+//    	Object[] roomData = show_room_table.getSelectionModel().getSelectedItem();
+//    	int num = show_room_table.getSelectionModel().getSelectedIndex();
+//    	
+//    	if((num - 1) < -1) {
+//    		return;
+//    	}
+//    }
     
     public void showRoomType() {
     	ObservableList<LOAIPHONG> dataList = LOAIPHONG_BLL.showRoomType();
@@ -223,6 +232,90 @@ public class MainWindow_Controller implements Initializable {
     	}
     }
     
+   
+    @FXML
+    private void initialize() {
+        // Tạo ContextMenu và các MenuItem
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem editMenuItem = new MenuItem("Edit");
+        MenuItem deleteMenuItem = new MenuItem("Delete");
+        contextMenu.getItems().addAll(editMenuItem, deleteMenuItem);
+
+        // Thiết lập xử lý sự kiện cho MenuItem Edit
+        editMenuItem.setOnAction(event -> {
+        	Object[] item = show_room_table.getSelectionModel().getSelectedItem();
+            if (item != null) {
+                System.out.println("Editing row: " + item);
+                // Thêm logic để chỉnh sửa hàng ở đây
+                
+            }
+        });
+
+        // Thiết lập xử lý sự kiện cho MenuItem Delete
+        deleteMenuItem.setOnAction(event -> {
+            Object[] item = show_room_table.getSelectionModel().getSelectedItem();
+            if (item != null) {
+                System.out.println("Deleting row: " + item);
+                // Thêm logic để xóa hàng ở đây
+                show_room_table.getItems().remove(item);
+            }
+        });
+
+        // Thiết lập cách hiển thị ContextMenu khi nhấp chuột
+        colChucNang.setCellFactory(col -> {
+            return new TableCell<Object[], Void>() {
+                private final Button button = new Button("⋮");                
+
+                {
+                	button.setOnAction(event -> {
+                	    // Lấy ra Scene từ Button
+                	    Scene scene = button.getScene();
+                	    // Lấy ra Stage từ Scene
+                	    Stage stage = (Stage) scene.getWindow();
+                	    // Lấy ra vị trí tương đối của nút trong Stage
+                	    Bounds bounds = button.localToScreen(button.getBoundsInLocal());                	   
+                	    contextMenu.show(stage, bounds.getMaxX(), bounds.getMaxY());
+                	});    
+                	
+                    button.setStyle("-fx-background-color: transparent;"
+                    		+ "-fx-alignment:center-right;");
+                    
+                }
+
+                @Override
+                protected void updateItem(Void item, boolean empty) {
+                    super.updateItem(item, empty);
+                    setGraphic(empty ? null : button);
+                }
+            };
+        });
+    }
+
+
+    public void addRoom() throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("addRoom.fxml"));
+		Parent root = loader.load();
+		
+		root.setOnMousePressed((MouseEvent event)->{            
+			x = event.getSceneX();            
+			y = event.getSceneY();    
+		});
+		
+		Stage stage = new Stage();        
+		stage.initStyle(StageStyle.TRANSPARENT);        
+		Scene scene = new Scene(root);
+    
+		root.setOnMouseDragged((MouseEvent event)->{
+			stage.setX(event.getScreenX() - x);            
+			stage.setY(event.getScreenY() - y);       
+		});
+		
+		stage.setScene(scene);     
+		stage.show();
+    }
+    
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -232,6 +325,7 @@ public class MainWindow_Controller implements Initializable {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         String formattedDateTime = now.format(formatter);
         toDay.setText(formattedDateTime);
+        initialize();
         showRoom();
 		showRoomType();
 	}

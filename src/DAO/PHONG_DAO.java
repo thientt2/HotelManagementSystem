@@ -7,8 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import system.SystemMessage;
 
 public class PHONG_DAO {
 	
@@ -41,8 +43,35 @@ public class PHONG_DAO {
                 e.printStackTrace();
             }
     	 
-		return dataList;
+		return dataList;    	
+    }
+    
+    public static void addRoom(Map<String, String> data) {
+    	
+    	int sophong = Integer.parseInt(data.get("sophong"));
+    	int maloai = Integer.parseInt(data.get("maloai"));
+    	int matrangthai = Integer.parseInt(data.get("matrangthai"));
+		
+    	String query = "INSERT INTO PHONG VALUES(?,?,?)";
+    	try (Connection connection = DatabaseConnection.connectDb();
+    		PreparedStatement prepare = connection.prepareStatement(query)) {
+               
+    	
+               prepare.setInt(1, sophong);
+               prepare.setInt(2, maloai);
+               prepare.setInt(3, matrangthai);
+               
+               int rowsAffected = prepare.executeUpdate(); 
+               
+               if (!(rowsAffected > 0)) {
+                  SystemMessage.ERROR_MESSAGE = "ERROR_2";
+               } 
+
+           } catch (SQLException e) {
+               e.printStackTrace();
+           }
     	
     }
+	
 
 }

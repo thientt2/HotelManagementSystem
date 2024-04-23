@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main_form" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainWindow_Controller">
+<AnchorPane fx:id="main_form" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainWindow_Controller">
    <children>
       <StackPane layoutX="192.0" layoutY="112.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -40,9 +40,9 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Circle fill="DODGERBLUE" layoutX="1167.0" layoutY="22.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
-                                    <Label layoutX="919.0" layoutY="13.0" text="Chào mừng," />
-                                    <Label fx:id="username_label" layoutX="984.0" layoutY="13.0" text="User">
+                                    <Circle fill="DODGERBLUE" layoutX="974.0" layoutY="23.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="4.0" AnchorPane.topAnchor="6.0" />
+                                    <Label layoutX="705.0" layoutY="13.0" text="Chào mừng," />
+                                    <Label fx:id="username_label" layoutX="770.0" layoutY="13.0" text="User">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
@@ -165,7 +165,7 @@
                               </AnchorPane>
                               <AnchorPane fx:id="phong_form" layoutX="85.0" layoutY="37.0" prefHeight="557.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="529.0" prefWidth="426.0" stylesheets="@../Designs/DashBoardDesign.css">
+                                    <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="529.0" prefWidth="426.0" stylesheets="@../Designs/DashBoardDesign.css" visible="false">
                                        <styleClass>
                                           <String fx:value="white-bg" />
                                           <String fx:value="shadow" />
@@ -185,29 +185,28 @@
                                           <Button fx:id="suaLoai_btn" layoutX="361.0" layoutY="487.0" mnemonicParsing="false" styleClass="sua-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Sửa" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="460.0" layoutY="14.0" prefHeight="529.0" prefWidth="584.0" stylesheets="@../Designs/DashBoardDesign.css">
+                                    <AnchorPane layoutX="23.0" layoutY="14.0" prefHeight="529.0" prefWidth="862.0" stylesheets="@../Designs/DashBoardDesign.css">
                                        <styleClass>
                                           <String fx:value="white-bg" />
                                           <String fx:value="shadow" />
                                           <String fx:value="radius" />
                                        </styleClass>
                                        <children>
-                                          <TableView fx:id="show_room_table" layoutX="11.0" layoutY="61.0" prefHeight="408.0" prefWidth="562.0" stylesheets="@../Designs/DashBoardDesign.css">
+                                          <TableView fx:id="show_room_table" layoutX="29.0" layoutY="100.0" prefHeight="408.0" prefWidth="614.0" stylesheets="@../Designs/DashBoardDesign.css">
                                             <columns>
                                               <TableColumn fx:id="colSoPhong1" prefWidth="88.0" text="Số phòng" />
                                               <TableColumn fx:id="colLoaiPhong1" prefWidth="121.0" text="Loại phòng" />
                                                 <TableColumn fx:id="colGia1" prefWidth="118.0" text="Giá" />
                                                 <TableColumn fx:id="colNguoiToiDa1" prefWidth="105.0" text="Số người tối đa" />
                                                 <TableColumn fx:id="colTrangThai1" prefWidth="129.0" text="Trạng thái" />
+                                                <TableColumn fx:id="colChucNang" prefWidth="52.0" />
                                             </columns>
                                           </TableView>
-                                          <TextField fx:id="timKiemPhong" layoutX="219.0" layoutY="23.0" prefHeight="25.0" prefWidth="348.0" promptText="Search" styleClass="search" stylesheets="@../Designs/DashBoardDesign.css" />
-                                          <FontAwesomeIcon glyphName="SEARCH" layoutX="219.0" layoutY="41.0" size="1.5em" />
-                                          <Button fx:id="themPhong_btn" layoutX="395.0" layoutY="490.0" mnemonicParsing="false" styleClass="them-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Thêm" />
-                                          <Button layoutX="467.0" layoutY="490.0" mnemonicParsing="false" styleClass="xoa-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Xóa" fx:id="xoaPhong_btn" />
-                                          <Button fx:id="suaPhong_btn" layoutX="525.0" layoutY="490.0" mnemonicParsing="false" styleClass="sua-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Sửa" />
-                                          <Button fx:id="nhanPhong_btn" layoutX="14.0" layoutY="490.0" mnemonicParsing="false" styleClass="nhanphong-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Nhận phòng" />
-                                          <Button fx:id="nhanPhong_btn" layoutX="125.0" layoutY="490.0" mnemonicParsing="false" styleClass="traphong-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Trả phòng" />
+                                          <TextField fx:id="timKiemPhong" layoutX="295.0" layoutY="22.0" prefHeight="25.0" prefWidth="348.0" promptText="Search" styleClass="search" stylesheets="@../Designs/DashBoardDesign.css" />
+                                          <FontAwesomeIcon glyphName="SEARCH" layoutX="301.0" layoutY="40.0" size="1.5em" />
+                                          <Button fx:id="themPhong_btn" layoutX="589.0" layoutY="58.0" mnemonicParsing="false" onAction="#addRoom" styleClass="them-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Thêm" />
+                                          <Button fx:id="nhanPhong_btn" layoutX="29.0" layoutY="58.0" mnemonicParsing="false" styleClass="nhanphong-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Nhận phòng" />
+                                          <Button fx:id="nhanPhong_btn" layoutX="153.0" layoutY="61.0" mnemonicParsing="false" styleClass="traphong-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Trả phòng" />
                                           <Label layoutX="11.0" layoutY="6.0" text="Phòng" />
                                        </children>
                                     </AnchorPane>
