@@ -1,5 +1,6 @@
 package BLL;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import DAO.*;
@@ -9,14 +10,17 @@ import system.SystemMessage;
 public class PHONG_BLL {
 	
 	 public static ObservableList<Object[]> showRoom() {return PHONG_DAO.showRoom();}
-	 public static void addRoom(Map<String, String> data) {
-		 String sophong = data.get("sophong");
+	 public static void addRoom(Map<String, String> data) throws SQLException {
+		 String maphong = data.get("maphong");
 		 String maloai = data.get("maloai");
 		 String matrangthai = data.get("matrangthai");
-		 if(sophong.isEmpty() || maloai.isEmpty() || matrangthai.isEmpty()) {
+		 if(maphong.isEmpty() || maloai.isEmpty() || matrangthai.isEmpty()) {
 			 SystemMessage.ERROR_MESSAGE = "ERROR_1";
 		 }else {
-			 PHONG_DAO.addRoom(data);
+			 boolean check = PHONG_DAO.checkIDRoom(data);
+			 if(check == true) {
+				 SystemMessage.ERROR_MESSAGE = "ERROR_3";				 
+			 } else PHONG_DAO.addRoom(data);
 		 }
 		 
 		 

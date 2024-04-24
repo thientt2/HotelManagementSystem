@@ -1,22 +1,23 @@
 package DTO;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 public class PHONG {
 
-	private SimpleIntegerProperty MAPHONG;
+	private SimpleStringProperty MAPHONG;
 	private SimpleIntegerProperty MALOAIP;
 	private SimpleIntegerProperty MATRANGTHAI;
 	
-	public PHONG(int mAPHONG, int mALOAIP, int mATRANGTHAI) {		
-		MAPHONG = new SimpleIntegerProperty(mALOAIP);
-		MALOAIP = new SimpleIntegerProperty(mAPHONG);
+	public PHONG(String mAPHONG, int mALOAIP, int mATRANGTHAI) {		
+		MAPHONG = new SimpleStringProperty(mAPHONG);
+		MALOAIP = new SimpleIntegerProperty(mALOAIP);
 		MATRANGTHAI = new SimpleIntegerProperty(mATRANGTHAI);
 	}
-	public int getMAPHONG() {
+	public String getMAPHONG() {
 		return MAPHONG.get();
 	}
-	public void setMAPHONG(int mAPHONG) {
+	public void setMAPHONG(String mAPHONG) {
 		MAPHONG.set(mAPHONG);
 	}
 	public int getMALOAIP() {

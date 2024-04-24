@@ -7,8 +7,10 @@ import javafx.beans.property.SimpleStringProperty;
 public class LOAIPHONG {
 		private SimpleIntegerProperty MALOAI;
 		private SimpleStringProperty TENLOAI;
+		private SimpleStringProperty LOAIGIUONG;
 		private SimpleDoubleProperty GIA;
 		private SimpleIntegerProperty NGUOITOIDA;
+		private SimpleDoubleProperty DIENTICH;
 		
 		public int getMALOAI() {
 			return MALOAI.get();
@@ -22,6 +24,12 @@ public class LOAIPHONG {
 		public void setTENLOAI(String tENLOAI) {
 			TENLOAI.set(tENLOAI);
 		}
+		public String getLOAIGIUONG() {
+			return LOAIGIUONG.get();
+		}
+		public void setLOAIGIUONG(String lOAIGIUONG) {
+			LOAIGIUONG.set(lOAIGIUONG);
+		}		
 		public double getGIA() {
 			return GIA.get();
 		}
@@ -34,9 +42,17 @@ public class LOAIPHONG {
 		public void setNGUOITOIDA(int nGUOITOIDA) {
 			NGUOITOIDA.set(nGUOITOIDA);;
 		}
-		public LOAIPHONG(int mALOAI, String tENLOAI, double gIA, int nGUOITOIDA) {
+		public double getDIENTICH() {
+			return DIENTICH.get();
+		}
+		public void setDIENTICH(double dIENTICH) {
+			DIENTICH.set(dIENTICH);
+		}
+		public LOAIPHONG(int mALOAI, String tENLOAI, String lOAIGIUONG,double gIA, int nGUOITOIDA, double dIENTICH) {
 			MALOAI = new SimpleIntegerProperty(mALOAI);
 			TENLOAI = new SimpleStringProperty(tENLOAI);
+			LOAIGIUONG = new SimpleStringProperty(lOAIGIUONG);
+			DIENTICH = new SimpleDoubleProperty(dIENTICH);
 			GIA = new SimpleDoubleProperty(gIA);
 			NGUOITOIDA = new SimpleIntegerProperty(nGUOITOIDA);
 		}

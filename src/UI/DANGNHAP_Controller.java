@@ -80,8 +80,7 @@ public class DANGNHAP_Controller implements Initializable {
     			alert.errorMessage("Sai tài khoản hoặc mật khẩu!");    			
     		}
     	}
-    	else{
-    		alert.successMessage("Đăng nhập thành công!");
+    	else{    		
     		loginBtn.getScene().getWindow().hide();   
     		
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow_UI.fxml"));
@@ -109,6 +108,8 @@ public class DANGNHAP_Controller implements Initializable {
 
     	}
     }
+    
+
     
     
     public void showPassword() {

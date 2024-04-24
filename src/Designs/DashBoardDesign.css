@@ -21,6 +21,15 @@
 	-fx-background-color:#629ff4;
 }
 
+.reload-btn{
+	-fx-background-color:transparent;
+	-fx-cursor: hand;
+	}
+
+.reload-btn:hover{
+	-fx-background-color:#629ff4;
+}
+
 .logout-btn{
 	-fx-background-color: #6a5fff;
 	-fx-background-radius:20px;

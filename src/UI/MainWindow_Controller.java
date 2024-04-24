@@ -98,6 +98,9 @@ public class MainWindow_Controller implements Initializable {
     private Label toDay;
 
     @FXML
+    private Button reload_btn;
+    
+    @FXML
     private Button trangChu_btn;
 
     @FXML
@@ -110,57 +113,53 @@ public class MainWindow_Controller implements Initializable {
     private Button xoaPhong_btn;
     
     @FXML
-    private TableColumn<Object[], Integer> colSoPhong1;
-
-    @FXML
-    private TableColumn<Object[], String> colLoaiPhong1;
-
-    @FXML
-    private TableColumn<Object[], Double> colGia1;
-
-    @FXML
-    private TableColumn<Object[], Integer> colNguoiToiDa1;
-
-    @FXML
-    private TableColumn<Object[], String> colTrangThai1;
-    
-    @FXML
     private TableColumn<Object[], Void> colChucNang;
-    
-    @FXML
-    private TableView<Object[]> show_room_table;
-    
-    @FXML
-    private TableView<LOAIPHONG> show_room_type;
-    
-    @FXML
-    private TableColumn<LOAIPHONG, Double> colGia;
 
     @FXML
-    private TableColumn<LOAIPHONG, Integer> colNguoiToiDa;
+    private TableColumn<Object[], Double> colDienTich;
 
     @FXML
-    private TableColumn<LOAIPHONG, String> colTenLoai;
+    private TableColumn<Object[], Double> colGia;
+
+    @FXML
+    private TableColumn<Object[], String> colLoaiGiuong;
+
+    @FXML
+    private TableColumn<Object[], String> colLoaiPhong;
+
+    @FXML
+    private TableColumn<Object[], Integer> colNguoiToiDa;
+
+    @FXML
+    private TableColumn<Object[], String> colSoPhong;
+
+    @FXML
+    private TableColumn<Object[], String> colTrangThai;
+    @FXML
+    private TableView<Object[]> table_room;
     
+      
 	public void initData(String username) {
 		NHANVIEN nhanVien = DANGNHAP_BLL.layTenNhanVien(username);
         username_label.setText(nhanVien.getTENNV()); // Hiển thị tên nhân viên trong màn hình chính
     }
-    
-    
-    public void showRoom() {
-    	ObservableList<Object[]> dataList = PHONG_BLL.showRoom();
-	 	
-    	
-    	if (colSoPhong1 != null && colLoaiPhong1 != null && colGia1 != null && colNguoiToiDa1 != null && colTrangThai1 != null) {
-    	    colSoPhong1.setCellValueFactory(cellData -> new SimpleIntegerProperty((Integer) cellData.getValue()[0]).asObject());
-    	    colLoaiPhong1.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[1]));
-    	    colGia1.setCellValueFactory(cellData -> new SimpleDoubleProperty((Double) cellData.getValue()[2]).asObject());
-    	    colNguoiToiDa1.setCellValueFactory(cellData -> new SimpleIntegerProperty((Integer) cellData.getValue()[3]).asObject());
-    	    colTrangThai1.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[4]));
-    	}
 
-    	show_room_table.setItems(dataList);    	
+	
+    public void showRoom() {	
+		ObservableList<Object[]> dataList = PHONG_BLL.showRoom();
+	 	
+    	 		
+    		if (colSoPhong != null && colLoaiPhong != null && colGia != null && colLoaiGiuong != null && colNguoiToiDa != null && colTrangThai != null && colDienTich != null) {
+        	    colSoPhong.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[0]));
+        	    colLoaiPhong.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[1]));
+			    colLoaiGiuong.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[2]));
+			    colDienTich.setCellValueFactory(cellData -> new SimpleDoubleProperty((Double) cellData.getValue()[3]).asObject());
+			    colNguoiToiDa.setCellValueFactory(cellData -> new SimpleIntegerProperty((Integer) cellData.getValue()[4]).asObject());
+			    colGia.setCellValueFactory(cellData -> new SimpleDoubleProperty((Double) cellData.getValue()[5]).asObject());
+			    colTrangThai.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[6]));
+        	}
+        	table_room.setItems(dataList);               
+        	
     }
     
 //    public void selectData() {
@@ -172,17 +171,7 @@ public class MainWindow_Controller implements Initializable {
 //    	}
 //    }
     
-    public void showRoomType() {
-    	ObservableList<LOAIPHONG> dataList = LOAIPHONG_BLL.showRoomType();
-    	
-    	if (colTenLoai != null && colGia != null && colNguoiToiDa != null) {
-    		colTenLoai.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTENLOAI()));
-        	colGia.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getGIA()).asObject());
-        	colNguoiToiDa.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNGUOITOIDA()).asObject());    	    
-    	}
-    	show_room_type.setItems(dataList);
- 
-    }
+    
     
     public void exit(){
         System.exit(0);
@@ -243,7 +232,7 @@ public class MainWindow_Controller implements Initializable {
 
         // Thiết lập xử lý sự kiện cho MenuItem Edit
         editMenuItem.setOnAction(event -> {
-        	Object[] item = show_room_table.getSelectionModel().getSelectedItem();
+        	Object[] item = table_room.getSelectionModel().getSelectedItem();
             if (item != null) {
                 System.out.println("Editing row: " + item);
                 // Thêm logic để chỉnh sửa hàng ở đây
@@ -253,11 +242,11 @@ public class MainWindow_Controller implements Initializable {
 
         // Thiết lập xử lý sự kiện cho MenuItem Delete
         deleteMenuItem.setOnAction(event -> {
-            Object[] item = show_room_table.getSelectionModel().getSelectedItem();
+            Object[] item = table_room.getSelectionModel().getSelectedItem();
             if (item != null) {
                 System.out.println("Deleting row: " + item);
                 // Thêm logic để xóa hàng ở đây
-                show_room_table.getItems().remove(item);
+                table_room.getItems().remove(item);
             }
         });
 
@@ -295,8 +284,7 @@ public class MainWindow_Controller implements Initializable {
     public void addRoom() throws IOException {
     	
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("addRoom.fxml"));
-		Parent root = loader.load();
-		
+		Parent root = loader.load();	
 		root.setOnMousePressed((MouseEvent event)->{            
 			x = event.getSceneX();            
 			y = event.getSceneY();    
@@ -304,7 +292,8 @@ public class MainWindow_Controller implements Initializable {
 		
 		Stage stage = new Stage();        
 		stage.initStyle(StageStyle.TRANSPARENT);        
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root);	
+        
     
 		root.setOnMouseDragged((MouseEvent event)->{
 			stage.setX(event.getScreenX() - x);            
@@ -315,19 +304,23 @@ public class MainWindow_Controller implements Initializable {
 		stage.show();
     }
     
-    
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		LocalDateTime now = LocalDateTime.now();
-
-        // Định dạng thời gian thành chuỗi
+    public void setTime() {
+    	LocalDateTime now = LocalDateTime.now();        
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         String formattedDateTime = now.format(formatter);
         toDay.setText(formattedDateTime);
+    }
+    
+    public void reload() {
+    	showRoom();
+    }
+    
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {	
+		
         initialize();
-        showRoom();
-		showRoomType();
+        showRoom();		
+		setTime();
 	}
 
 }

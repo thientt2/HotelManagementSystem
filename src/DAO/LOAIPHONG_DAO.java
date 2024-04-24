@@ -22,10 +22,12 @@ public class LOAIPHONG_DAO {
                ResultSet result = statement.executeQuery(query);
 
                while (result.next()) {
-                   LOAIPHONG data = new LOAIPHONG(result.getInt("MALOAI")
+                   LOAIPHONG data = new LOAIPHONG(result.getInt("MALOAIP")
                 		   ,result.getString("TENLOAI")
+                		   ,result.getString("LOAIGIUONG")
                 		   ,result.getDouble("GIA")
-                		   ,result.getInt("NGUOITOIDA"));
+                		   ,result.getInt("NGUOITOIDA")
+                		   ,result.getDouble("DIENTICH"));
 
                    dataList.add(data);
                }
@@ -45,10 +47,12 @@ public class LOAIPHONG_DAO {
                ResultSet result = statement.executeQuery(query);
                
                while (result.next()) {
-            	   LOAIPHONG data = new LOAIPHONG(result.getInt("MALOAI")
+            	   LOAIPHONG data = new LOAIPHONG(result.getInt("MALOAIP")
                 		   ,result.getString("TENLOAI")
+                		   ,result.getString("LOAIGIUONG")
                 		   ,result.getDouble("GIA")
-                		   ,result.getInt("NGUOITOIDA"));
+                		   ,result.getInt("NGUOITOIDA")
+                		   ,result.getDouble("DIENTICH"));
 
                    dataList.add(data);
                }

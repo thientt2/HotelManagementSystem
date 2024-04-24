@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.addRoom_Controller">
+<AnchorPane fx:id="addForm" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.addRoom_Controller">
    <children>
       <StackPane prefHeight="550.0" prefWidth="350.0">
          <children>
@@ -19,12 +19,12 @@
                      <children>
                         <AnchorPane prefHeight="38.0" prefWidth="350.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button layoutX="310.0" layoutY="7.0" mnemonicParsing="false" styleClass="close-btn" stylesheets="@../Designs/DashBoardDesign.css" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                              <Button fx:id="closeAddRoom_btn" layoutX="310.0" layoutY="7.0" mnemonicParsing="false" onAction="#close" styleClass="close-btn" stylesheets="@../Designs/DashBoardDesign.css" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="CLOSE" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="287.0" layoutY="5.0" mnemonicParsing="false" styleClass="minimize-btn" stylesheets="@../Designs/DashBoardDesign.css" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="5.0">
+                              <Button fx:id="minimizeAddRoom_btn" layoutX="287.0" layoutY="5.0" mnemonicParsing="false" onAction="#minimize" styleClass="minimize-btn" stylesheets="@../Designs/DashBoardDesign.css" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="5.0">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="MINUS" />
                                  </graphic>
@@ -48,8 +48,8 @@
                               <ComboBox fx:id="showRoomTypes_cb" layoutX="125.0" layoutY="93.0" onAction="#showRoomType" prefWidth="150.0" promptText="Choose" />
                               <TextField fx:id="soPhongTxt" layoutX="125.0" layoutY="56.0" />
                               <ComboBox fx:id="showStatusRoom_cb" layoutX="125.0" layoutY="227.0" onAction="#showStatusRoom" prefWidth="150.0" promptText="Choose" />
-                              <Button layoutX="229.0" layoutY="311.0" mnemonicParsing="false" text="Thêm" />
-                              <Button layoutX="132.0" layoutY="311.0" mnemonicParsing="false" text="Xóa" />
+                              <Button layoutX="229.0" layoutY="311.0" mnemonicParsing="false" onAction="#addRoom" text="Thêm" />
+                              <Button layoutX="132.0" layoutY="311.0" mnemonicParsing="false" onAction="#clearRoom" text="Xóa" />
                               <Label fx:id="limitPersonTxt" layoutX="125.0" layoutY="138.0" prefHeight="26.0" prefWidth="159.0" />
                               <Label fx:id="priceTxt" layoutX="125.0" layoutY="188.0" prefHeight="26.0" prefWidth="159.0" />
                            </children>

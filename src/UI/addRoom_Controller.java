@@ -1,6 +1,7 @@
 package UI;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,30 +15,46 @@ import BLL.PHONG_BLL;
 import BLL.TRANGTHAIPHONG_BLL;
 import DTO.LOAIPHONG;
 import DTO.TRANGTHAIPHONG;
+import application.AlertMessage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import system.SystemMessage;
 
 public class addRoom_Controller implements Initializable {
 	
     @FXML
     private ComboBox<String> showRoomTypes_cb;
     
+    @FXML
+    private AnchorPane addForm;
 
     @FXML
     private Label limitPersonTxt;
 
     @FXML
-    private Label priceTxt;
-    
+    private Label priceTxt;   
 
     @FXML
     private TextField soPhongTxt;
     
+    @FXML
+    private ComboBox<String> showStatusRoom_cb;
+    
+    @FXML
+    private Button closeAddRoom_btn;
+    
+    @FXML
+    private Button minimizeAddRoom_btn;
+
     private List<LOAIPHONG> loaiPhong = LOAIPHONG_BLL.getRoomTypes();
 	
 	public void showRoomType() {
@@ -70,8 +87,7 @@ public class addRoom_Controller implements Initializable {
 		
 	}
 	
-    @FXML
-    private ComboBox<String> showStatusRoom_cb;
+
 	private List<TRANGTHAIPHONG> listStatusRoom = TRANGTHAIPHONG_BLL.getStatusRoom();
 	public void showStatusRoom() {
 		List<String> listStatus = new ArrayList<>();		
@@ -90,9 +106,13 @@ public class addRoom_Controller implements Initializable {
 		
 	}
 	
-	public void addRoom() {
+	private AlertMessage alert = new AlertMessage();   
+	
+	
+	
+	public void addRoom() throws SQLException {
 		Map<String, String> data  = new HashMap<String, String>();
-		data.put("sophong", soPhongTxt.getText());
+		data.put("maphong", soPhongTxt.getText());
 		Optional<String> maloai = loaiPhong.stream()
 				.filter(loai -> loai.getTENLOAI().equals(showRoomTypes_cb.getValue().toString()))
 				.map(loai -> String.valueOf(loai.getMALOAI()))
@@ -105,16 +125,45 @@ public class addRoom_Controller implements Initializable {
 		        .findFirst();
 		data.put("matrangthai", matrangthai.get());
 		PHONG_BLL.addRoom(data);
-	    
+		String error = SystemMessage.ERROR_MESSAGE;
+		if(error.equals("ERROR_1")) {
+			alert.errorMessage("Vui lòng nhập đầy đủ thông tin!");			
+		}else if(error.equals("ERROR_2")) {
+			alert.errorMessage("Thêm phòng vào cơ sở dữ liệu không thành công!");			
+		} else if (error.equals("ERROR_3")){
+			alert.errorMessage("Phòng đã tồn tại trong cơ sở dữ liệu.");
+		}else
+			{
+				alert.successMessage("Thêm phòng thành công!");						
+				clearRoom();				
+			}
 		
 	}
 	
+	
+    public void clearRoom() {
+    	soPhongTxt.setText("");
+    	showRoomTypes_cb.getSelectionModel().clearSelection();
+    	showStatusRoom_cb.getSelectionModel().clearSelection();
+    	limitPersonTxt.setText("");
+    	priceTxt.setText("");    	
+    }
+    
+    public void close() {
+    	closeAddRoom_btn.getScene().getWindow().hide();
+    	
+    }
+	
+    public void minimize() {
+    	((Stage) addForm.getScene().getWindow()).setIconified(true);
+    }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		showRoomType();
 		showStatusRoom();
+		
 	}
 
 }
