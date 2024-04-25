@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.*;
+
+import DTO.PHONG;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import system.SystemMessage;
@@ -85,9 +87,44 @@ public class PHONG_DAO {
     	} catch (SQLException e) {
             e.printStackTrace();
         }   
-    	return false;
-    	
+    	return false;    	
     }
-	
+    
+    public static void editRoom(Map<String, String> data) {
+    	String maphong = data.get("maphong");
+		int maloai = Integer.parseInt(data.get("maloai"));		
+		
+		String query = "UPDATE PHONG SET MALOAIP = ? WHERE MAPHONG = ?";
+		try (Connection connection = DatabaseConnection.connectDb();
+			PreparedStatement prepare = connection.prepareStatement(query)) {
+			prepare.setInt(1, maloai);			
+			prepare.setString(2, maphong);
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
+
+    
+    public static PHONG layPhong(String maphong) {
+		
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+				String query = "SELECT * FROM PHONG WHERE MAPHONG = ?";
+				PreparedStatement prepare = connection.prepareStatement(query);
+				prepare.setString(1, maphong);
+				ResultSet resultSet = prepare.executeQuery();
+
+				while (resultSet.next()) {
+					PHONG phong = new PHONG(resultSet.getString("MAPHONG")
+							,resultSet.getInt("MALOAIP")
+							,resultSet.getInt("MATRANGTHAI"));
+					return phong;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		return null;
+	}
 
 }

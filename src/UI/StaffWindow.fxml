@@ -35,10 +35,10 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="40.0" prefWidth="165.0" styleClass="selected-pane">
+                  <AnchorPane prefHeight="40.0" prefWidth="165.0">
                      <children>
-                        <FontAwesomeIcon fill="#1366d9" glyphName="GROUP" layoutX="12.0" layoutY="27.0" size="20" strokeWidth="0.0" styleClass="selected-icon" AnchorPane.leftAnchor="12.0" />
-                        <Label layoutX="31.0" layoutY="10.0" styleClass="selected-pane-text" text="Khách hàng">
+                        <FontAwesomeIcon fill="#1366d9" glyphName="GROUP" layoutX="12.0" layoutY="27.0" size="20" strokeWidth="0.0" styleClass="icon" AnchorPane.leftAnchor="12.0" />
+                        <Label layoutX="31.0" layoutY="10.0" styleClass="pane-text" text="Khách hàng">
                            <padding>
                               <Insets left="12.0" />
                            </padding>
@@ -48,10 +48,10 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="40.0" prefWidth="165.0" styleClass="pane-text">
+                  <AnchorPane prefHeight="40.0" prefWidth="165.0" styleClass="selected-pane">
                      <children>
-                        <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="12.0" layoutY="27.0" size="20" stroke="#080808" styleClass="icon" AnchorPane.leftAnchor="12.0" />
-                        <Label layoutX="31.0" layoutY="10.0" styleClass="pane-text" text="Nhân viên">
+                        <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="12.0" layoutY="27.0" size="20" stroke="#080808" styleClass="selected-icon" AnchorPane.leftAnchor="12.0" />
+                        <Label layoutX="31.0" layoutY="10.0" styleClass="selected-pane-text" text="Nhân viên">
                            <padding>
                               <Insets left="12.0" />
                            </padding>
@@ -132,12 +132,12 @@
          <children>
             <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="517.0" prefWidth="890.0" style="-fx-background-color: white; -fx-background-radius: 7;">
                <children>
-                  <Button layoutX="59.0" layoutY="17.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #E8F1FD;" text="Thêm khách hàng" textFill="#0f50aa">
+                  <Button layoutX="59.0" layoutY="17.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #E8F1FD;" text="Thêm nhân viên" textFill="#0f50aa">
                      <font>
                         <Font name="Inter SemiBold" size="13.0" />
                      </font></Button>
                   <Button layoutX="468.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="77.0" style="-fx-background-color: white; -fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane-text" text="       Lọc" textAlignment="RIGHT" />
-                  <TextField alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên khách hàng">
+                  <TextField alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên nhân viên">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
@@ -147,7 +147,7 @@
                   <FontAwesomeIcon glyphName="FILTER" layoutX="481.0" layoutY="41.0" size="18" styleClass="icon" />
                   <ImageView fitHeight="20.0" fitWidth="21.0" layoutX="581.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/search-heart.png" />
+                        <Image url="@../Images/discover.png" />
                      </image>
                      <effect>
                         <ColorAdjust brightness="0.41" contrast="-0.52" hue="0.34" saturation="-0.22" />

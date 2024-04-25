@@ -138,13 +138,14 @@ public class MainWindow_Controller implements Initializable {
     @FXML
     private TableView<Object[]> table_room;
     
-      
+    // Hien thi ten nhan vien tren man hinh chinh  
 	public void initData(String username) {
 		NHANVIEN nhanVien = DANGNHAP_BLL.layTenNhanVien(username);
         username_label.setText(nhanVien.getTENNV()); // Hiển thị tên nhân viên trong màn hình chính
     }
 
 	
+	// Hien thi ds phong
     public void showRoom() {	
 		ObservableList<Object[]> dataList = PHONG_BLL.showRoom();
 	 	
@@ -180,10 +181,10 @@ public class MainWindow_Controller implements Initializable {
     public void minimize(){
         ((Stage) main_form.getScene().getWindow()).setIconified(true);
     }
-    
+    //Xử lý sự kiện đăng xuất
     private double x = 0;
     private double y = 0;
-    public void logout() {    	
+    public void logout() {   	
     	try {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
     		alert.setTitle("Confirmation Massage");
@@ -221,7 +222,7 @@ public class MainWindow_Controller implements Initializable {
     	}
     }
     
-   
+   // Xử lý sự kiện cho các MenuItem
     @FXML
     private void initialize() {
         // Tạo ContextMenu và các MenuItem
@@ -234,8 +235,35 @@ public class MainWindow_Controller implements Initializable {
         editMenuItem.setOnAction(event -> {
         	Object[] item = table_room.getSelectionModel().getSelectedItem();
             if (item != null) {
-                System.out.println("Editing row: " + item);
-                // Thêm logic để chỉnh sửa hàng ở đây
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("editRoom.fxml"));
+        		Parent root;
+				try {
+					root = loader.load();
+					root.setOnMousePressed((MouseEvent mouseEvent)->{            
+	        			x = mouseEvent.getSceneX();            
+	        			y = mouseEvent.getSceneY();    
+	        		});
+	        		
+	        		Stage stage = new Stage();        
+	        		stage.initStyle(StageStyle.TRANSPARENT);        
+	        		Scene scene = new Scene(root);
+	            
+	        		root.setOnMouseDragged((MouseEvent mouseEvent)->{
+	        			stage.setX(mouseEvent.getScreenX() - x);            
+	        			stage.setY(mouseEvent.getScreenY() - y);       
+	        		});
+	        		
+	        		editRoom_Controller edit = loader.getController();
+	        		edit.initData(item[0].toString());    		
+	        		stage.setScene(scene);     
+	        		stage.show();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		
+        		
+
                 
             }
         });
@@ -280,7 +308,7 @@ public class MainWindow_Controller implements Initializable {
         });
     }
 
-
+    // Tạo giao diện cho nút Add
     public void addRoom() throws IOException {
     	
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("addRoom.fxml"));
@@ -303,7 +331,7 @@ public class MainWindow_Controller implements Initializable {
 		stage.setScene(scene);     
 		stage.show();
     }
-    
+    //Đặt thời gian hiển thị
     public void setTime() {
     	LocalDateTime now = LocalDateTime.now();        
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -319,6 +347,7 @@ public class MainWindow_Controller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {	
 		
         initialize();
+        
         showRoom();		
 		setTime();
 	}
