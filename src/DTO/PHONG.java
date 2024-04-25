@@ -9,6 +9,7 @@ public class PHONG {
 	private SimpleIntegerProperty MALOAIP;
 	private SimpleIntegerProperty MATRANGTHAI;
 	
+	
 	public PHONG(String mAPHONG, int mALOAIP, int mATRANGTHAI) {		
 		MAPHONG = new SimpleStringProperty(mAPHONG);
 		MALOAIP = new SimpleIntegerProperty(mALOAIP);

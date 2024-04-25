@@ -57,57 +57,57 @@
                            <children>
                               <AnchorPane layoutY="-43.0" prefHeight="557.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@../Designs/DashBoardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-43.0">
                                  <children>
+                                    <Button fx:id="khachHang_btn" layoutX="12.0" layoutY="101.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Khách hàng" AnchorPane.leftAnchor="14.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIcon fill="#5d6679" glyphName="USERS" />
+                                       </graphic>
+                                    </Button>
                                     <Button fx:id="logout_btn" layoutX="14.0" layoutY="504.0" mnemonicParsing="false" onAction="#logout" styleClass="logout-btn" stylesheets="@../Designs/DashBoardDesign.css">
                                        <graphic>
                                           <FontAwesomeIcon glyphName="SIGN_OUT" size="2em" />
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="khachHang_btn" layoutY="101.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="199.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Khách hàng">
+                                    <Button fx:id="nhanVien_btn" layoutX="12.0" layoutY="151.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Nhân viên" AnchorPane.leftAnchor="14.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                        <graphic>
-                                          <FontAwesomeIcon glyphName="USERS" />
+                                          <FontAwesomeIcon fill="#5d6679" glyphName="USER" size="1.3EM" wrappingWidth="17.178571701049805" />
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="nhanVien_btn" layoutX="1.0" layoutY="151.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="199.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Nhân viên">
+                                    <Button fx:id="dichVu_btn" layoutX="14.0" layoutY="201.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Dịch vụ" AnchorPane.leftAnchor="14.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                        <graphic>
-                                          <FontAwesomeIcon glyphName="USER" size="1.3EM" wrappingWidth="17.178571701049805" />
+                                          <FontAwesomeIcon fill="#5d6679" />
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="dichVu_btn" layoutY="201.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="199.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Dịch vụ">
+                                    <Button fx:id="phong_btn" layoutX="11.0" layoutY="251.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Phòng" AnchorPane.leftAnchor="14.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                        <graphic>
-                                          <FontAwesomeIcon />
+                                          <FontAwesomeIcon fill="#5d6679" />
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="phong_btn" layoutY="251.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="199.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Phòng">
+                                    <Button fx:id="hoaDon_btn" layoutY="301.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Hóa đơn" AnchorPane.leftAnchor="14.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                        <graphic>
-                                          <FontAwesomeIcon />
+                                          <FontAwesomeIcon fill="#5d6679" />
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="hoaDon_btn" layoutY="301.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="199.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Hóa đơn">
+                                    <Button fx:id="baoCao_btn" layoutY="345.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Báo cáo" AnchorPane.leftAnchor="14.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                        <graphic>
-                                          <FontAwesomeIcon />
-                                       </graphic>
-                                    </Button>
-                                    <Button fx:id="baoCao_btn" layoutY="345.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="199.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Báo cáo">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <graphic>
-                                          <FontAwesomeIcon />
+                                          <FontAwesomeIcon fill="#5d6679" />
                                        </graphic>
                                     </Button>
                                     <Label layoutX="68.0" layoutY="505.0" text="Đăng xuất">
@@ -115,22 +115,27 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="trangChu_btn" layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="199.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Trang chủ">
+                                    <Button fx:id="trangChu_btn" layoutX="11.0" layoutY="51.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Trang chủ" AnchorPane.leftAnchor="14.0">
+                                       <font>
+                                          <Font name="Inter Black" size="18.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIcon fill="#5d6679" glyphName="HOME" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="caiDat_btn" layoutY="395.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Cài đặt" AnchorPane.leftAnchor="14.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                        <graphic>
-                                          <FontAwesomeIcon glyphName="HOME" />
+                                          <FontAwesomeIcon fill="#5d6679" />
                                        </graphic>
                                     </Button>
-                                    <Button fx:id="caiDat_btn" layoutY="395.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="199.0" styleClass="nav-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Cài đặt">
+                                    <Label layoutX="14.0" layoutY="14.0" text="La Opera Hotel" textFill="#317eeb" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font name="Inter Black" size="22.0" />
                                        </font>
-                                       <graphic>
-                                          <FontAwesomeIcon />
-                                       </graphic>
-                                    </Button>
+                                    </Label>
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="550.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
@@ -158,7 +163,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="phong_form" layoutX="85.0" layoutY="37.0" prefHeight="557.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="phong_form" layoutX="85.0" layoutY="37.0" prefHeight="557.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane layoutX="23.0" layoutY="14.0" prefHeight="529.0" prefWidth="862.0" stylesheets="@../Designs/DashBoardDesign.css">
                                        <styleClass>
@@ -167,7 +172,7 @@
                                           <String fx:value="radius" />
                                        </styleClass>
                                        <children>
-                                          <TableView fx:id="table_room" layoutX="29.0" layoutY="100.0" prefHeight="387.0" prefWidth="832.0" stylesheets="@../Designs/DashBoardDesign.css">
+                                          <TableView fx:id="table_room" layoutX="29.0" layoutY="100.0" prefHeight="387.0" prefWidth="825.0" stylesheets="@../Designs/DashBoardDesign.css">
                                             <columns>
                                               <TableColumn fx:id="colSoPhong" prefWidth="75.0" text="Số phòng" />
                                               <TableColumn fx:id="colLoaiPhong" prefWidth="105.0" text="Loại phòng" />
@@ -179,19 +184,27 @@
                                                 <TableColumn fx:id="colChucNang" prefWidth="56.0" />
                                             </columns>
                                           </TableView>
-                                          <TextField fx:id="timKiemPhong" layoutX="295.0" layoutY="22.0" prefHeight="25.0" prefWidth="348.0" promptText="Search" styleClass="search" stylesheets="@../Designs/DashBoardDesign.css" />
-                                          <FontAwesomeIcon glyphName="SEARCH" layoutX="301.0" layoutY="40.0" size="1.5em" />
-                                          <Button fx:id="themPhong_btn" layoutX="589.0" layoutY="58.0" mnemonicParsing="false" onAction="#addRoom" styleClass="them-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Thêm" />
+                                          <TextField fx:id="timKiemPhong" layoutX="500.0" layoutY="36.0" prefHeight="25.0" prefWidth="348.0" promptText="Search" styleClass="search" stylesheets="@../Designs/DashBoardDesign.css" />
+                                          <FontAwesomeIcon glyphName="SEARCH" layoutX="506.0" layoutY="54.0" size="1.5em" />
                                           <Button fx:id="nhanPhong_btn" layoutX="29.0" layoutY="58.0" mnemonicParsing="false" styleClass="nhanphong-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Nhận phòng" />
-                                          <Button fx:id="nhanPhong_btn" layoutX="153.0" layoutY="61.0" mnemonicParsing="false" styleClass="traphong-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Trả phòng" />
+                                          <Button fx:id="nhanPhong_btn" layoutX="152.0" layoutY="58.0" mnemonicParsing="false" styleClass="traphong-btn" stylesheets="@../Designs/DashBoardDesign.css" text="Trả phòng" />
                                           <Label layoutX="11.0" layoutY="6.0" text="Phòng" />
-                                          <Button layoutX="600.0" layoutY="501.0" mnemonicParsing="false" onAction="#reload" styleClass="reload-btn" stylesheets="@../Designs/DashBoardDesign.css">
+                                          <Button layoutX="821.0" layoutY="491.0" mnemonicParsing="false" onAction="#reload" styleClass="reload-btn" stylesheets="@../Designs/DashBoardDesign.css">
                                              <graphic>
                                                 <FontAwesomeIcon glyphName="REFRESH" />
                                              </graphic>
                                           </Button>
                                        </children>
                                     </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="472.0" layoutY="96.0" prefHeight="557.0" prefWidth="900.0" styleClass="white-bg" stylesheets="@../Designs/DashBoardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TextField layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="256.0" promptText="Search" styleClass="search" stylesheets="@../Designs/DashBoardDesign.css">
+                                       <font>
+                                          <Font name="Inter Light" size="12.0" />
+                                       </font></TextField>
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="20.0" layoutY="32.0" size="1.5em" />
                                  </children>
                               </AnchorPane>
                            </children>
