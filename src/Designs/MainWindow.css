@@ -27,8 +27,8 @@
 
 .logo {
 	-fx-text-fill: #1366D9;
-	-fx-font-size: 22px;
-	-fx-font-family: "Inter-Medium";
+	-fx-font-size: 30px;
+	-fx-font-family: "Inter Bold";
 }
 
 .selected-pane {
@@ -85,4 +85,35 @@
 	-fx-background-radius: 4;
 	-fx-label-padding: 0.0 10 0.0 10;
 	-fx-fill: #0D824B;
+}
+
+.dashboard-btn{
+	-fx-background-color: #e8f1fd;
+	-fx-background-radius: 8px;
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center-left;
+}
+
+.control-btn{
+	-fx-background-color:transparent;
+	-fx-background-radius: 8px;
+	-fx-text-fill: #5d6679;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center-left;
+	-fx-cursor: hand;
+}
+.control-btn:hover{
+	-fx-background-color: #e8f1fd;
+	-fx-background-radius: 8px;
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center-left;	
+}
+
+.white-bg{
+	-fx-background-color: white;
 }

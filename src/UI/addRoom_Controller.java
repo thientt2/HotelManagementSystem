@@ -106,6 +106,8 @@ public class addRoom_Controller implements Initializable {
 		
 	}
 	
+	
+	
 	private AlertMessage alert = new AlertMessage();   
 	
 	

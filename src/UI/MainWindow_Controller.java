@@ -6,350 +6,250 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import DTO.*;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import BLL.*;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Bounds;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
+import javafx.util.Duration;
 
 public class MainWindow_Controller implements Initializable {
 
-
-	@FXML
-    private Button baoCao_btn;
-
+	
     @FXML
-    private Button caiDat_btn;    
+    private Label amountMoneyLabel;
 
     @FXML
-    private Button dichVu_btn;
-    
-    @FXML
-    private Button logout_btn;
+    private Label amountMoneyLabel1;
 
     @FXML
-    private Button hoaDon_btn;
+    private Label amountMoneyLabel11;
 
     @FXML
-    private Button khachHang_btn;
+    private Label amountMoneyLabel12;
 
     @FXML
-    private Button nhanPhong_btn;
+    private Label availabelRoomLabel;
 
     @FXML
-    private Button nhanVien_btn;
+    private Label availabelRoomLabel1;
 
     @FXML
-    private Button phong_btn;
+    private Label availabelRoomLabel11;
 
     @FXML
-    private AnchorPane phong_form;
+    private Label availabelRoomLabel12;
 
     @FXML
-    private Button suaLoai_btn;
+    private Button billWindow_btn;
 
     @FXML
-    private Button suaPhong_btn;
+    private AnchorPane bill_btn;
 
     @FXML
-    private Button themLoaiP_btn;
+    private Button bookRoomWindow_btn;
 
     @FXML
-    private Button themPhong_btn;
-    
-    @FXML
-    private AnchorPane main_form;
+    private AnchorPane bookRoom_btn;
 
     @FXML
-    private TextField timKiemPhong;
+    private Button customerWindow_btn;
+
+    @FXML
+    private AnchorPane customer_btn;
+
+    @FXML
+    private AnchorPane dashBoard_form;
+
+    @FXML
+    private Button mainWindow_btn;
+
+    @FXML
+    private Label moneyPerNightLabel;
+
+    @FXML
+    private Label moneyPerNightLabel1;
+
+    @FXML
+    private Label moneyPerNightLabel11;
+
+    @FXML
+    private Label moneyPerNightLabel12;
+
+    @FXML
+    private Label numberBookedRoomLabel;
+
+    @FXML
+    private Label numberCheckInLabel;
+
+    @FXML
+    private Label numberCheckOutLabel;
+
+    @FXML
+    private Label numberCustomerLabel;
+
+    @FXML
+    private Label numberEmptyRoomLabel;
+
+    @FXML
+    private Label numberOfPaymentLabel;
+
+    @FXML
+    private Label numberOfPaymentLabel1;
+
+    @FXML
+    private Label numberOfPaymentLabel11;
+
+    @FXML
+    private Label numberOfPaymentLabel12;
+
+    @FXML
+    private Button paramWindow_btn;
+
+    @FXML
+    private AnchorPane param_btn;
+
+    @FXML
+    private Label roomTypeLabel;
+
+    @FXML
+    private Label roomTypeLabel1;
+
+    @FXML
+    private Label roomTypeLabel11;
+
+    @FXML
+    private Label roomTypeLabel12;
+
+    @FXML
+    private Button roomWindow_btn;
+
+    @FXML
+    private AnchorPane roomWindow_form;
+
+    @FXML
+    private AnchorPane room_btn;
+
+    @FXML
+    private Label squareLabel;
+
+    @FXML
+    private Label squareLabel1;
+
+    @FXML
+    private Label squareLabel11;
+
+    @FXML
+    private Label squareLabel12;
+
+    @FXML
+    private Button staffWindow_btn;
+
+    @FXML
+    private AnchorPane staff_btn;
+
+    @FXML
+    private Button statisticalWindow_btn;
+
+    @FXML
+    private AnchorPane statistical_btn;
 
     @FXML
     private Label toDay;
 
     @FXML
-    private Button reload_btn;
-    
+    private Label typeBedLabel;
+
     @FXML
-    private Button trangChu_btn;
+    private Label typeBedLabel1;
+
+    @FXML
+    private Label typeBedLabel11;
+
+    @FXML
+    private Label typeBedLabel12;
 
     @FXML
     private Label username_label;
-
-    @FXML
-    private Button xoaLoaiP_btn;
-
-    @FXML
-    private Button xoaPhong_btn;
     
     @FXML
-    private TableColumn<Object[], Void> colChucNang;
-
-    @FXML
-    private TableColumn<Object[], Double> colDienTich;
-
-    @FXML
-    private TableColumn<Object[], Double> colGia;
-
-    @FXML
-    private TableColumn<Object[], String> colLoaiGiuong;
-
-    @FXML
-    private TableColumn<Object[], String> colLoaiPhong;
-
-    @FXML
-    private TableColumn<Object[], Integer> colNguoiToiDa;
-
-    @FXML
-    private TableColumn<Object[], String> colSoPhong;
-
-    @FXML
-    private TableColumn<Object[], String> colTrangThai;
-    @FXML
-    private TableView<Object[]> table_room;
+    private FontAwesomeIcon iconDashBoard;
     
-    // Hien thi ten nhan vien tren man hinh chinh  
+    @FXML
+    private AnchorPane main;
+	
+    
+    private String username;
+    
+    // Đặt username với username_label
 	public void initData(String username) {
+		this.username = username;
 		NHANVIEN nhanVien = DANGNHAP_BLL.layTenNhanVien(username);
-        username_label.setText(nhanVien.getTENNV()); // Hiển thị tên nhân viên trong màn hình chính
+        username_label.setText(nhanVien.getTENNV());
+        
     }
 
 	
-	// Hien thi ds phong
-    public void showRoom() {	
-		ObservableList<Object[]> dataList = PHONG_BLL.showRoom();
-	 	
-    	 		
-    		if (colSoPhong != null && colLoaiPhong != null && colGia != null && colLoaiGiuong != null && colNguoiToiDa != null && colTrangThai != null && colDienTich != null) {
-        	    colSoPhong.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[0]));
-        	    colLoaiPhong.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[1]));
-			    colLoaiGiuong.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[2]));
-			    colDienTich.setCellValueFactory(cellData -> new SimpleDoubleProperty((Double) cellData.getValue()[3]).asObject());
-			    colNguoiToiDa.setCellValueFactory(cellData -> new SimpleIntegerProperty((Integer) cellData.getValue()[4]).asObject());
-			    colGia.setCellValueFactory(cellData -> new SimpleDoubleProperty((Double) cellData.getValue()[5]).asObject());
-			    colTrangThai.setCellValueFactory(cellData -> new SimpleStringProperty((String) cellData.getValue()[6]));
-        	}
-        	table_room.setItems(dataList);               
-        	
-    }
-    
-//    public void selectData() {
-//    	Object[] roomData = show_room_table.getSelectionModel().getSelectedItem();
-//    	int num = show_room_table.getSelectionModel().getSelectedIndex();
-//    	
-//    	if((num - 1) < -1) {
-//    		return;
-//    	}
-//    }
-    
-    
-    
-    public void exit(){
-        System.exit(0);
-    }
-    
-    public void minimize(){
-        ((Stage) main_form.getScene().getWindow()).setIconified(true);
-    }
-    //Xử lý sự kiện đăng xuất
-    private double x = 0;
-    private double y = 0;
-    public void logout() {   	
-    	try {
-    		Alert alert = new Alert(AlertType.CONFIRMATION);
-    		alert.setTitle("Confirmation Massage");
-    		alert.setHeaderText(null);
-    		alert.setContentText("Bạn có muốn đăng xuất không?");
-    		Optional<ButtonType> option = alert.showAndWait();
-    		
-    		if(option.get().equals(ButtonType.OK)) {
-    			logout_btn.getScene().getWindow().hide();   
-        		Parent root = FXMLLoader.load(getClass().getResource("DANGNHAP_UI.fxml"));
-        		
-        		
-        		root.setOnMousePressed((MouseEvent event)->{            
-        			x = event.getSceneX();            
-        			y = event.getSceneY();    
-        		});
-        		
-        		Stage stage = new Stage();        
-        		stage.initStyle(StageStyle.TRANSPARENT);        
-        		Scene scene = new Scene(root);
-            
-        		root.setOnMouseDragged((MouseEvent event)->{
-        			stage.setX(event.getScreenX() - x);            
-        			stage.setY(event.getScreenY() - y);       
-        		});    		
-
-        		stage.setScene(scene);
-        		stage.show();
-    		}else 
-    			return;
-    		
-    				
-    	}catch (Exception e) {
-    		e.printStackTrace();
-    	}
-    }
-    
-   // Xử lý sự kiện cho các MenuItem
-    @FXML
-    private void initialize() {
-        // Tạo ContextMenu và các MenuItem
-        ContextMenu contextMenu = new ContextMenu();
-        MenuItem editMenuItem = new MenuItem("Edit");
-        MenuItem deleteMenuItem = new MenuItem("Delete");
-        contextMenu.getItems().addAll(editMenuItem, deleteMenuItem);
-
-        // Thiết lập xử lý sự kiện cho MenuItem Edit
-        editMenuItem.setOnAction(event -> {
-        	Object[] item = table_room.getSelectionModel().getSelectedItem();
-            if (item != null) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("editRoom.fxml"));
-        		Parent root;
-				try {
-					root = loader.load();
-					root.setOnMousePressed((MouseEvent mouseEvent)->{            
-	        			x = mouseEvent.getSceneX();            
-	        			y = mouseEvent.getSceneY();    
-	        		});
-	        		
-	        		Stage stage = new Stage();        
-	        		stage.initStyle(StageStyle.TRANSPARENT);        
-	        		Scene scene = new Scene(root);
-	            
-	        		root.setOnMouseDragged((MouseEvent mouseEvent)->{
-	        			stage.setX(mouseEvent.getScreenX() - x);            
-	        			stage.setY(mouseEvent.getScreenY() - y);       
-	        		});
-	        		
-	        		editRoom_Controller edit = loader.getController();
-	        		edit.initData(item[0].toString());    		
-	        		stage.setScene(scene);     
-	        		stage.show();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-        		
-        		
-
-                
-            }
-        });
-
-        // Thiết lập xử lý sự kiện cho MenuItem Delete
-        deleteMenuItem.setOnAction(event -> {
-            Object[] item = table_room.getSelectionModel().getSelectedItem();
-            if (item != null) {
-                System.out.println("Deleting row: " + item);
-                // Thêm logic để xóa hàng ở đây
-                table_room.getItems().remove(item);
-            }
-        });
-
-        // Thiết lập cách hiển thị ContextMenu khi nhấp chuột
-        colChucNang.setCellFactory(col -> {
-            return new TableCell<Object[], Void>() {
-                private final Button button = new Button("⋮");                
-
-                {
-                	button.setOnAction(event -> {
-                	    // Lấy ra Scene từ Button
-                	    Scene scene = button.getScene();
-                	    // Lấy ra Stage từ Scene
-                	    Stage stage = (Stage) scene.getWindow();
-                	    // Lấy ra vị trí tương đối của nút trong Stage
-                	    Bounds bounds = button.localToScreen(button.getBoundsInLocal());                	   
-                	    contextMenu.show(stage, bounds.getMaxX(), bounds.getMaxY());
-                	});    
-                	
-                    button.setStyle("-fx-background-color: transparent;"
-                    		+ "-fx-alignment:center-right;");
-                    
-                }
-
-                @Override
-                protected void updateItem(Void item, boolean empty) {
-                    super.updateItem(item, empty);
-                    setGraphic(empty ? null : button);
-                }
-            };
-        });
-    }
-
-    // Tạo giao diện cho nút Add
-    public void addRoom() throws IOException {
-    	
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("addRoom.fxml"));
-		Parent root = loader.load();	
-		root.setOnMousePressed((MouseEvent event)->{            
-			x = event.getSceneX();            
-			y = event.getSceneY();    
-		});
-		
-		Stage stage = new Stage();        
-		stage.initStyle(StageStyle.TRANSPARENT);        
-		Scene scene = new Scene(root);	
-        
-    
-		root.setOnMouseDragged((MouseEvent event)->{
-			stage.setX(event.getScreenX() - x);            
-			stage.setY(event.getScreenY() - y);       
-		});
-		
-		stage.setScene(scene);     
-		stage.show();
-    }
+	
     //Đặt thời gian hiển thị
-    public void setTime() {
-    	LocalDateTime now = LocalDateTime.now();        
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        String formattedDateTime = now.format(formatter);
-        toDay.setText(formattedDateTime);
-    }
-    
-    public void reload() {
-    	showRoom();
-    }
+	public void setTime() {
+	    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+	        LocalDateTime now = LocalDateTime.now();        
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+	        String formattedDateTime = now.format(formatter);
+	        toDay.setText(formattedDateTime);
+	    }));
+	    timeline.setCycleCount(Timeline.INDEFINITE);
+	    timeline.play();
+	}
+	
+	public void changeSceneRoomWindow() {
+		dashBoard_form.setVisible(false);
+		roomWindow_form.setVisible(true);
+		mainWindow_btn.getStyleClass().clear();		
+		mainWindow_btn.getStyleClass().add("control_btn");
+		mainWindow_btn.applyCss();
+		mainWindow_btn.layout();
+		room_btn.getStyleClass().clear();
+		room_btn.getStyleClass().add("control_btn");
+		room_btn.applyCss();
+		room_btn.layout();
+		room_btn.getStyleClass().add("dashBoard_btn");
+	}
+	
+	public void changeSceneDashBoardWindow() {
+		dashBoard_form.setVisible(true);
+		roomWindow_form.setVisible(false);
+		room_btn.getStyleClass().clear();
+		room_btn.getStyleClass().add("control_btn");
+		mainWindow_btn.getStyleClass().clear();	
+		mainWindow_btn.getStyleClass().remove("dashBoard_btn");
+	}
+	
+
+
+	
+	public void changeSceneBillWindow() throws IOException {
+
+
+	}
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
 		
-        initialize();
-        
-        showRoom();		
-		setTime();
+		setTime();		
 	}
 
 }
