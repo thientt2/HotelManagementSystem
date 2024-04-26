@@ -1,0 +1,73 @@
+
+.pane-text {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center-left;
+}
+
+.selected-pane-text {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center-left;
+}
+
+.icon {
+	-fx-fill: white;
+	-fx-stroke: #5D6679;
+	-fx-stroke-width: 1;
+}
+
+.selected-icon {
+	-fx-fill: white;
+	-fx-stroke: #1366D9;
+	-fx-stroke-width: 0.8;
+}
+
+.logo {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 22px;
+	-fx-font-family: "Inter-Medium";
+}
+
+.selected-pane {
+	-fx-background-color: #E8F1FD;
+	-fx-background-radius: 10;
+}
+
+.pane {
+	-fx-background-color: white;
+	-fx-background-radius: 10;
+}
+
+.button {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center;
+	-fx-background-radius: 5;
+}
+
+.disable-button {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center;
+	-fx-background-radius: 10;
+}
+
+.table-view .column-header {
+    -fx-background-color: #E8F1FD;
+    -fx-font-weight: normal;
+    -fx-padding: 5px 10px;
+    -fx-text-fill: #5D6679;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center-left;
+}
+
+.pagination > .pageCountLabel {  /* Or your specific class */
+    visibility: hidden;
+}
+

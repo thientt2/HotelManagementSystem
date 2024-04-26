@@ -1,0 +1,82 @@
+.pane {
+	-fx-background-color: #F7F7F7;
+	-fx-background-radius: 10;
+	-fx-border-radius: 10;
+	-fx-opacity: 1;
+}
+
+.behind-pane {
+	-fx-background-color: #BACD92;
+	-fx-background-radius: 10;
+	-fx-border-radius: 10;
+	-fx-opacity: 0.4;
+}
+
+.icon {
+	-fx-fill: #4F6F52;
+}
+
+.text {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 12px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center;
+}
+
+.big-text {
+	-fx-text-fill: #50705E;
+	-fx-font-size: 20px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center;
+}
+
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.radius{
+    -fx-background-radius: 6px;
+}
+
+.black-bg{
+    -fx-background-color: #000;
+}
+
+.left-form-bg-bg{
+    -fx-background-color: linear-gradient(to bottom right, #8504c6, #5d06c4);
+}
+
+.textfield-1{
+    -fx-background-color: transparent;
+    -fx-border-color: #9E707F;
+    -fx-border-width: 0px 0px .3px 0px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Inter-Medium";
+}
+
+.textfield-1:focused{
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-width: 0px 0px 1.5px 0x;
+}
+
+.login-btn{
+    -fx-background-color: #50705E;
+    -fx-background-radius: 10px 10px 10px 10px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;    
+    -fx-font-family: "Inter-Medium";
+}
+
+.login-btn:hover{
+    -fx-background-color: #415C44;
+}
+
+.close-btn{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.close-btn:hover{
+    -fx-background-color: #ff0000;
+}
