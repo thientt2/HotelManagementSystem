@@ -119,28 +119,167 @@
                </children>
             </HBox>
          </children></AnchorPane>
-      <VBox layoutX="202.0" layoutY="76.0" prefHeight="110.0" prefWidth="885.0" spacing="10.0" styleClass="pane">
+      <VBox layoutX="198.0" layoutY="75.0" prefHeight="110.0" prefWidth="890.0" spacing="10.0" styleClass="pane">
          <children>
             <Label layoutX="16.0" layoutY="12.0" text="Tổng quan">
                <font>
-                  <Font name="Inter Medium" size="20.0" />
+                  <Font name="Inter Medium" size="22.0" />
                </font>
                <padding>
-                  <Insets left="12.0" top="16.0" />
+                  <Insets left="12.0" top="14.0" />
                </padding>
             </Label>
-            <HBox prefHeight="50.0" prefWidth="886.0">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="886.0" spacing="20.0">
                <children>
-                  <AnchorPane prefHeight="50.0" prefWidth="120.0">
+                  <AnchorPane prefHeight="54.0" prefWidth="142.0">
                      <children>
-                        <Label layoutX="14.0" layoutY="6.0" text="Hôm nay" />
-                        <Label layoutX="14.0" layoutY="28.0" text="Check-in" />
-                        <Label layoutX="78.0" layoutY="20.0" text="23" />
+                        <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Hôm nay" />
+                        <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Check-in" />
+                        <Label fx:id="numberCheckInLabel" layoutX="104.0" layoutY="16.0" styleClass="third-text" text="23">
+                           <font>
+                              <Font name="Inter SemiBold" size="12.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="54.0" prefWidth="142.0">
+                     <children>
+                        <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Hôm nay" />
+                        <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Check-out" />
+                        <Label fx:id="numberCheckOutLabel" layoutX="104.0" layoutY="16.0" styleClass="third-text" text="23">
+                           <font>
+                              <Font name="Inter SemiBold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="54.0" prefWidth="154.0">
+                     <children>
+                        <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" />
+                        <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Khách hàng" />
+                        <Label fx:id="numberCustomerLabel" layoutX="115.0" layoutY="16.0" styleClass="third-text" text="23">
+                           <font>
+                              <Font name="Inter SemiBold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="54.0" prefWidth="160.0">
+                     <children>
+                        <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" />
+                        <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Phòng trống" />
+                        <Label fx:id="numberEmptyRoomLabel" layoutX="121.0" layoutY="16.0" styleClass="third-text" text="23">
+                           <font>
+                              <Font name="Inter SemiBold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="54.0" prefWidth="167.0">
+                     <children>
+                        <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" />
+                        <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Phòng đã đặt" />
+                        <Label fx:id="numberBookedRoomLabel" layoutX="127.0" layoutY="16.0" styleClass="third-text" text="23">
+                           <font>
+                              <Font name="Inter SemiBold" size="12.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>
             </HBox>
          </children>
       </VBox>
+      <AnchorPane layoutX="198.0" layoutY="199.0" prefHeight="190.0" prefWidth="438.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane">
+         <children>
+            <Label fx:id="numberOfPaymentLabel" layoutX="15.0" layoutY="12.0" styleClass="number-payment-text" text="12 đã thanh toán" />
+            <Label fx:id="roomTypeLabel" layoutX="17.0" layoutY="44.0" styleClass="type-room-text" text="Standard" />
+            <Label fx:id="availabelRoomLabel" layoutX="17.0" layoutY="73.0" styleClass="normal-text" text="12/21" />
+            <Label fx:id="typeBedLabel" layoutX="21.0" layoutY="151.0" styleClass="normal-text" text="Giường đôi" />
+            <Label fx:id="squareLabel" layoutX="70.0" layoutY="139.0" prefHeight="18.0" prefWidth="62.0" />
+            <Label fx:id="amountMoneyLabel" layoutX="164.0" layoutY="151.0" styleClass="normal-text" text="15m^2" />
+            <HBox alignment="BOTTOM_RIGHT" layoutX="19.0" layoutY="99.0">
+               <children>
+                  <Label fx:id="moneyPerNightLabel" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="đ1.300.000" />
+                  <Label styleClass="normal-text" text=" / đêm" />
+               </children>
+            </HBox>
+            <Label contentDisplay="CENTER" ellipsisString="3" layoutX="397.0" layoutY="-14.0" lineSpacing="3.0" prefHeight="46.0" prefWidth="21.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+               <font>
+                  <Font name="Cambria" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="145.0" layoutY="73.0" onDragDetected="#maxNumberPeopleLabel" styleClass="normal-text" text="2" />
+            <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="198.0" layoutY="402.0" prefHeight="190.0" prefWidth="438.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane">
+         <children>
+            <Label fx:id="numberOfPaymentLabel1" layoutX="15.0" layoutY="12.0" styleClass="number-payment-text" text="12 đã thanh toán" />
+            <Label fx:id="roomTypeLabel1" layoutX="17.0" layoutY="44.0" styleClass="type-room-text" text="Standard" />
+            <Label fx:id="availabelRoomLabel1" layoutX="17.0" layoutY="73.0" styleClass="normal-text" text="12/21" />
+            <Label fx:id="typeBedLabel1" layoutX="21.0" layoutY="151.0" styleClass="normal-text" text="Giường đôi" />
+            <Label fx:id="squareLabel1" layoutX="70.0" layoutY="139.0" prefHeight="18.0" prefWidth="62.0" />
+            <Label fx:id="amountMoneyLabel1" layoutX="164.0" layoutY="151.0" styleClass="normal-text" text="15m^2" />
+            <HBox alignment="BOTTOM_RIGHT" layoutX="19.0" layoutY="99.0">
+               <children>
+                  <Label fx:id="moneyPerNightLabel1" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="đ1.300.000" />
+                  <Label styleClass="normal-text" text=" / đêm" />
+               </children>
+            </HBox>
+            <Label contentDisplay="CENTER" ellipsisString="3" layoutX="397.0" layoutY="-14.0" lineSpacing="3.0" prefHeight="46.0" prefWidth="21.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+               <font>
+                  <Font name="Cambria" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="145.0" layoutY="73.0" onDragDetected="#maxNumberPeopleLabel" styleClass="normal-text" text="2" />
+            <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="650.0" layoutY="199.0" prefHeight="190.0" prefWidth="438.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane">
+         <children>
+            <Label fx:id="numberOfPaymentLabel11" layoutX="15.0" layoutY="12.0" styleClass="number-payment-text" text="12 đã thanh toán" />
+            <Label fx:id="roomTypeLabel11" layoutX="17.0" layoutY="44.0" styleClass="type-room-text" text="Standard" />
+            <Label fx:id="availabelRoomLabel11" layoutX="17.0" layoutY="73.0" styleClass="normal-text" text="12/21" />
+            <Label fx:id="typeBedLabel11" layoutX="21.0" layoutY="151.0" styleClass="normal-text" text="Giường đôi" />
+            <Label fx:id="squareLabel11" layoutX="70.0" layoutY="139.0" prefHeight="18.0" prefWidth="62.0" />
+            <Label fx:id="amountMoneyLabel11" layoutX="164.0" layoutY="151.0" styleClass="normal-text" text="15m^2" />
+            <HBox alignment="BOTTOM_RIGHT" layoutX="19.0" layoutY="99.0">
+               <children>
+                  <Label fx:id="moneyPerNightLabel11" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="đ1.300.000" />
+                  <Label styleClass="normal-text" text=" / đêm" />
+               </children>
+            </HBox>
+            <Label contentDisplay="CENTER" ellipsisString="3" layoutX="397.0" layoutY="-14.0" lineSpacing="3.0" prefHeight="46.0" prefWidth="21.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+               <font>
+                  <Font name="Cambria" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="145.0" layoutY="73.0" onDragDetected="#maxNumberPeopleLabel" styleClass="normal-text" text="2" />
+            <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="650.0" layoutY="402.0" prefHeight="190.0" prefWidth="438.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane">
+         <children>
+            <Label fx:id="numberOfPaymentLabel12" layoutX="15.0" layoutY="12.0" styleClass="number-payment-text" text="12 đã thanh toán" />
+            <Label fx:id="roomTypeLabel12" layoutX="17.0" layoutY="44.0" styleClass="type-room-text" text="Standard" />
+            <Label fx:id="availabelRoomLabel12" layoutX="17.0" layoutY="73.0" styleClass="normal-text" text="12/21" />
+            <Label fx:id="typeBedLabel12" layoutX="21.0" layoutY="151.0" styleClass="normal-text" text="Giường đôi" />
+            <Label fx:id="squareLabel12" layoutX="70.0" layoutY="139.0" prefHeight="18.0" prefWidth="62.0" />
+            <Label fx:id="amountMoneyLabel12" layoutX="164.0" layoutY="151.0" styleClass="normal-text" text="15m^2" />
+            <HBox alignment="BOTTOM_RIGHT" layoutX="19.0" layoutY="99.0">
+               <children>
+                  <Label fx:id="moneyPerNightLabel12" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="đ1.300.000" />
+                  <Label styleClass="normal-text" text=" / đêm" />
+               </children>
+            </HBox>
+            <Label contentDisplay="CENTER" ellipsisString="3" layoutX="397.0" layoutY="-14.0" lineSpacing="3.0" prefHeight="46.0" prefWidth="21.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+               <font>
+                  <Font name="Cambria" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="145.0" layoutY="73.0" onDragDetected="#maxNumberPeopleLabel" styleClass="normal-text" text="2" />
+            <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

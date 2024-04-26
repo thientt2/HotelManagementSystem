@@ -64,7 +64,16 @@
     -fx-text-fill: #5D6679;
 	-fx-font-size: 14px;
 	-fx-font-family: "Inter-Medium";
-	-fx-alignment:center-left;
+	-fx-alignment:center;
+}
+
+.table-column {
+    -fx-background-color: #E8F1FD;
+    -fx-font-weight: normal;
+    -fx-text-fill: #5D6679;
+	-fx-font-size: 12px;
+	-fx-font-family: "Inter-Light";
+	-fx-alignment:center;
 }
 
 .pagination > .pageCountLabel {  /* Or your specific class */

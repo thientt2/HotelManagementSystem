@@ -41,3 +41,48 @@
 	-fx-background-radius: 10;
 }
 
+.first-text {
+	-fx-text-fill: #858D9D;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter-Regular";
+}
+
+.second-text {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-Medium";
+}
+
+.third-text {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 26px;
+	-fx-font-family: "Inter-SemiBold";
+}
+
+.normal-text {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-Medium";
+}
+
+.type-room-text {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 22px;
+	-fx-font-family: "Inter-SemiBold";
+}
+
+.money-room-text {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 30px;
+	-fx-font-family: "Inter-SemiBold";
+}
+
+.number-payment-text {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-SemiBold";
+	-fx-background-color: #B6E9D1;
+	-fx-background-radius: 4;
+	-fx-label-padding: 0.0 10 0.0 10;
+	-fx-fill: #0D824B;
+}

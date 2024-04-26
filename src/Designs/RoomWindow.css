@@ -46,15 +46,23 @@
 	-fx-font-size: 14px;
 	-fx-font-family: "Inter-Medium";
 	-fx-alignment:center;
-	-fx-background-radius: 5;
+	-fx-background-radius: 20;
+	-fx-background-color: white;
+	-fx-border-color: #989FAD;
+	-fx-border-radius: 20;
 }
 
-.disable-button {
-	-fx-text-fill: #5D6679;
+.selected-button {
+	-fx-pref-width: 120;
+	-fx-pref-height: 40;
+	-fx-text-fill: #1570EF;
 	-fx-font-size: 14px;
 	-fx-font-family: "Inter-Medium";
 	-fx-alignment:center;
-	-fx-background-radius: 10;
+	-fx-background-radius: 20;
+	-fx-background-color: #E8F1FD;
+	-fx-border-color: #1570EF;
+	-fx-border-radius: 20;
 }
 
 .table-view .column-header {
@@ -65,7 +73,6 @@
 	-fx-font-size: 14px;
 	-fx-font-family: "Inter-Medium";
 	-fx-alignment:center-left;
-    
 }
 
 .table-column {
@@ -77,6 +84,22 @@
 	-fx-alignment:center;
 }
 
-.pagination > .pageCountLabel {  /* Or your specific class */
-    visibility: hidden;
+.table-view {
+	-fx-background-color: white;
+	-fx-background-radius: 10;
+	-fx-border-radius: 10;
+	-fx-border-color: lightgrey;
+}
+
+.order-button{
+	-fx-background-color: #E8F1FD;
+    -fx-font-weight: normal;
+    -fx-text-fill: white;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter-Medium";
+	-fx-alignment:center;
+	-fx-background-radius: 5;
+	-fx-background-color: #1e90ff;
+	-fx-border-color: #1570EF;
+	-fx-border-radius: 5;
 }
