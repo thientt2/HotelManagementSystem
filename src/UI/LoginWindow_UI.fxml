@@ -24,6 +24,15 @@
             <ColorAdjust brightness="-0.1" contrast="0.04" hue="0.11" />
          </effect>
       </ImageView>
+      <AnchorPane prefHeight="457.0" prefWidth="687.0" style="-fx-background-color: black; -fx-opacity: 0.5;">
+         <effect>
+            <DropShadow height="10.0" offsetY="2.0" radius="4.5" spread="1.0" width="10.0">
+               <color>
+                  <Color red="0.44999998807907104" green="0.44999998807907104" blue="0.44999998807907104" opacity="0.31310030817985535" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
       <AnchorPane layoutX="192.0" layoutY="31.0" prefHeight="395.0" prefWidth="301.0" styleClass="behind-pane">
          <effect>
             <DropShadow height="10.0" offsetY="2.0" radius="4.5" spread="1.0" width="10.0">
