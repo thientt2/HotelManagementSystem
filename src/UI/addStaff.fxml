@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="462.0" prefWidth="627.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="30.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="30.0" prefWidth="617.0" styleClass="blue-bg" stylesheets="@../Designs/editThamSo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Thêm nhân viên" textFill="WHITE" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="5.0">
+                           <font>
+                              <Font name="Inter Medium" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <StackPane prefHeight="462.0" prefWidth="627.0" styleClass="white-bg" stylesheets="@../Designs/addCustomer.css" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="91.0" layoutY="54.0" prefHeight="399.0" prefWidth="250.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <AnchorPane prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Tên nhân viên" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhâp tên nhân viên" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Số CCCD/Passport" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhâp số CCCD/Passport" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Giới tính" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox layoutX="14.0" layoutY="34.0" prefHeight="40.0" prefWidth="250.0" promptText="Chọn giới tính" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+                                       <styleClass>
+                                          <String fx:value="text-field" />
+                                          <String fx:value="-fx-font-" />
+                                       </styleClass>
+                                    </ComboBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="249.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Ngày sinh" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker layoutX="13.0" layoutY="30.0" prefHeight="40.0" prefWidth="250.0" promptText="Chọn ngày sinh" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <styleClass>
+                                          <String fx:value="text-field" />
+                                          <String fx:value="custom-date-picker" />
+                                       </styleClass>
+                                    </DatePicker>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="176.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Vị trí việc làm" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox layoutX="14.0" layoutY="34.0" prefHeight="40.0" prefWidth="250.0" promptText="Chọn vị trí việc làm" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+                                       <styleClass>
+                                          <String fx:value="text-field" />
+                                          <String fx:value="-fx-font-" />
+                                       </styleClass>
+                                    </ComboBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="328.0" layoutY="44.0" prefHeight="316.0" prefWidth="250.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <AnchorPane prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Email" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhập email" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Địa chỉ" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhập địa chỉ" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Số điện thoại" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhập số điện thoại" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="-4.0" layoutY="225.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="27.0" layoutY="25.0" text="Ngày vào làm" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker layoutX="13.0" layoutY="30.0" prefHeight="40.0" prefWidth="250.0" promptText="Chọn ngày vào làm" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <styleClass>
+                                          <String fx:value="text-field" />
+                                          <String fx:value="custom-date-picker" />
+                                       </styleClass>
+                                    </DatePicker>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="411.0" layoutY="379.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="43.0" AnchorPane.rightAnchor="40.0">
+                           <children>
+                              <Button layoutX="26.0" layoutY="2.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button layoutX="88.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
