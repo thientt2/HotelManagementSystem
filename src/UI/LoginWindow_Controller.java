@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import BLL.DANGNHAP_BLL;
-import DAO.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -20,9 +19,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import system.SystemMessage;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 
 import javafx.fxml.FXMLLoader;

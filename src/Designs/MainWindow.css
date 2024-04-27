@@ -112,6 +112,9 @@
 	-fx-font-size: 16px;
 	-fx-font-family: "Inter-Medium";
 	-fx-alignment:center-left;	
+	-fx-fill: white;
+	-fx-stroke: #1366D9;
+	-fx-stroke-width: 0.8;
 }
 
 .white-bg{
