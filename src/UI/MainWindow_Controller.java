@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import BLL.DANGNHAP_BLL;
 import BLL.KHACHHANG_BLL;
+import BLL.NHANVIEN_BLL;
 import DTO.KHACHHANG;
 import DTO.NHANVIEN;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -116,6 +117,27 @@ public class MainWindow_Controller implements Initializable {
     
     @FXML
     private TableView<KHACHHANG> customer_table;
+    
+    @FXML
+    private TableColumn<NHANVIEN, String> colBeginStaff;
+
+    @FXML
+    private TableColumn<NHANVIEN, String> colBirthStaff;
+    
+    @FXML
+    private TableColumn<NHANVIEN, String> colCccdStaff;
+    
+    @FXML
+    private TableColumn<NHANVIEN, String> colNameStaff;
+
+    @FXML
+    private TableColumn<NHANVIEN, String> colIdStaff;
+    
+    @FXML
+    private TableColumn<NHANVIEN, String> colGenderStaff;
+    
+    @FXML
+    private TableView<NHANVIEN> staff_table;
 
     @FXML
     private Button customerWindow_btn;
@@ -262,7 +284,7 @@ public class MainWindow_Controller implements Initializable {
     // Đặt username với username_label
 	public void initData(String username) {
 		this.username = username;
-		NHANVIEN nhanVien = DANGNHAP_BLL.layTenNhanVien(username);
+		NHANVIEN nhanVien = NHANVIEN_BLL.layTenNhanVien(username);
         username_label.setText(nhanVien.getTENNV());
         dashBoard_form.setVisible(true);
     }
@@ -423,29 +445,37 @@ public class MainWindow_Controller implements Initializable {
 		ObservableList<KHACHHANG> list = KHACHHANG_BLL.listCustomer();
 		
 		if(colIdCustomer != null && colNameCustomer != null 
-				&& colPhoneCustomer != null && colAddressCustomer != null 
-				&& colEmailCustomer != null && colStatusCustomer != null 
-				&& colBirthdayCustomer != null && colGenderCustomer != null
-				&& colCountryCustomer != null && colCustomerType != null
+				&& colPhoneCustomer != null && colBirthdayCustomer != null
+				&& colGenderCustomer != null && colCountryCustomer != null 
 				&& colCccdCustomer != null) {
 			
 			colIdCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("MAKH"));
 			colNameCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("TENKH"));
-			colPhoneCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("SDT"));
-			colAddressCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("DIACHI"));
-			colEmailCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("EMAIL"));
-			colStatusCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, Integer>("TRANGTHAI"));
+			colPhoneCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("SDT"));						
 			colBirthdayCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("NGAYSINH"));
 			colGenderCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("GIOITINH"));
 			colCountryCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("QUOCTICH"));
-			colCustomerType.setCellValueFactory(new PropertyValueFactory<KHACHHANG, Integer>("LOAIKH"));
 			colCccdCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("CCCD"));
 			
-			customer_table.setItems(list);
-			
-		}
+			customer_table.setItems(list);			
+		}		
+	}
 	
+	public void showListStaff() {
+		ObservableList<NHANVIEN> list = NHANVIEN_BLL.listStaff();
 		
+		if(colIdStaff != null && colNameStaff != null 
+				&& colBirthStaff != null && colGenderStaff != null 
+				&& colCccdStaff != null && colBeginStaff != null) {
+			
+			colIdStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("MANV"));
+			colNameStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("TENNV"));			
+			colBirthStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("NGAYSINH"));
+			colGenderStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("GIOITINH"));			
+			colCccdStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("CCCD"));	
+			colBeginStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("NGAYVAOLAM"));
+			staff_table.setItems(list);			
+		}
 	}
 	
 	
@@ -458,6 +488,7 @@ public class MainWindow_Controller implements Initializable {
 		
 		setTime();		
 		showListCustomer();
+		showListStaff();
 	}
 
 }

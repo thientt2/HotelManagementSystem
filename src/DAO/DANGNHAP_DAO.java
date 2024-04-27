@@ -40,32 +40,5 @@ public class DANGNHAP_DAO {
     }
 
     
-    public static NHANVIEN layNhanVien(String user) {
-    	NHANVIEN nhanVien = null;
-    	try (Connection connection = DatabaseConnection.connectDb();) {
-               String query = "SELECT * FROM NHANVIEN WHERE TENDANGNHAP = ?";
-               PreparedStatement prepare = connection.prepareStatement(query);
-               prepare.setString(1,user);
-               ResultSet resultSet = prepare.executeQuery();
-
-               while (resultSet.next()) {
-                   nhanVien = new NHANVIEN(resultSet.getString("TENDANGNHAP")
-                		   					,resultSet.getString("TENNV")
-                		   					,resultSet.getString("MATKHAU")
-                		   					,resultSet.getString("EMAIL")
-                		   					,resultSet.getInt("MALOAINV")
-                		   					,resultSet.getString("CCCD")
-                		   					,resultSet.getString("GIOITINH")
-                		   					,resultSet.getString("NGAYSINH")
-                		   					,resultSet.getString("DIACHI")
-                		   					,resultSet.getString("SDT")
-                		   					,resultSet.getString("NGAYVAOLAM"));
-               }
-               
-
-           } catch (SQLException e) {
-               e.printStackTrace();
-           }
-    	return nhanVien;
-    }
+    
 }

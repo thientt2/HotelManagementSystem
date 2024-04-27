@@ -315,7 +315,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="customerWindow_form" layoutX="196.0" layoutY="70.0" prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="customerWindow_form" layoutX="196.0" layoutY="70.0" prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: lightgrey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="541.0" prefWidth="904.0" style="-fx-background-color: white; -fx-background-radius: 7;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <children>
@@ -330,9 +330,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <Pagination layoutY="71.0" maxPageIndicatorCount="7" pageCount="7" prefHeight="426.0" prefWidth="890.0" styleClass="pane-text" />
-                              <Button contentDisplay="CENTER" layoutX="259.0" layoutY="445.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="78.0" text="&lt; Previous" />
-                              <Button layoutX="553.0" layoutY="445.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="78.0" text="After &gt;" />
+                              <Pagination layoutY="71.0" maxPageIndicatorCount="7" pageCount="7" prefHeight="476.0" prefWidth="890.0" styleClass="pane-text" AnchorPane.bottomAnchor="10.0" />
                               <FontAwesomeIcon glyphName="FILTER" layoutX="481.0" layoutY="41.0" size="18" styleClass="icon" />
                               <ImageView fitHeight="20.0" fitWidth="21.0" layoutX="581.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -344,20 +342,16 @@
                               </ImageView>
                               <ScrollPane layoutY="84.0" prefHeight="350.0" prefWidth="890.0">
                                  <content>
-                                    <TableView fx:id="customer_table" editable="true" onSort="#showListCustomer" prefHeight="334.0" prefWidth="1532.0" style="-fx-background-radius: 5; -fx-border-color: #E8F1FD; -fx-border-color: lightgrey;">
+                                    <TableView fx:id="customer_table" editable="true" onSort="#showListCustomer" prefHeight="334.0" prefWidth="890.0" style="-fx-background-radius: 5; -fx-border-color: #E8F1FD; -fx-border-color: lightgrey;">
                                        <columns>
-                                          <TableColumn fx:id="colIdCustomer" prefWidth="127.1999785900116" text="Mã khách hàng" />
-                                          <TableColumn fx:id="colNameCustomer" prefWidth="130.13330078125" text="Tên khách hàng" />
-                                          <TableColumn fx:id="colCccdCustomer" prefWidth="72.0" text="CCCD" />
-                                          <TableColumn fx:id="colGenderCustomer" minWidth="7.0" prefWidth="158.0" text="Giới tính" />
-                                          <TableColumn fx:id="colBirthdayCustomer" prefWidth="89.06671142578125" text="Ngày sinh" />
-                                          <TableColumn fx:id="colEmailCustomer" prefWidth="142.40008544921875" text="Email" />
-                                          <TableColumn fx:id="colCustomerType" minWidth="0.0" prefWidth="43.99993896484375" text="Loại khách hàng" />
-                                          <TableColumn fx:id="colAddressCustomer" prefWidth="54.4000244140625" text="Địa chỉ" />
-                                          <TableColumn fx:id="colPhoneCustomer" prefWidth="83.2000732421875" text="Số điện thoại" />
-                                          <TableColumn fx:id="colCountryCustomer" minWidth="0.0" prefWidth="34.66668701171875" text="Quốc tịch" />
-                                          <TableColumn fx:id="colStatusCustomer" prefWidth="194.13330078125" text="Tình trạng" />
-                                          <TableColumn fx:id="colControlCustomer" prefWidth="194.13330078125" />
+                                          <TableColumn fx:id="colIdCustomer" prefWidth="102.0" text="Mã khách hàng" />
+                                          <TableColumn fx:id="colNameCustomer" prefWidth="139.0" text="Tên khách hàng" />
+                                          <TableColumn fx:id="colCccdCustomer" prefWidth="180.0" text="CCCD" />
+                                          <TableColumn fx:id="colGenderCustomer" minWidth="7.0" prefWidth="74.0" text="Giới tính" />
+                                          <TableColumn fx:id="colBirthdayCustomer" prefWidth="130.0" text="Ngày sinh" />
+                                          <TableColumn fx:id="colPhoneCustomer" prefWidth="140.0" text="Số điện thoại" />
+                                          <TableColumn fx:id="colCountryCustomer" prefWidth="69.0" text="Quốc tịch" />
+                                          <TableColumn fx:id="colControlCustomer" prefWidth="51.0" />
                                        </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -369,7 +363,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="staffWindow_form" layoutX="196.0" layoutY="70.0" prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: lightgrey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="staffWindow_form" layoutX="196.0" layoutY="70.0" prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: white; -fx-background-radius: 7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -398,18 +392,15 @@
                               </ImageView>
                               <ScrollPane layoutY="84.0" prefHeight="350.0" prefWidth="890.0">
                                  <content>
-                                    <TableView editable="true" prefHeight="334.0" prefWidth="1168.0" style="-fx-background-radius: 5; -fx-border-color: #E8F1FD; -fx-border-color: lightgrey;">
+                                    <TableView fx:id="staff_table" editable="true" prefHeight="334.0" prefWidth="890.0" style="-fx-background-radius: 5; -fx-border-color: #E8F1FD; -fx-border-color: lightgrey;">
                                        <columns>
-                                          <TableColumn prefWidth="100.0" text="Mã nhân viên" />
-                                          <TableColumn prefWidth="130.0" text="Tên nhân viên" />
-                                          <TableColumn prefWidth="120.0" text="Email" />
-                                          <TableColumn prefWidth="110.39996337890625" text="Loại nhân viên" />
-                                          <TableColumn prefWidth="68.79998779296875" text="CCCD" />
-                                          <TableColumn minWidth="0.0" text="Ngày sinh" />
-                                          <TableColumn prefWidth="75.0" text="Giới tính" />
-                                          <TableColumn prefWidth="130.0" text="Địa chỉ" />
-                                          <TableColumn minWidth="0.0" prefWidth="90.0" text="Số điện thoại" />
-                                          <TableColumn prefWidth="100.0" text="Ngày vào làm" />
+                                          <TableColumn fx:id="colIdStaff" prefWidth="88.0" text="Mã nhân viên" />
+                                          <TableColumn fx:id="colNameStaff" prefWidth="148.0" text="Tên nhân viên" />
+                                          <TableColumn fx:id="colCccdStaff" prefWidth="160.0" text="CCCD" />
+                                          <TableColumn fx:id="colBirthStaff" minWidth="0.0" prefWidth="89.0" text="Ngày sinh" />
+                                          <TableColumn fx:id="colGenderStaff" prefWidth="90.0" text="Giới tính" />
+                                          <TableColumn fx:id="colBeginStaff" prefWidth="101.0" text="Ngày vào làm" />
+                                          <TableColumn fx:id="colControlStaff" prefWidth="60.0" />
                                        </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

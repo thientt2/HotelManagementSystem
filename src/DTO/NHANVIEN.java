@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class NHANVIEN {
+	public SimpleStringProperty MANV;
 	public SimpleStringProperty TENDANGNHAP; 
 	public SimpleStringProperty TENNV;
 	public SimpleStringProperty MATKHAU;
@@ -17,10 +18,11 @@ public class NHANVIEN {
 	public SimpleStringProperty NGAYVAOLAM;
 	
 	
-	public NHANVIEN(String tENDANGNHAP, String tENNV, String mATKHAU,
+	public NHANVIEN(String mANV,String tENDANGNHAP, String tENNV, String mATKHAU,
 			String eMAIL, Integer mALOAINV, String cCCD,
 			String nGAYSINH, String gIOITINH, String dIACHI,
 			String sDT, String nGAYVAOLAM) {
+		MANV = new SimpleStringProperty(mANV);
 		TENDANGNHAP = new SimpleStringProperty(tENDANGNHAP);
 		TENNV = new SimpleStringProperty(tENNV);
 		MATKHAU = new SimpleStringProperty(mATKHAU);
@@ -32,6 +34,13 @@ public class NHANVIEN {
 		DIACHI = new SimpleStringProperty(dIACHI);
 		SDT = new SimpleStringProperty(sDT);
 		NGAYVAOLAM = new SimpleStringProperty(nGAYVAOLAM);
+	}
+	
+	public String getMANV() {
+		return MANV.get();
+	}
+	public void setMANV(String mANV) {
+		MANV.set(mANV);
 	}
 	public String getTENDANGNHAP() {
 		return TENDANGNHAP.get();

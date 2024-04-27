@@ -25,8 +25,7 @@ public class DANGNHAP_BLL {
 		else {		
 			return DANGNHAP_DAO.checkLogin(user, pass);        
 		}		
-	}
-   
-	public static NHANVIEN layTenNhanVien(String user) { return DANGNHAP_DAO.layNhanVien(user);}
+	}   
+	
     
 }
