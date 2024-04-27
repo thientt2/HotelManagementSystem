@@ -18,18 +18,19 @@ public class NHANVIEN_DAO {
 			PreparedStatement prepare = connection.prepareStatement(query);
 			ResultSet resultSet = prepare.executeQuery();
 			while (resultSet.next()) {
-				list.add(new NHANVIEN(resultSet.getString("MANV")
-						,resultSet.getString("TENDANGNHAP")
-						,resultSet.getString("TENNV")
-						,resultSet.getString("MATKHAU")
-						,resultSet.getString("EMAIL")
-						,resultSet.getInt("MALOAINV")
-						,resultSet.getString("CCCD")
-						,resultSet.getString("GIOITINH")
-						,resultSet.getString("NGAYSINH")
-						,resultSet.getString("DIACHI")
-						,resultSet.getString("SDT")
-						,resultSet.getString("NGAYVAOLAM")));
+				list.add(new NHANVIEN(resultSet.getString("MANV")                 		   					
+	   					,resultSet.getString("TENNV")                		   					
+	   					,resultSet.getString("EMAIL")
+	   					,resultSet.getInt("MALOAINV")
+	   					,resultSet.getString("CCCD")
+	   					,resultSet.getString("NGAYSINH")
+	   					,resultSet.getString("GIOITINH")                		   					
+	   					,resultSet.getString("DIACHI")
+	   					,resultSet.getString("SDT")
+	   					,resultSet.getString("NGAYVAOLAM")
+	   					,resultSet.getString("TENDANGNHAP")
+	   					,resultSet.getString("MATKHAU")));
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -47,18 +48,18 @@ public class NHANVIEN_DAO {
                ResultSet resultSet = prepare.executeQuery();
 
                while (resultSet.next()) {
-                   nhanVien = new NHANVIEN(resultSet.getString("MANV") 
-                		   					,resultSet.getString("TENDANGNHAP")
-                		   					,resultSet.getString("TENNV")
-                		   					,resultSet.getString("MATKHAU")
+                   nhanVien = new NHANVIEN(resultSet.getString("MANV")                 		   					
+                		   					,resultSet.getString("TENNV")                		   					
                 		   					,resultSet.getString("EMAIL")
                 		   					,resultSet.getInt("MALOAINV")
                 		   					,resultSet.getString("CCCD")
-                		   					,resultSet.getString("GIOITINH")
                 		   					,resultSet.getString("NGAYSINH")
+                		   					,resultSet.getString("GIOITINH")                		   					
                 		   					,resultSet.getString("DIACHI")
                 		   					,resultSet.getString("SDT")
-                		   					,resultSet.getString("NGAYVAOLAM"));
+                		   					,resultSet.getString("NGAYVAOLAM")
+                		   					,resultSet.getString("TENDANGNHAP")
+                		   					,resultSet.getString("MATKHAU"));
                }
                
 

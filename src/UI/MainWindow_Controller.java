@@ -346,6 +346,14 @@ public class MainWindow_Controller implements Initializable {
 		statisticalWindow_form.setVisible(false);
 		bookRoomWindow_form.setVisible(false);
 		billWindow_form.setVisible(false);
+		
+		room_btn.setStyle("-fx-background-color: #FFFFFF;");
+		customer_btn.setStyle("-fx-background-color: #FFFFFF;");
+		staff_btn.setStyle("-fx-background-color: #FFFFFF;");
+		param_btn.setStyle("-fx-background-color: #FFFFFF;");
+		statistical_btn.setStyle("-fx-background-color: #FFFFFF;");
+		bookRoom_btn.setStyle("-fx-background-color: #FFFFFF;");
+		bill_btn.setStyle("-fx-background-color: #FFFFFF;");
 	}	
 	
 	public void changeSceneCustomerWindow() {
@@ -476,6 +484,12 @@ public class MainWindow_Controller implements Initializable {
 			colBeginStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("NGAYVAOLAM"));
 			staff_table.setItems(list);			
 		}
+		list.stream().forEach(nhanvien -> {
+			System.out.println(nhanvien.getNGAYSINH());
+			System.out.println(nhanvien.getGIOITINH());
+			
+		});
+		
 	}
 	
 	

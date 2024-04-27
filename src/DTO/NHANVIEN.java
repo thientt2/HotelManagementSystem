@@ -18,10 +18,10 @@ public class NHANVIEN {
 	public SimpleStringProperty NGAYVAOLAM;
 	
 	
-	public NHANVIEN(String mANV,String tENDANGNHAP, String tENNV, String mATKHAU,
+	public NHANVIEN(String mANV, String tENNV,
 			String eMAIL, Integer mALOAINV, String cCCD,
 			String nGAYSINH, String gIOITINH, String dIACHI,
-			String sDT, String nGAYVAOLAM) {
+			String sDT, String nGAYVAOLAM,String tENDANGNHAP, String mATKHAU) {
 		MANV = new SimpleStringProperty(mANV);
 		TENDANGNHAP = new SimpleStringProperty(tENDANGNHAP);
 		TENNV = new SimpleStringProperty(tENNV);
