@@ -3,37 +3,44 @@ package DTO;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class NHANVIEN {
+public class NHANVIEN implements Cloneable {
 	public SimpleStringProperty MANV;
-	public SimpleStringProperty TENDANGNHAP; 
 	public SimpleStringProperty TENNV;
-	public SimpleStringProperty MATKHAU;
 	public SimpleStringProperty EMAIL;
-	public SimpleIntegerProperty MALOAINV;
+	public SimpleIntegerProperty MALOAINV; 
 	public SimpleStringProperty CCCD;
-	public SimpleStringProperty NGAYSINH;
+	public SimpleStringProperty NGAYSINH;	
 	public SimpleStringProperty GIOITINH;
 	public SimpleStringProperty DIACHI;
 	public SimpleStringProperty SDT;
 	public SimpleStringProperty NGAYVAOLAM;
+	public SimpleStringProperty TENDANGNHAP;
+	public SimpleStringProperty MATKHAU;
+	public SimpleStringProperty PHOTOURL;
+	public SimpleIntegerProperty TINHTRANG;
 	
 	
-	public NHANVIEN(String mANV, String tENNV,
-			String eMAIL, Integer mALOAINV, String cCCD,
-			String nGAYSINH, String gIOITINH, String dIACHI,
-			String sDT, String nGAYVAOLAM,String tENDANGNHAP, String mATKHAU) {
+	public NHANVIEN(String mANV, String tENNV, String eMAIL, Integer mALOAINV, String cCCD, String nGAYSINH, String gIOITINH, String dIACHI, String sDT, String nGAYVAOLAM, String tENDANGNHAP, String mATKHAU, String pHOTOURL, Integer tINHTRANG) {
 		MANV = new SimpleStringProperty(mANV);
-		TENDANGNHAP = new SimpleStringProperty(tENDANGNHAP);
 		TENNV = new SimpleStringProperty(tENNV);
-		MATKHAU = new SimpleStringProperty(mATKHAU);
 		EMAIL = new SimpleStringProperty(eMAIL);
-		MALOAINV = new SimpleIntegerProperty(mALOAINV);;
+		MALOAINV = new SimpleIntegerProperty(mALOAINV);
 		CCCD = new SimpleStringProperty(cCCD);
 		NGAYSINH = new SimpleStringProperty(nGAYSINH);
 		GIOITINH = new SimpleStringProperty(gIOITINH);
 		DIACHI = new SimpleStringProperty(dIACHI);
 		SDT = new SimpleStringProperty(sDT);
 		NGAYVAOLAM = new SimpleStringProperty(nGAYVAOLAM);
+		TENDANGNHAP = new SimpleStringProperty(tENDANGNHAP);
+		MATKHAU = new SimpleStringProperty(mATKHAU);
+		PHOTOURL = new SimpleStringProperty(pHOTOURL);
+		TINHTRANG = new SimpleIntegerProperty(tINHTRANG);
+	}
+	
+	
+	
+	public NHANVIEN clone() throws CloneNotSupportedException {
+		return (NHANVIEN) super.clone();
 	}
 	
 	public String getMANV() {

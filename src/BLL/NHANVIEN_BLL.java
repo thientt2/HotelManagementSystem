@@ -6,8 +6,8 @@ import javafx.collections.ObservableList;
 
 public class NHANVIEN_BLL {
 
-	public static NHANVIEN layTenNhanVien(String user) {
-		return NHANVIEN_DAO.layNhanVien(user);
+	public static NHANVIEN getStaff(String user) {
+		return NHANVIEN_DAO.getStaff(user);
 	}
 	
 	public static ObservableList<NHANVIEN> listStaff() {

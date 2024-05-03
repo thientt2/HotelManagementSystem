@@ -1,12 +1,12 @@
 package application;
 	
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
 
@@ -16,7 +16,7 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-       Parent root = FXMLLoader.load(getClass().getResource("/UI/LoginWindow_UI.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("/UI/MainWindow_UI.fxml"));
         
         Scene scene = new Scene(root);       
         
@@ -29,6 +29,7 @@ public class Main extends Application {
             stage.setX(event.getScreenX() - x);
             stage.setY(event.getScreenY() - y);
         });
+        
         
         stage.initStyle(StageStyle.TRANSPARENT);
         

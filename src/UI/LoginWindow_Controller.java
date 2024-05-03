@@ -99,8 +99,7 @@ public class LoginWindow_Controller implements Initializable {
     		
     		MainWindow_Controller main = loader.getController();
     		main.initData(usernameTxt.getText());    		
-    		String css = this.getClass().getResource("/Designs/MainWindow.css").toExternalForm();
-			scene.getStylesheets().add(css);
+    		
     		stage.setScene(scene);     
     		stage.show();
     		

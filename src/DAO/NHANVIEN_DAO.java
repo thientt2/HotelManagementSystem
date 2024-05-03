@@ -29,7 +29,9 @@ public class NHANVIEN_DAO {
 	   					,resultSet.getString("SDT")
 	   					,resultSet.getString("NGAYVAOLAM")
 	   					,resultSet.getString("TENDANGNHAP")
-	   					,resultSet.getString("MATKHAU")));
+	   					,resultSet.getString("MATKHAU")
+	   					,resultSet.getString("PHOTOURL")
+	   					,resultSet.getInt("TINHTRANG")));
 				
 			}
 		} catch (SQLException e) {
@@ -39,7 +41,7 @@ public class NHANVIEN_DAO {
 	}
 	
 	
-	public static NHANVIEN layNhanVien(String user) {
+	public static NHANVIEN getStaff(String user) {
     	NHANVIEN nhanVien = null;
     	try (Connection connection = DatabaseConnection.connectDb();) {
                String query = "SELECT * FROM NHANVIEN WHERE TENDANGNHAP = ?";
@@ -59,7 +61,9 @@ public class NHANVIEN_DAO {
                 		   					,resultSet.getString("SDT")
                 		   					,resultSet.getString("NGAYVAOLAM")
                 		   					,resultSet.getString("TENDANGNHAP")
-                		   					,resultSet.getString("MATKHAU"));
+                		   					,resultSet.getString("MATKHAU")
+                		   					,resultSet.getString("PHOTOURL")
+                		   					,resultSet.getInt("TINHTRANG"));
                }
                
 

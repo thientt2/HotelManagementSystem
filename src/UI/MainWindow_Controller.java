@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-import BLL.DANGNHAP_BLL;
 import BLL.KHACHHANG_BLL;
 import BLL.NHANVIEN_BLL;
 import DTO.KHACHHANG;
@@ -14,17 +13,26 @@ import DTO.NHANVIEN;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -89,7 +97,7 @@ public class MainWindow_Controller implements Initializable {
     private TableColumn<KHACHHANG, String> colCccdCustomer;
 
     @FXML
-    private TableColumn<KHACHHANG, String> colControlCustomer;
+    private TableColumn<KHACHHANG, Void> colControlCustomer;
 
     @FXML
     private TableColumn<KHACHHANG, String> colCountryCustomer;
@@ -138,6 +146,30 @@ public class MainWindow_Controller implements Initializable {
     
     @FXML
     private TableView<NHANVIEN> staff_table;
+    
+    @FXML
+    private Button selectBillWindow_btn;
+
+    @FXML
+    private Button selectBookRoomWindow_btn;
+
+    @FXML
+    private Button selectCustomerWindow_btn;
+
+    @FXML
+    private Button selectMainWindow_btn;
+
+    @FXML
+    private Button selectParamWindow_btn;
+
+    @FXML
+    private Button selectRoomWindow_btn;
+
+    @FXML
+    private Button selectStaffWindow_btn;
+
+    @FXML
+    private Button selectStatisticalWindow_btn;
 
     @FXML
     private Button customerWindow_btn;
@@ -276,6 +308,9 @@ public class MainWindow_Controller implements Initializable {
 
     @FXML
     private Label username_label;
+    
+    @FXML
+    private TableColumn<NHANVIEN,Void> colControlStaff;
 
 	
     
@@ -284,9 +319,9 @@ public class MainWindow_Controller implements Initializable {
     // Đặt username với username_label
 	public void initData(String username) {
 		this.username = username;
-		NHANVIEN nhanVien = NHANVIEN_BLL.layTenNhanVien(username);
+		NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
         username_label.setText(nhanVien.getTENNV());
-        dashBoard_form.setVisible(true);
+        
     }
 
 	
@@ -304,101 +339,260 @@ public class MainWindow_Controller implements Initializable {
 	}
 	//Chuyển động giữa các giao diện
 	
-	public void changeSceneRoomWindow() {
-		staffWindow_form.setVisible(false);
-		paramWindow_form.setVisible(false);
-		dashBoard_form.setVisible(false);
-		roomWindow_form.setVisible(true);
-		customerWindow_form.setVisible(false);	
-		statisticalWindow_form.setVisible(false);
-		bookRoomWindow_form.setVisible(false);
-		billWindow_form.setVisible(false);
+	public void changeSceneRoomWindow() {		
+		Platform.runLater(() -> {
+			staffWindow_form.setVisible(false);
+    		paramWindow_form.setVisible(false);
+    		dashBoard_form.setVisible(false);
+    		roomWindow_form.setVisible(true);
+    		customerWindow_form.setVisible(false);	
+    		statisticalWindow_form.setVisible(false);
+    		bookRoomWindow_form.setVisible(false);
+    		billWindow_form.setVisible(false);
+    		
+    		selectMainWindow_btn.setVisible(false);
+    		selectRoomWindow_btn.setVisible(true);
+    		selectCustomerWindow_btn.setVisible(false);
+    		selectStaffWindow_btn.setVisible(false);
+    		selectParamWindow_btn.setVisible(false);
+    		selectStatisticalWindow_btn.setVisible(false);
+    		selectBookRoomWindow_btn.setVisible(false);
+    		selectBillWindow_btn.setVisible(false);
+    		
+    		mainWindow_btn.setVisible(true);
+    		roomWindow_btn.setVisible(false);
+    		customerWindow_btn.setVisible(true);
+    		staffWindow_btn.setVisible(true);
+    		paramWindow_btn.setVisible(true);
+    		statisticalWindow_btn.setVisible(true);
+    		bookRoomWindow_btn.setVisible(true);
+    		billWindow_btn.setVisible(true);
+	    });     
 	}
 	
-	public void changeSceneDashBoardWindow() {
-		staffWindow_form.setVisible(false);
-		paramWindow_form.setVisible(false);
-		dashBoard_form.setVisible(true);
-		roomWindow_form.setVisible(false);
-		customerWindow_form.setVisible(false);	
-		statisticalWindow_form.setVisible(false);
-		bookRoomWindow_form.setVisible(false);
-		billWindow_form.setVisible(false);
+	public void changeSceneDashBoardWindow() {		
+        Platform.runLater(() -> {
+        	staffWindow_form.setVisible(false);
+    		paramWindow_form.setVisible(false);
+    		dashBoard_form.setVisible(true);
+    		roomWindow_form.setVisible(false);
+    		customerWindow_form.setVisible(false);	
+    		statisticalWindow_form.setVisible(false);
+    		bookRoomWindow_form.setVisible(false);
+    		billWindow_form.setVisible(false);
+    		
+    		selectMainWindow_btn.setVisible(true);
+    		selectRoomWindow_btn.setVisible(false);
+    		selectCustomerWindow_btn.setVisible(false);
+    		selectStaffWindow_btn.setVisible(false);
+    		selectParamWindow_btn.setVisible(false);
+    		selectStatisticalWindow_btn.setVisible(false);
+    		selectBookRoomWindow_btn.setVisible(false);
+    		selectBillWindow_btn.setVisible(false);
+    		
+    		mainWindow_btn.setVisible(false);
+    		room_btn.setVisible(true);
+    		customerWindow_btn.setVisible(true);
+    		staffWindow_btn.setVisible(true);
+    		paramWindow_btn.setVisible(true);
+    		statisticalWindow_btn.setVisible(true);
+    		bookRoomWindow_btn.setVisible(true);
+    		billWindow_btn.setVisible(true);
+            
+        });
+		
+		
+		
 	}
 		
-	public void changeSceneParamWindow() {
-		staffWindow_form.setVisible(false);
-		paramWindow_form.setVisible(true);
-		dashBoard_form.setVisible(false);
-		roomWindow_form.setVisible(false);
-		customerWindow_form.setVisible(false);	
-		statisticalWindow_form.setVisible(false);
-		bookRoomWindow_form.setVisible(false);
-		billWindow_form.setVisible(false);
+	public void changeSceneParamWindow() {	
+		
+		Platform.runLater(() -> {
+			 staffWindow_form.setVisible(false);
+				paramWindow_form.setVisible(true);
+				dashBoard_form.setVisible(false);
+				roomWindow_form.setVisible(false);
+				customerWindow_form.setVisible(false);	
+				statisticalWindow_form.setVisible(false);
+				bookRoomWindow_form.setVisible(false);
+				billWindow_form.setVisible(false);
+				
+				selectMainWindow_btn.setVisible(false);
+				selectRoomWindow_btn.setVisible(false);
+				selectCustomerWindow_btn.setVisible(false);
+				selectStaffWindow_btn.setVisible(false);
+				selectParamWindow_btn.setVisible(true);
+				selectStatisticalWindow_btn.setVisible(false);
+				selectBookRoomWindow_btn.setVisible(false);
+				selectBillWindow_btn.setVisible(false);
+				
+				mainWindow_btn.setVisible(true);
+				roomWindow_btn.setVisible(true);
+				customerWindow_btn.setVisible(true);
+				staffWindow_btn.setVisible(true);
+				paramWindow_btn.setVisible(false);
+				statisticalWindow_btn.setVisible(true);
+				bookRoomWindow_btn.setVisible(true);
+				billWindow_btn.setVisible(true);
+	            
+	        });
 	}
 	
 	public void changeSceneStaffWindow() {
-		staffWindow_form.setVisible(true);
-		paramWindow_form.setVisible(false);
-		dashBoard_form.setVisible(false);
-		roomWindow_form.setVisible(false);
-		customerWindow_form.setVisible(false);	
-		statisticalWindow_form.setVisible(false);
-		bookRoomWindow_form.setVisible(false);
-		billWindow_form.setVisible(false);
-		
-		room_btn.setStyle("-fx-background-color: #FFFFFF;");
-		customer_btn.setStyle("-fx-background-color: #FFFFFF;");
-		staff_btn.setStyle("-fx-background-color: #FFFFFF;");
-		param_btn.setStyle("-fx-background-color: #FFFFFF;");
-		statistical_btn.setStyle("-fx-background-color: #FFFFFF;");
-		bookRoom_btn.setStyle("-fx-background-color: #FFFFFF;");
-		bill_btn.setStyle("-fx-background-color: #FFFFFF;");
+		Platform.runLater(() -> {
+			 	staffWindow_form.setVisible(true);
+				paramWindow_form.setVisible(false);
+				dashBoard_form.setVisible(false);
+				roomWindow_form.setVisible(false);
+				customerWindow_form.setVisible(false);	
+				statisticalWindow_form.setVisible(false);
+				bookRoomWindow_form.setVisible(false);
+				billWindow_form.setVisible(false);
+				
+				selectMainWindow_btn.setVisible(false);
+				selectRoomWindow_btn.setVisible(false);
+				selectCustomerWindow_btn.setVisible(false);
+				selectStaffWindow_btn.setVisible(true);
+				selectParamWindow_btn.setVisible(false);
+				selectStatisticalWindow_btn.setVisible(false);
+				selectBookRoomWindow_btn.setVisible(false);
+				selectBillWindow_btn.setVisible(false);
+				
+				mainWindow_btn.setVisible(true);
+				roomWindow_btn.setVisible(true);
+				customerWindow_btn.setVisible(true);
+				staffWindow_btn.setVisible(false);
+				paramWindow_btn.setVisible(true);
+				statisticalWindow_btn.setVisible(true);
+				bookRoomWindow_btn.setVisible(true);
+				billWindow_btn.setVisible(true);	            
+	        });	
+
 	}	
 	
 	public void changeSceneCustomerWindow() {
-		staffWindow_form.setVisible(false);
-		paramWindow_form.setVisible(false);
-		dashBoard_form.setVisible(false);
-		roomWindow_form.setVisible(false);
-		customerWindow_form.setVisible(true);	
-		statisticalWindow_form.setVisible(false);
-		bookRoomWindow_form.setVisible(false);
-		billWindow_form.setVisible(false);		
+		Platform.runLater(() -> {
+		 	staffWindow_form.setVisible(false);
+			paramWindow_form.setVisible(false);
+			dashBoard_form.setVisible(false);
+			roomWindow_form.setVisible(false);
+			customerWindow_form.setVisible(true);	
+			statisticalWindow_form.setVisible(false);
+			bookRoomWindow_form.setVisible(false);
+			billWindow_form.setVisible(false);
+			
+			selectMainWindow_btn.setVisible(false);
+			selectRoomWindow_btn.setVisible(false);
+			selectCustomerWindow_btn.setVisible(true);
+			selectStaffWindow_btn.setVisible(false);
+			selectParamWindow_btn.setVisible(false);
+			selectStatisticalWindow_btn.setVisible(false);
+			selectBookRoomWindow_btn.setVisible(false);
+			selectBillWindow_btn.setVisible(false);
+			
+			mainWindow_btn.setVisible(true);
+			roomWindow_btn.setVisible(true);
+			customerWindow_btn.setVisible(false);
+			staffWindow_btn.setVisible(true);
+			paramWindow_btn.setVisible(true);
+			statisticalWindow_btn.setVisible(true);
+			bookRoomWindow_btn.setVisible(true);
+			billWindow_btn.setVisible(true);	            
+        });
 	}
 	
 	public void changeSceneStatisticalWindow() {
-		staffWindow_form.setVisible(false);
-		paramWindow_form.setVisible(false);
-		dashBoard_form.setVisible(false);
-		roomWindow_form.setVisible(false);
-		customerWindow_form.setVisible(false);	
-		statisticalWindow_form.setVisible(true);
-		bookRoomWindow_form.setVisible(false);
-		billWindow_form.setVisible(false);		
+		Platform.runLater(() -> {
+		 	staffWindow_form.setVisible(false);
+			paramWindow_form.setVisible(false);
+			dashBoard_form.setVisible(false);
+			roomWindow_form.setVisible(false);
+			customerWindow_form.setVisible(false);	
+			statisticalWindow_form.setVisible(true);
+			bookRoomWindow_form.setVisible(false);
+			billWindow_form.setVisible(false);
+			
+			selectMainWindow_btn.setVisible(false);
+			selectRoomWindow_btn.setVisible(false);
+			selectCustomerWindow_btn.setVisible(false);
+			selectStaffWindow_btn.setVisible(false);
+			selectParamWindow_btn.setVisible(false);
+			selectStatisticalWindow_btn.setVisible(true);
+			selectBookRoomWindow_btn.setVisible(false);
+			selectBillWindow_btn.setVisible(false);
+			
+			mainWindow_btn.setVisible(true);
+			roomWindow_btn.setVisible(true);
+			customerWindow_btn.setVisible(true);
+			staffWindow_btn.setVisible(true);
+			paramWindow_btn.setVisible(true);
+			statisticalWindow_btn.setVisible(false);
+			bookRoomWindow_btn.setVisible(true);
+			billWindow_btn.setVisible(true);	            
+        });
 	}
 
 	public void changeSceneBillWindow() {
-		staffWindow_form.setVisible(false);
-		paramWindow_form.setVisible(false);
-		dashBoard_form.setVisible(false);
-		roomWindow_form.setVisible(false);
-		customerWindow_form.setVisible(false);	
-		statisticalWindow_form.setVisible(false);
-		bookRoomWindow_form.setVisible(false);
-		billWindow_form.setVisible(true);	
+		Platform.runLater(() -> {
+		 	staffWindow_form.setVisible(false);
+			paramWindow_form.setVisible(false);
+			dashBoard_form.setVisible(false);
+			roomWindow_form.setVisible(false);
+			customerWindow_form.setVisible(false);	
+			statisticalWindow_form.setVisible(false);
+			bookRoomWindow_form.setVisible(false);
+			billWindow_form.setVisible(true);
+			
+			selectMainWindow_btn.setVisible(false);
+			selectRoomWindow_btn.setVisible(false);
+			selectCustomerWindow_btn.setVisible(false);
+			selectStaffWindow_btn.setVisible(false);
+			selectParamWindow_btn.setVisible(false);
+			selectStatisticalWindow_btn.setVisible(false);
+			selectBookRoomWindow_btn.setVisible(false);
+			selectBillWindow_btn.setVisible(true);
+			
+			mainWindow_btn.setVisible(true);
+			roomWindow_btn.setVisible(true);
+			customerWindow_btn.setVisible(true);
+			staffWindow_btn.setVisible(true);
+			paramWindow_btn.setVisible(true);
+			statisticalWindow_btn.setVisible(true);
+			bookRoomWindow_btn.setVisible(true);
+			billWindow_btn.setVisible(false);	            
+        });
 
 	}
 	
 	public void changeSceneBookRoomWindow() {
-		staffWindow_form.setVisible(false);
-		paramWindow_form.setVisible(false);
-		dashBoard_form.setVisible(false);
-		roomWindow_form.setVisible(false);
-		customerWindow_form.setVisible(false);	
-		statisticalWindow_form.setVisible(false);
-		bookRoomWindow_form.setVisible(true);
-		billWindow_form.setVisible(false);
+		Platform.runLater(() -> {
+		 	staffWindow_form.setVisible(false);
+			paramWindow_form.setVisible(false);
+			dashBoard_form.setVisible(false);
+			roomWindow_form.setVisible(false);
+			customerWindow_form.setVisible(false);	
+			statisticalWindow_form.setVisible(false);
+			bookRoomWindow_form.setVisible(true);
+			billWindow_form.setVisible(false);
+			
+			selectMainWindow_btn.setVisible(false);
+			selectRoomWindow_btn.setVisible(false);
+			selectCustomerWindow_btn.setVisible(false);
+			selectStaffWindow_btn.setVisible(false);
+			selectParamWindow_btn.setVisible(false);
+			selectStatisticalWindow_btn.setVisible(false);
+			selectBookRoomWindow_btn.setVisible(true);
+			selectBillWindow_btn.setVisible(false);
+			
+			mainWindow_btn.setVisible(true);
+			roomWindow_btn.setVisible(true);
+			customerWindow_btn.setVisible(true);
+			staffWindow_btn.setVisible(true);
+			paramWindow_btn.setVisible(true);
+			statisticalWindow_btn.setVisible(true);
+			bookRoomWindow_btn.setVisible(false);
+			billWindow_btn.setVisible(true);	            
+        });
 	}
     //Xử lý các nút tương tác
 	private double x = 0;
@@ -406,6 +600,7 @@ public class MainWindow_Controller implements Initializable {
 	public void addCustomer() throws IOException {		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("addCustomer.fxml"));
 		Parent root = loader.load();
+		
 		
 		root.setOnMousePressed((MouseEvent event)->{            
 			x = event.getSceneX();            
@@ -419,10 +614,8 @@ public class MainWindow_Controller implements Initializable {
 		root.setOnMouseDragged((MouseEvent event)->{
 			stage.setX(event.getScreenX() - x);            
 			stage.setY(event.getScreenY() - y);       
-		});		
-				
-		String css = this.getClass().getResource("/Designs/addCustomer.css").toExternalForm();
-		scene.getStylesheets().add(css);
+		});			
+		
 		stage.setScene(scene);     
 		stage.show();
 	}
@@ -439,7 +632,6 @@ public class MainWindow_Controller implements Initializable {
 		Stage stage = new Stage();        
 		stage.initStyle(StageStyle.TRANSPARENT);        
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/Designs/addNhanVien.css").toExternalForm());
 		root.setOnMouseDragged((MouseEvent event)->{
 			stage.setX(event.getScreenX() - x);            
 			stage.setY(event.getScreenY() - y);       
@@ -449,9 +641,15 @@ public class MainWindow_Controller implements Initializable {
 	}
 	
 	//Xử lý phần hiện danh sách
-	public void showListCustomer() {
-		ObservableList<KHACHHANG> list = KHACHHANG_BLL.listCustomer();
-		
+	//Làm mới danh sách
+	
+	private void refresh() {
+		showListCustomer();
+		showListStaff();		
+	}
+	
+	public void showListCustomer() {		
+	    ObservableList<KHACHHANG> list = KHACHHANG_BLL.listCustomer();
 		if(colIdCustomer != null && colNameCustomer != null 
 				&& colPhoneCustomer != null && colBirthdayCustomer != null
 				&& colGenderCustomer != null && colCountryCustomer != null 
@@ -483,26 +681,175 @@ public class MainWindow_Controller implements Initializable {
 			colCccdStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("CCCD"));	
 			colBeginStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("NGAYVAOLAM"));
 			staff_table.setItems(list);			
-		}
-		list.stream().forEach(nhanvien -> {
-			System.out.println(nhanvien.getNGAYSINH());
-			System.out.println(nhanvien.getGIOITINH());
-			
+		}	
+		
+	}
+	
+	private void setupStaffTableContextMenu() {
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem editMenuItem = new MenuItem("Edit");
+        MenuItem deleteMenuItem = new MenuItem("Delete");
+        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/ellipsis_v.png")));
+        imageView.setFitWidth(12);
+        imageView.setFitHeight(12);
+        contextMenu.getItems().addAll(editMenuItem, deleteMenuItem);
+
+        editMenuItem.setOnAction(eventEditStaff -> {
+            NHANVIEN item = staff_table.getSelectionModel().getSelectedItem();           
+            if (item != null) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("editStaff.fxml"));
+                    Parent root = loader.load();
+                    
+                    root.setOnMousePressed((MouseEvent event) -> {            
+                        x = event.getSceneX();            
+                        y = event.getSceneY();    
+                    });
+                    
+                    Stage stage = new Stage();        
+                    stage.initStyle(StageStyle.TRANSPARENT);        
+                    Scene scene = new Scene(root);
+                    
+                    editStaff_Controller editStaff = loader.getController();
+					editStaff.setStaff(item); 	
+                    
+                    
+                    stage.initOwner(staff_table.getScene().getWindow());
+                    
+                    root.setOnMouseDragged((MouseEvent event) -> {
+                        stage.setX(event.getScreenX() - x);            
+                        stage.setY(event.getScreenY() - y);       
+                    });
+                    
+                    stage.setScene(scene);     
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        deleteMenuItem.setOnAction(event -> {
+            NHANVIEN item = staff_table.getSelectionModel().getSelectedItem();
+            if (item != null) {
+                // Xử lý sự kiện xóa
+                staff_table.getItems().remove(item);
+            }
+        });
+
+        colControlStaff.setCellFactory(col -> {
+			return new TableCell<NHANVIEN, Void>() {
+				private final ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/ellipsis_v.png")));				
+				private final Button button = new Button();			
+				{
+		            button.setOnAction(event -> {
+		                NHANVIEN item = getTableView().getItems().get(getIndex());
+		                if (item != null) {
+		                    Scene scene = button.getScene();
+		                    Stage stage = (Stage) scene.getWindow();
+		                    Bounds bounds = button.localToScreen(button.getBoundsInLocal());
+		                    contextMenu.show(stage, bounds.getMaxX(), bounds.getMaxY());
+		                }
+		            });
+		            imageView.setFitWidth(12);
+		            imageView.setFitHeight(12);
+		            button.setGraphic(imageView);
+		            button.setStyle("-fx-background-color: transparent;");
+		            setAlignment(Pos.CENTER);
+				}
+				
+				@Override
+				protected void updateItem(Void item, boolean empty) {
+					super.updateItem(item, empty);
+					setGraphic(empty ? null : button);
+				}
+			};
+		});
+    }
+	
+	private void setupCustomerTableContextMenu(){
+		ContextMenu contextMenu = new ContextMenu();
+		MenuItem editMenuItem = new MenuItem("Edit");
+		MenuItem deleteMenuItem = new MenuItem("Delete");		
+		contextMenu.getItems().addAll(editMenuItem, deleteMenuItem);
+		
+		editMenuItem.setOnAction(event -> {
+			KHACHHANG item = customer_table.getSelectionModel().getSelectedItem();
+			if (item != null) {
+				
+			}
+		});
+		
+		deleteMenuItem.setOnAction(event -> {
+			KHACHHANG item = customer_table.getSelectionModel().getSelectedItem();
+			if (item != null) {
+				// Xu ly xoa khach hang
+				customer_table.getItems().remove(item);
+			}
+		});
+		
+		colControlCustomer.setCellFactory(col -> {
+			return new TableCell<KHACHHANG, Void>() {
+				private final ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/ellipsis_v.png")));				
+				private final Button button = new Button();			
+				{
+		            button.setOnAction(event -> {
+		                KHACHHANG item = getTableView().getItems().get(getIndex());
+		                if (item != null) {
+		                    Scene scene = button.getScene();
+		                    Stage stage = (Stage) scene.getWindow();
+		                    Bounds bounds = button.localToScreen(button.getBoundsInLocal());
+		                    contextMenu.show(stage, bounds.getMaxX(), bounds.getMaxY());
+		                }
+		            });
+		            imageView.setFitWidth(12);
+		            imageView.setFitHeight(12);
+		            button.setGraphic(imageView);
+		            button.setStyle("-fx-background-color: transparent;");
+		            setAlignment(Pos.CENTER);
+				}
+				
+				@Override
+				protected void updateItem(Void item, boolean empty) {
+					super.updateItem(item, empty);
+					setGraphic(empty ? null : button);
+				}
+			};
 		});
 		
 	}
 	
-	
+	//Đóng phần mềm	
 	public void exit() {
 		System.exit(0);
+	}
+	
+	//Xử lý đăng xuất	
+	public void logout() {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("LoginWindow.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
 		
-		setTime();		
+		setTime();	
 		showListCustomer();
 		showListStaff();
+		setupStaffTableContextMenu();
+		setupCustomerTableContextMenu();
+		refresh();
 	}
+
+
+
+	
 
 }
