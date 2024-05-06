@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="457.0" prefWidth="686.0" stylesheets="@../Designs/LoginWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LoginWindow_Controller">
    <children>
-      <ImageView fitHeight="458.0" fitWidth="695.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="458.0" fitWidth="695.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/Login/1.png" />
          </image>
@@ -24,7 +24,7 @@
             <ColorAdjust brightness="-0.1" contrast="0.04" hue="0.11" />
          </effect>
       </ImageView>
-      <AnchorPane prefHeight="457.0" prefWidth="687.0" style="-fx-background-color: black; -fx-opacity: 0.5;">
+      <AnchorPane fx:id="main_form" prefHeight="457.0" prefWidth="687.0" style="-fx-background-color: black; -fx-opacity: 0.5;">
          <effect>
             <DropShadow height="10.0" offsetY="2.0" radius="4.5" spread="1.0" width="10.0">
                <color>

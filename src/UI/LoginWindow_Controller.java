@@ -7,16 +7,23 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import BLL.DANGNHAP_BLL;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import system.SystemMessage;
 
 
@@ -33,7 +40,7 @@ public class LoginWindow_Controller implements Initializable {
 	private double x = 0;
 	private double y = 0;
     
-     @FXML
+    @FXML
     private Button closeBtn;
 
     @FXML
@@ -41,6 +48,9 @@ public class LoginWindow_Controller implements Initializable {
 
     @FXML
     private AnchorPane main_form;
+    
+    @FXML
+    private ImageView image;
 
     @FXML
     private Button minimizeBtn;
@@ -101,13 +111,19 @@ public class LoginWindow_Controller implements Initializable {
     		main.initData(usernameTxt.getText());    		
     		
     		stage.setScene(scene);     
-    		stage.show();
-    		
+    		stage.show();   		
 
     	}
     }
 
-    
+    private int currentImageIndex = 1;
+    private final String[] imageUrls = {"Images/Login/1.png", "Images/Login/2.jpg", "Images/Login/3.jpg", "Images/Login/4.jpg"};
+
+    private void setImage(String imageUrl) {
+        // Load image from URL and set it to the ImageView
+        Image newImage = new Image(imageUrl);
+        image.setImage(newImage);
+    }
     
     public void showPassword() {
     	
@@ -132,7 +148,20 @@ public class LoginWindow_Controller implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    	// Initialize the first image
+        setImage(imageUrls[0]);
+
+        // Set up the timeline to change image every 5 seconds
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // Change to the next image
+                currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+                setImage(imageUrls[currentImageIndex]);
+            }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }    
     
 }

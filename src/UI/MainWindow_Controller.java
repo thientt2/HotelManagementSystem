@@ -8,8 +8,10 @@ import java.util.ResourceBundle;
 
 import BLL.KHACHHANG_BLL;
 import BLL.NHANVIEN_BLL;
+import DAO.KHACHHANG_DAO;
 import DTO.KHACHHANG;
 import DTO.NHANVIEN;
+import application.AlertMessage;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -23,7 +25,10 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -811,8 +816,26 @@ public class MainWindow_Controller implements Initializable {
 		deleteMenuItem.setOnAction(event -> {
 			KHACHHANG item = customer_table.getSelectionModel().getSelectedItem();
 			if (item != null) {
-				// Xu ly xoa khach hang
-				customer_table.getItems().remove(item);
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+	            alert.setTitle("Xác Nhận Xóa");
+	            alert.setHeaderText("Bạn có chắc chắn muốn xóa?");
+	            //alert.setContentText("Hành động này sẽ xóa khách hàng vĩnh viễn. Bạn có muốn tiếp tục?");
+	            ButtonType buttonTypeYes = new ButtonType("Có");
+	            ButtonType buttonTypeNo = new ButtonType("Không");
+
+	            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+	            alert.showAndWait().ifPresent(buttonType -> {
+	                if (buttonType == buttonTypeYes) {
+	                	KHACHHANG_BLL.deleteCustomer(item);
+	                    System.out.println("Xóa khách hàng...");
+	                    AlertMessage alert1 = new AlertMessage();
+	                    alert1.successMessage("Sửa thông tin khách hàng thành công!");
+	    				customer_table.getItems().remove(item);
+	                } else {
+	                    System.out.println("Hủy xóa khách hàng.");
+	                }
+	            });
 			}
 		});
 		

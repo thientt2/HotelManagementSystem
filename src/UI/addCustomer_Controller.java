@@ -2,6 +2,7 @@ package UI;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -63,7 +64,9 @@ public class addCustomer_Controller implements Initializable {
 	    	gender_combobox.setItems(listGenders);
 	    }
 	    
+
 	    public void addCustomer() throws SQLException {
+	    	//SystemMessage check = new SystemMessage();
 	    	Map<String, String> data = new HashMap<String, String>();
 	    	data.put("name", customerName_txt.getText());
 	    	data.put("cccd", cccdTxt.getText());
@@ -72,19 +75,23 @@ public class addCustomer_Controller implements Initializable {
 	    	data.put("email", email_txt.getText());
 	    	data.put("country", country_txt.getText());
 	    	data.put("gender", gender_combobox.getSelectionModel().getSelectedItem());
-	    	data.put("birthday", date_picker.getValue().toString());
-	    	
-	    	
-	    	KHACHHANG_BLL.addCustomer(data);	  
+	    	if (date_picker.getValue() != null)
+	    		data.put("birthday", date_picker.getValue().toString());
+	    	else 
+	    		data.put("birthday", "");
+	    	KHACHHANG_BLL.addCustomer(data);	
 	    	String check = SystemMessage.ERROR_MESSAGE;
 	    	AlertMessage alert = new AlertMessage();
 			if(check.equals("ERROR_EMPTY")) {
 		    	alert.errorMessage("Vui lòng điền đầy đủ thông tin!");
+		    	SystemMessage.ERROR_MESSAGE = "";
 	    	} else if(check.equals("ERROR_EMAIL")) {
-	    		alert.errorMessage("Sai định dạng xin vui lòng nhập lại!");
+	    		alert.errorMessage("Sai định dạng email xin vui lòng nhập lại!");
+	    		SystemMessage.ERROR_MESSAGE = "";
 	    	} else if(check.equals("ERROR_PHONE")) {
-		    	alert.errorMessage("Số điện thoai không được chứa kí tự và bắt đầu từ số 0!");
-	    	}else {	    		  		
+		    	alert.errorMessage("Số điện thoại không được chứa kí tự và bắt đầu bằng số 0!");
+		    	SystemMessage.ERROR_MESSAGE = "";
+	    	}else {	      		
 	    		alert.successMessage("Thêm khách hàng thành công!");
 	    		clearCustomer();	    		
 	    	}

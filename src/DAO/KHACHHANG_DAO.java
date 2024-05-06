@@ -37,7 +37,6 @@ public class KHACHHANG_DAO {
 	}
 	
 	public static void insertCustomer(Map<String, String> data) throws SQLException {
-		
 		String tenKH = data.get("name");
 		String cccd = data.get("cccd");
 		String gender = data.get("gender");
@@ -72,6 +71,68 @@ public class KHACHHANG_DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void editCustomer(Map<String, String> data) throws SQLException {
+		String maKH = data.get("id");
+		String tenKH = data.get("name");
+	    String cccd = data.get("cccd");
+	    String gender = data.get("gender");
+	    String birthday = data.get("birthday");
+	    String email = data.get("email");
+	    String phone = data.get("phone");
+	    String address = data.get("address");
+	    String country = data.get("country");
+	    Integer loaiKH;
+	    if(country.equals("Việt Nam")) {
+	        loaiKH = 1;
+	    } else {
+	        loaiKH = 2;
+	    }
+	    String sql = "UPDATE KHACHHANG SET TENKH=?, CCCD=?, GIOITINH=?, NGAYSINH=?, EMAIL=?, LOAIKH=?, DIACHI=?, SDT=?, QUOCTICH=? WHERE MAKH=?";
+	    Connection con = DatabaseConnection.connectDb();
+	    PreparedStatement pst;
+	    try {
+	        pst = con.prepareStatement(sql);
+	        pst.setString(1, tenKH);
+	        pst.setString(2, cccd);
+	        pst.setString(3, gender);
+	        pst.setString(4, birthday);
+	        pst.setString(5, email);
+	        pst.setInt(6, loaiKH);
+	        pst.setString(7, address);
+	        pst.setString(8, phone);
+	        pst.setString(9, country);
+	        pst.setString(10, maKH);
+	        pst.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
+	public static void deleteCustomer(Map<String, String> data) throws SQLException {
+//		String sql = "DELETE FROM KHACHHANG WHERE MA_KH=?";
+//	    Connection con = DatabaseConnection.connectDb();
+//	    PreparedStatement pst;
+//	    try {
+//	        pst = con.prepareStatement(sql);
+//	        pst.setString(1, customerId);
+//	        pst.executeUpdate();
+//	    } catch (SQLException e) {
+//	        e.printStackTrace();
+//	    }
+		String maKH = data.get("id");
+		String sql = "UPDATE KHACHHANG SET TINHTRANG=? WHERE MAKH=?";
+	    Connection con = DatabaseConnection.connectDb();
+	    PreparedStatement pst;
+	    try {
+	        pst = con.prepareStatement(sql);
+	        pst.setString(1, maKH);
+	        pst.setInt(2, 0);
+	        pst.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 	
 	public static KHACHHANG getLastCustomer() throws SQLException {

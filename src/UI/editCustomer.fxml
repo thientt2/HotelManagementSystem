@@ -53,7 +53,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="cccdCustomer_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Số CCCD/Passport" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                    <TextField fx:id="cccd_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Số CCCD/Passport" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -63,7 +63,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="genderCustomer_cb" layoutX="14.0" layoutY="34.0" prefHeight="40.0" prefWidth="250.0" promptText="Giới tính" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                    <ComboBox fx:id="gender_combobox" layoutX="14.0" layoutY="34.0" prefHeight="40.0" prefWidth="250.0" promptText="Giới tính" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="249.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -73,7 +73,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="birthdayCustomer_txt" layoutX="13.0" layoutY="30.0" prefHeight="40.0" prefWidth="250.0" promptText="Ngày sinh" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <DatePicker fx:id="birthday_picker" layoutX="13.0" layoutY="30.0" prefHeight="40.0" prefWidth="250.0" promptText="Ngày sinh" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                        <styleClass>
                                           <String fx:value="text-field" />
                                           <String fx:value="custom-date-picker" />
@@ -92,7 +92,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="emailCustomer_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Email" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                    <TextField fx:id="email_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Email" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -102,7 +102,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="addressCustomer_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Địa chỉ" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                    <TextField fx:id="address_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Địa chỉ" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -112,7 +112,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="phoneCustomer_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Số điện thoại" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                    <TextField fx:id="phone_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Số điện thoại" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="249.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -122,15 +122,15 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="countryCustomer_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Quốc tịch" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                    <TextField fx:id="country_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Quốc tịch" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="401.0" layoutY="359.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="40.0">
                            <children>
-                              <Button layoutX="26.0" layoutY="2.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Button layoutX="88.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Sửa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="edit_btn" layoutX="88.0" mnemonicParsing="false" onAction="#editCustomer" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Sửa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
