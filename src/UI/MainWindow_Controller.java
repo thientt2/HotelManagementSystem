@@ -827,7 +827,7 @@ public class MainWindow_Controller implements Initializable {
 
 	            alert.showAndWait().ifPresent(buttonType -> {
 	                if (buttonType == buttonTypeYes) {
-	                	KHACHHANG_BLL.deleteCustomer(item);
+	                	//KHACHHANG_BLL.deleteCustomer(item);
 	                    System.out.println("Xóa khách hàng...");
 	                    AlertMessage alert1 = new AlertMessage();
 	                    alert1.successMessage("Sửa thông tin khách hàng thành công!");

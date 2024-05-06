@@ -9,8 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane styleClass="white-bg" stylesheets="@../Designs/billBookRoom.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<AnchorPane styleClass="white-bg" stylesheets="@../Designs/billBookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane prefHeight="602.0" prefWidth="496.0">
          <children>
@@ -36,7 +35,7 @@
                         <Font name="Inter Medium" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="100.0" layoutY="145.0" text="HÓA ĐƠN THANH TOÁN" textFill="#06421b">
+                  <Label layoutX="132.0" layoutY="146.0" text="HÓA ĐƠN DỊCH VỤ" textFill="#06421b">
                      <font>
                         <Font name="Inter ExtraBold" size="25.0" />
                      </font>
@@ -103,13 +102,12 @@
                   </Label>
                   <Line endX="280.0" layoutX="197.0" layoutY="274.0" startX="-175.0" />
                   <TableView layoutX="27.0" layoutY="283.0" prefHeight="130.0" prefWidth="445.0">
-                     <columns>
-                        <TableColumn maxWidth="85.0" minWidth="85.0" prefWidth="85.0" text="Tên loại" />
-                        <TableColumn maxWidth="83.0" minWidth="83.0" prefWidth="83.0" text="Số ngày" />
-                        <TableColumn maxWidth="102.0" minWidth="102.0" prefWidth="102.0" text="Đơn giá" />
+                    <columns>
+                      <TableColumn maxWidth="155.0" minWidth="155.0" prefWidth="155.0" text="Tên dịch vụ" />
+                      <TableColumn maxWidth="102.0" minWidth="102.0" prefWidth="102.0" text="Đơn giá" />
                         <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="Số lượng" />
-                        <TableColumn maxWidth="196.0" minWidth="92.0" prefWidth="98.0" resizable="false" text="Thành tiền" />
-                     </columns>
+                        <TableColumn maxWidth="113.0" minWidth="113.0" prefWidth="113.0" text="Thành tiền" />
+                    </columns>
                   </TableView>
                   <Line endX="280.0" layoutX="197.0" layoutY="424.0" startX="-175.0" />
                   <Label layoutX="29.0" layoutY="435.0" text="Thành tiền:">
@@ -143,10 +141,10 @@
                         <Font name="Inter Medium" size="14.0" />
                      </font>
                   </Label>
-                  <AnchorPane prefHeight="40.0" prefWidth="195.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                  <AnchorPane prefHeight="40.0" prefWidth="193.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
                      <children>
                         <Button layoutX="26.0" layoutY="2.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Button layoutX="88.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="In hóa đơn" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button layoutX="88.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="92.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="In hóa đơn" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>

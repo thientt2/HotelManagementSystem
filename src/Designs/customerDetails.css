@@ -1,0 +1,22 @@
+.white-bg{
+	-fx-background-color: white;
+}
+
+.text-field{
+	-fx-background-color: transparent;
+	-fx-border-color: #858d9d;
+	-fx-border-radius: 8px;	
+	-fx-text-fill: #2b2f38;	
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter Medium";
+}
+
+.button{
+	-fx-background-color: transparent;
+	-fx-text-fill: #2b2f38;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter Medium";
+	-fx-border-color: #858D9D;
+	-fx-border-radius: 8px;
+	-fx-border-width: 1px;	
+}

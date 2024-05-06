@@ -10,14 +10,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../Designs/bookRoom.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<AnchorPane style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="438.0" prefWidth="697.0">
          <top>
             <AnchorPane prefHeight="40.0" prefWidth="200.0" styleClass="blue-bg" stylesheets="@../Designs/bookRoom.css" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="55.0" layoutY="18.0" text="Phiếu đặt phòng" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
+                  <Label layoutX="55.0" layoutY="18.0" text="Phiếu đặt phòng" textFill="WHITE" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="Inter Medium" size="20.0" />
                      </font>
