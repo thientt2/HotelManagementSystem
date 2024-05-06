@@ -396,7 +396,7 @@ public class MainWindow_Controller implements Initializable {
     		selectBillWindow_btn.setVisible(false);
     		
     		mainWindow_btn.setVisible(false);
-    		room_btn.setVisible(true);
+			roomWindow_btn.setVisible(true);
     		customerWindow_btn.setVisible(true);
     		staffWindow_btn.setVisible(true);
     		paramWindow_btn.setVisible(true);
@@ -405,9 +405,6 @@ public class MainWindow_Controller implements Initializable {
     		billWindow_btn.setVisible(true);
             
         });
-		
-		
-		
 	}
 		
 	public void changeSceneParamWindow() {	
@@ -828,6 +825,7 @@ public class MainWindow_Controller implements Initializable {
 	            alert.showAndWait().ifPresent(buttonType -> {
 	                if (buttonType == buttonTypeYes) {
 	                	//KHACHHANG_BLL.deleteCustomer(item);
+	                	//khai báo để lấy makh với item
 	                    System.out.println("Xóa khách hàng...");
 	                    AlertMessage alert1 = new AlertMessage();
 	                    alert1.successMessage("Sửa thông tin khách hàng thành công!");
