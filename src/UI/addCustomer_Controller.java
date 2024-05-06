@@ -74,16 +74,17 @@ public class addCustomer_Controller implements Initializable {
 	    	data.put("gender", gender_combobox.getSelectionModel().getSelectedItem());
 	    	data.put("birthday", date_picker.getValue().toString());
 	    	
-	    	SystemMessage check = new SystemMessage();
+	    	
+	    	KHACHHANG_BLL.addCustomer(data);	  
+	    	String check = SystemMessage.ERROR_MESSAGE;
 	    	AlertMessage alert = new AlertMessage();
-			if(check.equals("ERROR_1")) {
+			if(check.equals("ERROR_EMPTY")) {
 		    	alert.errorMessage("Vui lòng điền đầy đủ thông tin!");
 	    	} else if(check.equals("ERROR_EMAIL")) {
 	    		alert.errorMessage("Sai định dạng xin vui lòng nhập lại!");
 	    	} else if(check.equals("ERROR_PHONE")) {
 		    	alert.errorMessage("Số điện thoai không được chứa kí tự và bắt đầu từ số 0!");
-	    	}else {
-	    		KHACHHANG_BLL.addCustomer(data);	    		
+	    	}else {	    		  		
 	    		alert.successMessage("Thêm khách hàng thành công!");
 	    		clearCustomer();	    		
 	    	}

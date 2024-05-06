@@ -43,7 +43,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="customerName_txt" layoutY="33.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhâp tên khách hàng" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
+                                    <TextField fx:id="customerName_txt" layoutY="33.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhâp tên khách hàng" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

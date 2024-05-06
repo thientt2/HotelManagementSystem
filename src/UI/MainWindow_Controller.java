@@ -773,11 +773,39 @@ public class MainWindow_Controller implements Initializable {
 		MenuItem deleteMenuItem = new MenuItem("Delete");		
 		contextMenu.getItems().addAll(editMenuItem, deleteMenuItem);
 		
-		editMenuItem.setOnAction(event -> {
+		editMenuItem.setOnAction(eventEditCustomer -> {
 			KHACHHANG item = customer_table.getSelectionModel().getSelectedItem();
 			if (item != null) {
-				
-			}
+				 try {
+	                    FXMLLoader loader = new FXMLLoader(getClass().getResource("editCustomer.fxml"));
+	                    Parent root = loader.load();
+	                    
+	                    root.setOnMousePressed((MouseEvent event) -> {            
+	                        x = event.getSceneX();            
+	                        y = event.getSceneY();    
+	                    });
+	                    
+	                    Stage stage = new Stage();        
+	                    stage.initStyle(StageStyle.TRANSPARENT);        
+	                    Scene scene = new Scene(root);
+	                    
+	                    editCustomer_Controller editCustomer = loader.getController();
+						editCustomer.setCustomer(item);	                    
+	                    
+	                    stage.initOwner(staff_table.getScene().getWindow());
+	                    
+	                    root.setOnMouseDragged((MouseEvent event) -> {
+	                        stage.setX(event.getScreenX() - x);            
+	                        stage.setY(event.getScreenY() - y);       
+	                    });
+	                    
+	                    stage.setScene(scene);     
+	                    stage.show();
+	                } catch (IOException e) {
+	                    e.printStackTrace();
+	                }
+			}				
+			
 		});
 		
 		deleteMenuItem.setOnAction(event -> {

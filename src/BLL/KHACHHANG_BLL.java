@@ -37,5 +37,7 @@ public class KHACHHANG_BLL {
 		}		
 	}
 	
+	
+	
 	public static KHACHHANG getLastCustomer() throws SQLException {return KHACHHANG_DAO.getLastCustomer();}
 }

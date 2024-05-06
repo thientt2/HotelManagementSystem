@@ -3,15 +3,13 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -27,9 +25,9 @@
                <children>
                   <AnchorPane prefHeight="63.0" prefWidth="1103.0" styleClass="white-bg" stylesheets="@../Designs/MainWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label styleClass="logo" text="La Opera Hotel" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="5.0">
+                        <Label styleClass="logo" stylesheets="@../Designs/MainWindow.css" text="La Opera Hotel" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="5.0">
                            <font>
-                              <Font size="48.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
                         <FontAwesomeIcon glyphName="CALENDAR" layoutX="499.0" layoutY="34.0" size="20" stroke="WHITE" strokeWidth="0.0" styleClass="icon" wrappingWidth="11.428571701049805" />
@@ -55,7 +53,7 @@
                <children>
                   <AnchorPane prefHeight="561.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="413.0" prefWidth="166.0" spacing="12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="CENTER" prefHeight="413.0" prefWidth="166.0" spacing="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                            <children>
                               <AnchorPane prefHeight="40.0" prefWidth="165.0">
                                  <children>
@@ -359,39 +357,36 @@
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="541.0" prefWidth="904.0" style="-fx-background-color: white; -fx-background-radius: 7;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <children>
-                              <Button fx:id="addCustomer_btn" layoutX="59.0" layoutY="17.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #E8F1FD;" text="Thêm khách hàng" textFill="#0f50aa">
+                              <Button fx:id="addCustomer_btn" layoutX="59.0" layoutY="17.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #E8F1FD;" text="Thêm khách hàng" textFill="#0f50aa" AnchorPane.leftAnchor="12.0">
                                  <font>
                                     <Font name="Inter SemiBold" size="13.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="468.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="77.0" style="-fx-background-color: white; -fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane-text" text="       Lọc" textAlignment="RIGHT" />
-                              <TextField alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên khách hàng">
+                              <Button graphicTextGap="10.0" layoutX="468.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="77.0" style="-fx-background-color: white; -fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane-text" text="Lọc" textAlignment="RIGHT">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="FILTER" size="18" styleClass="icon" />
+                                 </graphic>
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font></Button>
+                              <TextField layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên khách hàng" styleClass="search-text-field" stylesheets="@../Designs/MainWindow.css">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
                               <Pagination layoutY="71.0" maxPageIndicatorCount="7" pageCount="7" prefHeight="476.0" prefWidth="890.0" styleClass="pane-text" AnchorPane.bottomAnchor="10.0" />
-                              <FontAwesomeIcon glyphName="FILTER" layoutX="481.0" layoutY="41.0" size="18" styleClass="icon" />
-                              <ImageView fitHeight="20.0" fitWidth="21.0" layoutX="581.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Images/discover.png" />
-                                 </image>
-                                 <effect>
-                                    <ColorAdjust brightness="0.41" contrast="-0.52" hue="0.34" saturation="-0.22" />
-                                 </effect>
-                              </ImageView>
                               <ScrollPane layoutY="84.0" prefHeight="350.0" prefWidth="890.0">
                                  <content>
-                                    <TableView fx:id="customer_table" editable="true" onSort="#showListCustomer" prefHeight="334.0" prefWidth="890.0" style="-fx-background-radius: 5; -fx-border-color: #E8F1FD; -fx-border-color: lightgrey;">
+                                    <TableView fx:id="customer_table" editable="true" onSort="#showListCustomer" prefHeight="334.0" prefWidth="890.0">
                                        <columns>
-                                          <TableColumn fx:id="colIdCustomer" prefWidth="102.0" text="Mã khách hàng" />
-                                          <TableColumn fx:id="colNameCustomer" prefWidth="139.0" text="Tên khách hàng" />
-                                          <TableColumn fx:id="colCccdCustomer" prefWidth="180.0" text="CCCD" />
-                                          <TableColumn fx:id="colGenderCustomer" minWidth="7.0" prefWidth="74.0" text="Giới tính" />
-                                          <TableColumn fx:id="colBirthdayCustomer" prefWidth="130.0" text="Ngày sinh" />
-                                          <TableColumn fx:id="colPhoneCustomer" prefWidth="140.0" text="Số điện thoại" />
-                                          <TableColumn fx:id="colCountryCustomer" prefWidth="69.0" text="Quốc tịch" />
-                                          <TableColumn fx:id="colControlCustomer" prefWidth="51.0" />
+                                          <TableColumn fx:id="colIdCustomer" prefWidth="118.0" text="Mã khách hàng" />
+                                          <TableColumn fx:id="colNameCustomer" prefWidth="148.0" text="Tên khách hàng" />
+                                          <TableColumn fx:id="colCccdCustomer" prefWidth="140.0" text="CCCD" />
+                                          <TableColumn fx:id="colGenderCustomer" minWidth="7.0" prefWidth="90.0" text="Giới tính" />
+                                          <TableColumn fx:id="colBirthdayCustomer" prefWidth="119.0" text="Ngày sinh" />
+                                          <TableColumn fx:id="colPhoneCustomer" prefWidth="129.0" text="Số điện thoại" />
+                                          <TableColumn fx:id="colCountryCustomer" prefWidth="96.0" text="Quốc tịch" />
+                                          <TableColumn fx:id="colControlCustomer" prefWidth="46.0" />
                                        </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -399,6 +394,12 @@
                                     </TableView>
                                  </content>
                               </ScrollPane>
+                              <CheckBox layoutX="214.0" layoutY="24.0" mnemonicParsing="false" text="Khách hàng gần đây" />
+                              <FontAwesomeIcon glyphName="SEARCH" layoutX="576.0" layoutY="41.0" size="1.5em" strokeWidth="0.5" tabSize="7">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </FontAwesomeIcon>
                            </children>
                         </AnchorPane>
                      </children>
@@ -407,13 +408,19 @@
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: white; -fx-background-radius: 7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button layoutX="59.0" layoutY="17.0" mnemonicParsing="false" onAction="#addStaff" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #E8F1FD;" text="Thêm nhân viên" textFill="#0f50aa">
+                              <Button layoutX="59.0" layoutY="17.0" mnemonicParsing="false" onAction="#addStaff" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD;" text="Thêm nhân viên" textFill="#0f50aa" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font name="Inter SemiBold" size="13.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="468.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="77.0" style="-fx-background-color: white; -fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane-text" text="       Lọc" textAlignment="RIGHT" />
-                              <TextField alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên nhân viên">
+                              <Button graphicTextGap="10.0" layoutX="468.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="77.0" style="-fx-background-color: white; -fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane-text" text="Lọc" textAlignment="RIGHT">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="FILTER" size="18" styleClass="icon" />
+                                 </graphic>
+                                 <font>
+                                    <Font name="Inter Medium" size="16.0" />
+                                 </font></Button>
+                              <TextField alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên nhân viên" styleClass="search-text-field" stylesheets="@../Designs/MainWindow.css">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -421,15 +428,6 @@
                               <Pagination layoutY="71.0" maxPageIndicatorCount="7" pageCount="7" prefHeight="426.0" prefWidth="890.0" styleClass="pane-text" />
                               <Button contentDisplay="CENTER" layoutX="259.0" layoutY="445.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="78.0" text="&lt; Previous" />
                               <Button layoutX="553.0" layoutY="445.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="78.0" text="After &gt;" />
-                              <FontAwesomeIcon glyphName="FILTER" layoutX="481.0" layoutY="41.0" size="18" styleClass="icon" />
-                              <ImageView fitHeight="20.0" fitWidth="21.0" layoutX="581.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Images/discover.png" />
-                                 </image>
-                                 <effect>
-                                    <ColorAdjust brightness="0.41" contrast="-0.52" hue="0.34" saturation="-0.22" />
-                                 </effect>
-                              </ImageView>
                               <ScrollPane layoutY="84.0" prefHeight="350.0" prefWidth="890.0">
                                  <content>
                                     <TableView fx:id="staff_table" editable="true" prefHeight="334.0" prefWidth="890.0" style="-fx-background-radius: 5; -fx-border-color: #E8F1FD; -fx-border-color: lightgrey;">
@@ -448,40 +446,133 @@
                                     </TableView>
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="182.0" layoutY="17.0" mnemonicParsing="false" onAction="#addStaff" prefHeight="36.0" prefWidth="113.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD;" text="Cấp tài khoản" textFill="#0f50aa">
+                                 <font>
+                                    <Font name="Inter SemiBold" size="13.0" />
+                                 </font>
+                              </Button>
+                              <FontAwesomeIcon glyphName="SEARCH" layoutX="573.0" layoutY="42.0" size="20" />
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="roomWindow_form" prefHeight="561.0" prefWidth="917.0" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="531.0" prefWidth="134.0" spacing="30.0" styleClass="pane" stylesheets="@../Designs/RoomWindow.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                        <AnchorPane layoutX="20.0" layoutY="15.0" prefHeight="511.0" prefWidth="159.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="selected-button" text="Tất cả tầng" />
-                              <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 1" />
-                              <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 2" />
-                              <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 3" />
-                              <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 4" />
-                              <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 5" />
-                              <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 6" />
-                              <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 7" />
+                              <VBox alignment="CENTER" prefHeight="531.0" prefWidth="159.0" spacing="22.0" styleClass="pane" stylesheets="@../Designs/RoomWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="selected-button" text="Tất cả tầng" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 1" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 2" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 3" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 4" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 5" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 6" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Tầng 7" />
+                                    <Button alignment="CENTER" layoutX="27.0" layoutY="449.0" mnemonicParsing="false" prefWidth="100.0" text="Tầng 8" />
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <TableView layoutX="298.0" layoutY="-59.0" prefHeight="508.0" prefWidth="671.0" stylesheets="@../Designs/RoomWindow.css" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-                           <columns>
-                              <TableColumn prefWidth="85.06670838594437" text="Mã phòng" />
-                              <TableColumn prefWidth="100.0" text="Loại phòng" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="100.0" text="Trạng thái" />
-                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="541.0" prefWidth="724.0" styleClass="pane" stylesheets="@../Designs/MainWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView prefHeight="508.0" prefWidth="671.0" stylesheets="@../Designs/RoomWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                                 <columns>
+                                    <TableColumn prefWidth="85.06670838594437" text="Mã phòng" />
+                                    <TableColumn prefWidth="178.0" text="Loại phòng" />
+                                    <TableColumn prefWidth="177.0" text="Trạng thái" />
+                                    <TableColumn prefWidth="107.0" text="Dọn dẹp" />
+                                    <TableColumn prefWidth="111.0" text="Trả phòng" />
+                                    <TableColumn prefWidth="51.0" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <Button layoutY="16.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="65.0" style="-fx-background-color: #FEF4E6; -fx-text-fill: #F9A63A;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đã đặt" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="16.0">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="97.0" layoutY="16.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="60.0" style="-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Trống" AnchorPane.topAnchor="16.0">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="173.0" layoutY="16.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="132.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Chưa dọn dẹp" AnchorPane.topAnchor="16.0">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="321.0" layoutY="16.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đang được sử dụng" AnchorPane.topAnchor="16.0">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="602.0" layoutY="9.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #1570EF;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đặt dịch vụ" textFill="WHITE" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="bookRoomWindow_form" layoutX="10.0" layoutY="10.0" prefHeight="581.0" prefWidth="937.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <AnchorPane fx:id="billWindow_form" layoutX="10.0" layoutY="10.0" prefHeight="571.0" prefWidth="927.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <AnchorPane fx:id="statisticalWindow_form" prefHeight="561.0" prefWidth="917.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <AnchorPane fx:id="bookRoomWindow_form" layoutX="10.0" layoutY="10.0" prefHeight="581.0" prefWidth="937.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="pane" stylesheets="@../Designs/MainWindow.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <AnchorPane prefHeight="60.0" prefWidth="897.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button layoutX="358.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="181.0" style="-fx-background-color: #E8F1FD; -fx-border-color: #1570EF; -fx-text-fill: #0F50AA;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Check in hôm nay" AnchorPane.topAnchor="16.0" />
+                                    <Button layoutX="773.0" layoutY="9.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #1570EF; -fx-text-fill: #FFFFFF;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đặt phòng" AnchorPane.topAnchor="16.0" />
+                                 </children>
+                              </AnchorPane>
+                              <TableView layoutX="177.0" layoutY="151.0" prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                                <columns>
+                                  <TableColumn maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Mã phiếu" />
+                                  <TableColumn maxWidth="177.0" minWidth="177.0" prefWidth="177.0" text="Tên khách hàng" />
+                                    <TableColumn maxWidth="114.0" minWidth="100.0" prefWidth="114.0" text="Loại phòng" />
+                                    <TableColumn maxWidth="152.0" minWidth="121.0" prefWidth="152.0" text="Ngày nhận phòng" />
+                                    <TableColumn maxWidth="184.0" minWidth="104.0" prefWidth="163.0" text="Ngày trả phòng" />
+                                    <TableColumn maxWidth="188.0" minWidth="71.0" prefWidth="137.0" text="Nhận phòng" />
+                                    <TableColumn maxWidth="168.0" minWidth="51.0" prefWidth="62.0" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="billWindow_form" layoutX="10.0" layoutY="10.0" prefHeight="571.0" prefWidth="927.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="561.0" prefWidth="917.0" styleClass="pane" stylesheets="@../Designs/MainWindow.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <AnchorPane prefHeight="50.0" prefWidth="897.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <CheckBox layoutX="25.0" layoutY="14.0" mnemonicParsing="false" text="Hóa đơn hiện tại" />
+                                    <Button layoutX="219.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Chưa thanh toán" />
+                                    <Button layoutX="375.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đã thanh toán" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <TableView layoutX="53.0" layoutY="46.0" prefHeight="491.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn maxWidth="82.0" minWidth="82.0" prefWidth="82.0" text="Mã HD" />
+                                        <TableColumn maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Số phòng" />
+                                          <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Tiền dịch vụ" />
+                                          <TableColumn maxWidth="103.0" minWidth="103.0" prefWidth="103.0" text="Tiền phụ thu" />
+                                          <TableColumn maxWidth="166.0" minWidth="166.0" prefWidth="166.0" text="Thời gian check-in" />
+                                          <TableColumn maxWidth="166.0" minWidth="166.0" prefWidth="166.0" text="Thời gian check-out" />
+                                          <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="In hóa đơn" />
+                                          <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="statisticalWindow_form" prefHeight="561.0" prefWidth="917.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="92.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" styleClass="pane" stylesheets="@../Designs/MainWindow.css" />
+                     </children></AnchorPane>
                   <AnchorPane fx:id="paramWindow_form" prefHeight="561.0" prefWidth="917.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane prefHeight="550.0" prefWidth="917.0" style="-fx-background-color: lightgrey;">

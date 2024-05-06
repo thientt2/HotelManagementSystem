@@ -1,6 +1,8 @@
 package UI;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -33,7 +35,7 @@ public class editStaff_Controller implements Initializable{
 	    private TextField email_txt;
 
 	    @FXML
-	    private TextField gender_txt;	
+	    private ComboBox<String> gender_cb;	
 
 	    @FXML
 	    private ComboBox<String> staffType_cb;
@@ -53,37 +55,31 @@ public class editStaff_Controller implements Initializable{
 	        staffType_cb.setItems(listStaffTypes);
 	    }
 	    
-	    private NHANVIEN nhanVien;
-	    public void setStaff(NHANVIEN item) {
-			try {
-				nhanVien = item.clone();
-			} catch (CloneNotSupportedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 	    
-//	    public void setUpStaff() {
-//	    	name_txt.setText(nhanVien.getTENNV());
-//	    	phoneNumber_txt.setText(nhanVien.getSDT());
-//	    	address_txt.setText(nhanVien.getDIACHI());
-//	    	email_txt.setText(nhanVien.getEMAIL());
-//	    	startDay_txt.setValue(nhanVien.getNGAYVAOLAM());
-//	    	birthday_txt.setValue(nhanVien.getNGAYSINH());
-//	    	cccd_txt.setText(nhanVien.getCCCD());
-//	    	gender_txt.setText(nhanVien.getGIOITINH());
-//	    	staffType_cb.setValue(nhanVien.getLOAINHANVIEN());	
-//	    }
+	    public void setStaff(NHANVIEN item) {
+			name_txt.setText(item.getTENNV());
+			phoneNumber_txt.setText(item.getSDT());
+			address_txt.setText(item.getDIACHI());
+			email_txt.setText(item.getEMAIL());
+			startDay_txt.setValue(LocalDate.parse(item.getNGAYVAOLAM(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+			birthday_txt.setValue(LocalDate.parse(item.getNGAYSINH(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+			cccd_txt.setText(item.getCCCD());
+			gender_cb.setValue(item.getGIOITINH());
+//			staffType_cb.setValue(item.getLOAINHANVIEN());
+		
+		}   
+
+	    
+	    public void editStaff() {
+	    	
+	    }
+
+	   
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		showStaffType();
-		if (nhanVien != null) {
-	        System.out.println("Name: " + nhanVien.getTENNV());
-	        System.out.println("Age: " + nhanVien.getNGAYSINH());
-	        System.out.println("Address: " + nhanVien.getDIACHI());
-	    }
+		
 	}
 
 
