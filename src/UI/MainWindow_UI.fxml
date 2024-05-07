@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -34,7 +35,7 @@
                            <children>
                               <FontAwesomeIcon fill="#a48d75" glyphName="BELL" size="20" stroke="#0d0202" strokeWidth="0.0" />
                               <Label fx:id="username_label" styleClass="pane-text" text="Trần Trung Thông" />
-                              <Circle fill="DODGERBLUE" radius="20.0" stroke="#818181" strokeType="INSIDE">
+                              <Circle fx:id="top_circle" fill="DODGERBLUE" radius="20.0" stroke="#818181" strokeType="INSIDE">
                                  <HBox.margin>
                                     <Insets right="30.0" />
                                  </HBox.margin>
@@ -322,7 +323,7 @@
                                           <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="131.0" layoutY="112.0" prefHeight="190.0" prefWidth="343.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                    <AnchorPane layoutX="131.0" layoutY="112.0" prefHeight="190.0" prefWidth="419.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                                        <children>
                                           <Label fx:id="numberOfPaymentLabel12" layoutX="15.0" layoutY="12.0" styleClass="number-payment-text" text="12 đã thanh toán" />
                                           <Label fx:id="roomTypeLabel12" layoutX="17.0" layoutY="44.0" styleClass="type-room-text" text="Standard" />
@@ -336,13 +337,14 @@
                                                 <Label styleClass="normal-text" text=" / đêm" />
                                              </children>
                                           </HBox>
-                                          <Label contentDisplay="CENTER" ellipsisString="3" layoutX="397.0" layoutY="-14.0" lineSpacing="3.0" prefHeight="46.0" prefWidth="21.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
-                                             <font>
-                                                <Font name="Cambria" size="30.0" />
-                                             </font>
-                                          </Label>
                                           <Label layoutX="145.0" layoutY="73.0" styleClass="normal-text" text="2" />
                                           <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
+                                          <Button layoutX="164.0" layoutY="12.0" mnemonicParsing="false" text="Button" />
+                                          <AnchorPane layoutX="226.0" layoutY="1.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                             </children>
+                                          </AnchorPane>
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -422,7 +424,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <Button layoutX="182.0" layoutY="17.0" mnemonicParsing="false" onAction="#addStaff" prefHeight="36.0" prefWidth="113.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD;" text="Cấp tài khoản" textFill="#0f50aa">
+                              <Button layoutX="182.0" layoutY="17.0" mnemonicParsing="false" onAction="#createUser" prefHeight="36.0" prefWidth="113.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD;" text="Cấp tài khoản" textFill="#0f50aa">
                                  <font>
                                     <Font name="Inter SemiBold" size="13.0" />
                                  </font>

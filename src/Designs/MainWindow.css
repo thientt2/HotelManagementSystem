@@ -104,7 +104,7 @@
     -fx-padding: 5px 10px;
     -fx-text-fill: #5D6679;
 	-fx-font-size: 14px;
-	-fx-font-family: "Inter-Medium";
+	-fx-font-family: "Inter-ExtraBold";
 	-fx-alignment:center-left;
 }
 
@@ -113,7 +113,7 @@
     -fx-font-weight: normal;
     -fx-text-fill: #5D6679;
 	-fx-font-size: 12px;
-	-fx-font-family: "Inter-Medium";
+	-fx-font-family: "Inter-ExtraBold";
 	-fx-alignment:center-left;	
 	-fx-border-width: 0px;
 }
@@ -123,7 +123,7 @@
 	-fx-text-fill: #5D6679;
 	-fx-font-size: 14px;
 	-fx-font-family: "Inter-Medium";
-	-fx-alignment:center-left;	
+	-fx-alignment:center;	
 	-fx-border-width: 0.8px 0px 0.8px 0px;
 	-fx-border-color: #E2E8F0;
 }
@@ -139,6 +139,14 @@
 	-fx-border-color: lightgrey;
 	
 }	
+
+.table-view .column-header .label {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 17px;
+	-fx-font-family: "Inter-ExtraBold";
+	-fx-alignment:baseline-left;
+	-fx-padding: 0 0 0 -10px;
+}
 .check-box{
 	-fx-background-color:transparent;
 	-fx-text-fill: #5D6679;

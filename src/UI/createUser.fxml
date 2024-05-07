@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.createUser_Controller">
    <children>
       <StackPane prefHeight="345.0" prefWidth="612.0">
          <children>
@@ -38,7 +38,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="40.0" prefWidth="250.0" promptText="Tên nhân viên" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <TextField fx:id="staffName_txt" prefHeight="40.0" prefWidth="250.0" promptText="Tên nhân viên" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="250.0">
@@ -48,7 +48,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="40.0" prefWidth="250.0" promptText="Vị trí việc làm" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <TextField fx:id="job_txt" prefHeight="40.0" prefWidth="250.0" promptText="Vị trí việc làm" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0">
@@ -58,8 +58,8 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="40.0" prefWidth="250.0" promptText="PhotoURL" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                    <Button layoutX="184.0" layoutY="27.0" mnemonicParsing="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+                                    <TextField fx:id="photoUrl_txt" prefHeight="40.0" prefWidth="250.0" promptText="PhotoURL" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button fx:id="openFolder_btn" layoutX="184.0" layoutY="27.0" mnemonicParsing="false" onAction="#choesePhoto" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
                                        <graphic>
                                           <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -81,7 +81,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="40.0" prefWidth="250.0" promptText="Nhập tên đăng nhập" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <TextField fx:id="username_txt" prefHeight="40.0" prefWidth="250.0" promptText="Nhập tên đăng nhập" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="250.0">
@@ -91,7 +91,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="40.0" prefWidth="250.0" promptText="Nhập mật khẩu" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <TextField fx:id="password_txt" prefHeight="40.0" prefWidth="250.0" promptText="Nhập mật khẩu" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0">
@@ -101,15 +101,15 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="40.0" prefWidth="250.0" promptText="Nhập lại mật khẩu" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <TextField fx:id="confirmPassword_txt" prefHeight="40.0" prefWidth="250.0" promptText="Nhập lại mật khẩu" styleClass="text-field" stylesheets="@../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="422.0" layoutY="261.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="32.0">
+                        <AnchorPane layoutX="422.0" layoutY="261.0" prefHeight="40.0" prefWidth="190.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="32.0">
                            <children>
-                              <Button layoutX="26.0" layoutY="2.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Button layoutX="88.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Sửa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="confirm_btn" layoutX="88.0" mnemonicParsing="false" onAction="#createUser" prefHeight="40.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Xác nhận" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>

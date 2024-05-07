@@ -26,5 +26,32 @@ public class LOAINHANVIEN_DAO {
 		return list;
 		
 	}
-
+	
+	public static String getStaffTypeName(int id) {
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+			String query = "SELECT * FROM LOAINHANVIEN WHERE MALOAINV = " + id;
+			ResultSet resultSet = statement.executeQuery(query);
+			if (resultSet.next()) {
+				return resultSet.getString("TENLOAINV");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static int getStaffTypeId(String name) {
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+			String query = "SELECT * FROM LOAINHANVIEN WHERE TENLOAINV = '" + name + "'";
+			ResultSet resultSet = statement.executeQuery(query);
+			if (resultSet.next()) {
+				return resultSet.getInt("MALOAINV");
+			}
+		} catch (SQLException e) {	
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

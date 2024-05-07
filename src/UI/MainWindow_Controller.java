@@ -8,10 +8,8 @@ import java.util.ResourceBundle;
 
 import BLL.KHACHHANG_BLL;
 import BLL.NHANVIEN_BLL;
-import DAO.KHACHHANG_DAO;
 import DTO.KHACHHANG;
 import DTO.NHANVIEN;
-import application.AlertMessage;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -25,10 +23,7 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -40,6 +35,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -298,6 +295,9 @@ public class MainWindow_Controller implements Initializable {
 
     @FXML
     private Label toDay;
+    
+    @FXML
+    private Circle top_circle;
 
     @FXML
     private Label typeBedLabel;
@@ -325,7 +325,12 @@ public class MainWindow_Controller implements Initializable {
 	public void initData(String username) {
 		this.username = username;
 		NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-        username_label.setText(nhanVien.getTENNV());
+        username_label.setText(nhanVien.getTENNV());      
+        
+        String path = "file:///" + nhanVien.getPHOTOURL();
+		Image image = new Image(path, 1012, 22, false, true);
+		top_circle.setFill(new ImagePattern(image));   
+        
         
     }
 
@@ -405,6 +410,9 @@ public class MainWindow_Controller implements Initializable {
     		billWindow_btn.setVisible(true);
             
         });
+		
+		
+		
 	}
 		
 	public void changeSceneParamWindow() {	
@@ -642,6 +650,41 @@ public class MainWindow_Controller implements Initializable {
 		stage.show();
 	}
 	
+	public void createUser() throws IOException {		
+		NHANVIEN item = staff_table.getSelectionModel().getSelectedItem();
+		if (item != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("createUser.fxml"));
+                Parent root = loader.load();
+                
+                root.setOnMousePressed((MouseEvent event) -> {            
+                    x = event.getSceneX();            
+                    y = event.getSceneY();    
+                });
+                
+                Stage stage = new Stage();        
+                stage.initStyle(StageStyle.TRANSPARENT);        
+                Scene scene = new Scene(root);
+                
+                createUser_Controller controller = loader.getController();
+				controller.setUser(item);
+                
+                
+                stage.initOwner(staff_table.getScene().getWindow());
+                
+                root.setOnMouseDragged((MouseEvent event) -> {
+                    stage.setX(event.getScreenX() - x);            
+                    stage.setY(event.getScreenY() - y);       
+                });
+                
+                stage.setScene(scene);     
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+	}
+	
 	//Xử lý phần hiện danh sách
 	//Làm mới danh sách
 	
@@ -734,7 +777,7 @@ public class MainWindow_Controller implements Initializable {
         deleteMenuItem.setOnAction(event -> {
             NHANVIEN item = staff_table.getSelectionModel().getSelectedItem();
             if (item != null) {
-                // Xử lý sự kiện xóa
+            	NHANVIEN_BLL.deleteStaff(item);
                 staff_table.getItems().remove(item);
             }
         });
@@ -813,27 +856,8 @@ public class MainWindow_Controller implements Initializable {
 		deleteMenuItem.setOnAction(event -> {
 			KHACHHANG item = customer_table.getSelectionModel().getSelectedItem();
 			if (item != null) {
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-	            alert.setTitle("Xác Nhận Xóa");
-	            alert.setHeaderText("Bạn có chắc chắn muốn xóa?");
-	            //alert.setContentText("Hành động này sẽ xóa khách hàng vĩnh viễn. Bạn có muốn tiếp tục?");
-	            ButtonType buttonTypeYes = new ButtonType("Có");
-	            ButtonType buttonTypeNo = new ButtonType("Không");
-
-	            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
-
-	            alert.showAndWait().ifPresent(buttonType -> {
-	                if (buttonType == buttonTypeYes) {
-	                	//KHACHHANG_BLL.deleteCustomer(item);
-	                	//khai báo để lấy makh với item
-	                    System.out.println("Xóa khách hàng...");
-	                    AlertMessage alert1 = new AlertMessage();
-	                    alert1.successMessage("Sửa thông tin khách hàng thành công!");
-	    				customer_table.getItems().remove(item);
-	                } else {
-	                    System.out.println("Hủy xóa khách hàng.");
-	                }
-	            });
+				// Xu ly xoa khach hang
+				customer_table.getItems().remove(item);
 			}
 		});
 		
@@ -885,6 +909,8 @@ public class MainWindow_Controller implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	

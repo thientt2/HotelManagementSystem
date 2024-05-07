@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import BLL.LOAINHANVIEN_BLL;
+import BLL.NHANVIEN_BLL;
 import DTO.NHANVIEN;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,8 +66,7 @@ public class editStaff_Controller implements Initializable{
 			birthday_txt.setValue(LocalDate.parse(item.getNGAYSINH(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 			cccd_txt.setText(item.getCCCD());
 			gender_cb.setValue(item.getGIOITINH());
-//			staffType_cb.setValue(item.getLOAINHANVIEN());
-		
+			staffType_cb.setValue(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));		
 		}   
 
 	    

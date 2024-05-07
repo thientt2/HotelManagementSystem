@@ -38,11 +38,21 @@ public class NHANVIEN implements Cloneable {
 	}
 	
 	
-	
-	public NHANVIEN clone() throws CloneNotSupportedException {
-		return (NHANVIEN) super.clone();
+	public String getPHOTOURL() {
+		return PHOTOURL.get();
 	}
 	
+	public void setPHOTOURL(String pHOTOURL) {
+		PHOTOURL.set(pHOTOURL);
+	}
+	
+	public Integer getTINHTRANG() {
+		return TINHTRANG.get();
+	}
+	
+	public void setTINHTRANG(Integer tINHTRANG) {
+		TINHTRANG.set(tINHTRANG);
+	}
 	public String getMANV() {
 		return MANV.get();
 	}
