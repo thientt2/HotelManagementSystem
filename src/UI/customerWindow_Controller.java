@@ -58,6 +58,9 @@ public class customerWindow_Controller implements Initializable {
 	@FXML
     private TableView<KHACHHANG> customer_table;
 	
+    @FXML
+    private TextField searchCustomer;
+	
 	private double x = 0;
 	private double y = 0;
 	
@@ -180,12 +183,27 @@ public class customerWindow_Controller implements Initializable {
 		stage.show();
 	}
 
-
+	//Tìm kiếm khách hàng
+	public void search() {
+		searchCustomer.textProperty().addListener((observable, oldValue, newValue) -> {
+		    String searchTerm = newValue.trim();
+		    if (!searchTerm.isEmpty()) {
+		        // Thực hiện tìm kiếm khách hàng với từng ký tự nhập vào
+		        ObservableList<KHACHHANG> filteredList = KHACHHANG_BLL.searchCustomerByName(searchTerm);
+		        customer_table.setItems(filteredList);
+		    } else {
+		        // Nếu ô nhập liệu trống, hiển thị toàn bộ danh sách khách hàng
+		        showListCustomer();
+		    }
+		});
+	}
+		
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		setupCustomerTableContextMenu();
 		showListCustomer();
+		search();
 	}
 	
 

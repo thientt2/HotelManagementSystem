@@ -3,7 +3,7 @@ package DTO;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class KHACHHANG implements Cloneable{
+public class KHACHHANG{
 	
 	private SimpleStringProperty MAKH;
 	private SimpleStringProperty TENKH;
@@ -29,10 +29,6 @@ public class KHACHHANG implements Cloneable{
 		SDT = new SimpleStringProperty(sDT);
 		QUOCTICH = new SimpleStringProperty(qUOCTICH);
 		TINHTRANG = new SimpleIntegerProperty(tINHTRANG);
-	}
-	
-	public KHACHHANG clone() throws CloneNotSupportedException {
-		return (KHACHHANG) super.clone();
 	}
 	
 	public String getMAKH() {

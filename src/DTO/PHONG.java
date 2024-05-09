@@ -15,21 +15,27 @@ public class PHONG {
 		MALOAIP = new SimpleIntegerProperty(mALOAIP);
 		MATRANGTHAI = new SimpleIntegerProperty(mATRANGTHAI);
 	}
+	
 	public String getMAPHONG() {
 		return MAPHONG.get();
 	}
+	
 	public void setMAPHONG(String mAPHONG) {
 		MAPHONG.set(mAPHONG);
 	}
+	
 	public int getMALOAIP() {
 		return MALOAIP.get();
 	}
+	
 	public void setMALOAIP(int mALOAIP) {
 		MALOAIP.set(mALOAIP);
 	}
+	
 	public int getMATRANGTHAI() {
 		return MATRANGTHAI.get();
 	}
+	
 	public void setMATRANGTHAI(int mATRANGTHAI) {
 		MATRANGTHAI.set(mATRANGTHAI);
 	}

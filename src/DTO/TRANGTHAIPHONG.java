@@ -10,15 +10,19 @@ public class TRANGTHAIPHONG {
 	public int getMATRANGTHAI() {
 		return MATRANGTHAI.get();
 	}
+	
 	public void setMATRANGTHAI(int mATRANGTHAI) {
 		MATRANGTHAI.set(mATRANGTHAI);
 	}
+	
 	public String getTENTRANGTHAI() {
 		return TENTRANGTHAI.get();
 	}
+	
 	public void setTENTRANGTHAI(String tENTRANGTHAI) {
 		TENTRANGTHAI.set(tENTRANGTHAI);
 	}
+	
 	public TRANGTHAIPHONG(int mATRANGTHAI, String tENTRANGTHAI) {
 		MATRANGTHAI = new SimpleIntegerProperty(mATRANGTHAI);
 		TENTRANGTHAI = new SimpleStringProperty(tENTRANGTHAI);

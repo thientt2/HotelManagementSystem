@@ -47,7 +47,7 @@
                         <Font name="Inter Medium" size="14.0" />
                      </font>
                   </Button>
-                  <TextField layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên khách hàng" styleClass="search-text-field" stylesheets="@../Designs/CustomerWindow.css">
+                  <TextField fx:id="searchCustomer" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên khách hàng" styleClass="search-text-field" stylesheets="@../Designs/CustomerWindow.css">
                      <font>
                         <Font size="14.0" />
                      </font>

@@ -12,43 +12,7 @@ public class LOAIPHONG {
 		private SimpleIntegerProperty NGUOITOIDA;
 		private SimpleDoubleProperty DIENTICH;
 		
-		public int getMALOAI() {
-			return MALOAI.get();
-		}
-		public void setMALOAI(int mALOAI) {
-			MALOAI.set(mALOAI);;
-		}
-		public String getTENLOAI() {
-			return TENLOAI.get();
-		}
-		public void setTENLOAI(String tENLOAI) {
-			TENLOAI.set(tENLOAI);
-		}
-		public String getLOAIGIUONG() {
-			return LOAIGIUONG.get();
-		}
-		public void setLOAIGIUONG(String lOAIGIUONG) {
-			LOAIGIUONG.set(lOAIGIUONG);
-		}		
-		public double getGIA() {
-			return GIA.get();
-		}
-		public void setGIA(double gIA) {
-			GIA.set(gIA);
-		}
-		public int getNGUOITOIDA() {
-			return NGUOITOIDA.get();
-		}
-		public void setNGUOITOIDA(int nGUOITOIDA) {
-			NGUOITOIDA.set(nGUOITOIDA);;
-		}
-		public double getDIENTICH() {
-			return DIENTICH.get();
-		}
-		public void setDIENTICH(double dIENTICH) {
-			DIENTICH.set(dIENTICH);
-		}
-		public LOAIPHONG(int mALOAI, String tENLOAI, String lOAIGIUONG,double gIA, int nGUOITOIDA, double dIENTICH) {
+		public LOAIPHONG(int mALOAI, String tENLOAI, String lOAIGIUONG, Double gIA, Integer nGUOITOIDA, Double dIENTICH) {
 			MALOAI = new SimpleIntegerProperty(mALOAI);
 			TENLOAI = new SimpleStringProperty(tENLOAI);
 			LOAIGIUONG = new SimpleStringProperty(lOAIGIUONG);
@@ -57,5 +21,53 @@ public class LOAIPHONG {
 			NGUOITOIDA = new SimpleIntegerProperty(nGUOITOIDA);
 		}
 		
-
+		public Integer getMALOAI() {
+			return MALOAI.get();
+		}
+		
+		public void setMALOAI(Integer mALOAI) {
+			MALOAI.set(mALOAI);
+		}
+		
+		public String getTENLOAI() {
+			return TENLOAI.get();
+		}
+		
+		
+		public void setTENLOAI(String tENLOAI) {
+			TENLOAI.set(tENLOAI);
+		}
+		
+		public String getLOAIGIUONG() {
+			return LOAIGIUONG.get();
+		}
+		
+		public void setLOAIGIUONG(String lOAIGIUONG) {
+			LOAIGIUONG.set(lOAIGIUONG);
+		}		
+		
+		public Double getGIA() {
+			return GIA.get();
+		}
+		
+		public void setGIA(Double gIA) {
+			GIA.set(gIA);
+		}
+		
+		public Integer getNGUOITOIDA() {
+			return NGUOITOIDA.get();
+		}
+		
+		public void setNGUOITOIDA(Integer nGUOITOIDA) {
+			NGUOITOIDA.set(nGUOITOIDA);
+		}
+		
+		public Double getDIENTICH() {
+			return DIENTICH.get();
+		}
+		
+		public void setDIENTICH(Double dIENTICH) {
+			DIENTICH.set(dIENTICH);
+		}
+		
 }
