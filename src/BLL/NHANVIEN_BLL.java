@@ -33,6 +33,33 @@ public class NHANVIEN_BLL {
 		}
 	}
 	
+	public static void editStaff(Map<String, String> data) {
+		String staffName = data.get("name");
+		String birthday = data.get("birthday");
+		String gender = data.get("gender");
+		String cccd = data.get("cccd");
+		String email = data.get("email");
+		String phone = data.get("phone");	
+		String address = data.get("address");
+		String startDay = data.get("startDay");
+		int type = Integer.parseInt(data.get("job"));
+		
+		String regexEmail = "^(.+)@(\\S+)$";
+		String regexPhong = "^0[1-9][0-9]{8,9}$";
+		
+		if(staffName.isEmpty() || birthday.isEmpty() || gender.isEmpty() 
+				|| cccd.isEmpty() || email.isEmpty() || phone.isEmpty() 
+				|| address.isEmpty() || startDay.isEmpty() || type == 0) {
+			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
+		}else if(Pattern.matches(regexEmail, email) == false) {
+			SystemMessage.ERROR_MESSAGE = "ERROR_EMAIL";
+		}else if(Pattern.matches(regexPhong, phone) == false) {
+			SystemMessage.ERROR_MESSAGE = "ERROR_PHONE";
+		}else {
+			NHANVIEN_DAO.editStaff(data);
+		}	
+	}
+	
 	public static void insertStaff(Map<String, String> data) {
 		String staffName = data.get("name");
 		String birthday = data.get("birthday");
@@ -61,4 +88,5 @@ public class NHANVIEN_BLL {
 	public static void deleteStaff(NHANVIEN nhanVien) {
 		NHANVIEN_DAO.deleteStaff(nhanVien);
 	}
+	
 }

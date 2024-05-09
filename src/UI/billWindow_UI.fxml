@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="541.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="billWindow_form" prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="541.0" prefWidth="897.0" styleClass="pane" stylesheets="@../Designs/MainWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane prefHeight="50.0" prefWidth="897.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <CheckBox layoutX="25.0" layoutY="14.0" mnemonicParsing="false" text="Hóa đơn hiện tại" />
+                        <Button layoutX="219.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Chưa thanh toán" />
+                        <Button layoutX="375.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đã thanh toán" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                     <children>
+                        <TableView layoutX="53.0" layoutY="46.0" prefHeight="491.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn maxWidth="82.0" minWidth="82.0" prefWidth="82.0" text="Mã HD" />
+                              <TableColumn maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Số phòng" />
+                              <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Tiền dịch vụ" />
+                              <TableColumn maxWidth="124.0" minWidth="103.0" prefWidth="124.0" text="Tiền phụ thu" />
+                              <TableColumn maxWidth="198.0" minWidth="166.0" prefWidth="166.0" text="Thời gian check-in" />
+                              <TableColumn maxWidth="185.0" minWidth="153.0" prefWidth="164.0" text="Thời gian check-out" />
+                              <TableColumn maxWidth="120.0" minWidth="101.0" prefWidth="101.0" text="In hóa đơn" />
+                              <TableColumn maxWidth="110.0" minWidth="100.0" prefWidth="100.0" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

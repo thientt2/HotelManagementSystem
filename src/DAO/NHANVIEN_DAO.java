@@ -72,7 +72,8 @@ public class NHANVIEN_DAO {
                e.printStackTrace();
            }
     	return nhanVien;
-    }
+    }	
+
 	
 	public static void createUser(Map<String, String> data) {
 		String staffName = data.get("staffName");
@@ -91,6 +92,7 @@ public class NHANVIEN_DAO {
 			e.printStackTrace();
 		}
 	}	
+
 	
 	public static void insertStaff(Map<String, String> data) {
 		String staffName = data.get("name");
@@ -135,5 +137,38 @@ public class NHANVIEN_DAO {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public static void editStaff(Map<String, String> data) {
+		String staffName = data.get("name");
+		String birthday = data.get("birthday");
+		String gender = data.get("gender");
+		String cccd = data.get("cccd");
+		String email = data.get("email");
+		String phone = data.get("phone");
+		String address = data.get("address");	
+		String startDay = data.get("startDay");
+		int type = Integer.parseInt(data.get("job"));
+		String staffid = data.get("staffid");
+		int status = 1;
+		
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			String query = "UPDATE NHANVIEN SET TENNV = ?, EMAIL = ?, MALOAINV = ?, CCCD = ?, NGAYSINH = ?, GIOITINH = ?, DIACHI = ?, SDT = ?, NGAYVAOLAM = ?, TINHTRANG = ? WHERE MANV = ?";
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setString(1, staffName);
+			prepare.setString(2, email);
+			prepare.setInt(3, type);
+			prepare.setString(4,cccd);
+			prepare.setString(5, birthday);
+			prepare.setString(6, gender);
+			prepare.setString(7, address);
+			prepare.setString(8, phone);
+			prepare.setString(9, startDay);
+			prepare.setInt(10, status);
+			prepare.setString(11, staffid);
+			
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

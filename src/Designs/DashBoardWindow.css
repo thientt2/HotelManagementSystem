@@ -1,0 +1,168 @@
+.top-form{
+	-fx-background-color: #fff;
+	-fx-border-color: #fff;
+	-fx-border-width: .4px .4px .3px .4px;
+}
+
+.nav-form{
+	-fx-background-color: #fff;
+}
+
+.nav-btn{
+	-fx-background-color:transparent;
+	-fx-cursor: hand;	
+	-fx-text-fill: #5d6679;
+	-fx-font-size: 20px;
+	-fx-font-family: "Inter Light";
+	-fx-alignment:center-left;
+	-fx-background-radius: 10px;
+}
+
+.nav-btn:hover{
+	-fx-background-color:#629ff4;
+}
+
+.reload-btn{
+	-fx-background-color:transparent;
+	-fx-cursor: hand;
+	}
+
+.reload-btn:hover{
+	-fx-background-color:#629ff4;
+}
+
+.logout-btn{
+	-fx-background-color: #6a5fff;
+	-fx-background-radius:20px;
+	-fx-cursor:hand;
+}
+
+.logout-btn:hover{
+	-fx-background-color: #629ff4
+}
+
+.radius{
+    -fx-background-radius: 10px;
+}
+
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
+}
+
+.close-btn{
+	-fx-background-color: transparent;
+	-fx-cursor: hand;
+}
+
+.close-btn:hover{
+	-fx-background-color:#e03f5a;
+}
+
+.minimize-btn{
+	-fx-background-color: transparent;
+	-fx-cursor: hand;
+}
+
+.minimize-btn:hover{
+	-fx-background-color: #ddd;
+}
+
+.search{
+	-fx-background-color:transparent;
+	-fx-background-radius:15px;
+	-fx-border-color:linear-gradient(to bottom right, #667085, #5d6679);
+	-fx-border-radius:15px;
+	-fx-border-width:1px;
+	-fx-padding:0px 0px 0px 20px; 
+}
+
+.search:focused{
+	-fx-border-width: 1.8px;
+}
+
+.set-text-fill{
+	-fx-text-fill: #2b2f38;
+	-fx-font-family:"Inter";
+	-fx-font-weight: 630;	
+}
+
+.icon {
+	-fx-fill: white;
+	-fx-stroke: #5D6679;
+	-fx-stroke-width: 1;
+	-fx-cursor: hand;
+}
+
+
+.selected-icon {
+	-fx-fill: white;
+	-fx-stroke: #1366D9;
+	-fx-stroke-width: 0.8;
+}
+
+.logo {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 30px;
+	-fx-font-family: "Inter Heavy";
+	-fx-font-weight: 900;
+}
+
+.selected-pane {
+	-fx-background-color: #E8F1FD;
+	-fx-background-radius: 10;
+}
+
+.pane {
+	-fx-background-color: white;
+	-fx-background-radius: 10;
+}
+
+.first-text {
+	-fx-text-fill: #858D9D;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter-Regular";
+}
+
+.second-text {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-Medium";
+}
+
+.third-text {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 26px;
+	-fx-font-family: "Inter-SemiBold";
+}
+
+.normal-text {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-Medium";
+}
+
+.type-room-text {
+	-fx-text-fill: #5D6679;
+	-fx-font-size: 22px;
+	-fx-font-family: "Inter-SemiBold";
+}
+
+.money-room-text {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 30px;
+	-fx-font-family: "Inter-SemiBold";
+}
+
+.number-payment-text {
+	-fx-text-fill: #1366D9;
+	-fx-font-size: 16px;
+	-fx-font-family: "Inter-SemiBold";
+	-fx-background-color: #B6E9D1;
+	-fx-background-radius: 4;
+	-fx-label-padding: 0.0 10 0.0 10;
+	-fx-fill: #0D824B;
+}

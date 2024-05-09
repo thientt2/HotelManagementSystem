@@ -25,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableCell;
@@ -315,6 +316,9 @@ public class MainWindow_Controller implements Initializable {
     private Label username_label;
     
     @FXML
+    private AnchorPane mainWindow;
+    
+    @FXML
     private TableColumn<NHANVIEN,Void> colControlStaff;
 
 	
@@ -351,82 +355,74 @@ public class MainWindow_Controller implements Initializable {
 	
 	public void changeSceneRoomWindow() {		
 		Platform.runLater(() -> {
-			staffWindow_form.setVisible(false);
-    		paramWindow_form.setVisible(false);
-    		dashBoard_form.setVisible(false);
-    		roomWindow_form.setVisible(true);
-    		customerWindow_form.setVisible(false);	
-    		statisticalWindow_form.setVisible(false);
-    		bookRoomWindow_form.setVisible(false);
-    		billWindow_form.setVisible(false);
+			try {
+				Parent newWindow = FXMLLoader.load(getClass().getResource("roomWindow_UI.fxml"));
+				mainWindow.getChildren().setAll(newWindow);
+				
+				selectMainWindow_btn.setVisible(false);
+	    		selectRoomWindow_btn.setVisible(true);
+	    		selectCustomerWindow_btn.setVisible(false);
+	    		selectStaffWindow_btn.setVisible(false);
+	    		selectParamWindow_btn.setVisible(false);
+	    		selectStatisticalWindow_btn.setVisible(false);
+	    		selectBookRoomWindow_btn.setVisible(false);
+	    		selectBillWindow_btn.setVisible(false);
+	    		
+	    		mainWindow_btn.setVisible(true);
+	    		roomWindow_btn.setVisible(false);
+	    		customerWindow_btn.setVisible(true);
+	    		staffWindow_btn.setVisible(true);
+	    		paramWindow_btn.setVisible(true);
+	    		statisticalWindow_btn.setVisible(true);
+	    		bookRoomWindow_btn.setVisible(true);
+	    		billWindow_btn.setVisible(true);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     		
-    		selectMainWindow_btn.setVisible(false);
-    		selectRoomWindow_btn.setVisible(true);
-    		selectCustomerWindow_btn.setVisible(false);
-    		selectStaffWindow_btn.setVisible(false);
-    		selectParamWindow_btn.setVisible(false);
-    		selectStatisticalWindow_btn.setVisible(false);
-    		selectBookRoomWindow_btn.setVisible(false);
-    		selectBillWindow_btn.setVisible(false);
     		
-    		mainWindow_btn.setVisible(true);
-    		roomWindow_btn.setVisible(false);
-    		customerWindow_btn.setVisible(true);
-    		staffWindow_btn.setVisible(true);
-    		paramWindow_btn.setVisible(true);
-    		statisticalWindow_btn.setVisible(true);
-    		bookRoomWindow_btn.setVisible(true);
-    		billWindow_btn.setVisible(true);
 	    });     
 	}
 	
 	public void changeSceneDashBoardWindow() {		
         Platform.runLater(() -> {
-        	staffWindow_form.setVisible(false);
-    		paramWindow_form.setVisible(false);
-    		dashBoard_form.setVisible(true);
-    		roomWindow_form.setVisible(false);
-    		customerWindow_form.setVisible(false);	
-    		statisticalWindow_form.setVisible(false);
-    		bookRoomWindow_form.setVisible(false);
-    		billWindow_form.setVisible(false);
-    		
-    		selectMainWindow_btn.setVisible(true);
-    		selectRoomWindow_btn.setVisible(false);
-    		selectCustomerWindow_btn.setVisible(false);
-    		selectStaffWindow_btn.setVisible(false);
-    		selectParamWindow_btn.setVisible(false);
-    		selectStatisticalWindow_btn.setVisible(false);
-    		selectBookRoomWindow_btn.setVisible(false);
-    		selectBillWindow_btn.setVisible(false);
-    		
-    		mainWindow_btn.setVisible(false);
-			roomWindow_btn.setVisible(true);
-    		customerWindow_btn.setVisible(true);
-    		staffWindow_btn.setVisible(true);
-    		paramWindow_btn.setVisible(true);
-    		statisticalWindow_btn.setVisible(true);
-    		bookRoomWindow_btn.setVisible(true);
-    		billWindow_btn.setVisible(true);
-            
+        	try {
+				Parent newWindow = FXMLLoader.load(getClass().getResource("dashBoardWindow_UI.fxml"));
+				mainWindow.getChildren().setAll(newWindow);
+				
+	    		selectMainWindow_btn.setVisible(true);
+	    		selectRoomWindow_btn.setVisible(false);
+	    		selectCustomerWindow_btn.setVisible(false);
+	    		selectStaffWindow_btn.setVisible(false);
+	    		selectParamWindow_btn.setVisible(false);
+	    		selectStatisticalWindow_btn.setVisible(false);
+	    		selectBookRoomWindow_btn.setVisible(false);
+	    		selectBillWindow_btn.setVisible(false);
+	    		
+	    		mainWindow_btn.setVisible(false);
+				roomWindow_btn.setVisible(true);
+	    		customerWindow_btn.setVisible(true);
+	    		staffWindow_btn.setVisible(true);
+	    		paramWindow_btn.setVisible(true);
+	    		statisticalWindow_btn.setVisible(true);
+	    		bookRoomWindow_btn.setVisible(true);
+	    		billWindow_btn.setVisible(true);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+        	}
         });
-		
-		
-		
 	}
 		
 	public void changeSceneParamWindow() {	
 		
 		Platform.runLater(() -> {
-			 staffWindow_form.setVisible(false);
-				paramWindow_form.setVisible(true);
-				dashBoard_form.setVisible(false);
-				roomWindow_form.setVisible(false);
-				customerWindow_form.setVisible(false);	
-				statisticalWindow_form.setVisible(false);
-				bookRoomWindow_form.setVisible(false);
-				billWindow_form.setVisible(false);
+			try {
+				Parent newWindow = FXMLLoader.load(getClass().getResource("paramWindow_UI.fxml"));
+				mainWindow.getChildren().setAll(newWindow);
 				
+
 				selectMainWindow_btn.setVisible(false);
 				selectRoomWindow_btn.setVisible(false);
 				selectCustomerWindow_btn.setVisible(false);
@@ -445,24 +441,54 @@ public class MainWindow_Controller implements Initializable {
 				bookRoomWindow_btn.setVisible(true);
 				billWindow_btn.setVisible(true);
 	            
-	        });
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			 
+	   });
 	}
 	
 	public void changeSceneStaffWindow() {
 		Platform.runLater(() -> {
-			 	staffWindow_form.setVisible(true);
-				paramWindow_form.setVisible(false);
-				dashBoard_form.setVisible(false);
-				roomWindow_form.setVisible(false);
-				customerWindow_form.setVisible(false);	
-				statisticalWindow_form.setVisible(false);
-				bookRoomWindow_form.setVisible(false);
-				billWindow_form.setVisible(false);
+			 	try {
+					Parent newWindow = FXMLLoader.load(getClass().getResource("staffWindow_UI.fxml"));
+					mainWindow.getChildren().setAll(newWindow);				
+					
+					selectMainWindow_btn.setVisible(false);
+					selectRoomWindow_btn.setVisible(false);
+					selectCustomerWindow_btn.setVisible(false);
+					selectStaffWindow_btn.setVisible(true);
+					selectParamWindow_btn.setVisible(false);
+					selectStatisticalWindow_btn.setVisible(false);
+					selectBookRoomWindow_btn.setVisible(false);
+					selectBillWindow_btn.setVisible(false);
+					
+					mainWindow_btn.setVisible(true);
+					roomWindow_btn.setVisible(true);
+					customerWindow_btn.setVisible(true);
+					staffWindow_btn.setVisible(false);
+					paramWindow_btn.setVisible(true);
+					statisticalWindow_btn.setVisible(true);
+					bookRoomWindow_btn.setVisible(true);
+					billWindow_btn.setVisible(true);	  
+			 	} catch (IOException e) {
+				 	e.printStackTrace();
+			 	}
+				          
+	        });	
+
+	}	
+	
+	public void changeSceneCustomerWindow() {
+		Platform.runLater(() -> {
+		 	try {
+		 		Parent newWindow = FXMLLoader.load(getClass().getResource("customerWindow_UI.fxml"));
+				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);
 				selectRoomWindow_btn.setVisible(false);
-				selectCustomerWindow_btn.setVisible(false);
-				selectStaffWindow_btn.setVisible(true);
+				selectCustomerWindow_btn.setVisible(true);
+				selectStaffWindow_btn.setVisible(false);
 				selectParamWindow_btn.setVisible(false);
 				selectStatisticalWindow_btn.setVisible(false);
 				selectBookRoomWindow_btn.setVisible(false);
@@ -470,427 +496,107 @@ public class MainWindow_Controller implements Initializable {
 				
 				mainWindow_btn.setVisible(true);
 				roomWindow_btn.setVisible(true);
-				customerWindow_btn.setVisible(true);
-				staffWindow_btn.setVisible(false);
+				customerWindow_btn.setVisible(false);
+				staffWindow_btn.setVisible(true);
 				paramWindow_btn.setVisible(true);
 				statisticalWindow_btn.setVisible(true);
 				bookRoomWindow_btn.setVisible(true);
-				billWindow_btn.setVisible(true);	            
-	        });	
-
-	}	
-	
-	public void changeSceneCustomerWindow() {
-		Platform.runLater(() -> {
-		 	staffWindow_form.setVisible(false);
-			paramWindow_form.setVisible(false);
-			dashBoard_form.setVisible(false);
-			roomWindow_form.setVisible(false);
-			customerWindow_form.setVisible(true);	
-			statisticalWindow_form.setVisible(false);
-			bookRoomWindow_form.setVisible(false);
-			billWindow_form.setVisible(false);
-			
-			selectMainWindow_btn.setVisible(false);
-			selectRoomWindow_btn.setVisible(false);
-			selectCustomerWindow_btn.setVisible(true);
-			selectStaffWindow_btn.setVisible(false);
-			selectParamWindow_btn.setVisible(false);
-			selectStatisticalWindow_btn.setVisible(false);
-			selectBookRoomWindow_btn.setVisible(false);
-			selectBillWindow_btn.setVisible(false);
-			
-			mainWindow_btn.setVisible(true);
-			roomWindow_btn.setVisible(true);
-			customerWindow_btn.setVisible(false);
-			staffWindow_btn.setVisible(true);
-			paramWindow_btn.setVisible(true);
-			statisticalWindow_btn.setVisible(true);
-			bookRoomWindow_btn.setVisible(true);
-			billWindow_btn.setVisible(true);	            
+				billWindow_btn.setVisible(true);	  
+		 	} catch (IOException e) {
+			 	e.printStackTrace();
+		 	}	
+			          
         });
 	}
 	
 	public void changeSceneStatisticalWindow() {
-		Platform.runLater(() -> {
-		 	staffWindow_form.setVisible(false);
-			paramWindow_form.setVisible(false);
-			dashBoard_form.setVisible(false);
-			roomWindow_form.setVisible(false);
-			customerWindow_form.setVisible(false);	
-			statisticalWindow_form.setVisible(true);
-			bookRoomWindow_form.setVisible(false);
-			billWindow_form.setVisible(false);
-			
-			selectMainWindow_btn.setVisible(false);
-			selectRoomWindow_btn.setVisible(false);
-			selectCustomerWindow_btn.setVisible(false);
-			selectStaffWindow_btn.setVisible(false);
-			selectParamWindow_btn.setVisible(false);
-			selectStatisticalWindow_btn.setVisible(true);
-			selectBookRoomWindow_btn.setVisible(false);
-			selectBillWindow_btn.setVisible(false);
-			
-			mainWindow_btn.setVisible(true);
-			roomWindow_btn.setVisible(true);
-			customerWindow_btn.setVisible(true);
-			staffWindow_btn.setVisible(true);
-			paramWindow_btn.setVisible(true);
-			statisticalWindow_btn.setVisible(false);
-			bookRoomWindow_btn.setVisible(true);
-			billWindow_btn.setVisible(true);	            
+		Platform.runLater(() -> {			
+			try {
+				Parent newWindow = FXMLLoader.load(getClass().getResource("statisticalWindow_UI.fxml"));
+				mainWindow.getChildren().setAll(newWindow);
+				
+				selectMainWindow_btn.setVisible(false);
+				selectRoomWindow_btn.setVisible(false);
+				selectCustomerWindow_btn.setVisible(false);
+				selectStaffWindow_btn.setVisible(false);
+				selectParamWindow_btn.setVisible(false);
+				selectStatisticalWindow_btn.setVisible(true);
+				selectBookRoomWindow_btn.setVisible(false);
+				selectBillWindow_btn.setVisible(false);
+				
+				mainWindow_btn.setVisible(true);
+				roomWindow_btn.setVisible(true);
+				customerWindow_btn.setVisible(true);
+				staffWindow_btn.setVisible(true);
+				paramWindow_btn.setVisible(true);
+				statisticalWindow_btn.setVisible(false);
+				bookRoomWindow_btn.setVisible(true);
+				billWindow_btn.setVisible(true);	
+			}catch (IOException e) {
+				e.printStackTrace();
+			}		 	            
         });
 	}
 
 	public void changeSceneBillWindow() {
 		Platform.runLater(() -> {
-		 	staffWindow_form.setVisible(false);
-			paramWindow_form.setVisible(false);
-			dashBoard_form.setVisible(false);
-			roomWindow_form.setVisible(false);
-			customerWindow_form.setVisible(false);	
-			statisticalWindow_form.setVisible(false);
-			bookRoomWindow_form.setVisible(false);
-			billWindow_form.setVisible(true);
-			
-			selectMainWindow_btn.setVisible(false);
-			selectRoomWindow_btn.setVisible(false);
-			selectCustomerWindow_btn.setVisible(false);
-			selectStaffWindow_btn.setVisible(false);
-			selectParamWindow_btn.setVisible(false);
-			selectStatisticalWindow_btn.setVisible(false);
-			selectBookRoomWindow_btn.setVisible(false);
-			selectBillWindow_btn.setVisible(true);
-			
-			mainWindow_btn.setVisible(true);
-			roomWindow_btn.setVisible(true);
-			customerWindow_btn.setVisible(true);
-			staffWindow_btn.setVisible(true);
-			paramWindow_btn.setVisible(true);
-			statisticalWindow_btn.setVisible(true);
-			bookRoomWindow_btn.setVisible(true);
-			billWindow_btn.setVisible(false);	            
+			try {
+				Parent newWindow = FXMLLoader.load(getClass().getResource("billWindow_UI.fxml"));
+				mainWindow.getChildren().setAll(newWindow);
+				
+				selectMainWindow_btn.setVisible(false);
+				selectRoomWindow_btn.setVisible(false);
+				selectCustomerWindow_btn.setVisible(false);
+				selectStaffWindow_btn.setVisible(false);
+				selectParamWindow_btn.setVisible(false);
+				selectStatisticalWindow_btn.setVisible(false);
+				selectBookRoomWindow_btn.setVisible(false);
+				selectBillWindow_btn.setVisible(true);
+				
+				mainWindow_btn.setVisible(true);
+				roomWindow_btn.setVisible(true);
+				customerWindow_btn.setVisible(true);
+				staffWindow_btn.setVisible(true);
+				paramWindow_btn.setVisible(true);
+				statisticalWindow_btn.setVisible(true);
+				bookRoomWindow_btn.setVisible(true);
+				billWindow_btn.setVisible(false);	  
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
         });
 
 	}
 	
 	public void changeSceneBookRoomWindow() {
 		Platform.runLater(() -> {
-		 	staffWindow_form.setVisible(false);
-			paramWindow_form.setVisible(false);
-			dashBoard_form.setVisible(false);
-			roomWindow_form.setVisible(false);
-			customerWindow_form.setVisible(false);	
-			statisticalWindow_form.setVisible(false);
-			bookRoomWindow_form.setVisible(true);
-			billWindow_form.setVisible(false);
-			
-			selectMainWindow_btn.setVisible(false);
-			selectRoomWindow_btn.setVisible(false);
-			selectCustomerWindow_btn.setVisible(false);
-			selectStaffWindow_btn.setVisible(false);
-			selectParamWindow_btn.setVisible(false);
-			selectStatisticalWindow_btn.setVisible(false);
-			selectBookRoomWindow_btn.setVisible(true);
-			selectBillWindow_btn.setVisible(false);
-			
-			mainWindow_btn.setVisible(true);
-			roomWindow_btn.setVisible(true);
-			customerWindow_btn.setVisible(true);
-			staffWindow_btn.setVisible(true);
-			paramWindow_btn.setVisible(true);
-			statisticalWindow_btn.setVisible(true);
-			bookRoomWindow_btn.setVisible(false);
-			billWindow_btn.setVisible(true);	            
-        });
-	}
-    //Xử lý các nút tương tác
-	private double x = 0;
-	private double y = 0;
-	public void addCustomer() throws IOException {		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("addCustomer.fxml"));
-		Parent root = loader.load();
-		
-		
-		root.setOnMousePressed((MouseEvent event)->{            
-			x = event.getSceneX();            
-			y = event.getSceneY();    
-		});
-		
-		Stage stage = new Stage();        
-		stage.initStyle(StageStyle.TRANSPARENT);        
-		Scene scene = new Scene(root);
-    
-		root.setOnMouseDragged((MouseEvent event)->{
-			stage.setX(event.getScreenX() - x);            
-			stage.setY(event.getScreenY() - y);       
-		});			
-		
-		stage.setScene(scene);     
-		stage.show();
-	}
-	
-	public void addStaff() throws IOException {		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("addStaff.fxml"));
-		Parent root = loader.load();
-		
-		root.setOnMousePressed((MouseEvent event)->{            
-			x = event.getSceneX();            
-			y = event.getSceneY();    
-		});
-		
-		Stage stage = new Stage();        
-		stage.initStyle(StageStyle.TRANSPARENT);        
-		Scene scene = new Scene(root);
-		root.setOnMouseDragged((MouseEvent event)->{
-			stage.setX(event.getScreenX() - x);            
-			stage.setY(event.getScreenY() - y);       
-		});		
-		stage.setScene(scene);     
-		stage.show();
-	}
-	
-	public void createUser() throws IOException {		
-		NHANVIEN item = staff_table.getSelectionModel().getSelectedItem();
-		if (item != null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("createUser.fxml"));
-                Parent root = loader.load();
-                
-                root.setOnMousePressed((MouseEvent event) -> {            
-                    x = event.getSceneX();            
-                    y = event.getSceneY();    
-                });
-                
-                Stage stage = new Stage();        
-                stage.initStyle(StageStyle.TRANSPARENT);        
-                Scene scene = new Scene(root);
-                
-                createUser_Controller controller = loader.getController();
-				controller.setUser(item);
-                
-                
-                stage.initOwner(staff_table.getScene().getWindow());
-                
-                root.setOnMouseDragged((MouseEvent event) -> {
-                    stage.setX(event.getScreenX() - x);            
-                    stage.setY(event.getScreenY() - y);       
-                });
-                
-                stage.setScene(scene);     
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-	}
-	
-	//Xử lý phần hiện danh sách
-	//Làm mới danh sách
-	
-	private void refresh() {
-		showListCustomer();
-		showListStaff();		
-	}
-	
-	public void showListCustomer() {		
-	    ObservableList<KHACHHANG> list = KHACHHANG_BLL.listCustomer();
-		if(colIdCustomer != null && colNameCustomer != null 
-				&& colPhoneCustomer != null && colBirthdayCustomer != null
-				&& colGenderCustomer != null && colCountryCustomer != null 
-				&& colCccdCustomer != null) {
-			
-			colIdCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("MAKH"));
-			colNameCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("TENKH"));
-			colPhoneCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("SDT"));						
-			colBirthdayCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("NGAYSINH"));
-			colGenderCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("GIOITINH"));
-			colCountryCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("QUOCTICH"));
-			colCccdCustomer.setCellValueFactory(new PropertyValueFactory<KHACHHANG, String>("CCCD"));
-			
-			customer_table.setItems(list);			
-		}		
-	}
-	
-	public void showListStaff() {
-		ObservableList<NHANVIEN> list = NHANVIEN_BLL.listStaff();
-		
-		if(colIdStaff != null && colNameStaff != null 
-				&& colBirthStaff != null && colGenderStaff != null 
-				&& colCccdStaff != null && colBeginStaff != null) {
-			
-			colIdStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("MANV"));
-			colNameStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("TENNV"));			
-			colBirthStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("NGAYSINH"));
-			colGenderStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("GIOITINH"));			
-			colCccdStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("CCCD"));	
-			colBeginStaff.setCellValueFactory(new PropertyValueFactory<NHANVIEN, String>("NGAYVAOLAM"));
-			staff_table.setItems(list);			
-		}	
-		
-	}
-	
-	private void setupStaffTableContextMenu() {
-        ContextMenu contextMenu = new ContextMenu();
-        MenuItem editMenuItem = new MenuItem("Edit");
-        MenuItem deleteMenuItem = new MenuItem("Delete");
-        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/ellipsis_v.png")));
-        imageView.setFitWidth(12);
-        imageView.setFitHeight(12);
-        contextMenu.getItems().addAll(editMenuItem, deleteMenuItem);
-
-        editMenuItem.setOnAction(eventEditStaff -> {
-            NHANVIEN item = staff_table.getSelectionModel().getSelectedItem();           
-            if (item != null) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("editStaff.fxml"));
-                    Parent root = loader.load();
-                    
-                    root.setOnMousePressed((MouseEvent event) -> {            
-                        x = event.getSceneX();            
-                        y = event.getSceneY();    
-                    });
-                    
-                    Stage stage = new Stage();        
-                    stage.initStyle(StageStyle.TRANSPARENT);        
-                    Scene scene = new Scene(root);
-                    
-                    editStaff_Controller editStaff = loader.getController();
-					editStaff.setStaff(item); 	
-                    
-                    
-                    stage.initOwner(staff_table.getScene().getWindow());
-                    
-                    root.setOnMouseDragged((MouseEvent event) -> {
-                        stage.setX(event.getScreenX() - x);            
-                        stage.setY(event.getScreenY() - y);       
-                    });
-                    
-                    stage.setScene(scene);     
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        deleteMenuItem.setOnAction(event -> {
-            NHANVIEN item = staff_table.getSelectionModel().getSelectedItem();
-            if (item != null) {
-            	NHANVIEN_BLL.deleteStaff(item);
-                staff_table.getItems().remove(item);
-            }
-        });
-
-        colControlStaff.setCellFactory(col -> {
-			return new TableCell<NHANVIEN, Void>() {
-				private final ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/ellipsis_v.png")));				
-				private final Button button = new Button();			
-				{
-		            button.setOnAction(event -> {
-		                NHANVIEN item = getTableView().getItems().get(getIndex());
-		                if (item != null) {
-		                    Scene scene = button.getScene();
-		                    Stage stage = (Stage) scene.getWindow();
-		                    Bounds bounds = button.localToScreen(button.getBoundsInLocal());
-		                    contextMenu.show(stage, bounds.getMaxX(), bounds.getMaxY());
-		                }
-		            });
-		            imageView.setFitWidth(12);
-		            imageView.setFitHeight(12);
-		            button.setGraphic(imageView);
-		            button.setStyle("-fx-background-color: transparent;");
-		            setAlignment(Pos.CENTER);
-				}
+			try {
+				Parent newWindow = FXMLLoader.load(getClass().getResource("bookRoomWindow_UI.fxml"));
+				mainWindow.getChildren().setAll(newWindow);				
 				
-				@Override
-				protected void updateItem(Void item, boolean empty) {
-					super.updateItem(item, empty);
-					setGraphic(empty ? null : button);
-				}
-			};
-		});
-    }
-	
-	private void setupCustomerTableContextMenu(){
-		ContextMenu contextMenu = new ContextMenu();
-		MenuItem editMenuItem = new MenuItem("Edit");
-		MenuItem deleteMenuItem = new MenuItem("Delete");		
-		contextMenu.getItems().addAll(editMenuItem, deleteMenuItem);
-		
-		editMenuItem.setOnAction(eventEditCustomer -> {
-			KHACHHANG item = customer_table.getSelectionModel().getSelectedItem();
-			if (item != null) {
-				 try {
-	                    FXMLLoader loader = new FXMLLoader(getClass().getResource("editCustomer.fxml"));
-	                    Parent root = loader.load();
-	                    
-	                    root.setOnMousePressed((MouseEvent event) -> {            
-	                        x = event.getSceneX();            
-	                        y = event.getSceneY();    
-	                    });
-	                    
-	                    Stage stage = new Stage();        
-	                    stage.initStyle(StageStyle.TRANSPARENT);        
-	                    Scene scene = new Scene(root);
-	                    
-	                    editCustomer_Controller editCustomer = loader.getController();
-						editCustomer.setCustomer(item);	                    
-	                    
-	                    stage.initOwner(staff_table.getScene().getWindow());
-	                    
-	                    root.setOnMouseDragged((MouseEvent event) -> {
-	                        stage.setX(event.getScreenX() - x);            
-	                        stage.setY(event.getScreenY() - y);       
-	                    });
-	                    
-	                    stage.setScene(scene);     
-	                    stage.show();
-	                } catch (IOException e) {
-	                    e.printStackTrace();
-	                }
-			}				
-			
-		});
-		
-		deleteMenuItem.setOnAction(event -> {
-			KHACHHANG item = customer_table.getSelectionModel().getSelectedItem();
-			if (item != null) {
-				// Xu ly xoa khach hang
-				customer_table.getItems().remove(item);
+				selectMainWindow_btn.setVisible(false);
+				selectRoomWindow_btn.setVisible(false);
+				selectCustomerWindow_btn.setVisible(false);
+				selectStaffWindow_btn.setVisible(false);
+				selectParamWindow_btn.setVisible(false);
+				selectStatisticalWindow_btn.setVisible(false);
+				selectBookRoomWindow_btn.setVisible(true);
+				selectBillWindow_btn.setVisible(false);
+				
+				mainWindow_btn.setVisible(true);
+				roomWindow_btn.setVisible(true);
+				customerWindow_btn.setVisible(true);
+				staffWindow_btn.setVisible(true);
+				paramWindow_btn.setVisible(true);
+				statisticalWindow_btn.setVisible(true);
+				bookRoomWindow_btn.setVisible(false);
+				billWindow_btn.setVisible(true);
+			}catch (IOException e) {
+				e.printStackTrace();
 			}
-		});
-		
-		colControlCustomer.setCellFactory(col -> {
-			return new TableCell<KHACHHANG, Void>() {
-				private final ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/ellipsis_v.png")));				
-				private final Button button = new Button();			
-				{
-		            button.setOnAction(event -> {
-		                KHACHHANG item = getTableView().getItems().get(getIndex());
-		                if (item != null) {
-		                    Scene scene = button.getScene();
-		                    Stage stage = (Stage) scene.getWindow();
-		                    Bounds bounds = button.localToScreen(button.getBoundsInLocal());
-		                    contextMenu.show(stage, bounds.getMaxX(), bounds.getMaxY());
-		                }
-		            });
-		            imageView.setFitWidth(12);
-		            imageView.setFitHeight(12);
-		            button.setGraphic(imageView);
-		            button.setStyle("-fx-background-color: transparent;");
-		            setAlignment(Pos.CENTER);
-				}
-				
-				@Override
-				protected void updateItem(Void item, boolean empty) {
-					super.updateItem(item, empty);
-					setGraphic(empty ? null : button);
-				}
-			};
-		});
-		
+        });
 	}
+    
 	
 	//Đóng phần mềm	
 	public void exit() {
@@ -911,16 +617,25 @@ public class MainWindow_Controller implements Initializable {
 	}
 	
 	
+	public void refresh() {
+		ContextMenu contextMenu = new ContextMenu();
+		MenuItem refreshMenuItem = new MenuItem("Refresh");
+		contextMenu.getItems().add(refreshMenuItem);
+		refreshMenuItem.setOnAction(event -> {			
+			initData(username);
+		});
+		 
+		main.setOnContextMenuRequested(event -> {
+            contextMenu.show(main, event.getScreenX(), event.getScreenY());
+        });
+		
+		
+	}
+	
 	
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {	
-		
+	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
-		showListCustomer();
-		showListStaff();
-		setupStaffTableContextMenu();
-		setupCustomerTableContextMenu();
-		refresh();
 	}
 
 

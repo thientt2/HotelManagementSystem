@@ -42,16 +42,17 @@ public class LOAINHANVIEN_DAO {
 	}
 	
 	public static int getStaffTypeId(String name) {
+		int maloainv = 0;
 		try (Connection connection = DatabaseConnection.connectDb();
 				Statement statement = connection.createStatement()) {
-			String query = "SELECT * FROM LOAINHANVIEN WHERE TENLOAINV = '" + name + "'";
+			String query = "SELECT * FROM LOAINHANVIEN WHERE TENLOAINV = N'" + name + "'";
 			ResultSet resultSet = statement.executeQuery(query);
 			if (resultSet.next()) {
-				return resultSet.getInt("MALOAINV");
+				 return maloainv = resultSet.getInt("MALOAINV");
 			}
 		} catch (SQLException e) {	
 			e.printStackTrace();
 		}
-		return 0;
+		return maloainv;
 	}
 }

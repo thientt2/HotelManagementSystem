@@ -57,7 +57,8 @@ public class editCustomer_Controller implements Initializable {
     
     private String maKH;
     
-    private String[] genders = {"Nam", "Nữ"};
+    private String[] genders = {"Nam", "Nữ"};  
+    
     
     public void showGenderList() {
     	ObservableList<String> listGenders = FXCollections.observableArrayList(genders);
@@ -80,6 +81,7 @@ public class editCustomer_Controller implements Initializable {
     		data.put("birthday", birthday_picker.getValue().toString());
     	else 
     		data.put("birthday", "");
+    	
     	KHACHHANG_BLL.editCustomer(data);	
     	String check = SystemMessage.ERROR_MESSAGE;
     	AlertMessage alert = new AlertMessage();
@@ -120,9 +122,7 @@ public class editCustomer_Controller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		showGenderList();
-		//editCustomer_Controller editCustomer = loader.getController();
-		//editCustomer.setCustomer(item); 	
-		//setCustomer(khachHang);
-		//setUpCustomer();
+		
+
 	}
 }

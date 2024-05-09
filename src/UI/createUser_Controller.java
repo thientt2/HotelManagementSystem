@@ -24,7 +24,7 @@ public class createUser_Controller implements Initializable {
     private Button cancel_btn;
 
     @FXML
-    private TextField confirmPassword_txt;
+    private PasswordField confirmPassword_txt;
 
     @FXML
     private Button confirm_btn;
@@ -36,7 +36,7 @@ public class createUser_Controller implements Initializable {
     private Button openFolder_btn;
 
     @FXML
-    private TextField password_txt;
+    private PasswordField password_txt;
 
     @FXML
     private TextField photoUrl_txt;
@@ -50,6 +50,12 @@ public class createUser_Controller implements Initializable {
     public void setUser(NHANVIEN item) {
     	staffName_txt.setText(item.getTENNV());
     	job_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
+    	if(item.getTENDANGNHAP() != null && item.getMATKHAU() != null) {
+    		username_txt.setText(item.getTENDANGNHAP());
+    		password_txt.setText(item.getMATKHAU());
+    		confirmPassword_txt.setText(item.getMATKHAU());
+    		photoUrl_txt.setText(item.getPHOTOURL());
+		}
     }
     
     public void choesePhoto() {
@@ -93,6 +99,8 @@ public class createUser_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		
+	
 		
 	}
 
