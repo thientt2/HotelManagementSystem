@@ -63,4 +63,19 @@ public class LOAIPHONG_DAO {
 		return dataList;
 	}
 
+	public static int getRoomTypeId(String name) {
+		int maloai = 0;
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+			String query = "SELECT * FROM LOAIPHONG WHERE TENLOAI = N'" + name + "'";
+			ResultSet resultSet = statement.executeQuery(query);
+			if (resultSet.next()) {
+				 return maloai = resultSet.getInt("MALOAIP");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return maloai;
+	}
+	
 }
