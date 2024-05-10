@@ -3,7 +3,9 @@ package DAO;
 import java.sql.*;
 import java.util.Map;
 
+import BLL.KHACHHANG_BLL;
 import DTO.KHACHHANG;
+import UI.customerWindow_Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -108,6 +110,8 @@ public class KHACHHANG_DAO {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	    //ObservableList<KHACHHANG> listCustomer = KHACHHANG_BLL.listCustomer();
+	    //customerWindow_Controller.showListCustomer(listCustomer);
 	}
 	
 	public static void deleteCustomer(Map<String, String> data) throws SQLException {

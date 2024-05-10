@@ -319,10 +319,11 @@ public class MainWindow_Controller implements Initializable {
     @FXML
     private AnchorPane mainWindow;
     
+	@FXML
+    private AnchorPane overlayPane;
+    
     @FXML
     private TableColumn<NHANVIEN,Void> colControlStaff;
-
-	
     
     private String username;
     
@@ -335,12 +336,9 @@ public class MainWindow_Controller implements Initializable {
         String path = "file:///" + nhanVien.getPHOTOURL();
 		Image image = new Image(path, 1012, 22, false, true);
 		top_circle.setFill(new ImagePattern(image));   
-        
-        
+      
     }
 
-	
-	
     //Đặt thời gian hiển thị
 	public void setTime() {
 	    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
@@ -381,8 +379,6 @@ public class MainWindow_Controller implements Initializable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-    		
-    		
 	    });     
 	}
 	
@@ -597,6 +593,23 @@ public class MainWindow_Controller implements Initializable {
 			}
         });
 	}
+//	public void unvisible () {
+//		Platform.runLater(() -> {
+//			try {
+//				Parent newWindow = FXMLLoader.load(getClass().getResource("MainWindow_UI.fxml"));
+//				mainWindow.getChildren().setAll(newWindow);				
+//				overlayPane.setVisible(true);
+//			}catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//        });
+//	}
+//	
+//	public void visible () {
+//		Platform.runLater(() -> {
+//			overlayPane.setVisible(false);
+//        });
+//	}
 		
 	//Đóng phần mềm	
 	public void exit() {
@@ -616,26 +629,23 @@ public class MainWindow_Controller implements Initializable {
 		}
 	}
 	
+//	public void refresh() {
+//		ContextMenu contextMenu = new ContextMenu();
+//		MenuItem refreshMenuItem = new MenuItem("Refresh");
+//		contextMenu.getItems().add(refreshMenuItem);
+//		refreshMenuItem.setOnAction(event -> {			
+//			initData(username);
+//		});		 
+//		main.setOnContextMenuRequested(event -> {
+//            contextMenu.show(main, event.getScreenX(), event.getScreenY());
+//        });
+//	}
 	
-	public void refresh() {
-		ContextMenu contextMenu = new ContextMenu();
-		MenuItem refreshMenuItem = new MenuItem("Refresh");
-		contextMenu.getItems().add(refreshMenuItem);
-		refreshMenuItem.setOnAction(event -> {			
-			initData(username);
-		});
-		 
-		main.setOnContextMenuRequested(event -> {
-            contextMenu.show(main, event.getScreenX(), event.getScreenY());
-        });
-		
-		
-	}
-	
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
+		//visible();
 	}
 
 
