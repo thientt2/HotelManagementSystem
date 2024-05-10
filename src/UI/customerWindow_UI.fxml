@@ -3,10 +3,13 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="541.0" prefWidth="897.0" stylesheets="@../Designs/CustomerWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.customerWindow_Controller">
@@ -17,21 +20,58 @@
                <children>
                   <AnchorPane layoutX="289.0" layoutY="237.0" prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                      <children>
-                        <TableView fx:id="customer_table" editable="true" onSort="#showListCustomer" prefHeight="481.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <columns>
-                              <TableColumn fx:id="colIdCustomer" prefWidth="128.0" text="Mã khách hàng" />
-                              <TableColumn fx:id="colNameCustomer" prefWidth="150.0" sortType="DESCENDING" text="Tên khách hàng" />
-                              <TableColumn fx:id="colCccdCustomer" prefWidth="139.0" text="CCCD" />
-                              <TableColumn fx:id="colGenderCustomer" minWidth="7.0" prefWidth="82.0" text="Giới tính" />
-                              <TableColumn fx:id="colBirthdayCustomer" prefWidth="121.0" text="Ngày sinh" />
-                              <TableColumn fx:id="colPhoneCustomer" prefWidth="129.0" text="Số điện thoại" />
-                              <TableColumn fx:id="colCountryCustomer" prefWidth="96.0" text="Quốc tịch" />
-                              <TableColumn fx:id="colControlCustomer" prefWidth="46.0" />
-                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
+                        <HBox alignment="CENTER" layoutX="46.0" layoutY="21.0" prefHeight="36.0" prefWidth="897.0" spacing="25.0" styleClass="pain" stylesheets="@../Designs/CustomerWindow.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="106.0" text="Mã khách hàng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="130.0" text="Tên khách hàng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="123.0" text="Số CCCD/Pasport">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="47.0" layoutY="10.0" text="Giới tính">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="82.0" text="Ngày sinh">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="47.0" layoutY="10.0" prefHeight="18.0" prefWidth="101.0" text="Số điện thoại">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="84.0" layoutY="10.0" text="Quốc tịch">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="121.0" layoutY="10.0" text="        ">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <ScrollPane layoutX="14.0" layoutY="36.0" prefHeight="433.0" prefWidth="877.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <content>
+                              <VBox fx:id="listCustomer_vbox" prefHeight="430.0" prefWidth="875.0" style="-fx-background-color: #ffff;">
+                                 <children>
+                                    <ListView fx:id="customerListView" prefHeight="446.0" prefWidth="875.0" />
+                                 </children></VBox>
+                           </content>
+                        </ScrollPane>
                      </children>
                   </AnchorPane>
                   <Button fx:id="addCustomer_btn" layoutX="59.0" layoutY="17.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #E8F1FD;" text="Thêm khách hàng" textFill="#0f50aa" AnchorPane.leftAnchor="12.0">

@@ -135,29 +135,32 @@ public class KHACHHANG_DAO {
 	    }
 	}
 	
-	public static KHACHHANG getLastCustomer() throws SQLException {
-		KHACHHANG khachhang = null;	
-		String sql = "SELECT TOP 1 * FROM KHACHHANG ORDER BY Makhachhang DESC";
-		try (Connection connection = DatabaseConnection.connectDb();
-			 Statement statement = connection.createStatement();
-			 ResultSet resultSet = statement.executeQuery(sql)) {
-			if (resultSet.next()) {
-				khachhang = new KHACHHANG(
-						 resultSet.getString("MAKH")
-						,resultSet.getString("TENKH")
-						,resultSet.getString("CCCD")
-						,resultSet.getString("GIOITINH")
-						,resultSet.getString("NGAYSINH")
-						,resultSet.getString("EMAIL")
-						,resultSet.getInt("LOAIKH")
-						,resultSet.getString("DIACHI")
-						,resultSet.getString("SDT")
-						,resultSet.getString("QUOCTICH")
-						,resultSet.getInt("TINHTRANG"));
-				return khachhang;
+	public static KHACHHANG getCustomerById(String customerId) {
+		KHACHHANG kh = null;
+		String sql = "SELECT * FROM KHACHHANG WHERE MAKH=?";
+		
+		PreparedStatement pst;
+		try(Connection con = DatabaseConnection.connectDb();) {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, customerId);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				kh = new KHACHHANG(rs.getString("MAKH")
+						,rs.getString("TENKH")
+						,rs.getString("CCCD")
+						,rs.getString("GIOITINH")
+						,rs.getString("NGAYSINH")
+						,rs.getString("EMAIL")
+						,rs.getInt("LOAIKH")
+						,rs.getString("DIACHI")
+						,rs.getString("SDT")
+						,rs.getString("QUOCTICH")
+						,rs.getInt("TINHTRANG"));
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		return khachhang;
-	}				
+		return kh;
+	}
     
 }
