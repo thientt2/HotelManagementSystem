@@ -128,8 +128,7 @@ public class customerWindow_Controller implements Initializable {
 //	}
 	
    
-    @FXML
-    private ListView<HBox> customerListView;
+    
 	public void showListCustomer() {	
 		
 		Platform.runLater(() -> {
@@ -170,22 +169,10 @@ public class customerWindow_Controller implements Initializable {
 		    			+ "	-fx-border-color:  #E8F1FD;\r\n"	    			
 		    			+ "-fx-font-size: 14px; \r\n"
 		    			+ "-fx-border-width: 0 0 2 0;");
-		    	hBoxList.add(hBox);		    
-		    }
-		    customerListView.setItems(hBoxList);   
+		    	hBoxList.add(hBox);
+		    	listCustomer_vbox.getChildren().add(hBox);
+		    }		    
 		    
-		    customerListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-		    	if (newValue != null) {
-		    		KHACHHANG selectedCustomer;
-					try {
-						selectedCustomer = extractCustomerFromHBox(newValue);
-						System.out.println("Selected Customer: " + selectedCustomer.getTENKH());
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-		    		
-		    	}
-		    });
 		});
 		
 		
