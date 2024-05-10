@@ -67,18 +67,19 @@ public class KHACHHANG_BLL {
 		KHACHHANG_DAO.deleteCustomer(data);
 	}
 	
-//	public static ObservableList<KHACHHANG> searchCustomerByName(String searchTerm) {
-//        ObservableList<KHACHHANG> filteredList = FXCollections.observableArrayList();
-//        ObservableList<KHACHHANG> customerList = KHACHHANG_DAO.listCustomer();
-//
-//        for (KHACHHANG customer : customerList) {
-//            if (customer.getTENKH().toLowerCase().contains(searchTerm.toLowerCase())) {
-//                filteredList.add(customer);
-//            }
-//        }
-//
-//        return filteredList;
-//    }
+	public static ObservableList<KHACHHANG> searchCustomerByName(String searchTerm) {
+        ObservableList<KHACHHANG> filteredList = FXCollections.observableArrayList();
+
+        ObservableList<KHACHHANG> customerList = KHACHHANG_DAO.listCustomer();
+
+        for (KHACHHANG customer : customerList) {
+            if (customer.getTENKH().toLowerCase().contains(searchTerm.toLowerCase())) {
+                filteredList.add(customer);
+            }
+        }
+
+        return filteredList;
+    }
 	
 
 	public static KHACHHANG getCustomerById(String customerId) throws SQLException {return KHACHHANG_DAO.getCustomerById(customerId);}

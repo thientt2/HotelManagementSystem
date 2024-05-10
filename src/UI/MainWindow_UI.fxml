@@ -187,6 +187,5 @@
             </AnchorPane>
          </center>
       </BorderPane>
-      <AnchorPane fx:id="overlayPane" prefHeight="611.0" prefWidth="1103.0" style="-fx-background-color: black; -fx-opacity: 0.4;" visible="false" />
    </children>
 </AnchorPane>
