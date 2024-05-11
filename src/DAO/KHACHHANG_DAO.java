@@ -123,7 +123,7 @@ public class KHACHHANG_DAO {
 //	        e.printStackTrace();
 //	    }
 		try (Connection connection = DatabaseConnection.connectDb();) {
-			String query = "UPDATE NHANVIEN SET TINHTRANG = 0  WHERE MANV = ?";
+			String query = "UPDATE KHACHHANG SET TINHTRANG = 0  WHERE MAKH = ?";
 			PreparedStatement prepare = connection.prepareStatement(query);
 			prepare.setString(1, khachHang.getMAKH());
 			prepare.executeUpdate();
