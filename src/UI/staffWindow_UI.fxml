@@ -16,7 +16,7 @@
          <children>
             <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: white; -fx-background-radius: 7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button layoutX="59.0" layoutY="17.0" mnemonicParsing="false" onAction="#addStaff" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD;" text="Thêm nhân viên" textFill="#0f50aa" AnchorPane.leftAnchor="10.0">
+                  <Button fx:id="addStaff_btn" layoutX="59.0" layoutY="17.0" mnemonicParsing="false" onAction="#addStaff" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD;" text="Thêm nhân viên" textFill="#0f50aa" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font name="Inter SemiBold" size="13.0" />
                      </font>
@@ -29,12 +29,12 @@
                         <Font name="Inter Medium" size="16.0" />
                      </font>
                   </Button>
-                  <TextField alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên nhân viên" styleClass="search-text-field" stylesheets="@../Designs/MainWindow.css">
+                  <TextField fx:id="searchStaff" alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên nhân viên" styleClass="search-text-field" stylesheets="@../Designs/MainWindow.css">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="182.0" layoutY="17.0" mnemonicParsing="false" onAction="#createUser" prefHeight="36.0" prefWidth="113.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD;" text="Cấp tài khoản" textFill="#0f50aa">
+                  <Button fx:id="addUser_btn" layoutX="182.0" layoutY="17.0" mnemonicParsing="false" onAction="#createUser" prefHeight="36.0" prefWidth="113.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD;" text="Cấp tài khoản" textFill="#0f50aa">
                      <font>
                         <Font name="Inter SemiBold" size="13.0" />
                      </font>
@@ -42,34 +42,39 @@
                   <FontAwesomeIcon glyphName="SEARCH" layoutX="573.0" layoutY="42.0" size="20" />
                   <AnchorPane layoutY="63.0" prefHeight="561.0" prefWidth="917.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" layoutX="151.0" layoutY="14.0" prefHeight="30.0" prefWidth="200.0" spacing="60.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                        <HBox alignment="CENTER_LEFT" layoutX="151.0" layoutY="14.0" prefHeight="30.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label text="Mã nhân viên">
+                              <Label prefHeight="18.0" prefWidth="106.0" text="Mã nhân viên">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="116.0" text="Tên nhân viên">
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="140.0" text="Tên nhân viên">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="100.0" layoutY="10.0" prefHeight="18.0" prefWidth="81.0" text="CCCD">
+                              <Label layoutX="100.0" layoutY="10.0" prefHeight="18.0" prefWidth="110.0" text="CCCD">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="195.0" layoutY="10.0" text="Ngày sinh">
+                              <Label layoutX="195.0" layoutY="10.0" prefHeight="18.0" prefWidth="80.0" text="Ngày sinh">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="236.0" layoutY="10.0" text="Giới tính">
+                              <Label layoutX="236.0" layoutY="10.0" prefHeight="18.0" prefWidth="60.0" text="Giới tính">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="303.0" layoutY="10.0" text="Ngày vào làm">
+                              <Label prefHeight="18.0" prefWidth="85.0" text="Số điện thoại">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="303.0" layoutY="10.0" prefHeight="18.0" prefWidth="85.0" text="Ngày vào làm">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
@@ -83,7 +88,7 @@
                         </HBox>
                         <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
                            <content>
-                              <VBox prefHeight="449.0" prefWidth="875.0" />
+                              <VBox fx:id="listStaff_vbox" prefHeight="449.0" prefWidth="875.0" />
                            </content>
                         </ScrollPane>
                      </children>

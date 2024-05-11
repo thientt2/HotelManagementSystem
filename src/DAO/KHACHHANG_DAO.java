@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.Map;
 
 import DTO.KHACHHANG;
+import DTO.NHANVIEN;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -110,7 +111,7 @@ public class KHACHHANG_DAO {
 	    }
 	}
 	
-	public static void deleteCustomer(Map<String, String> data) throws SQLException {
+	public static void deleteCustomer(KHACHHANG khachHang){
 //		String sql = "DELETE FROM KHACHHANG WHERE MA_KH=?";
 //	    Connection con = DatabaseConnection.connectDb();
 //	    PreparedStatement pst;
@@ -121,18 +122,26 @@ public class KHACHHANG_DAO {
 //	    } catch (SQLException e) {
 //	        e.printStackTrace();
 //	    }
-		String maKH = data.get("id");
-		String sql = "UPDATE KHACHHANG SET TINHTRANG=? WHERE MAKH=?";
-	    Connection con = DatabaseConnection.connectDb();
-	    PreparedStatement pst;
-	    try {
-	        pst = con.prepareStatement(sql);
-	        pst.setString(1, maKH);
-	        pst.setInt(2, 0);
-	        pst.executeUpdate();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			String query = "UPDATE NHANVIEN SET TINHTRANG = 0  WHERE MANV = ?";
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setString(1, khachHang.getMAKH());
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+//		String maKH = data.get("id");
+//		String sql = "UPDATE KHACHHANG SET TINHTRANG=? WHERE MAKH=?";
+//	    Connection con = DatabaseConnection.connectDb();
+//	    PreparedStatement pst;
+//	    try {
+//	        pst = con.prepareStatement(sql);
+//	        pst.setString(1, maKH);
+//	        pst.setInt(2, 0);
+//	        pst.executeUpdate();
+//	    } catch (SQLException e) {
+//	        e.printStackTrace();
+//	    }
 	}
 	
 	public static KHACHHANG getCustomerById(String customerId) {

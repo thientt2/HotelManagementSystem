@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="541.0" prefWidth="897.0" stylesheets="@../Designs/CustomerWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.customerWindow_Controller">
+<AnchorPane fx:id="customerWindow" prefHeight="541.0" prefWidth="897.0" stylesheets="@../Designs/CustomerWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.customerWindow_Controller">
    <children>
       <AnchorPane fx:id="customerWindow_form" layoutX="10.0" layoutY="10.0" prefHeight="630.0" prefWidth="1123.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -26,12 +26,12 @@
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="130.0" text="Tên khách hàng">
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="140.0" text="Tên khách hàng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="123.0" text="Số CCCD/Pasport">
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="115.0" text="Số CCCD/Pasport">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
@@ -46,17 +46,17 @@
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="47.0" layoutY="10.0" prefHeight="18.0" prefWidth="101.0" text="Số điện thoại">
+                              <Label layoutX="47.0" layoutY="10.0" prefHeight="18.0" prefWidth="87.0" text="Số điện thoại">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="84.0" layoutY="10.0" text="Quốc tịch">
+                              <Label layoutX="84.0" layoutY="10.0" prefHeight="18.0" prefWidth="60.0" text="Quốc tịch">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="121.0" layoutY="10.0" text="        ">
+                              <Label ellipsisString="" layoutX="121.0" layoutY="10.0" prefHeight="18.0" prefWidth="35.0" text="        ">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>

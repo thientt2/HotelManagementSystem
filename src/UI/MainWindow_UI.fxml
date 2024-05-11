@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="1103.0" stylesheets="@../Designs/MainWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainWindow_Controller">
+<AnchorPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="1103.0" stylesheets="@../Designs/MainWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainWindow_Controller">
    <children>
       <BorderPane prefHeight="611.0" prefWidth="1103.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -187,5 +187,6 @@
             </AnchorPane>
          </center>
       </BorderPane>
+      <AnchorPane fx:id="anchorPane" prefHeight="611.0" prefWidth="1103.0" style="-fx-background-color: black; -fx-opacity: 0.4;" visible="false" />
    </children>
 </AnchorPane>

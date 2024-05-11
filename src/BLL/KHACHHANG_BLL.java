@@ -62,9 +62,9 @@ public class KHACHHANG_BLL {
 		}		
 	}
 	
-	public static void deleteCustomer(Map<String, String> data) throws SQLException {
+	public static void deleteCustomer(KHACHHANG khachHang) {
 		//...
-		KHACHHANG_DAO.deleteCustomer(data);
+		KHACHHANG_DAO.deleteCustomer(khachHang);
 	}
 	
 	public static ObservableList<KHACHHANG> searchCustomerByName(String searchTerm) {

@@ -322,9 +322,19 @@ public class MainWindow_Controller implements Initializable {
     @FXML
     private TableColumn<NHANVIEN,Void> colControlStaff;
 
-	
+    @FXML
+    private AnchorPane anchorPane;
+    
+    @FXML
+    private customerWindow_Controller customerController;
     
     private String username;
+    
+    public Boolean Visible = false;
+    
+    public AnchorPane getAnchorPane() {
+        return anchorPane;
+    }
     
     // Đặt username với username_label
 	public void initData(String username) {
@@ -334,11 +344,13 @@ public class MainWindow_Controller implements Initializable {
         
         String path = "file:///" + nhanVien.getPHOTOURL();
 		Image image = new Image(path, 1012, 22, false, true);
-		top_circle.setFill(new ImagePattern(image));   
-        
-        
+		top_circle.setFill(new ImagePattern(image));             
     }
-
+	
+	public void unvisible() {
+		//Visible = true;
+		anchorPane.setVisible(Visible);
+	}
 	
 	
     //Đặt thời gian hiển thị
@@ -452,8 +464,12 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneStaffWindow() {
 		Platform.runLater(() -> {
 			 	try {
-					Parent newWindow = FXMLLoader.load(getClass().getResource("staffWindow_UI.fxml"));
-					mainWindow.getChildren().setAll(newWindow);				
+					//Parent newWindow = FXMLLoader.load(getClass().getResource("staffWindow_UI.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("staffWindow_UI.fxml"));
+		            Parent newWindow = loader.load();
+		            staffWindow_Controller controller = loader.getController();
+		            controller.setMainWindowController(this);
+					mainWindow.getChildren().setAll(newWindow);			
 					
 					selectMainWindow_btn.setVisible(false);
 					selectRoomWindow_btn.setVisible(false);
@@ -483,8 +499,13 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneCustomerWindow() {
 		Platform.runLater(() -> {
 		 	try {
-		 		Parent newWindow = FXMLLoader.load(getClass().getResource("customerWindow_UI.fxml"));
+		 		//Parent newWindow = FXMLLoader.load(getClass().getResource("customerWindow_UI.fxml"));
+		 		FXMLLoader loader = new FXMLLoader(getClass().getResource("customerWindow_UI.fxml"));
+	            Parent newWindow = loader.load();
+	            customerWindow_Controller controller = loader.getController();
+	            controller.setMainWindowController(this);
 				mainWindow.getChildren().setAll(newWindow);
+				
 				
 				selectMainWindow_btn.setVisible(false);
 				selectRoomWindow_btn.setVisible(false);
@@ -636,6 +657,8 @@ public class MainWindow_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
+		
+		
 	}
 
 
