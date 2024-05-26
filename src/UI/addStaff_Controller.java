@@ -91,12 +91,12 @@ public class addStaff_Controller implements Initializable {
 		}else {
 			NHANVIEN_BLL.insertStaff(data);
 			alert.successMessage("Thêm nhân viên thành công!");
+			clearStaff();
 		}
     	
     }
     
-    public void cancel() {
-    	Stage stage = (Stage) cancel_btn.getScene().getWindow();
+    public void clearStaff() {
     	staffName_txt.clear();	
 		birthday_datepicker.setValue(null);
 		gender_cb.setValue(null);
@@ -106,6 +106,10 @@ public class addStaff_Controller implements Initializable {
 		email_txt.clear();
 		job_cb.setValue(null);
 		startDay_datepicker.setValue(null);
+    }
+    
+    public void cancel() {
+    	Stage stage = (Stage) cancel_btn.getScene().getWindow();
     	stage.close();
 	}
 

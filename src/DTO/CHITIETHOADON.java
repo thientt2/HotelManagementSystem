@@ -1,28 +1,27 @@
 package DTO;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class PHIEUDICHVU {
-		private SimpleStringProperty MAPNP;
+public class CHITIETHOADON {
+		private SimpleStringProperty MAHD;
 		private SimpleStringProperty MADV;
 		private SimpleIntegerProperty SOLUONG;
-		private SimpleDoubleProperty TONGTIEN;
+		private SimpleIntegerProperty TONGTIEN;
 		
-		public PHIEUDICHVU(String mAPNP, String mADV, Integer sOLUONG, Double tONGTIEN) {
-			MAPNP = new SimpleStringProperty(mAPNP);
+		public CHITIETHOADON(String mAHD, String mADV, Integer sOLUONG, Integer tONGTIEN) {
+			MAHD = new SimpleStringProperty(mAHD);
 			MADV = new SimpleStringProperty(mADV);
 			SOLUONG = new SimpleIntegerProperty(sOLUONG);
-			TONGTIEN = new SimpleDoubleProperty(tONGTIEN);
+			TONGTIEN = new SimpleIntegerProperty(tONGTIEN);
 		}
 		
-		public String getMAPNP() {
-			return MAPNP.get();
+		public String getMAHD() {
+			return MAHD.get();
 		}
 		
-		public void setMAPNP(String mAPNP) {
-			MAPNP.set(mAPNP);
+		public void setMAHD(String mAHD) {
+			MAHD.set(mAHD);
 		}
 		
 		public String getMADV() {
@@ -41,11 +40,11 @@ public class PHIEUDICHVU {
 			SOLUONG.set(sOLUONG);
 		}
 		
-		public Double getTONGTIEN() {
+		public Integer getTONGTIEN() {
 			return TONGTIEN.get();
 		}
 		
-		public void setTONGTIEN(Double tONGTIEN) {
+		public void setTONGTIEN(Integer tONGTIEN) {
 			TONGTIEN.set(tONGTIEN);
 		}
 		

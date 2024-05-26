@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import BLL.KHACHHANG_BLL;
@@ -354,22 +356,60 @@ public class MainWindow_Controller implements Initializable {
 	
 	
     //Đặt thời gian hiển thị
-	public void setTime() {
-	    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-	        LocalDateTime now = LocalDateTime.now();        
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-	        String formattedDateTime = now.format(formatter);
-	        toDay.setText(formattedDateTime);
-	    }));
-	    timeline.setCycleCount(Timeline.INDEFINITE);
-	    timeline.play();
-	}
+//	public void setTime() {
+//	    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+//	        LocalDateTime now = LocalDateTime.now();        
+//	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+//	        String formattedDateTime = now.format(formatter);
+//	        toDay.setText(formattedDateTime);
+//	    }));
+//	    timeline.setCycleCount(Timeline.INDEFINITE);
+//	    timeline.play();
+//	}
+
+	enum VietnameseDayOfWeek {
+        MONDAY("Thứ Hai"),
+        TUESDAY("Thứ Ba"),
+        WEDNESDAY("Thứ Tư"),
+        THURSDAY("Thứ Năm"),
+        FRIDAY("Thứ Sáu"),
+        SATURDAY("Thứ Bảy"),
+        SUNDAY("Chủ Nhật");
+
+        private final String vietnameseName;
+        
+        VietnameseDayOfWeek(String vietnameseName) {
+            this.vietnameseName = vietnameseName;
+        }
+        
+        public String getVietnameseName() {
+            return vietnameseName;
+        }
+    }
+
+    public void setTime() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            VietnameseDayOfWeek dayOfWeek = VietnameseDayOfWeek.valueOf(now.getDayOfWeek().name());
+            String formattedDateTime = dayOfWeek.getVietnameseName() + ", " + now.format(dateFormatter);
+            toDay.setText(formattedDateTime);
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+
+    
 	//Chuyển động giữa các giao diện
 	
 	public void changeSceneRoomWindow() {		
 		Platform.runLater(() -> {
 			try {
-				Parent newWindow = FXMLLoader.load(getClass().getResource("roomWindow_UI.fxml"));
+				//Parent newWindow = FXMLLoader.load(getClass().getResource("roomWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("roomWindow_UI.fxml"));
+	            Parent newWindow = loader.load();
+	            //roomWindow_Controller controller = loader.getController();
+	            //controller.setMainWindowController(this);
 				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);
@@ -401,8 +441,12 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneDashBoardWindow() {		
         Platform.runLater(() -> {
         	try {
-				Parent newWindow = FXMLLoader.load(getClass().getResource("dashBoardWindow_UI.fxml"));
-				mainWindow.getChildren().setAll(newWindow);
+				//Parent newWindow = FXMLLoader.load(getClass().getResource("dashBoardWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("dashBoardWindow_UI.fxml"));
+	            Parent newWindow = loader.load();
+	            dashBoardWindow_Controller controller = loader.getController();
+	            //controller.setMainWindowController(this);
+				mainWindow.getChildren().setAll(newWindow);			
 				
 	    		selectMainWindow_btn.setVisible(true);
 	    		selectRoomWindow_btn.setVisible(false);
@@ -432,8 +476,12 @@ public class MainWindow_Controller implements Initializable {
 		
 		Platform.runLater(() -> {
 			try {
-				Parent newWindow = FXMLLoader.load(getClass().getResource("paramWindow_UI.fxml"));
-				mainWindow.getChildren().setAll(newWindow);
+				//Parent newWindow = FXMLLoader.load(getClass().getResource("paramWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("paramWindow_UI.fxml"));
+	            Parent newWindow = loader.load();
+	            paramWindow_Controller controller = loader.getController();
+	            controller.setMainWindowController(this);
+				mainWindow.getChildren().setAll(newWindow);			
 				
 
 				selectMainWindow_btn.setVisible(false);
@@ -534,8 +582,12 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneStatisticalWindow() {
 		Platform.runLater(() -> {			
 			try {
-				Parent newWindow = FXMLLoader.load(getClass().getResource("statisticalWindow_UI.fxml"));
-				mainWindow.getChildren().setAll(newWindow);
+				//Parent newWindow = FXMLLoader.load(getClass().getResource("statisticalWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("statisticalWindow_UI.fxml"));
+	            Parent newWindow = loader.load();
+	            statisticalWindow_Controller controller = loader.getController();
+	            //controller.setMainWindowController(this);
+				mainWindow.getChildren().setAll(newWindow);		
 				
 				selectMainWindow_btn.setVisible(false);
 				selectRoomWindow_btn.setVisible(false);
@@ -563,7 +615,11 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneBillWindow() {
 		Platform.runLater(() -> {
 			try {
-				Parent newWindow = FXMLLoader.load(getClass().getResource("billWindow_UI.fxml"));
+				//Parent newWindow = FXMLLoader.load(getClass().getResource("billWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("billWindow_UI.fxml"));
+	            Parent newWindow = loader.load();
+	            //billWindow_Controller controller = loader.getController();
+	            //controller.setMainWindowController(this);
 				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);

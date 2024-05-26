@@ -155,8 +155,8 @@ public class staffWindow_Controller implements Initializable {
 	                    stage.initStyle(StageStyle.TRANSPARENT);        
 	                    Scene scene = new Scene(root);
 
-	                    //staffDetails_Controller staffDetails = loader.getController();
-	                    //staffDetails.setStaff(clickedStaff);
+	                    staffDetails_Controller staffDetails = loader.getController();
+	                    staffDetails.setStaff(clickedStaff);
 
 	                    root.setOnMouseDragged((MouseEvent event1) -> {
 	                        stage.setX(event1.getScreenX() - x);            

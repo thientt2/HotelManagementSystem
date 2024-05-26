@@ -112,7 +112,7 @@ public class KHACHHANG_DAO {
 	}
 	
 	public static void deleteCustomer(KHACHHANG khachHang){
-//		String sql = "DELETE FROM KHACHHANG WHERE MA_KH=?";
+//		String sql = "DELETE FROM KHACHHANG WHERE MAKH=?";
 //	    Connection con = DatabaseConnection.connectDb();
 //	    PreparedStatement pst;
 //	    try {

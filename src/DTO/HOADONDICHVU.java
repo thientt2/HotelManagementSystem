@@ -1,6 +1,5 @@
 package DTO;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -9,20 +8,20 @@ public class HOADONDICHVU {
 	private SimpleStringProperty MAPNP;
 	private SimpleStringProperty NVNHAP;
 	private SimpleStringProperty NGAYTAO;
-	private SimpleDoubleProperty GIADICHVU;
-	private SimpleDoubleProperty PHUTHU;
+	private SimpleIntegerProperty GIADICHVU;
+	private SimpleIntegerProperty PHUTHU;
 	private SimpleIntegerProperty TRANGTHAI;
-	private SimpleDoubleProperty TONGTIEN;
+	private SimpleIntegerProperty TONGTIEN;
 	
-	public HOADONDICHVU(String mAHD, String mAPNP, String nVNHAP, String nGAYTAO, double gIADICHVU, double pHUTHU, int tRANGTHAI, double tONGTIEN) {
+	public HOADONDICHVU(String mAHD, String mAPNP, String nVNHAP, String nGAYTAO, Integer gIADICHVU, Integer pHUTHU, Integer tRANGTHAI, Integer tONGTIEN) {
 		MAHD = new SimpleStringProperty(mAHD);
 		MAPNP = new SimpleStringProperty(mAPNP);
 		NVNHAP = new SimpleStringProperty(nVNHAP);
 		NGAYTAO = new SimpleStringProperty(nGAYTAO);
-		GIADICHVU = new SimpleDoubleProperty(gIADICHVU);
-		PHUTHU = new SimpleDoubleProperty(pHUTHU);
+		GIADICHVU = new SimpleIntegerProperty(gIADICHVU);
+		PHUTHU = new SimpleIntegerProperty(pHUTHU);
 		TRANGTHAI = new SimpleIntegerProperty(tRANGTHAI);
-		TONGTIEN = new SimpleDoubleProperty(tONGTIEN);
+		TONGTIEN = new SimpleIntegerProperty(tONGTIEN);
 	}
 	
 	public String getMAHD() {
@@ -57,19 +56,19 @@ public class HOADONDICHVU {
 		this.NGAYTAO.set(nGAYTAO);
 	}
 	
-	public Double getGIADICHVU() {
+	public Integer getGIADICHVU() {
 		return GIADICHVU.get();
 	}
 	
-	public void setGIADICHVU(Double gIADICHVU) {
+	public void setGIADICHVU(Integer gIADICHVU) {
 		this.GIADICHVU.set(gIADICHVU);
 	}
 	
-	public Double getPHUTHU() {
+	public Integer getPHUTHU() {
 		return PHUTHU.get();
 	}
 	
-	public void setPHUTHU(Double pHUTHU) {
+	public void setPHUTHU(Integer pHUTHU) {
 		this.PHUTHU.set(pHUTHU);
 	}
 	
@@ -81,11 +80,11 @@ public class HOADONDICHVU {
 		this.TRANGTHAI.set(tRANGTHAI);
 	}
 	
-	public Double getTONGTIEN() {
+	public Integer getTONGTIEN() {
 		return TONGTIEN.get();
 	}
 	
-	public void setTONGTIEN(Double tONGTIEN) {
+	public void setTONGTIEN(Integer tONGTIEN) {
 		this.TONGTIEN.set(tONGTIEN);
 	}
 }

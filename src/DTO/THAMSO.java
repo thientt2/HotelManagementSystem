@@ -1,17 +1,17 @@
 package DTO;
 
-import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class THAMSO {
 		private SimpleStringProperty TENTHAMSO;
-		private SimpleDoubleProperty GIATRI;
+		private SimpleFloatProperty GIATRI;
 		private SimpleStringProperty MOTA;
 		private SimpleStringProperty NGAYSUA;
 		
-		public THAMSO(String tENTHAMSO, Double gIATRI, String mOTA, String nGAYSUA) {
+		public THAMSO(String tENTHAMSO, Float gIATRI, String mOTA, String nGAYSUA) {
 			TENTHAMSO = new SimpleStringProperty(tENTHAMSO);
-			GIATRI = new SimpleDoubleProperty(gIATRI);
+			GIATRI = new SimpleFloatProperty(gIATRI);
 			MOTA = new SimpleStringProperty(mOTA);
 			NGAYSUA = new SimpleStringProperty(nGAYSUA);
 		}
@@ -24,11 +24,11 @@ public class THAMSO {
 			TENTHAMSO.set(tENTHAMSO);
 		}
 		
-		public Double getGIATRI() {
+		public Float getGIATRI() {
 			return GIATRI.get();
 		}
 		
-		public void setGIATRI(Double gIATRI) {
+		public void setGIATRI(Float gIATRI) {
 			GIATRI.set(gIATRI);
 		}
 		

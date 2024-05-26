@@ -1,25 +1,25 @@
 package DTO;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleLongProperty;
 
 public class BAOCAO {
 		private SimpleIntegerProperty MALOAIP;
 		private SimpleIntegerProperty NGAY;
 		private SimpleIntegerProperty THANG;
 		private SimpleIntegerProperty NAM;
-		private SimpleDoubleProperty GIATRI;
+		private SimpleLongProperty GIATRI;
 		private SimpleIntegerProperty SOLUOTTHUE;
-		private SimpleDoubleProperty TILE;
+		private SimpleIntegerProperty TILE;
 		
-		public BAOCAO(Integer mALOAP, Integer nGAY, Integer tHANG, Integer nAM, Double gIATRI, Integer sOLUOTTHUE, Double tILE) {
+		public BAOCAO(Integer mALOAP, Integer nGAY, Integer tHANG, Integer nAM, Long gIATRI, Integer sOLUOTTHUE, Integer tILE) {
 			MALOAIP = new SimpleIntegerProperty(mALOAP);
 			NGAY = new SimpleIntegerProperty(nGAY);
 			THANG = new SimpleIntegerProperty(tHANG);
 			NAM = new SimpleIntegerProperty(nAM);
-			GIATRI = new SimpleDoubleProperty(gIATRI);
+			GIATRI = new SimpleLongProperty(gIATRI);
 			SOLUOTTHUE = new SimpleIntegerProperty(sOLUOTTHUE);
-			TILE = new SimpleDoubleProperty(tILE);
+			TILE = new SimpleIntegerProperty(tILE);
 		}
 		
 		public Integer getMALOAIP() {
@@ -54,11 +54,11 @@ public class BAOCAO {
 			NAM.set(nAM);
 		}
 		
-		public Double getGIATRI() {
+		public Long getGIATRI() {
 			return GIATRI.get();
 		}
 		
-		public void setGIATRI(Double gIATRI) {
+		public void setGIATRI(Long gIATRI) {
 			GIATRI.set(gIATRI);
 		}
 		
@@ -70,11 +70,11 @@ public class BAOCAO {
 			SOLUOTTHUE.set(sOLUOTTHUE);
 		}
 		
-		public Double getTILE() {
+		public Integer getTILE() {
 			return TILE.get();
 		}
 		
-		public void setTILE(Double tILE) {
+		public void setTILE(Integer tILE) {
 			TILE.set(tILE);
 		}
 }

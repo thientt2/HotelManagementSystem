@@ -10,18 +10,14 @@ public class PHIEUDATPHONG{
 	private SimpleStringProperty TGDAT;
 	private SimpleStringProperty NGAYNHAN;
 	private SimpleStringProperty NGAYTRA;
-	private SimpleDoubleProperty GIAMGIA;
-	private SimpleDoubleProperty GIA;
 	private SimpleStringProperty HINHTHUC;
 	
-	public PHIEUDATPHONG(String mAPDP, String mAKH, String tGDAT, String nGAYNHAN, String nGAYTRA, Double gIAMGIA, Double gIA, String hINHTHUC) {
+	public PHIEUDATPHONG(String mAPDP, String mAKH, String tGDAT, String nGAYNHAN, String nGAYTRA, String hINHTHUC) {
 		MAPDP = new SimpleStringProperty(mAPDP);
 		MAKH = new SimpleStringProperty(mAKH);
 		TGDAT = new SimpleStringProperty(tGDAT);
 		NGAYNHAN = new SimpleStringProperty(nGAYNHAN);
 		NGAYTRA = new SimpleStringProperty(nGAYTRA);
-		GIAMGIA = new SimpleDoubleProperty(gIAMGIA);
-		GIA = new SimpleDoubleProperty(gIA);
 		HINHTHUC = new SimpleStringProperty(hINHTHUC);
 	}
 	
@@ -63,22 +59,6 @@ public class PHIEUDATPHONG{
 	
 	public void setNGAYTRA(String nGAYTRA) {
 		this.NGAYTRA.set(nGAYTRA);
-	}
-	
-	public Double getGIAMGIA() {
-		return GIAMGIA.get();
-	}
-	
-	public void setGIAMGIA(Double gIAMGIA) {
-		this.GIAMGIA.set(gIAMGIA);
-	}
-	
-	public Double getGIA() {
-		return GIA.get();
-	}
-	
-	public void setGIA(Double gIA) {
-		this.GIA.set(gIA);
 	}
 	
 	public String getHINHTHUC() {

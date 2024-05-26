@@ -1,6 +1,5 @@
 package DTO;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -8,13 +7,13 @@ public class DICHVU {
 		private SimpleStringProperty MADV;
 		private SimpleStringProperty TENDV;
 		private SimpleIntegerProperty LOAIDV;
-		private SimpleDoubleProperty GIA;
+		private SimpleIntegerProperty GIA;
 		
-		public DICHVU(String mADV, String tENDV, Integer lOAIDV, Double gIA) {
+		public DICHVU(String mADV, String tENDV, Integer lOAIDV, Integer gIA) {
 			MADV = new SimpleStringProperty(mADV);
 			TENDV = new SimpleStringProperty(tENDV);
 			LOAIDV = new SimpleIntegerProperty(lOAIDV);
-			GIA = new SimpleDoubleProperty(gIA);
+			GIA = new SimpleIntegerProperty(gIA);
 		}
 		
 		public String getMADV() {
@@ -41,11 +40,11 @@ public class DICHVU {
 			LOAIDV.set(lOAIDV);
 		}
 		
-		public Double getGIA() {
+		public Integer getGIA() {
 			return GIA.get();
 		}
 		
-		public void setGIA(Double gIA) {
+		public void setGIA(Integer gIA) {
 			GIA.set(gIA);
 		}
 		

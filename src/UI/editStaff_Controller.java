@@ -99,7 +99,7 @@ public class editStaff_Controller implements Initializable{
 	    	String check = SystemMessage.ERROR_MESSAGE;
 	    	AlertMessage alert = new AlertMessage();
 	    	if(check.equals("ERROR_EMPTY")) {
-		    	alert.errorMessage("Vui lòng điền đầy đủ thông tin!");
+		    	alert.errorMessage("Không được để trống thông tin, vui lòng kiểm tra lại!");
 		    	SystemMessage.ERROR_MESSAGE = "";
 	    	} else if(check.equals("ERROR_EMAIL")) {
 	    		alert.errorMessage("Sai định dạng email xin vui lòng nhập lại!");

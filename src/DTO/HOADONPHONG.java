@@ -1,6 +1,5 @@
 package DTO;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -10,15 +9,17 @@ public class HOADONPHONG {
 	private SimpleStringProperty NVNHAP;
 	private SimpleStringProperty NGAYTAO;
 	private SimpleIntegerProperty TRANGTHAI;
-	private SimpleDoubleProperty TONGTIEN;
+	private SimpleIntegerProperty GIAMGIA;
+	private SimpleIntegerProperty TONGTIEN;
 	
-	public HOADONPHONG(String mAHDP, String mAPDP, String nVNHAP, String nGAYTAO, int tRANGTHAI, double tONGTIEN) {
+	public HOADONPHONG(String mAHDP, String mAPDP, String nVNHAP, String nGAYTAO, Integer tRANGTHAI, Integer gIAMGIA, Integer tONGTIEN) {
 		MAHDP = new SimpleStringProperty(mAHDP);
 		MAPDP = new SimpleStringProperty(mAPDP);
 		NVNHAP = new SimpleStringProperty(nVNHAP);
 		NGAYTAO = new SimpleStringProperty(nGAYTAO);
 		TRANGTHAI = new SimpleIntegerProperty(tRANGTHAI);
-		TONGTIEN = new SimpleDoubleProperty(tONGTIEN);
+		GIAMGIA = new SimpleIntegerProperty(gIAMGIA);
+		TONGTIEN = new SimpleIntegerProperty(tONGTIEN);
 	}
 	
 	public String getMAHDP() {
@@ -61,11 +62,19 @@ public class HOADONPHONG {
 		this.TRANGTHAI.set(tRANGTHAI);
 	}
 	
-	public Double getTONGTIEN() {
+	public Integer getGIAMGIA() {
+		return GIAMGIA.get();
+	}
+	
+	public void setGIAMGIA(Integer gIAMGIA) {
+		this.GIAMGIA.set(gIAMGIA);
+	}
+	
+	public Integer getTONGTIEN() {
 		return TONGTIEN.get();
 	}
 	
-	public void setTONGTIEN(Double tONGTIEN) {
+	public void setTONGTIEN(Integer tONGTIEN) {
 		this.TONGTIEN.set(tONGTIEN);
 	}
 }

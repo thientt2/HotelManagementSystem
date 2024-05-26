@@ -7,11 +7,11 @@ public class TRANGTHAIPHONG {
 	private SimpleIntegerProperty MATRANGTHAI;
 	private SimpleStringProperty  TENTRANGTHAI;
 	
-	public int getMATRANGTHAI() {
+	public Integer getMATRANGTHAI() {
 		return MATRANGTHAI.get();
 	}
 	
-	public void setMATRANGTHAI(int mATRANGTHAI) {
+	public void setMATRANGTHAI(Integer mATRANGTHAI) {
 		MATRANGTHAI.set(mATRANGTHAI);
 	}
 	
@@ -23,7 +23,7 @@ public class TRANGTHAIPHONG {
 		TENTRANGTHAI.set(tENTRANGTHAI);
 	}
 	
-	public TRANGTHAIPHONG(int mATRANGTHAI, String tENTRANGTHAI) {
+	public TRANGTHAIPHONG(Integer mATRANGTHAI, String tENTRANGTHAI) {
 		MATRANGTHAI = new SimpleIntegerProperty(mATRANGTHAI);
 		TENTRANGTHAI = new SimpleStringProperty(tENTRANGTHAI);
 	}

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.editParam_Controller">
    <children>
       <BorderPane prefHeight="277.0" prefWidth="328.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -36,7 +36,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutY="27.0" prefHeight="40.0" prefWidth="296.0" promptText="Tên thông số" stylesheets="@../Designs/addDichVu.css">
+                                    <TextField fx:id="ten_txt" layoutY="27.0" prefHeight="40.0" prefWidth="296.0" promptText="Tên thông số" stylesheets="@../Designs/addDichVu.css">
                                        <font>
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
@@ -50,7 +50,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutY="27.0" prefHeight="40.0" prefWidth="296.0" promptText="Sửa tỉ lệ" stylesheets="@../Designs/addDichVu.css">
+                                    <TextField fx:id="tile_txt" layoutY="27.0" prefHeight="40.0" prefWidth="296.0" promptText="Sửa tỉ lệ" stylesheets="@../Designs/addDichVu.css">
                                        <font>
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
@@ -61,8 +61,8 @@
                         </AnchorPane>
                         <AnchorPane layoutX="136.0" layoutY="209.0" prefHeight="40.0" prefWidth="176.0">
                            <children>
-                              <Button layoutX="26.0" layoutY="2.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Button layoutX="88.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Sửa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="edit_btn" layoutX="88.0" mnemonicParsing="false" onAction="#editParam" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Sửa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
