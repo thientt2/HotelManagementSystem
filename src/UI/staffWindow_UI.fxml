@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="541.0" prefWidth="897.0" stylesheets="@../Designs/StaffWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.staffWindow_Controller">
+<AnchorPane prefHeight="541.0" prefWidth="897.0" stylesheets="@../Designs/StaffWindow.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.staffWindow_Controller">
    <children>
       <AnchorPane prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -29,7 +29,7 @@
                         <Font name="Inter Medium" size="16.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="searchStaff" alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên nhân viên" styleClass="search-text-field" stylesheets="@../Designs/MainWindow.css">
+                  <TextField fx:id="searchStaff" alignment="CENTER" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="308.0" promptText="Tìm kiếm tên nhân viên" styleClass="search-text-field" stylesheets="@../Designs/MainWindow.css">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -44,32 +44,32 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" layoutX="151.0" layoutY="14.0" prefHeight="30.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label prefHeight="18.0" prefWidth="106.0" text="Mã nhân viên">
+                              <Label prefHeight="20.0" prefWidth="85.0" text="Mã nhân viên">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="140.0" text="Tên nhân viên">
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="177.0" text="Tên nhân viên">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="100.0" layoutY="10.0" prefHeight="18.0" prefWidth="110.0" text="CCCD">
+                              <Label layoutX="100.0" layoutY="10.0" prefHeight="20.0" prefWidth="72.0" text="CCCD">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="195.0" layoutY="10.0" prefHeight="18.0" prefWidth="80.0" text="Ngày sinh">
+                              <Label layoutX="195.0" layoutY="10.0" prefHeight="20.0" prefWidth="60.0" text="Giới tính">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="236.0" layoutY="10.0" prefHeight="18.0" prefWidth="60.0" text="Giới tính">
+                              <Label layoutX="236.0" layoutY="10.0" prefHeight="20.0" prefWidth="97.0" text="Ngày sinh">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="18.0" prefWidth="85.0" text="Số điện thoại">
+                              <Label prefHeight="20.0" prefWidth="103.0" text="Số điện thoại">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

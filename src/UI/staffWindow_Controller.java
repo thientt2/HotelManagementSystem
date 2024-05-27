@@ -65,22 +65,24 @@ public class staffWindow_Controller implements Initializable {
 	    	HBox hBox = new HBox();
 	    	hBox.setSpacing(25);
 	    	hBox.setPrefHeight(30);
-	    	hBox.setAlignment(Pos.CENTER);
+	    	hBox.setAlignment(Pos.CENTER_LEFT);
 	    	Label maNV = new Label(item.getMANV());
-	    	maNV.setPrefWidth(90); //106
+	    	maNV.setPrefWidth(80); //106
 	    	maNV.setAlignment(Pos.CENTER);
 	    	Label tenNV = new Label(item.getTENNV());
 	    	tenNV.setPrefWidth(140);
 	    	Label cccd = new Label(item.getCCCD());
-	    	cccd.setPrefWidth(110);
+	    	cccd.setPrefWidth(100);
+	    	cccd.setAlignment(Pos.CENTER);
 	    	Label gender = new Label(item.getGIOITINH());
 	    	gender.setPrefWidth(50);
+	    	gender.setAlignment(Pos.CENTER);
 	    	Label birthday = new Label(item.getNGAYSINH());
-	    	birthday.setPrefWidth(80);
+	    	birthday.setPrefWidth(100);
 	    	Label phone = new Label(item.getSDT());
-	    	phone.setPrefWidth(85);
+	    	phone.setPrefWidth(110);
 	    	Label ngLam = new Label(item.getNGAYVAOLAM());
-	    	phone.setPrefWidth(85);
+	    	phone.setPrefWidth(100);
 	    	ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/ellipsis_v.png")));
 	    	imageView.setFitWidth(12);
 	    	imageView.setFitHeight(12);

@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane stylesheets="@../Designs/servicesRoom.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<AnchorPane stylesheets="@../Designs/servicesRoom.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="459.0" prefWidth="867.0">
          <top>
@@ -82,7 +81,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="51.0" layoutY="322.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="cancel_btn" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Button fx:id="addCustomer_btn" layoutX="88.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
@@ -100,7 +99,7 @@
                               <TableColumn maxWidth="70.0" minWidth="40.0" prefWidth="40.0" />
                            </columns>
                         </TableView>
-                        <Button layoutX="348.0" layoutY="315.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Button layoutX="460.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.bottomAnchor="-14.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>
