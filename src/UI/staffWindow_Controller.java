@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 
 import BLL.NHANVIEN_BLL;
 import DTO.NHANVIEN;
+import UI.Resource.itemStaff_Controller;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -60,132 +62,112 @@ public class staffWindow_Controller implements Initializable {
         showListStaff(listStaff);
     }
     
-    public void showListStaff(ObservableList<NHANVIEN> list) {
-		for(NHANVIEN item : list) {
-	    	HBox hBox = new HBox();
-	    	hBox.setSpacing(25);
-	    	hBox.setPrefHeight(30);
-	    	hBox.setAlignment(Pos.CENTER_LEFT);
-	    	Label maNV = new Label(item.getMANV());
-	    	maNV.setPrefWidth(80); //106
-	    	maNV.setAlignment(Pos.CENTER);
-	    	Label tenNV = new Label(item.getTENNV());
-	    	tenNV.setPrefWidth(140);
-	    	Label cccd = new Label(item.getCCCD());
-	    	cccd.setPrefWidth(100);
-	    	cccd.setAlignment(Pos.CENTER);
-	    	Label gender = new Label(item.getGIOITINH());
-	    	gender.setPrefWidth(50);
-	    	gender.setAlignment(Pos.CENTER);
-	    	Label birthday = new Label(item.getNGAYSINH());
-	    	birthday.setPrefWidth(100);
-	    	Label phone = new Label(item.getSDT());
-	    	phone.setPrefWidth(110);
-	    	Label ngLam = new Label(item.getNGAYVAOLAM());
-	    	phone.setPrefWidth(100);
-	    	ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/ellipsis_v.png")));
-	    	imageView.setFitWidth(12);
-	    	imageView.setFitHeight(12);
-	    	Button button = new Button();
-	    	button.setStyle("-fx-background-color: transparent;");
-	    	button.setGraphic(imageView);
-	    	button.setOnMouseClicked(event -> {
-	    		NHANVIEN clickedStaff = item;
-	    	    ContextMenu contextMenu = new ContextMenu();
-	    	    
-	    	    // Tạo các mục menu
-	    	    MenuItem editItem = new MenuItem("Chỉnh sửa");
-	    	    MenuItem deleteItem = new MenuItem("Xóa");
-	    	    MenuItem detailItem = new MenuItem("Chi tiết");
-	    	    		    	   		 	    
-	    	    editItem.setOnAction(eventEditStaff -> {
-	                try {
-	                	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	            	    anchorPane.setVisible(true);
-	            	    
-	                    FXMLLoader loader = new FXMLLoader(getClass().getResource("editStaff.fxml"));
-	                    Parent root = loader.load();
+	 public void showListStaff(ObservableList<NHANVIEN> list) {
+ 		for(NHANVIEN item : list) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemStaff.fxml"));
+				Parent employeeDataPane = loader.load();
+				itemStaff_Controller controller = loader.getController();
+				controller.setStaff(item);
+	            controller.setMainWindowController(mainWindowController);
+				Platform.runLater(() -> listStaff_vbox.getChildren().add(employeeDataPane));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-	                    root.setOnMousePressed((MouseEvent event1) -> {            
-	                        x = event1.getSceneX();            
-	                        y = event1.getSceneY();    
-	                    });
-	                    
-	                    Stage stage = new Stage();        
-	                    stage.initStyle(StageStyle.TRANSPARENT);        
-	                    Scene scene = new Scene(root);
-
-	                    editStaff_Controller editStaff = loader.getController();
-	                    editStaff.setStaff(clickedStaff);
-
-	                    root.setOnMouseDragged((MouseEvent event1) -> {
-	                        stage.setX(event1.getScreenX() - x);            
-	                        stage.setY(event1.getScreenY() - y);       
-	                    });
-	                    
-	                    stage.setScene(scene);     
-	                    stage.showAndWait();
-	                    
-	                    anchorPane.setVisible(false);
-	                    refreshStaffList();
-	                } catch (IOException e) {
-	                    e.printStackTrace();
-	                }
-	            });
-	    	    
-	    	    deleteItem.setOnAction(deleteEvent -> {
-	    	    	if (item != null) {
-	    	    		NHANVIEN_BLL.deleteStaff(clickedStaff);
-	    	    		refreshStaffList();
-		            }
-	    	    });
-	    	    
-	    	    detailItem.setOnAction(detailEvent -> {
-	    	    	try {
-	                	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	            	    anchorPane.setVisible(true);
-	            	    
-	                    FXMLLoader loader = new FXMLLoader(getClass().getResource("staffDetails.fxml"));
-	                    Parent root = loader.load();
-
-	                    root.setOnMousePressed((MouseEvent event1) -> {            
-	                        x = event1.getSceneX();            
-	                        y = event1.getSceneY();    
-	                    });
-	                    
-	                    Stage stage = new Stage();        
-	                    stage.initStyle(StageStyle.TRANSPARENT);        
-	                    Scene scene = new Scene(root);
-
-	                    staffDetails_Controller staffDetails = loader.getController();
-	                    staffDetails.setStaff(clickedStaff);
-
-	                    root.setOnMouseDragged((MouseEvent event1) -> {
-	                        stage.setX(event1.getScreenX() - x);            
-	                        stage.setY(event1.getScreenY() - y);       
-	                    });
-	                    
-	                    stage.setScene(scene);     
-	                    stage.showAndWait();
-	                    
-	                    anchorPane.setVisible(false);
-	                    //refreshStaffList();
-	                } catch (IOException e) {
-	                    e.printStackTrace();
-	                }
-	    	    });
-	    	    
-	    	    contextMenu.getItems().addAll(editItem, deleteItem, detailItem);
-	    	    
-	    	    contextMenu.show(button, event.getScreenX(), event.getScreenY());
-	    	    
-	    	});
-	    	hBox.getChildren().addAll(maNV, tenNV, cccd, gender, birthday, phone, ngLam, button);
-	    	hBox.setStyle("	-fx-background-color: #FFFFFF;\r\n"	    			
-	    			+ "	-fx-border-color:  #E8F1FD;\r\n"	    			
-	    			+ "-fx-font-size: 14px; \r\n"
-	    			+ "-fx-border-width: 0 0 2 0;");
-	    	listStaff_vbox.getChildren().add(hBox);
+//	    	button.setOnMouseClicked(event -> {
+//	    		NHANVIEN clickedStaff = item;
+//	    	    ContextMenu contextMenu = new ContextMenu();
+//	    	    
+//	    	    // Tạo các mục menu
+//	    	    MenuItem editItem = new MenuItem("Chỉnh sửa");
+//	    	    MenuItem deleteItem = new MenuItem("Xóa");
+//	    	    MenuItem detailItem = new MenuItem("Chi tiết");
+//	    	    		    	   		 	    
+//	    	    editItem.setOnAction(eventEditStaff -> {
+//	                try {
+//	                	AnchorPane anchorPane = mainWindowController.getAnchorPane();
+//	            	    anchorPane.setVisible(true);
+//	            	    
+//	                    FXMLLoader loader = new FXMLLoader(getClass().getResource("editStaff.fxml"));
+//	                    Parent root = loader.load();
+//
+//	                    root.setOnMousePressed((MouseEvent event1) -> {            
+//	                        x = event1.getSceneX();            
+//	                        y = event1.getSceneY();    
+//	                    });
+//	                    
+//	                    Stage stage = new Stage();        
+//	                    stage.initStyle(StageStyle.TRANSPARENT);        
+//	                    Scene scene = new Scene(root);
+//
+//	                    editStaff_Controller editStaff = loader.getController();
+//	                    editStaff.setStaff(clickedStaff);
+//
+//	                    root.setOnMouseDragged((MouseEvent event1) -> {
+//	                        stage.setX(event1.getScreenX() - x);            
+//	                        stage.setY(event1.getScreenY() - y);       
+//	                    });
+//	                    
+//	                    stage.setScene(scene);     
+//	                    stage.showAndWait();
+//	                    
+//	                    anchorPane.setVisible(false);
+//	                    refreshStaffList();
+//	                } catch (IOException e) {
+//	                    e.printStackTrace();
+//	                }
+//	            });
+//	    	    
+//	    	    deleteItem.setOnAction(deleteEvent -> {
+//	    	    	if (item != null) {
+//	    	    		NHANVIEN_BLL.deleteStaff(clickedStaff);
+//	    	    		refreshStaffList();
+//		            }
+//	    	    });
+//	    	    
+//	    	    detailItem.setOnAction(detailEvent -> {
+//	    	    	try {
+//	                	AnchorPane anchorPane = mainWindowController.getAnchorPane();
+//	            	    anchorPane.setVisible(true);
+//	            	    
+//	                    FXMLLoader loader = new FXMLLoader(getClass().getResource("staffDetails.fxml"));
+//	                    Parent root = loader.load();
+//
+//	                    root.setOnMousePressed((MouseEvent event1) -> {            
+//	                        x = event1.getSceneX();            
+//	                        y = event1.getSceneY();    
+//	                    });
+//	                    
+//	                    Stage stage = new Stage();        
+//	                    stage.initStyle(StageStyle.TRANSPARENT);        
+//	                    Scene scene = new Scene(root);
+//
+//	                    staffDetails_Controller staffDetails = loader.getController();
+//	                    staffDetails.setStaff(clickedStaff);
+//
+//	                    root.setOnMouseDragged((MouseEvent event1) -> {
+//	                        stage.setX(event1.getScreenX() - x);            
+//	                        stage.setY(event1.getScreenY() - y);       
+//	                    });
+//	                    
+//	                    stage.setScene(scene);     
+//	                    stage.showAndWait();
+//	                    
+//	                    anchorPane.setVisible(false);
+//	                    refreshStaffList();
+//	                } catch (IOException e) {
+//	                    e.printStackTrace();
+//	                }
+//	    	    });
+//	    	    
+//	    	    contextMenu.getItems().addAll(editItem, deleteItem, detailItem);
+//	    	    
+//	    	    contextMenu.show(button, event.getScreenX(), event.getScreenY());
+//	    	    
+//	    	});	    	
+	    	
 	    }		
 	}
     

@@ -12,6 +12,7 @@ import BLL.KHACHHANG_BLL;
 import BLL.NHANVIEN_BLL;
 import DTO.KHACHHANG;
 import DTO.NHANVIEN;
+import UI.Resource.itemStaff_Controller;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -517,6 +518,8 @@ public class MainWindow_Controller implements Initializable {
 		            Parent newWindow = loader.load();
 		            staffWindow_Controller controller = loader.getController();
 		            controller.setMainWindowController(this);
+//		            itemStaff_Controller controller2 = loader.getController();
+//		            controller2.setMainWindowController(this);
 					mainWindow.getChildren().setAll(newWindow);			
 					
 					selectMainWindow_btn.setVisible(false);

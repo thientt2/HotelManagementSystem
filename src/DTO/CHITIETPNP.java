@@ -20,11 +20,11 @@ public class CHITIETPNP{
 		this.MAPNP.set(mAPNP);
 	}
 	
-	public String getMAKHKHAC() {
+	public String getMAKH() {
 		return MAKHKHAC.get();
 	}
 	
-	public void setMAKHKHAC(String mAKHKHAC) {
+	public void setMAKH(String mAKHKHAC) {
 		this.MAKHKHAC.set(mAKHKHAC);
 	}
 

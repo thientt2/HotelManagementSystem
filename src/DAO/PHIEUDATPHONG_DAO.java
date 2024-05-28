@@ -85,6 +85,4 @@ public class PHIEUDATPHONG_DAO {
 		return phieuDatPhong;
 	}
 	
-	
-
 }
