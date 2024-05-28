@@ -12,7 +12,9 @@ import system.SystemMessage;
 
 public class DICHVU_BLL {
 
-	public static ObservableList<DICHVU> listService() {return DICHVU_DAO.listService();}
+	public static ObservableList<DICHVU> listService() {
+		return DICHVU_DAO.listService();
+	}
 	
 	public static void addService(Map<String, String> data) throws SQLException {
 		String tenDV = data.get("tenDV");

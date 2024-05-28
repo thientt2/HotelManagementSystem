@@ -4,11 +4,41 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 
+import DTO.NHANVIEN;
 import DTO.PHIEUDATPHONG;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class PHIEUDATPHONG_DAO {
+	
+	public static ObservableList<PHIEUDATPHONG> listBookRoom() {
+		ObservableList<PHIEUDATPHONG> list = FXCollections.observableArrayList();
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			String query = "SELECT * FROM PHIEUDATPHONG";
+			PreparedStatement prepare = connection.prepareStatement(query);
+			ResultSet resultSet = prepare.executeQuery();
+			while (resultSet.next()) {
+				list.add(new PHIEUDATPHONG(resultSet.getString("MAPDP")                 		   					
+	   					,resultSet.getString("MAKH")                		   					
+	   					,resultSet.getString("TGDAT")
+	   					,resultSet.getString("NGAYNHAN")
+	   					,resultSet.getString("NGAYTRA")
+	   					,resultSet.getString("HINHTHUC")));			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 	
 	public static void insertBookRoom(Map<String, Object> data) {
 		String maKH = (String) data.get("maKH");
@@ -54,5 +84,7 @@ public class PHIEUDATPHONG_DAO {
 		}
 		return phieuDatPhong;
 	}
+	
+	
 
 }

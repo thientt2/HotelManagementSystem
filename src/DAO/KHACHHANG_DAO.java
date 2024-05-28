@@ -13,7 +13,7 @@ public class KHACHHANG_DAO {
 	public static ObservableList<KHACHHANG> listCustomer() {
 		ObservableList<KHACHHANG> list = FXCollections.observableArrayList();
 		try {
-			String sql = "SELECT * FROM KHACHHANG";
+			String sql = "SELECT * FROM KHACHHANG WHERE TINHTRANG = 1";
 			Connection con = DatabaseConnection.connectDb();
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
@@ -142,6 +142,22 @@ public class KHACHHANG_DAO {
 //	    } catch (SQLException e) {
 //	        e.printStackTrace();
 //	    }
+	}
+	
+	public static String getCustomerName(String customerId) {
+		String tenKH = null;
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+			String query = "SELECT * FROM KHACHHANG WHERE MAKH = '" + customerId + "'";
+			ResultSet resultSet = statement.executeQuery(query);
+			if (resultSet.next()) {
+				tenKH = resultSet.getString("TENKH");
+			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tenKH;
 	}
 	
 	public static KHACHHANG getCustomerById(String customerId) {

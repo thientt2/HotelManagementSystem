@@ -2,7 +2,9 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Map;
 
 public class CHITIETPDP_DAO {
@@ -23,6 +25,20 @@ public class CHITIETPDP_DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static int getTypeRoomId(String bookRoomId) {
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+			String query = "SELECT * FROM CHITIETPDP WHERE MAPDP = '" + bookRoomId + "'";
+			ResultSet resultSet = statement.executeQuery(query);
+			if (resultSet.next()) {
+				 return resultSet.getInt("MALOAIP");
+			}
+		} catch (SQLException e) {	
+			e.printStackTrace();
+		}
+		return 0;
 	}
 	
 }

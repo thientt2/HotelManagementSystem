@@ -78,4 +78,18 @@ public class LOAIPHONG_DAO {
 		return maloai;
 	}
 	
+	public static String getRoomTypeName(int id) {
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+			String query = "SELECT * FROM LOAIPHONG WHERE MALOAIP = '" + id + "'";
+			ResultSet resultSet = statement.executeQuery(query);
+			if (resultSet.next()) {
+				 return resultSet.getString("TENLOAI");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

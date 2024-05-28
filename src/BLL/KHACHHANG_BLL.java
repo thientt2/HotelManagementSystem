@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import DAO.KHACHHANG_DAO;
+import DAO.LOAIDICHVU_DAO;
 import DTO.KHACHHANG;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -81,8 +82,15 @@ public class KHACHHANG_BLL {
         return filteredList;
     }
 	
+	public static String getCustomerName(String customerId) {
+		return KHACHHANG_DAO.getCustomerName(customerId);
+	}
 
-	public static KHACHHANG getCustomerById(String customerId) throws SQLException {return KHACHHANG_DAO.getCustomerById(customerId);}
+	public static KHACHHANG getCustomerById(String customerId) throws SQLException {
+		return KHACHHANG_DAO.getCustomerById(customerId);
+	}
 	
-	public static KHACHHANG getCustomerByCCCD(String customerId) throws SQLException {return KHACHHANG_DAO.getCustomerByCCCD(customerId);}
+	public static KHACHHANG getCustomerByCCCD(String customerId) throws SQLException {
+		return KHACHHANG_DAO.getCustomerByCCCD(customerId);
+	}
 }

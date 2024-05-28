@@ -204,11 +204,9 @@ public class bookRoom_Cotroller implements Initializable {
 	        double currentTotalPrice = Double.parseDouble(roomPrice_txt.getText());
 	        roomPrice_txt.setText(String.valueOf(currentTotalPrice + selectedTotal));
 	    }  
-	    
 	}	
 
 
-    
     public void bookRoom() {
 		Map<String, Object> data  = new HashMap<String, Object>();
 		data.put("maKH", khachHang.getMAKH());
