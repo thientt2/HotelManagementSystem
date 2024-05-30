@@ -1,7 +1,5 @@
 .pane {
-	-fx-background-color: #F7F7F7;
-	-fx-background-radius: 10;
-	-fx-border-radius: 10;
+	-fx-background-color: #FFFFFF;
 	-fx-opacity: 1;
 }
 
@@ -47,9 +45,9 @@
 }
 
 .textfield-1{
-    -fx-background-color: transparent;
-    -fx-border-color: #9E707F;
-    -fx-border-width: 0px 0px .3px 0px;
+    -fx-background-color: #EBEBEB;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
     -fx-font-size: 14px;
     -fx-font-family: "Inter-Medium";
 }

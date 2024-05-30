@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -19,50 +18,45 @@
                <children>
                   <AnchorPane layoutX="289.0" layoutY="237.0" prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                      <children>
-                        <HBox alignment="CENTER" layoutX="46.0" layoutY="21.0" prefHeight="36.0" prefWidth="897.0" spacing="25.0" styleClass="pain" stylesheets="@../Designs/CustomerWindow.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane prefHeight="30.0" prefWidth="877.0" styleClass="header-pain" stylesheets="@../Designs/CustomerWindow.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label prefHeight="18.0" prefWidth="106.0" text="Mã khách hàng">
+                               <Label layoutX="10.0" layoutY="8.0" text="Mã khách hàng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="140.0" text="Tên khách hàng">
+                              <Label layoutX="107.0" layoutY="8.0" text="Tên khách hàng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="115.0" text="Số CCCD/Pasport">
+                              <Label layoutX="260.0" layoutY="8.0" text="CCCD">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="47.0" layoutY="10.0" text="Giới tính">
+                              <Label layoutX="380.0" layoutY="8.0" text="Giới tính">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="82.0" text="Ngày sinh">
+                              <Label layoutX="479.0" layoutY="8.0" text="Ngày sinh">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="47.0" layoutY="10.0" prefHeight="18.0" prefWidth="87.0" text="Số điện thoại">
+                              <Label layoutX="584.0" layoutY="8.0" text="Số điện thoại">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="84.0" layoutY="10.0" prefHeight="18.0" prefWidth="60.0" text="Quốc tịch">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label ellipsisString="" layoutX="121.0" layoutY="10.0" prefHeight="18.0" prefWidth="35.0" text="        ">
+                              <Label layoutX="698.0" layoutY="8.0" text="Quốc tịch">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
                            </children>
-                        </HBox>
+                        </AnchorPane>
                         <ScrollPane layoutX="14.0" layoutY="36.0" prefHeight="433.0" prefWidth="877.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <content>
                               <VBox fx:id="listCustomer_vbox" prefHeight="430.0" prefWidth="875.0" style="-fx-background-color: #ffff;" />

@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import DAO.DICHVU_DAO;
+import DAO.PHONG_DAO;
 import DTO.DICHVU;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,8 +13,12 @@ import system.SystemMessage;
 
 public class DICHVU_BLL {
 
-	public static ObservableList<DICHVU> listService() {
-		return DICHVU_DAO.listService();
+//	public static ObservableList<DICHVU> listService() {
+//		return DICHVU_DAO.listService();
+//	}
+	
+	public static ObservableList<Object[]> listService() {
+		 return DICHVU_DAO.listService();
 	}
 	
 	public static void addService(Map<String, String> data) throws SQLException {
@@ -49,7 +54,7 @@ public class DICHVU_BLL {
 	}
 	
 	
-	public static void deleteService(DICHVU dichVu) throws SQLException {
+	public static void deleteService(Object[] dichVu) throws SQLException {
 		DICHVU_DAO.deleteService(dichVu);
 	}
 

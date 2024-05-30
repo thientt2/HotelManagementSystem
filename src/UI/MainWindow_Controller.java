@@ -435,7 +435,6 @@ public class MainWindow_Controller implements Initializable {
 				e.printStackTrace();
 			}
     		
-    		
 	    });     
 	}
 	
@@ -518,8 +517,6 @@ public class MainWindow_Controller implements Initializable {
 		            Parent newWindow = loader.load();
 		            staffWindow_Controller controller = loader.getController();
 		            controller.setMainWindowController(this);
-//		            itemStaff_Controller controller2 = loader.getController();
-//		            controller2.setMainWindowController(this);
 					mainWindow.getChildren().setAll(newWindow);			
 					
 					selectMainWindow_btn.setVisible(false);

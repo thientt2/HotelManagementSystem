@@ -36,11 +36,11 @@ public class editService_Controller implements Initializable{
     
     private String madv;
 	    
-    public void setService(DICHVU item) {
-		name_txt.setText(item.getTENDV());
-		price_txt.setText(item.getGIA().toString()); 
-		type_txt.setText(LOAIDICHVU_BLL.getServiceTypeName(item.getLOAIDV()));
-		madv = item.getMADV();
+    public void setService(Object[] item) {
+    	price_txt.setText(item[3].toString());
+    	name_txt.setText(item[2].toString());
+    	type_txt.setText(item[1].toString());   
+		madv = item[0].toString();
 	}   
 	    
     public void editService() throws SQLException {

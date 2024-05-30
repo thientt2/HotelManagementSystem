@@ -26,8 +26,8 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <FontAwesomeIcon glyphName="CALENDAR" layoutX="499.0" layoutY="34.0" size="20" stroke="WHITE" strokeWidth="0.0" styleClass="icon" wrappingWidth="11.428571701049805" />
-                        <Label fx:id="toDay" layoutX="537.0" layoutY="13.0" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="DD:MM:YYYY" />
+                        <FontAwesomeIcon glyphName="CALENDAR" layoutX="488.0" layoutY="34.0" size="20" stroke="WHITE" strokeWidth="0.0" styleClass="icon" wrappingWidth="11.428571701049805" />
+                        <Label fx:id="toDay" layoutX="516.0" layoutY="13.0" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="DD:MM:YYYY" />
                         <HBox alignment="CENTER_RIGHT" layoutX="633.0" layoutY="3.0" prefHeight="50.0" prefWidth="304.0" spacing="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <FontAwesomeIcon fill="#a48d75" glyphName="BELL" size="20" stroke="#0d0202" strokeWidth="0.0" />

@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -72,6 +73,14 @@ public class LoginWindow_Controller implements Initializable {
     
     private AlertMessage alert = new AlertMessage();    
     
+    @FXML
+    private ToggleButton toggleButton;
+
+    @FXML
+    private void initialize() {
+        
+    }
+    
     public void login() throws SQLException, IOException{
     	
     	Map<String, String> data  = new HashMap<String, String>();
@@ -117,7 +126,7 @@ public class LoginWindow_Controller implements Initializable {
     }
 
     private int currentImageIndex = 1;
-    private final String[] imageUrls = {"Images/Login/1.png", "Images/Login/2.jpg", "Images/Login/3.jpg", "Images/Login/4.jpg"};
+    private final String[] imageUrls = {"Images/Login/1.jpg", "Images/Login/2.jpg", "Images/Login/3.jpg", "Images/Login/4.jpg"};
 
     private void setImage(String imageUrl) {
         // Load image from URL and set it to the ImageView
@@ -126,16 +135,20 @@ public class LoginWindow_Controller implements Initializable {
     }
     
     public void showPassword() {
-    	
-    	if(login_checkBox.isSelected()) {
-    		showPasswordTxt.setText(passwordTxt.getText());
-    		showPasswordTxt.setVisible(true);
-    		passwordTxt.setVisible(false);
-    	} else  {
-    		passwordTxt.setText(showPasswordTxt.getText());
-    		passwordTxt.setVisible(true);
-    		showPasswordTxt.setVisible(false);
-    	}
+        if (toggleButton.isSelected()) {
+//            passwordTxt.setManaged(false);
+//            passwordTxt.setVisible(false);
+        	passwordTxt.setVisible(false);
+        	showPasswordTxt.setVisible(true);
+        	showPasswordTxt.setText(passwordTxt.getText());
+        	
+        } else {
+//            passwordTxt.setManaged(true);
+//            passwordTxt.setVisible(true);
+        	passwordTxt.setVisible(true);
+        	passwordTxt.setText(showPasswordTxt.getText());
+        	showPasswordTxt.setVisible(false);
+        }
     }
     
     public void exit(){

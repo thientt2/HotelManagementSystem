@@ -1,8 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="30.0" prefWidth="370.0" style="-fx-background-color: #ffff; -fx-border-width: 1px 0px 1px 0px; -fx-border-color: #E8F1FD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemService_Controller">
+   <children>
+      <Label fx:id="typeName_txt" layoutX="15.0" text="TenLoaiDV" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+         <font>
+            <Font name="Inter Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="serviceName_txt" layoutX="107.0" layoutY="8.0" text="TenDV" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+         <font>
+            <Font name="Inter Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="price_txt" layoutX="260.0" layoutY="7.0" text="GiaDV" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+         <font>
+            <Font name="Inter Medium" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="editService_btn" layoutX="320.0" layoutY="7.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+         <graphic>
+            <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/editcolor.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="deleteService_btn" layoutX="340.0" layoutY="7.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+         <graphic>
+            <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/recycle.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
 </AnchorPane>
-

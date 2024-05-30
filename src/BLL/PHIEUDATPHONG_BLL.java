@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import system.SystemMessage;
 
 public class PHIEUDATPHONG_BLL {
-	public static ObservableList<PHIEUDATPHONG> listBookRoom() {
+	public static ObservableList<Object[]> listBookRoom() {
 		return PHIEUDATPHONG_DAO.listBookRoom();
 	}
 	

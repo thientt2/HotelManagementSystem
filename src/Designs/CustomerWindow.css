@@ -2,15 +2,6 @@
 	-fx-background-color: white;
 }
 
-
-.pain{
-	-fx-background-color: #F6F8FB;
-	-fx-background-radius:  10px 10px 0px 0px;
-	-fx-border-color:  #E8F1FD;
-	-fx-border-radius:  10px 10px 0px 0px;
-	-fx-opacity: 1;
-}
-
 .check-box{
 	-fx-background-color:transparent;
 	-fx-text-fill: #5D6679;
@@ -38,4 +29,11 @@
 	-fx-font-family:"Inter";
 	-fx-font-weight: 630;
 	-fx-alignment:center-left;
+}
+
+.header-pain {
+	-fx-background-color: #F7F9FC;
+	-fx-background-radius: 10px 10px 0px 0px;
+	-fx-border-color: #E8F1FD;
+	-fx-border-radius: 10px 10px 0px 0px;	
 }

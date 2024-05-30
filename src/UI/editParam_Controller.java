@@ -32,7 +32,6 @@ public class editParam_Controller implements Initializable{
     
 	    
     public void setParam(THAMSO item) {
-    	//ten_txt.setText(THAMSO_BLL.getParamName(item.getTENTHAMSO()));
 		ten_txt.setText(item.getTENTHAMSO());
 		tile_txt.setText(item.getGIATRI().toString()); 
 	}   

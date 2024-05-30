@@ -3,6 +3,7 @@ package UI;
 import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -10,6 +11,8 @@ import BLL.LOAINHANVIEN_BLL;
 import BLL.NHANVIEN_BLL;
 import DTO.NHANVIEN;
 import application.AlertMessage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -30,9 +33,6 @@ public class createUser_Controller implements Initializable {
     private Button confirm_btn;
 
     @FXML
-    private TextField job_txt;
-
-    @FXML
     private Button openFolder_btn;
 
     @FXML
@@ -42,14 +42,28 @@ public class createUser_Controller implements Initializable {
     private TextField photoUrl_txt;
 
     @FXML
-    private TextField staffName_txt;
-
-    @FXML
     private TextField username_txt;
     
+    @FXML
+    private ComboBox<String> job_cb;
+
+    @FXML
+    private ComboBox<String> staff_cb;
+    
+    public void showStaffType() {
+		job_cb.getItems().addAll("Quản trị viên", "Nhân viên quản lý", "Nhân viên lễ tân");
+	}
+    
+    private List<String> staffTypes = LOAINHANVIEN_BLL.listStaffType();
+    public void showStaffName() {
+        ObservableList<String> listStaffTypes = FXCollections.observableArrayList(staffTypes);
+        job_cb.setItems(listStaffTypes);
+    }
+    //lấy tên nhân viên
+    
     public void setUser(NHANVIEN item) {
-    	staffName_txt.setText(item.getTENNV());
-    	job_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
+    	//staffName_txt.setText(item.getTENNV());
+    	//job_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
     	if(item.getTENDANGNHAP() != null && item.getMATKHAU() != null) {
     		username_txt.setText(item.getTENDANGNHAP());
     		password_txt.setText(item.getMATKHAU());
@@ -73,8 +87,8 @@ public class createUser_Controller implements Initializable {
 		data.put("username", username_txt.getText());
 		data.put("password", password_txt.getText());
 		data.put("confirmPassword", confirmPassword_txt.getText());
-		data.put("staffName", staffName_txt.getText());
-		data.put("job", job_txt.getText());
+		//data.put("staffName", staffName_txt.getText());
+		//data.put("job", job_txt.getText());
 		data.put("photoUrl", photoUrl_txt.getText());
 		
 		NHANVIEN_BLL.createUser(data);
@@ -99,7 +113,7 @@ public class createUser_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		showStaffType();
 	
 		
 	}

@@ -1,44 +1,9 @@
 
-.pane-text {
-	-fx-text-fill: #5D6679;
-	-fx-font-size: 14px;
-	-fx-font-family: "Inter-Medium";
-	-fx-alignment:center-left;
-}
-
-.selected-pane-text {
-	-fx-text-fill: #1366D9;
-	-fx-font-size: 14px;
-	-fx-font-family: "Inter-Medium";
-	-fx-alignment:center-left;
-}
-
-.icon {
-	-fx-fill: white;
-	-fx-stroke: #5D6679;
-	-fx-stroke-width: 1;
-}
-
-.selected-icon {
-	-fx-fill: white;
-	-fx-stroke: #1366D9;
-	-fx-stroke-width: 0.8;
-}
-
-.logo {
-	-fx-text-fill: #1366D9;
-	-fx-font-size: 22px;
-	-fx-font-family: "Inter-Medium";
-}
-
-.selected-pane {
-	-fx-background-color: #E8F1FD;
-	-fx-background-radius: 10;
-}
-
-.pane {
-	-fx-background-color: white;
-	-fx-background-radius: 10;
+.header-pain {
+	-fx-background-color: #F7F9FC;
+	-fx-background-radius: 10px 10px 0px 0px;
+	-fx-border-color: #E8F1FD;
+	-fx-border-radius: 10px 10px 0px 0px;	
 }
 
 .button {
@@ -50,6 +15,14 @@
 	-fx-background-color: white;
 	-fx-border-color: #989FAD;
 	-fx-border-radius: 20;
+}
+
+.button-design{
+	-fx-background-color: E8F1FD;
+	-fx-background-radius: 100;
+	-fx-border-color: 1570EF;
+	-fx-border-radius:100;
+	-fx-font-size: 12px;
 }
 
 .selected-button {
@@ -64,33 +37,6 @@
 	-fx-border-color: #1570EF;
 	-fx-border-radius: 20;
 }
-
-.table-view .column-header {
-    -fx-background-color: #E8F1FD;
-    -fx-font-weight: normal;
-    -fx-padding: 5px 10px;
-    -fx-text-fill: #5D6679;
-	-fx-font-size: 14px;
-	-fx-font-family: "Inter-Medium";
-	-fx-alignment:center-left;
-}
-
-.table-column {
-    -fx-background-color: #E8F1FD;
-    -fx-font-weight: normal;
-    -fx-text-fill: #5D6679;
-	-fx-font-size: 12px;
-	-fx-font-family: "Inter-Light";
-	-fx-alignment:center;
-}
-
-.table-view {
-	-fx-background-color: white;
-	-fx-background-radius: 10;
-	-fx-border-radius: 10;
-	-fx-border-color: lightgrey;
-}
-
 
 .order-button{
 	-fx-background-color: #E8F1FD;

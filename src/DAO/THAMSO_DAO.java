@@ -52,33 +52,5 @@ public class THAMSO_DAO {
 	    }
 	}	
 	
-	public static String getParamName(String ten)
-	{
-		switch(ten)
-		{
-		case "PhuThuVuotSoNguoi": 
-			return "Phụ thu vượt số người tối đa";
-		case "PhuThuKhachNuocNgoai":
-			return "Phụ thu khách nước ngoài";
-		case "PhuThuCheckIn59": 
-			return "Phụ thu check-in sớm 5h-9h";
-		case "PhuThuCheckIn914":
-			return "Phụ thu check-in sớm 9h-14h";
-		case "PhuThuCheckOut1215": 
-			return "Phụ thu check-out muộn 12h-15h";
-		case "PhuThuCheckOut1518":
-			return "Phụ thu check-out muộn 15h-18h";
-		case "PhuThuCheckOutSau18": 
-			return "Phụ thu check-out muộn sau 18h";
-		case "GiamGiaKhachTheoDoan2":
-			return "Giảm giá khách thuê 2 phòng";
-		case "GiamGiaKhachTheoDoan3": 
-			return "Giảm giá khách thuê 3-5 phòng";
-		case "GiamGiaKhachTheoDoan5":
-			return "Giảm giá khách thuê hơn 5 phòng";
-		default:
-            return "Tham số không xác định";
-		}
-	}
     
 }

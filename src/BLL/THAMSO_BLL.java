@@ -27,9 +27,5 @@ public class THAMSO_BLL {
 		}		
 	}
 	
-	public static String getParamName(String ten) {
-		return THAMSO_DAO.getParamName(ten);
-	}
-
 	
 }
