@@ -68,22 +68,22 @@
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="215.0" layoutY="12.0" text="Trạng thái">
+                        <Label layoutX="201.0" layoutY="12.0" text="Trạng thái">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="362.0" layoutY="12.0" text="Xử lý">
+                        <Label layoutX="348.0" layoutY="12.0" text="Xử lý">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="457.0" layoutY="12.0" text="Dịch vụ">
+                        <Label layoutX="443.0" layoutY="12.0" text="Dịch vụ">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="558.0" layoutY="12.0" text="Chi tiết">
+                        <Label layoutX="552.0" layoutY="12.0" text="Chi tiết">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
@@ -97,7 +97,7 @@
                   </AnchorPane>
                   <ScrollPane layoutX="7.0" layoutY="115.0" prefHeight="432.0" prefWidth="724.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <content>
-                        <VBox fx:id="showRoom_vbox" prefHeight="425.0" prefWidth="710.0" />
+                        <VBox fx:id="showRoom_vbox" prefHeight="425.0" prefWidth="705.0" />
                      </content>
                   </ScrollPane>
                </children>

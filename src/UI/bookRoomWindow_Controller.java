@@ -1,8 +1,6 @@
 package UI;
 
-import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -10,35 +8,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import BLL.CHITIETPDP_BLL;
-import BLL.DICHVU_BLL;
-import BLL.KHACHHANG_BLL;
-import BLL.LOAIDICHVU_BLL;
-import BLL.LOAIPHONG_BLL;
-import BLL.NHANVIEN_BLL;
 import BLL.PHIEUDATPHONG_BLL;
-import DTO.NHANVIEN;
-import DTO.PHIEUDATPHONG;
-import UI.Resource.itemService_Controller;
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 

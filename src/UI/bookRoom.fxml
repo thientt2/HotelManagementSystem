@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.bookRoom_Cotroller">
+<AnchorPane style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.bookRoom_Cotroller">
    <children>
       <BorderPane prefHeight="438.0" prefWidth="697.0">
          <top>
@@ -96,7 +96,7 @@
                               <AnchorPane prefHeight="45.0" prefWidth="175.0" AnchorPane.bottomAnchor="-5.0" AnchorPane.rightAnchor="1.0">
                                  <children>
                                     <Button fx:id="cancel_btn" layoutX="-4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="-4.0" AnchorPane.topAnchor="0.0" />
-                                    <Button layoutX="96.0" mnemonicParsing="false" onAction="#addDetailBill" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button fx:id="addDetail_btn" layoutX="96.0" mnemonicParsing="false" onAction="#addDetailBill" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -106,35 +106,6 @@
                   <AnchorPane layoutX="317.0" layoutY="65.0" prefHeight="366.0" prefWidth="436.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0">
                      <children>
                         <Button fx:id="confirmBookRoom_btn" layoutX="348.0" layoutY="315.0" mnemonicParsing="false" onAction="#bookRoom" prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.bottomAnchor="0.0" />
-                        <HBox alignment="CENTER" layoutY="80.0" prefHeight="38.0" prefWidth="438.0" spacing="20.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                           <children>
-                              <Label prefHeight="20.0" prefWidth="82.0" text="Loại phòng">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="75.0" text="Đơn giá">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="84.0" layoutY="10.0" prefHeight="20.0" prefWidth="58.0" text="Số lượng">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="158.0" layoutY="10.0" prefHeight="20.0" prefWidth="80.0" text="Thành tiền">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="232.0" layoutY="10.0" prefHeight="20.0" prefWidth="24.0">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
                         <VBox fx:id="detailBookRoom_vbox" layoutY="118.0" prefHeight="129.0" prefWidth="438.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                         <HBox layoutX="190.0" layoutY="17.0" prefHeight="67.0" prefWidth="200.0" spacing="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -175,31 +146,40 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="totalPrice_txt" layoutX="150.0" layoutY="287.0" text="0">
+                        <Label fx:id="totalPrice_txt" layoutX="350.0" layoutY="287.0" text="0">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="15.0" layoutY="247.0" text="Tổng tiền phòng:">
-                           <font>
-                              <Font name="Inter Medium" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="roomPrice_txt" layoutX="150.0" layoutY="247.0" text="0">
-                           <font>
-                              <Font name="Inter Medium" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="57.0" layoutY="267.0" text="Số ngày ở:">
-                           <font>
-                              <Font name="Inter Medium" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="numberOfDay_txt" layoutX="150.0" layoutY="267.0" text="0">
-                           <font>
-                              <Font name="Inter Medium" size="14.0" />
-                           </font>
-                        </Label>
+                        <AnchorPane layoutY="78.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <Label layoutX="2.0" layoutY="10.0" prefHeight="20.0" prefWidth="82.0" text="Loại phòng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="87.0" layoutY="10.0" prefHeight="20.0" prefWidth="56.0" text="Đơn giá">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="179.0" layoutY="10.0" prefHeight="20.0" prefWidth="60.0" text="Số lượng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="248.0" layoutY="10.0" prefHeight="20.0" prefWidth="80.0" text="Thành tiền">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="328.0" layoutY="10.0" prefHeight="20.0" prefWidth="59.0" text="Số ngày">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>

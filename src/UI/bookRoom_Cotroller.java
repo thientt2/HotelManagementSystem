@@ -1,9 +1,11 @@
 package UI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,27 +15,31 @@ import BLL.CHITIETPDP_BLL;
 import BLL.KHACHHANG_BLL;
 import BLL.LOAIPHONG_BLL;
 import BLL.PHIEUDATPHONG_BLL;
-import DAO.LOAIPHONG_DAO;
 import DTO.KHACHHANG;
 import DTO.LOAIPHONG;
 import DTO.PHIEUDATPHONG;
+import UI.Resource.itemBookRoomDetail_Controller;
 import application.AlertMessage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.Node;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.scene.text.Font;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import system.SystemMessage;
 
 public class bookRoom_Cotroller implements Initializable {
 
+    @FXML
+    private Button addDetail_btn;
+    
 	@FXML
     private TextField cccd_txt;
 
@@ -101,7 +107,7 @@ public class bookRoom_Cotroller implements Initializable {
 				
 				if(khachHang != null) {
 		    		customerName_txt.setText(khachHang.getTENKH());
-		    		System.out.println(khachHang.getTENKH());
+		    		
 		    	} else {
 		    		customerName_txt.setText("");
 		    	}
@@ -125,85 +131,57 @@ public class bookRoom_Cotroller implements Initializable {
 		}
 		quantity_cb.setItems(list);
 	}
+	private ObservableList<Object[]> listDetailBookRoom = FXCollections.observableArrayList();
     
 	public void addDetailBill() {
 	    String selectedRoomType = roomType_cb.getValue().toString();
 	    double selectedPrice = Double.parseDouble(price_txt.getText());
 	    int selectedQuantity = Integer.parseInt(quantity_cb.getValue().toString());
 	    double selectedTotal = selectedPrice * selectedQuantity;
+	    long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue()) + 1;
+	    	    
 	    
-	    boolean roomTypeExists = false;
+	    Object[] rowdata = new Object[5];
+	    rowdata[0] = selectedRoomType;
+	    rowdata[1] = selectedPrice;
+	    rowdata[2] = selectedQuantity;	    
+	    rowdata[3] = selectedTotal;
+	    rowdata[4] = numberOfDays;
 	    
-	    for (Node node : detailBookRoom_vbox.getChildren()) {
-	        if (node instanceof HBox) {
-	            HBox hBox = (HBox) node;
-	            Label roomTypeLabel = (Label) hBox.getChildren().get(0); // Lấy Label đầu tiên trong HBox
-	            if (roomTypeLabel.getText().equals(selectedRoomType)) {
-	                // Nếu roomType đã tồn tại trong VBox, tăng số lượng và cập nhật giá trị
-	                Label quantityLabel = (Label) hBox.getChildren().get(2); // Lấy Label thứ 3 trong HBox
-	                int currentQuantity = Integer.parseInt(quantityLabel.getText());
-	                quantityLabel.setText(String.valueOf(currentQuantity + selectedQuantity));
-
-	                Label totalLabel = (Label) hBox.getChildren().get(3); // Lấy Label thứ 4 trong HBox
-	                double currentTotal = Double.parseDouble(totalLabel.getText());
-	                totalLabel.setText(String.valueOf(currentTotal + selectedTotal));
-
-	                // Cập nhật tổng giá trị
-	                double currentTotalPrice = Double.parseDouble(roomPrice_txt.getText());
-	                roomPrice_txt.setText(String.valueOf(currentTotalPrice + selectedTotal));
-
-	                roomTypeExists = true;
-	                break;
-	            }
-	        }
-	       
+	    boolean isExists = listDetailBookRoom.stream()
+	    		.anyMatch(row -> selectedRoomType.equals(row[0]));
+	    if(isExists) {
+	    	listDetailBookRoom.stream()
+	    	.filter(row -> rowdata[0].equals(row[0]))
+	    	.forEach(row -> {	    		
+		    	row[2] = Integer.parseInt(row[2].toString()) + Integer.parseInt(rowdata[2].toString());
+		    	row[3] = Double.parseDouble(row[3].toString()) + Double.parseDouble(rowdata[3].toString());
+	    	});
+	    } else {
+	    	listDetailBookRoom.add(rowdata);
 	    }
 	    
-	    if (!roomTypeExists) {
-	        // Nếu roomType chưa tồn tại trong VBox, thêm một HBox mới
-	        HBox hBox = new HBox();
-	        hBox.setSpacing(20);
-	        hBox.setAlignment(Pos.CENTER);
-	        
-	        Label roomType = new Label(selectedRoomType);
-	        roomType.setPrefWidth(86);
-	        roomType.setFont(Font.font(13));
+	    detailBookRoom_vbox.getChildren().clear();
 
-	        Label price = new Label(String.valueOf(selectedPrice));
-	        price.setPrefWidth(72);
-	        price.setFont(Font.font(13));
+	    for (Object[] item : listDetailBookRoom) {
+	        try {
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemBookRoomDetail.fxml"));
+	            Parent roomData = loader.load();
+	            itemBookRoomDetail_Controller controller = loader.getController();
+	            controller.setData(item);
+	            Button deletetItem_btn = controller.getDeleteItem_btn();
+	            deletetItem_btn.setOnAction(e -> {
+	                listDetailBookRoom.remove(item);
+	                detailBookRoom_vbox.getChildren().remove(roomData);
+	                showPrice();
+	            });
+	            detailBookRoom_vbox.getChildren().add(roomData);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
 
-	        Label quantity = new Label(String.valueOf(selectedQuantity));
-	        quantity.setPrefWidth(65);
-	        quantity.setFont(Font.font(13));
-
-	        Label total = new Label(String.valueOf(selectedTotal));
-	        total.setPrefWidth(88);
-	        total.setFont(Font.font(13));
-
-	        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/Images/recycle.png")));
-	        imageView.setFitWidth(13);
-	        imageView.setFitHeight(13);
-	        
-	        Button button = new Button();
-	        button.setStyle("-fx-background-color: transparent;");
-	        button.setGraphic(imageView);
-	        
-	        button.setOnAction(e -> {
-	            double currentTotalPrice = Double.parseDouble(roomPrice_txt.getText());
-	            currentTotalPrice -= selectedTotal;
-	            totalPrice_txt.setText(String.valueOf(currentTotalPrice));
-	            
-	            detailBookRoom_vbox.getChildren().remove(hBox);
-	        });
-	        
-	        hBox.getChildren().addAll(roomType, price, quantity, total, button);
-	        detailBookRoom_vbox.getChildren().add(hBox);
-	        
-	        // Cập nhật tổng giá trị
-	        double currentTotalPrice = Double.parseDouble(roomPrice_txt.getText());
-	        roomPrice_txt.setText(String.valueOf(currentTotalPrice + selectedTotal));
-	    }  
+	    showPrice();
 	}	
 
 
@@ -224,9 +202,8 @@ public class bookRoom_Cotroller implements Initializable {
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
-		data.put("tgDat", formatter.format(now).toString());
+		data.put("tgDat", formatter.format(now).toString());		
 		
-		System.out.println(data.get("tgDat"));
 		PHIEUDATPHONG_BLL.insertBookRoom(data);
 		String error = SystemMessage.ERROR_MESSAGE;
 		AlertMessage alert = new AlertMessage();
@@ -235,34 +212,26 @@ public class bookRoom_Cotroller implements Initializable {
 		}else {
 			alert.successMessage("Đặt phòng thành công");
 			PHIEUDATPHONG lastBookRoom = PHIEUDATPHONG_BLL.getLastBookRoom();
-			for(Node node : detailBookRoom_vbox.getChildren()) {
-				if(node instanceof HBox) {
-					HBox hBox = (HBox) node;
-					Label roomTypeLabel = (Label) hBox.getChildren().get(0);
-					int roomTypeId = LOAIPHONG_DAO.getRoomTypeId(roomTypeLabel.getText());
-					Label quantityLabel = (Label) hBox.getChildren().get(2);
-					int quantity = Integer.parseInt(quantityLabel.getText());
-					Map<String, Object> dataDetailBookRoom = new HashMap<String, Object>();
-					dataDetailBookRoom.put("maPDP",lastBookRoom.getMAPDP());
-					dataDetailBookRoom.put("maLoaiPhong", roomTypeId);
-					dataDetailBookRoom.put("soLuong", quantity);
-					CHITIETPDP_BLL.insertDetailBookRoom(dataDetailBookRoom);
-				}		
+			for(Object[] item : listDetailBookRoom) {
+				Map<String, Object> dataDetailBookRoom = new HashMap<String, Object>();
+				dataDetailBookRoom.put("maPDP",lastBookRoom.getMAPDP());
+				dataDetailBookRoom.put("maLoaiPhong", LOAIPHONG_BLL.getRoomTypeId(item[0].toString()));
+				dataDetailBookRoom.put("soLuong", item[2]);
+				CHITIETPDP_BLL.insertDetailBookRoom(dataDetailBookRoom);
 			}
 		}		
 	}
     
-    private void showPrice() {
-    	checkout_datepicker.valueProperty().addListener((observable, oldValue, newValue) -> {
-			numberOfDay_txt.setText(String.valueOf(checkout_datepicker.getValue().getDayOfMonth() - checkin_datepicker.getValue().getDayOfMonth()));
-	    	double roomPrice = Double.parseDouble(roomPrice_txt.getText());
-			int numberOfDays = Integer.parseInt(numberOfDay_txt.getText());
-			double totalPrice = roomPrice * numberOfDays;
-			String formattedTotalPrice = String.format("%.2f", totalPrice); 
-			totalPrice_txt.setText(formattedTotalPrice);
-		});
-
-    }
+    private void showPrice() { 	   	
+    	long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue()) + 1;			
+	    double roomPrice = 0;
+	    for(Object[] item : listDetailBookRoom) {	    	
+		    roomPrice += Double.parseDouble(item[3].toString());
+	    }	    	   
+		double totalPrice = roomPrice * numberOfDays;
+		String formattedTotalPrice = String.format("%.2f", totalPrice); 
+		totalPrice_txt.setText(formattedTotalPrice);
+	}
 	
     public void close() {
     	Stage stage = (Stage) close_btn.getScene().getWindow();
@@ -273,8 +242,8 @@ public class bookRoom_Cotroller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		showRoomType();			
 		showQuantity();		
-		searchCustomer();	
-		showPrice();
+		searchCustomer();		
+		
 		
 	}
 
