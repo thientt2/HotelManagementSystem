@@ -305,8 +305,8 @@ public class bookRoomWindow_Controller implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		ObservableList<PHIEUDATPHONG> listStaff = PHIEUDATPHONG_BLL.listBookRoom();
-		showListBookRoom(listStaff);
+//		ObservableList<PHIEUDATPHONG> listStaff = PHIEUDATPHONG_BLL.listBookRoom();
+//		showListBookRoom(listStaff);
 	}
 
 }

@@ -17,29 +17,23 @@ import system.SystemMessage;
 public class PHONG_DAO {
 	
    
-    public static ObservableList<Object[]> showRoom() {
+    public static ObservableList<Object[]> getListRoomByFloor(int floorNumber) {
     	
     	ObservableList<Object[]> dataList = FXCollections.observableArrayList();   	    	 
 
     	 
     	 try (Connection connection = DatabaseConnection.connectDb();
                  Statement statement = connection.createStatement()) {
-                String query = "SELECT P.MAPHONG, L.TENLOAI, L.LOAIGIUONG, L.DIENTICH, L.GIA, L.NGUOITOIDA, T.TENTRANGTHAI " +
-                               "FROM PHONG P " +
-                               "JOIN LOAIPHONG L ON P.MALOAIP = L.MALOAIP " +
-                               "JOIN TRANGTHAIPHONG T ON P.MATRANGTHAI = T.MATRANGTHAI";
+                String query = "SELECT P.MAPHONG, L.TENLOAI, T.TENTRANGTHAI "
+                		+ "FROM PHONG P, LOAIPHONG L, TRANGTHAIPHONG T "
+                		+ "WHERE P.MALOAIP = L.MALOAIP AND P.MATRANGTHAI = T.MATRANGTHAI AND MAPHONG LIKE 'P"+ floorNumber + "%'";
                 ResultSet resultSet = statement.executeQuery(query);
 
                 while (resultSet.next()) {
-                    Object[] rowData = new Object[7];
+                    Object[] rowData = new Object[3];
                     rowData[0] = resultSet.getString("MAPHONG");
                     rowData[1] = resultSet.getString("TENLOAI");
-                    rowData[2] = resultSet.getString("LOAIGIUONG");
-                    rowData[3] = resultSet.getDouble("DIENTICH");
-                    rowData[4] = resultSet.getInt("NGUOITOIDA");
-                    rowData[5] = resultSet.getDouble("GIA");
-                    rowData[6] = resultSet.getString("TENTRANGTHAI");
-
+                    rowData[2] = resultSet.getString("TENTRANGTHAI");                    
                     dataList.add(rowData);
                 }
 
@@ -48,6 +42,28 @@ public class PHONG_DAO {
             }
     	 
 		return dataList;    	
+    }
+    
+    public static ObservableList<Object[]> getAllRoom() {
+		
+		ObservableList<Object[]> dataList = FXCollections.observableArrayList();
+		try (Connection connection = DatabaseConnection.connectDb();
+			Statement statement = connection.createStatement()) {
+			String query = "SELECT P.MAPHONG, L.TENLOAI, T.TENTRANGTHAI "
+					+ "FROM PHONG P, LOAIPHONG L, TRANGTHAIPHONG T "
+					+ "WHERE P.MALOAIP = L.MALOAIP AND P.MATRANGTHAI = T.MATRANGTHAI";
+			ResultSet resultSet = statement.executeQuery(query);
+			while (resultSet.next()) {
+				Object[] rowData = new Object[3];
+				rowData[0] = resultSet.getString("MAPHONG");
+				rowData[1] = resultSet.getString("TENLOAI");
+				rowData[2] = resultSet.getString("TENTRANGTHAI");
+				dataList.add(rowData);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dataList;
     }
     
     public static void addRoom(Map<String, String> data) {

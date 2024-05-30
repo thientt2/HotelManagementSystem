@@ -10,10 +10,8 @@ import system.SystemMessage;
 
 public class PHONG_BLL {
 	
-	 public static ObservableList<Object[]> showRoom() {
-		 return PHONG_DAO.showRoom();
-	 }
-	 
+	 public static ObservableList<Object[]> getListRoomByFloor(int floorNumber) {return PHONG_DAO.getListRoomByFloor(floorNumber);}
+	 public static ObservableList<Object[]> getAllRoom() {return PHONG_DAO.getAllRoom();}
 	 public static void addRoom(Map<String, String> data) throws SQLException {
 		 String maphong = data.get("maphong");
 		 String maloai = data.get("maloai");
