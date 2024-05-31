@@ -43,11 +43,6 @@ public class customerWindow_Controller implements Initializable {
     // Phương thức để thiết lập tham chiếu của main window controller từ bên ngoài
     public void setMainWindowController(MainWindow_Controller controller) {
         this.mainWindowController = controller;
-        if (this.mainWindowController == null) {
-            System.out.println("MainWindow_Controller is null in staffWindow_Controller");
-        } else {
-            System.out.println("MainWindow_Controller has been set in staffWindow_Controller");
-        }
     }
     
     public MainWindow_Controller getMainWindowController() {
@@ -240,7 +235,6 @@ public class customerWindow_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		setMainWindowController(mainWindowController);
 		ObservableList<KHACHHANG> listCustomer = KHACHHANG_BLL.listCustomer();
 		showListCustomer(listCustomer);
 		search();

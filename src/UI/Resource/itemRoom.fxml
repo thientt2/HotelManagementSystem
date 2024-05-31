@@ -22,7 +22,7 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="bookService_btn" layoutX="428.0" layoutY="5.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ffff; -fx-background-radius: 100; -fx-border-color: #1570EF; -fx-border-radius: 100;" text="Đặt dịch vụ" textFill="#0f50aa" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <Button fx:id="bookService_btn" layoutX="428.0" layoutY="5.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #E8F1FD; -fx-background-radius: 100; -fx-border-color: #1570EF; -fx-border-radius: 100;" text="Đặt dịch vụ" textFill="#0f50aa" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0">
          <font>
             <Font name="Inter Medium" size="13.0" />
          </font>

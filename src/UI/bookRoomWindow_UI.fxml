@@ -28,7 +28,7 @@
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="81.0" text="Loại phòng">
+                              <Label layoutX="200.0" layoutY="10.0" prefHeight="20.0" prefWidth="81.0" text="Loại phòng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>

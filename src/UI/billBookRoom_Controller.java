@@ -12,7 +12,7 @@ public class billBookRoom_Controller implements Initializable {
     @FXML
     private VBox detailBill_vbox;
     
-    public void showDetailBill() {
+    public void billBookRoom(Object[] item) {
     	
 	}
 	

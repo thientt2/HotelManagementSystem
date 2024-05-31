@@ -78,6 +78,11 @@ public class roomWindow_Controller implements Initializable {
     private Button unselectAllRoom_btn;
     
         	 
+    private MainWindow_Controller mainWindowController;   
+    
+    public void setMainWindowController(MainWindow_Controller controller) {
+        this.mainWindowController = controller;
+    }   
     
 	public void showAllRoom() {
 		Platform.runLater(() -> {

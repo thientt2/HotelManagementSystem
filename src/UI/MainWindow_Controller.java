@@ -95,6 +95,15 @@ public class MainWindow_Controller implements Initializable {
     private AnchorPane bookRoom_btn;
     
     @FXML
+    private Button feedbackWindow_btn;
+
+    @FXML
+    private AnchorPane feedback_btn;
+    
+    @FXML
+    private Button selectFeedbackWindow_btn;
+    
+    @FXML
     private TableColumn<KHACHHANG, String> colAddressCustomer;
 
     @FXML
@@ -409,8 +418,8 @@ public class MainWindow_Controller implements Initializable {
 				//Parent newWindow = FXMLLoader.load(getClass().getResource("roomWindow_UI.fxml"));
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("roomWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
-	            //roomWindow_Controller controller = loader.getController();
-	            //controller.setMainWindowController(this);
+	            roomWindow_Controller controller = loader.getController();
+	            controller.setMainWindowController(this);
 				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);
@@ -421,6 +430,7 @@ public class MainWindow_Controller implements Initializable {
 	    		selectStatisticalWindow_btn.setVisible(false);
 	    		selectBookRoomWindow_btn.setVisible(false);
 	    		selectBillWindow_btn.setVisible(false);
+	    		selectFeedbackWindow_btn.setVisible(false);
 	    		
 	    		mainWindow_btn.setVisible(true);
 	    		roomWindow_btn.setVisible(false);
@@ -430,6 +440,7 @@ public class MainWindow_Controller implements Initializable {
 	    		statisticalWindow_btn.setVisible(true);
 	    		bookRoomWindow_btn.setVisible(true);
 	    		billWindow_btn.setVisible(true);
+	    		feedbackWindow_btn.setVisible(true);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -456,6 +467,7 @@ public class MainWindow_Controller implements Initializable {
 	    		selectStatisticalWindow_btn.setVisible(false);
 	    		selectBookRoomWindow_btn.setVisible(false);
 	    		selectBillWindow_btn.setVisible(false);
+	    		selectFeedbackWindow_btn.setVisible(false);
 	    		
 	    		mainWindow_btn.setVisible(false);
 				roomWindow_btn.setVisible(true);
@@ -465,6 +477,7 @@ public class MainWindow_Controller implements Initializable {
 	    		statisticalWindow_btn.setVisible(true);
 	    		bookRoomWindow_btn.setVisible(true);
 	    		billWindow_btn.setVisible(true);
+	    		feedbackWindow_btn.setVisible(true);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -492,6 +505,7 @@ public class MainWindow_Controller implements Initializable {
 				selectStatisticalWindow_btn.setVisible(false);
 				selectBookRoomWindow_btn.setVisible(false);
 				selectBillWindow_btn.setVisible(false);
+				selectFeedbackWindow_btn.setVisible(false);
 				
 				mainWindow_btn.setVisible(true);
 				roomWindow_btn.setVisible(true);
@@ -501,6 +515,7 @@ public class MainWindow_Controller implements Initializable {
 				statisticalWindow_btn.setVisible(true);
 				bookRoomWindow_btn.setVisible(true);
 				billWindow_btn.setVisible(true);
+				feedbackWindow_btn.setVisible(true);
 	            
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -527,6 +542,7 @@ public class MainWindow_Controller implements Initializable {
 					selectStatisticalWindow_btn.setVisible(false);
 					selectBookRoomWindow_btn.setVisible(false);
 					selectBillWindow_btn.setVisible(false);
+					selectFeedbackWindow_btn.setVisible(false);
 					
 					mainWindow_btn.setVisible(true);
 					roomWindow_btn.setVisible(true);
@@ -535,7 +551,8 @@ public class MainWindow_Controller implements Initializable {
 					paramWindow_btn.setVisible(true);
 					statisticalWindow_btn.setVisible(true);
 					bookRoomWindow_btn.setVisible(true);
-					billWindow_btn.setVisible(true);	  
+					billWindow_btn.setVisible(true);	 
+					feedbackWindow_btn.setVisible(true);
 			 	} catch (IOException e) {
 				 	e.printStackTrace();
 			 	}
@@ -563,6 +580,7 @@ public class MainWindow_Controller implements Initializable {
 				selectStatisticalWindow_btn.setVisible(false);
 				selectBookRoomWindow_btn.setVisible(false);
 				selectBillWindow_btn.setVisible(false);
+				selectFeedbackWindow_btn.setVisible(false);
 				
 				mainWindow_btn.setVisible(true);
 				roomWindow_btn.setVisible(true);
@@ -571,7 +589,8 @@ public class MainWindow_Controller implements Initializable {
 				paramWindow_btn.setVisible(true);
 				statisticalWindow_btn.setVisible(true);
 				bookRoomWindow_btn.setVisible(true);
-				billWindow_btn.setVisible(true);	  
+				billWindow_btn.setVisible(true);	 
+				feedbackWindow_btn.setVisible(true);
 		 	} catch (IOException e) {
 			 	e.printStackTrace();
 		 	}	
@@ -597,6 +616,7 @@ public class MainWindow_Controller implements Initializable {
 				selectStatisticalWindow_btn.setVisible(true);
 				selectBookRoomWindow_btn.setVisible(false);
 				selectBillWindow_btn.setVisible(false);
+				selectFeedbackWindow_btn.setVisible(false);
 				
 				mainWindow_btn.setVisible(true);
 				roomWindow_btn.setVisible(true);
@@ -606,6 +626,7 @@ public class MainWindow_Controller implements Initializable {
 				statisticalWindow_btn.setVisible(false);
 				bookRoomWindow_btn.setVisible(true);
 				billWindow_btn.setVisible(true);	
+				feedbackWindow_btn.setVisible(true);
 			}catch (IOException e) {
 				e.printStackTrace();
 			}		 	            
@@ -630,6 +651,7 @@ public class MainWindow_Controller implements Initializable {
 				selectStatisticalWindow_btn.setVisible(false);
 				selectBookRoomWindow_btn.setVisible(false);
 				selectBillWindow_btn.setVisible(true);
+				selectFeedbackWindow_btn.setVisible(false);
 				
 				mainWindow_btn.setVisible(true);
 				roomWindow_btn.setVisible(true);
@@ -638,7 +660,8 @@ public class MainWindow_Controller implements Initializable {
 				paramWindow_btn.setVisible(true);
 				statisticalWindow_btn.setVisible(true);
 				bookRoomWindow_btn.setVisible(true);
-				billWindow_btn.setVisible(false);	  
+				billWindow_btn.setVisible(false);	
+				feedbackWindow_btn.setVisible(true);
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -649,8 +672,12 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneBookRoomWindow() {
 		Platform.runLater(() -> {
 			try {
-				Parent newWindow = FXMLLoader.load(getClass().getResource("bookRoomWindow_UI.fxml"));
-				mainWindow.getChildren().setAll(newWindow);				
+				//Parent newWindow = FXMLLoader.load(getClass().getResource("bookRoomWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("bookRoomWindow_UI.fxml"));
+	            Parent newWindow = loader.load();
+	            bookRoomWindow_Controller controller = loader.getController();
+	            controller.setMainWindowController(this);
+				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);
 				selectRoomWindow_btn.setVisible(false);
@@ -660,6 +687,7 @@ public class MainWindow_Controller implements Initializable {
 				selectStatisticalWindow_btn.setVisible(false);
 				selectBookRoomWindow_btn.setVisible(true);
 				selectBillWindow_btn.setVisible(false);
+				selectFeedbackWindow_btn.setVisible(false);
 				
 				mainWindow_btn.setVisible(true);
 				roomWindow_btn.setVisible(true);
@@ -669,6 +697,42 @@ public class MainWindow_Controller implements Initializable {
 				statisticalWindow_btn.setVisible(true);
 				bookRoomWindow_btn.setVisible(false);
 				billWindow_btn.setVisible(true);
+				feedbackWindow_btn.setVisible(true);
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
+        });
+	}
+	
+	public void changeSceneFeedbackWindow() {
+		Platform.runLater(() -> {
+			try {
+				//Parent newWindow = FXMLLoader.load(getClass().getResource("bookRoomWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("feedbackWindow_UI.fxml"));
+	            Parent newWindow = loader.load();
+//	            feedbackWindow_Controller controller = loader.getController();
+//	            controller.setMainWindowController(this);
+				mainWindow.getChildren().setAll(newWindow);
+				
+				selectMainWindow_btn.setVisible(false);
+				selectRoomWindow_btn.setVisible(false);
+				selectCustomerWindow_btn.setVisible(false);
+				selectStaffWindow_btn.setVisible(false);
+				selectParamWindow_btn.setVisible(false);
+				selectStatisticalWindow_btn.setVisible(false);
+				selectBookRoomWindow_btn.setVisible(false);
+				selectBillWindow_btn.setVisible(false);
+				selectFeedbackWindow_btn.setVisible(true);
+				
+				mainWindow_btn.setVisible(true);
+				roomWindow_btn.setVisible(true);
+				customerWindow_btn.setVisible(true);
+				staffWindow_btn.setVisible(true);
+				paramWindow_btn.setVisible(true);
+				statisticalWindow_btn.setVisible(true);
+				bookRoomWindow_btn.setVisible(true);
+				billWindow_btn.setVisible(true);
+				feedbackWindow_btn.setVisible(false);
 			}catch (IOException e) {
 				e.printStackTrace();
 			}

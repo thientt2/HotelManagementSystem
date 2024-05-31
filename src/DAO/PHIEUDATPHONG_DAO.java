@@ -44,7 +44,7 @@ public class PHIEUDATPHONG_DAO {
     	ObservableList<Object[]> dataList = FXCollections.observableArrayList();   	    	 
     	 try (Connection connection = DatabaseConnection.connectDb();
                 Statement statement = connection.createStatement()) {
-                String query = "SELECT PDP.MAPDP, KH.TENKH , LP.TENLOAI, PDP.NGAYNHAN, PDP.NGAYTRA "+
+                String query = "SELECT PDP.MAPDP, KH.TENKH , LP.TENLOAI, PDP.NGAYNHAN, PDP.NGAYTRA, PDP.HINHTHUC "+
                 				"FROM PHIEUDATPHONG PDP " +
                 				"JOIN CHITIETPDP CTP ON PDP.MAPDP = CTP.MAPDP " +
                 				"JOIN LOAIPHONG LP ON CTP.MALOAIP = LP.MALOAIP " +
@@ -57,7 +57,7 @@ public class PHIEUDATPHONG_DAO {
                     rowData[2] = resultSet.getString("TENLOAI");
                     rowData[3] = resultSet.getString("NGAYNHAN");
                     rowData[4] = resultSet.getString("NGAYTRA");
-                    //rowData[5] = resultSet.getDouble("GIA");
+                    rowData[5] = resultSet.getString("HINHTHUC");
                     //rowData[6] = resultSet.getString("TENTRANGTHAI");
                     dataList.add(rowData);
                 }
