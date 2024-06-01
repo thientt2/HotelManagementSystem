@@ -11,8 +11,13 @@ public class HOADONPHONG_BLL {
 		return HOADONPHONG_DAO.listBillBookRoom();
 	}
 	
-//	public static HOADONPHONG getLastBookRoom() {
-//		return HOADONPHONG_DAO.getLastBookRoom();
-//	}
+	public static HOADONPHONG getLastBill() {
+		return HOADONPHONG_DAO.getLastBill();
+	}
+	
+	public static void insertBillBookRoom(Map<String, Object> data) {
+		HOADONPHONG_DAO.insertBillBookRoom(data);
+	}
+
 	
 }

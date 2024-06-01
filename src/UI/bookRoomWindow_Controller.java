@@ -63,40 +63,40 @@ public class bookRoomWindow_Controller implements Initializable{
 				controller.setBookRoom(item);
 	            Button checkIn_btn = controller.getCheckIn_btn();
 	            Button contextMenu_btn = controller.getContextMenu_btn();
-	            checkIn_btn.setOnAction(eventCheckIn -> {
-	            	try {
-	                    AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                    anchorPane.setVisible(true);
-	                    
-	                    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
-	                    Parent root = loader1.load();
-	
-	                    root.setOnMousePressed((MouseEvent event1) -> {            
-	                        x = event1.getSceneX();            
-	                        y = event1.getSceneY();    
-	                    });
-	                    
-	                    Stage stage = new Stage();        
-	                    stage.initStyle(StageStyle.TRANSPARENT);        
-	                    Scene scene = new Scene(root);
-	
-	                    billBookRoom_Controller billBookRoom = loader1.getController();
-	                    billBookRoom.billBookRoom(item);
-	
-	                    root.setOnMouseDragged((MouseEvent event1) -> {
-	                        stage.setX(event1.getScreenX() - x);            
-	                        stage.setY(event1.getScreenY() - y);       
-	                    });
-	                    
-	                    stage.setScene(scene);     
-	                    stage.showAndWait();
-	                    
-	                    anchorPane.setVisible(false);
-	                    refreshBookRoomList();
-	                } catch (IOException e) {
-	                    e.printStackTrace();
-	                }
-                });
+//	            checkIn_btn.setOnAction(eventCheckIn -> {
+//	            	try {
+//	                    AnchorPane anchorPane = mainWindowController.getAnchorPane();
+//	                    anchorPane.setVisible(true);
+//	                    
+//	                    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
+//	                    Parent root = loader1.load();
+//	
+//	                    root.setOnMousePressed((MouseEvent event1) -> {            
+//	                        x = event1.getSceneX();            
+//	                        y = event1.getSceneY();    
+//	                    });
+//	                    
+//	                    Stage stage = new Stage();        
+//	                    stage.initStyle(StageStyle.TRANSPARENT);        
+//	                    Scene scene = new Scene(root);
+//	
+////	                    billBookRoom_Controller billBookRoom = loader1.getController();
+////	                    billBookRoom.billBookRoom(item);
+//	
+//	                    root.setOnMouseDragged((MouseEvent event1) -> {
+//	                        stage.setX(event1.getScreenX() - x);            
+//	                        stage.setY(event1.getScreenY() - y);       
+//	                    });
+//	                    
+//	                    stage.setScene(scene);     
+//	                    stage.showAndWait();
+//	                    
+//	                    anchorPane.setVisible(false);
+//	                    refreshBookRoomList();
+//	                } catch (IOException e) {
+//	                    e.printStackTrace();
+//	                }
+//                });
 
 	            contextMenu_btn.setOnMouseClicked(event -> {
 	                if (contextMenu.isShowing()) {
@@ -229,7 +229,8 @@ public class bookRoomWindow_Controller implements Initializable{
 //            stage.setScene(scene);     
 //            stage.show();
             stage.setScene(scene);     
-    		stage.showAndWait();
+//    		stage.showAndWait();
+            stage.show();
             
     		anchorPane.setVisible(false);
 		} catch(Exception e) {

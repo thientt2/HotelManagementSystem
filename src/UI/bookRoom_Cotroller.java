@@ -12,9 +12,11 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import BLL.CHITIETPDP_BLL;
+import BLL.HOADONPHONG_BLL;
 import BLL.KHACHHANG_BLL;
 import BLL.LOAIPHONG_BLL;
 import BLL.PHIEUDATPHONG_BLL;
+import DTO.HOADONPHONG;
 import DTO.KHACHHANG;
 import DTO.LOAIPHONG;
 import DTO.PHIEUDATPHONG;
@@ -26,6 +28,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -76,6 +79,8 @@ public class bookRoom_Cotroller implements Initializable {
 
     @FXML
     private ComboBox<String> roomType_cb;
+    
+    private String MANV = SystemMessage.getMANV();
     
     private List<LOAIPHONG> roomTypes = LOAIPHONG_BLL.getRoomTypes();
     
@@ -148,6 +153,9 @@ public class bookRoom_Cotroller implements Initializable {
 	    rowdata[3] = selectedTotal;
 	    rowdata[4] = numberOfDays;
 	    
+	    
+	    
+	    
 	    boolean isExists = listDetailBookRoom.stream()
 	    		.anyMatch(row -> selectedRoomType.equals(row[0]));
 	    if(isExists) {
@@ -218,6 +226,33 @@ public class bookRoom_Cotroller implements Initializable {
 				dataDetailBookRoom.put("maLoaiPhong", LOAIPHONG_BLL.getRoomTypeId(item[0].toString()));
 				dataDetailBookRoom.put("soLuong", item[2]);
 				CHITIETPDP_BLL.insertDetailBookRoom(dataDetailBookRoom);
+			}
+			
+			Map<String, Object> dataBillBookRoom = new HashMap<String, Object>();
+			dataBillBookRoom.put("maPDP",lastBookRoom.getMAPDP());
+			dataBillBookRoom.put("maNV", MANV);
+			dataBillBookRoom.put("ngTao", formatter.format(now).toString());			
+			dataBillBookRoom.put("tongTien", totalPrice);
+			HOADONPHONG_BLL.insertBillBookRoom(dataBillBookRoom);			
+			Stage stage = (Stage) close_btn.getScene().getWindow();
+			stage.close();
+			
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
+			Parent root;
+			try {
+				root = loader.load();
+				String checkin = checkin_datepicker.getValue().toString();
+				String checkout = checkout_datepicker.getValue().toString();
+				HOADONPHONG lastBillBookRoom = HOADONPHONG_BLL.getLastBill();
+				
+				billBookRoom_Controller controller = loader.getController();
+				
+				controller.setData(checkin, checkout, lastBillBookRoom, listDetailBookRoom);
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}		
 	}

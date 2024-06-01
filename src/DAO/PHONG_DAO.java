@@ -37,6 +37,7 @@ public class PHONG_DAO {
                     dataList.add(rowData);
                 }
 
+                connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -60,6 +61,7 @@ public class PHONG_DAO {
 				rowData[2] = resultSet.getString("TENTRANGTHAI");
 				dataList.add(rowData);
 			}
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

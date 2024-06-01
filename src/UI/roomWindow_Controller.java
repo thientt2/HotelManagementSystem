@@ -8,6 +8,7 @@ import BLL.PHONG_BLL;
 import UI.Resource.itemRoom_Controller;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -106,22 +107,32 @@ public class roomWindow_Controller implements Initializable {
 			unselect7Floor_btn.setVisible(true);
 			unselect8Floor_btn.setVisible(true);			
 		});
-		showRoom_vbox.getChildren().clear();
-		ObservableList<Object[]> listRoom = PHONG_BLL.getAllRoom();
 		
-		for(Object[] room : listRoom) {			
-			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
-				Parent roomData = loader.load();
-				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
-				showRoom_vbox.getChildren().add(roomData);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		Task<ObservableList<Object[]>> task = new Task<>() {
 			
-		}
+			@Override
+			protected ObservableList<Object[]> call() throws Exception {
+				return PHONG_BLL.getAllRoom();
+			}			
+		};
+		
+		task.setOnSucceeded(event -> {
+			ObservableList<Object[]> result = task.getValue();
+			showRoom_vbox.getChildren().clear();
+			for(Object[] room : result) {
+				try {
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
+					Parent roomData = loader.load();
+					itemRoom_Controller controller = loader.getController();
+					controller.setData(room[0],room[1],room[2],0);
+					showRoom_vbox.getChildren().add(roomData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		new Thread(task).start();
 	}
 	
 	public void showFirstFloor() {
@@ -146,22 +157,31 @@ public class roomWindow_Controller implements Initializable {
 			unselect7Floor_btn.setVisible(true);
 			unselect8Floor_btn.setVisible(true);			
 		});
-		showRoom_vbox.getChildren().clear();
-		ObservableList<Object[]> listRoom = PHONG_BLL.getListRoomByFloor(1);
-		
-		for(Object[] room : listRoom) {			
-			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
-				Parent roomData = loader.load();
-				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
-				showRoom_vbox.getChildren().add(roomData);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		Task<ObservableList<Object[]>> task = new Task<>() {
 			
-		}
+			@Override
+			protected ObservableList<Object[]> call() throws Exception {
+				return PHONG_BLL.getListRoomByFloor(1);
+			}			
+		};
+		
+		task.setOnSucceeded(event -> {
+			ObservableList<Object[]> result = task.getValue();
+			showRoom_vbox.getChildren().clear();
+			for(Object[] room : result) {
+				try {
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
+					Parent roomData = loader.load();
+					itemRoom_Controller controller = loader.getController();
+					controller.setData(room[0],room[1],room[2],0);
+					showRoom_vbox.getChildren().add(roomData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		new Thread(task).start();
 	}
 	
 	public void showSecondFloor() {
