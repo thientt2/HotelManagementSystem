@@ -20,7 +20,7 @@
                      <children>
                         <AnchorPane prefHeight="30.0" prefWidth="877.0" styleClass="header-pain" stylesheets="@../Designs/CustomerWindow.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
                            <children>
-                               <Label layoutX="10.0" layoutY="8.0" text="Mã khách hàng">
+                               <Label layoutX="2.0" layoutY="8.0" text="Mã khách hàng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
@@ -30,27 +30,27 @@
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="260.0" layoutY="8.0" text="CCCD">
+                              <Label layoutX="280.0" layoutY="8.0" text="CCCD">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="380.0" layoutY="8.0" text="Giới tính">
+                              <Label layoutX="400.0" layoutY="8.0" text="Giới tính">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="479.0" layoutY="8.0" text="Ngày sinh">
+                              <Label layoutX="499.0" layoutY="8.0" text="Ngày sinh">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="584.0" layoutY="8.0" text="Số điện thoại">
+                              <Label layoutX="604.0" layoutY="8.0" text="Số điện thoại">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="698.0" layoutY="8.0" text="Quốc tịch">
+                              <Label layoutX="718.0" layoutY="8.0" text="Quốc tịch">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>

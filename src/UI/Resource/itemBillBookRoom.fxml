@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="30.0" prefWidth="200.0" styleClass="header-pain" stylesheets="@../../Designs/BillBookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBillBookRoom_Controller">
    <children>
-      <Label fx:id="roomType_txt" layoutY="5.0" prefHeight="20.0" prefWidth="57.0" text="TenLoai">
+      <Label fx:id="roomType_txt" layoutY="5.0" prefHeight="20.0" prefWidth="88.0" text="TenLoai">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
@@ -16,7 +16,7 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="price_txt" layoutX="159.0" layoutY="5.0" prefHeight="20.0" prefWidth="62.0" text="DonGia">
+      <Label fx:id="price_txt" layoutX="159.0" layoutY="5.0" prefHeight="20.0" prefWidth="94.0" text="DonGia">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>

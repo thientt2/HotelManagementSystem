@@ -5,11 +5,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import BLL.NHANVIEN_BLL;
+import BLL.PHONG_BLL;
 import DTO.NHANVIEN;
+import UI.Resource.itemRoom_Controller;
 import UI.Resource.itemStaff_Controller;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -257,8 +260,22 @@ public class staffWindow_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		ObservableList<NHANVIEN> listStaff = NHANVIEN_BLL.listStaff();
-		showListStaff(listStaff);
+		
+		
+		Task<ObservableList<NHANVIEN>> task = new Task<>() {
+			
+			@Override
+			protected ObservableList<NHANVIEN> call() throws Exception {
+				return NHANVIEN_BLL.listStaff();
+			}			
+		};
+		
+		task.setOnSucceeded(event -> {
+			ObservableList<NHANVIEN> listStaff = task.getValue();
+			showListStaff(listStaff);
+		});
+		new Thread(task).start();
+		
 		search();
 	}
 

@@ -45,6 +45,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import system.SystemMessage;
 
 public class MainWindow_Controller implements Initializable {
 
@@ -349,14 +350,28 @@ public class MainWindow_Controller implements Initializable {
     }
     
     // Đặt username với username_label
-	public void initData(String username) {
-		this.username = username;
-		NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-        username_label.setText(nhanVien.getTENNV());      
-        
+    public void initData(String username) {
+        this.username = username;
+        NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
+        username_label.setText(nhanVien.getTENNV());
+        SystemMessage.setMANV(nhanVien.getMANV());
+
+        // Ensure the PHOTOURL is correctly formatted
         String path = "file:///" + nhanVien.getPHOTOURL();
-		Image image = new Image(path, 1012, 22, false, true);
-		top_circle.setFill(new ImagePattern(image));             
+        System.out.println("Loading image from path: " + path); // Logging the path for debugging
+
+        // Load the image with appropriate error handling
+        Image image = new Image(path, 1012, 22, false, true);
+        if (image.isError()) {
+            System.out.println("Error loading image: " + image.getException());
+            // Handle the error accordingly, maybe set a default image or notify the user
+            // Example: set a default image or a placeholder
+            Image defaultImage = new Image("/Images/home.png", 1012, 22, false, true);
+            top_circle.setFill(new ImagePattern(defaultImage));
+        } else {
+            // If the image is loaded successfully, set it to the circle
+            top_circle.setFill(new ImagePattern(image));
+        }
     }
 	
 	public void unvisible() {

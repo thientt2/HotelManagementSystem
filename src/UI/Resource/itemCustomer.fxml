@@ -19,27 +19,27 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="cccd_txt" layoutX="260.0" layoutY="7.0" text="CCCD" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="cccd_txt" layoutX="280.0" layoutY="7.0" text="CCCD" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="gender_txt" layoutX="395.0" layoutY="8.0" text="GioiTinh " AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="gender_txt" layoutX="415.0" layoutY="8.0" text="GioiTinh " AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="birthDay_txt" layoutX="479.0" layoutY="5.0" text="NgaySinh" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="birthDay_txt" layoutX="499.0" layoutY="5.0" text="NgaySinh" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="phoneNumber_txt" layoutX="584.0" layoutY="8.0" text="SoDienThoai" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="phoneNumber_txt" layoutX="604.0" layoutY="8.0" text="SoDienThoai" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="country_txt" layoutX="698.0" layoutY="9.0" text="QuocTich" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="country_txt" layoutX="718.0" layoutY="9.0" text="QuocTich" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>

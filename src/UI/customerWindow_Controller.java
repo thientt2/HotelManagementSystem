@@ -7,11 +7,14 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import BLL.KHACHHANG_BLL;
+import BLL.NHANVIEN_BLL;
 import DTO.KHACHHANG;
+import DTO.NHANVIEN;
 import UI.Resource.itemCustomer_Controller;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -131,7 +134,7 @@ public class customerWindow_Controller implements Initializable {
 	        	    
 	        	    deleteItem.setOnAction(deleteEvent -> {
 	        	    	KHACHHANG_BLL.deleteCustomer(item);
-	        	    	//refreshCustomerList();
+	        	    	refreshCustomerList();
 	        	    });
 	        	    
 	        	    detailItem.setOnAction(detailEvent -> {
@@ -235,8 +238,20 @@ public class customerWindow_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		ObservableList<KHACHHANG> listCustomer = KHACHHANG_BLL.listCustomer();
-		showListCustomer(listCustomer);
+		
+		Task<ObservableList<KHACHHANG>> task = new Task<>() {			
+			@Override
+			protected ObservableList<KHACHHANG> call() throws Exception {
+				return KHACHHANG_BLL.listCustomer();
+			}			
+		};
+		
+		task.setOnSucceeded(event -> {
+			ObservableList<KHACHHANG> listCustomer = task.getValue();
+			showListCustomer(listCustomer);
+		});
+		new Thread(task).start();
+
 		search();
 	}
 	

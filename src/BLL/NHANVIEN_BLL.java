@@ -14,6 +14,9 @@ public class NHANVIEN_BLL {
 		return NHANVIEN_DAO.getStaff(user);
 	}
 	
+	public static NHANVIEN getStaffById(String id) {
+		return NHANVIEN_DAO.getStaffById(id);
+	}
 	public static ObservableList<NHANVIEN> listStaff() {
 		return NHANVIEN_DAO.listStaff();
 	}

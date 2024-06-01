@@ -42,6 +42,35 @@ public class NHANVIEN_DAO {
 	}
 	
 	
+	public static NHANVIEN getStaffById(String id) {
+		NHANVIEN nhanVen = null;
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			String query = "SELECT * FROM NHANVIEN WHERE MANV = ?";
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setString(1, id);
+			ResultSet resultSet = prepare.executeQuery();
+			while (resultSet.next()) {
+				 nhanVen = new NHANVIEN(resultSet.getString("MANV")                 		   					
+		   					,resultSet.getString("TENNV")                		   					
+		   					,resultSet.getString("EMAIL")
+		   					,resultSet.getInt("MALOAINV")
+		   					,resultSet.getString("CCCD")
+		   					,resultSet.getString("NGAYSINH")
+		   					,resultSet.getString("GIOITINH")                		   					
+		   					,resultSet.getString("DIACHI")
+		   					,resultSet.getString("SDT")
+		   					,resultSet.getString("NGAYVAOLAM")
+		   					,resultSet.getString("TENDANGNHAP")
+		   					,resultSet.getString("MATKHAU")
+		   					,resultSet.getString("PHOTOURL")
+		   					,resultSet.getInt("TINHTRANG"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return nhanVen;		
+	}
+	
 	public static NHANVIEN getStaff(String user) {
     	NHANVIEN nhanVien = null;
     	try (Connection connection = DatabaseConnection.connectDb();) {

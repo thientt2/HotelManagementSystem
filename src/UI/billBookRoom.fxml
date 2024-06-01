@@ -8,11 +8,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="602.0" prefWidth="496.0" styleClass="white-bg" stylesheets="@../Designs/billBookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.billBookRoom_Controller">
+<AnchorPane prefHeight="602.0" prefWidth="496.0" style="-fx-background-color: white;" styleClass="white-bg" stylesheets="@../Designs/billBookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.billBookRoom_Controller">
    <children>
-      <ScrollPane prefHeight="602.0" prefWidth="496.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane prefHeight="602.0" prefWidth="496.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <AnchorPane prefHeight="200.0" prefWidth="341.0">
+            <AnchorPane prefHeight="596.0" prefWidth="493.0" style="-fx-background-color: white;">
                <children>
                   <AnchorPane layoutX="21.0" layoutY="253.0" prefHeight="168.0" prefWidth="447.0" AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="253.0">
 		               <children>
