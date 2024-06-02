@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -16,56 +15,75 @@
                <children>
                   <AnchorPane layoutY="64.0" prefHeight="478.0" prefWidth="898.0">
                      <children>
-                        <HBox alignment="CENTER" layoutX="46.0" layoutY="21.0" prefHeight="36.0" prefWidth="897.0" spacing="25.0" styleClass="pain" stylesheets="@../Designs/CustomerWindow.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="10.4" layoutY="-0.19999999999999996" prefHeight="30.0" prefWidth="877.0" styleClass="header-pain" stylesheets="@../Designs/BookRoomWindow.css" AnchorPane.leftAnchor="10.4" AnchorPane.rightAnchor="10.399999999999977" AnchorPane.topAnchor="-0.19999999999999996">
                            <children>
-                              <Label prefHeight="20.0" prefWidth="62.0" text="Mã phiếu">
+                              <Label layoutX="10.0" layoutY="8.0" text="Mã phiếu">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="167.0" text="Tên khách hàng">
+                              <Label layoutX="80.0" layoutY="8.0" text="Tên khách hàng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="200.0" layoutY="10.0" prefHeight="20.0" prefWidth="81.0" text="Loại phòng">
+                              <Label layoutX="280.0" layoutY="8.0" text="Loại phòng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="47.0" layoutY="10.0" text="Ngày nhận phòng">
+                              <Label layoutX="380.0" layoutY="8.0" text="Ngày nhận phòng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="99.0" text="Ngày trả phòng">
+                              <Label layoutX="510.0" layoutY="8.0" text="Ngày trả phòng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="47.0" layoutY="10.0" prefHeight="18.0" prefWidth="87.0" text="Trạng thái">
+                              <Label layoutX="630.0" layoutY="8.0" text="Trạng thái">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="84.0" layoutY="10.0" prefHeight="20.0" prefWidth="81.0" text="Nhận phòng">
+                              <Label layoutX="720.0" layoutY="8.0" text="Nhận phòng">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
                            </children>
-                        </HBox>
-                        <ScrollPane layoutX="14.0" layoutY="36.0" prefHeight="433.0" prefWidth="877.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                        </AnchorPane>
+                        <ScrollPane layoutX="14.0" layoutY="31.0" prefHeight="439.0" prefWidth="878.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <content>
-                              <VBox fx:id="listBookRoom_vbox" prefHeight="430.0" prefWidth="875.0" style="-fx-background-color: #ffff;" />
+                              <VBox fx:id="listBookRoom_vbox" prefHeight="438.0" prefWidth="862.0" style="-fx-background-color: #ffff;" />
                            </content>
                         </ScrollPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="60.0" prefWidth="897.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button layoutX="358.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="181.0" style="-fx-background-color: #E8F1FD; -fx-border-color: #1570EF; -fx-text-fill: #0F50AA;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Check in hôm nay" AnchorPane.topAnchor="16.0" />
-                        <Button fx:id="bookRoom_btn" layoutX="773.0" layoutY="9.0" mnemonicParsing="false" onAction="#bookRoom" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #1570EF; -fx-text-fill: #FFFFFF;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đặt phòng" AnchorPane.topAnchor="16.0" />
+                        <Button fx:id="offline_btn" layoutX="135.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleOfflineButtonAction" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #FEF4E6; -fx-text-fill: #F9A63A;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Trực tiếp" AnchorPane.topAnchor="16.0">
+		                     <font>
+		                        <Font name="Inter Medium" size="14.0" />
+		                     </font>
+		                  </Button>
+		                  <Button fx:id="notyet_btn" layoutX="325.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleNotYetButtonAction" prefHeight="37.0" prefWidth="60.0" style="-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Chưa" AnchorPane.topAnchor="16.0">
+		                     <font>
+		                        <Font name="Inter Medium" size="14.0" />
+		                     </font>
+		                  </Button>
+		                  <Button fx:id="outofdate_btn" layoutX="393.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleOutOfDateButtonAction" prefHeight="38.0" prefWidth="78.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Quá hạn" AnchorPane.topAnchor="16.0">
+		                     <font>
+		                        <Font name="Inter Medium" size="14.0" />
+		                     </font>
+		                  </Button>
+		                  <Button fx:id="today_btn" layoutX="230.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleTodayButtonAction" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Hôm nay" AnchorPane.topAnchor="16.0">
+		                     <font>
+		                        <Font name="Inter Medium" size="14.0" />
+		                     </font>
+		                  </Button>
+                        <Button fx:id="bookRoom_btn" layoutX="15.0" layoutY="8.0" mnemonicParsing="false" onAction="#bookRoom" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #1570EF; -fx-text-fill: #FFFFFF;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đặt phòng" AnchorPane.topAnchor="15.0" />
                      </children>
                   </AnchorPane>
                </children>

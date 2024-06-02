@@ -7,13 +7,19 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
+import BLL.KHACHHANG_BLL;
 import BLL.PHIEUDATPHONG_BLL;
+import DTO.KHACHHANG;
 import DTO.PHIEUDATPHONG;
 import UI.Resource.itemBookRoom_Controller;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,6 +43,51 @@ public class bookRoomWindow_Controller implements Initializable{
     @FXML
     private Button bookRoom_btn;
     
+    @FXML
+    private Button notyet_btn;
+
+    @FXML
+    private Button offline_btn;
+
+    @FXML
+    private Button outofdate_btn;
+
+    @FXML
+    private Button today_btn;
+    
+    @FXML
+    private void handleNotYetButtonAction(ActionEvent event) {
+        toggleStatus("Chưa", notyet_btn);
+    }
+
+    @FXML
+    private void handleOfflineButtonAction(ActionEvent event) {
+        toggleStatus("Trực tiếp", offline_btn);
+    }
+
+    @FXML
+    private void handleOutOfDateButtonAction(ActionEvent event) {
+        toggleStatus("Quá hạn", outofdate_btn);
+    }
+
+    @FXML
+    private void handleTodayButtonAction(ActionEvent event) {
+        toggleStatus("Hôm nay", today_btn);
+    }
+    
+//    @FXML
+//    private Button reset_btn;
+//
+//    @FXML
+//    private void handleResetButtonAction(ActionEvent event) {
+//        selectedStatuses.clear();
+//        notyet_btn.setStyle(getStatusStyle("Chưa"));
+//        offline_btn.setStyle(getStatusStyle("Trực tiếp"));
+//        outofdate_btn.setStyle(getStatusStyle("Quá hạn"));
+//        today_btn.setStyle(getStatusStyle("Hôm nay"));
+//        showListBookRoom(PHIEUDATPHONG_BLL.listBookRoom()); 
+//    }
+    
     private ContextMenu contextMenu = new ContextMenu();
 	
     private MainWindow_Controller mainWindowController;
@@ -54,69 +105,41 @@ public class bookRoomWindow_Controller implements Initializable{
         showListBookRoom(listBookRoom);
     }
     
+	private Set<String> selectedStatuses = new HashSet<>();
+	
+	private void toggleStatus(String status, Button button) {
+	    if (selectedStatuses.contains(status)) {
+	        selectedStatuses.remove(status);
+	        button.setStyle(getStatusStyle(status)); 
+	    } else {
+	        selectedStatuses.add(status);
+	        button.setStyle("-fx-background-color: #FF6347;"); 
+	    }
+	    filterBookRoomList();
+	}
+	
 	public void showListBookRoom(ObservableList<Object[]> list) {
-		for(Object[] item : list) {
-			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemBookRoom.fxml"));
-				Parent bookRoomDataPane = loader.load();
-				itemBookRoom_Controller controller = loader.getController();
-				controller.setBookRoom(item);
-	            Button checkIn_btn = controller.getCheckIn_btn();
-	            Button contextMenu_btn = controller.getContextMenu_btn();
-//	            checkIn_btn.setOnAction(eventCheckIn -> {
-//	            	try {
-//	                    AnchorPane anchorPane = mainWindowController.getAnchorPane();
-//	                    anchorPane.setVisible(true);
-//	                    
-//	                    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
-//	                    Parent root = loader1.load();
-//	
-//	                    root.setOnMousePressed((MouseEvent event1) -> {            
-//	                        x = event1.getSceneX();            
-//	                        y = event1.getSceneY();    
-//	                    });
-//	                    
-//	                    Stage stage = new Stage();        
-//	                    stage.initStyle(StageStyle.TRANSPARENT);        
-//	                    Scene scene = new Scene(root);
-//	
-////	                    billBookRoom_Controller billBookRoom = loader1.getController();
-////	                    billBookRoom.billBookRoom(item);
-//	
-//	                    root.setOnMouseDragged((MouseEvent event1) -> {
-//	                        stage.setX(event1.getScreenX() - x);            
-//	                        stage.setY(event1.getScreenY() - y);       
-//	                    });
-//	                    
-//	                    stage.setScene(scene);     
-//	                    stage.showAndWait();
-//	                    
-//	                    anchorPane.setVisible(false);
-//	                    refreshBookRoomList();
-//	                } catch (IOException e) {
-//	                    e.printStackTrace();
-//	                }
-//                });
+		//listBookRoom_vbox.getChildren().clear();
+	    for (Object[] item : list) {
+	        int soLuong = (int) item[6]; 
+	        for (int i = 0; i < soLuong; i++) {
+	            try {
+	                FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemBookRoom.fxml"));
+	                Parent bookRoomDataPane = loader.load();
+	                itemBookRoom_Controller controller = loader.getController();
+	                controller.setBookRoom(item);
 
-	            contextMenu_btn.setOnMouseClicked(event -> {
-	                if (contextMenu.isShowing()) {
-	                    contextMenu.hide();
-	                    return;
-	                }
-	                contextMenu.getItems().clear();
+	                Button checkIn_btn = controller.getCheckIn_btn();
+	                Button contextMenu_btn = controller.getContextMenu_btn();
 
-	                MenuItem billItem = new MenuItem("Xem hóa đơn");
-	                MenuItem countdownItem = new MenuItem("Thời gian còn lại");
-	                MenuItem deleteItem = new MenuItem("Xóa");
-
-	                billItem.setOnAction(eventEditStaff -> {
+	                checkIn_btn.setOnAction(eventCheckIn -> {
 	                    try {
-	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                    	anchorPane.setVisible(true);
-	                    	           	
-	                        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
-	                        Parent root = loader2.load();	                   
-	                        
+	                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
+	                        anchorPane.setVisible(true);
+
+	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("receiveRoom.fxml"));
+	                        Parent root = loader1.load();
+
 	                        root.setOnMousePressed((MouseEvent event1) -> {
 	                            x = event1.getSceneX();
 	                            y = event1.getSceneY();
@@ -124,10 +147,10 @@ public class bookRoomWindow_Controller implements Initializable{
 
 	                        Stage stage = new Stage();
 	                        stage.initStyle(StageStyle.TRANSPARENT);
-	                        Scene scene = new Scene(root);                    	                      
+	                        Scene scene = new Scene(root);
 
-	                        editStaff_Controller editStaff = loader2.getController();
-	                        //editStaff.setStaff(item);
+	                        receiveRoom_Controller receiveRoom = loader1.getController();
+	                        receiveRoom.setData(item);
 
 	                        root.setOnMouseDragged((MouseEvent event1) -> {
 	                            stage.setX(event1.getScreenX() - x);
@@ -144,62 +167,67 @@ public class bookRoomWindow_Controller implements Initializable{
 	                    }
 	                });
 
-	                deleteItem.setOnAction(deleteEvent -> {
-//	                    if (item != null) {
-//	                        PHIEUDATPHONG_BLL.deleteBookRoom(item);
-//	                        refreshBookRoomList();
-//	                    }
+	                contextMenu_btn.setOnMouseClicked(event -> {
+	                    if (contextMenu.isShowing()) {
+	                        contextMenu.hide();
+	                        return;
+	                    }
+	                    contextMenu.getItems().clear();
+
+	                    MenuItem billItem = new MenuItem("Xem hóa đơn");
+	                    MenuItem countdownItem = new MenuItem("Thời gian còn lại");
+	                    MenuItem deleteItem = new MenuItem("Xóa");
+
+	                    billItem.setOnAction(eventEditStaff -> {
+	                        try {
+	                            AnchorPane anchorPane = mainWindowController.getAnchorPane();
+	                            anchorPane.setVisible(true);
+
+	                            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
+	                            Parent root = loader2.load();
+
+	                            root.setOnMousePressed((MouseEvent event1) -> {
+	                                x = event1.getSceneX();
+	                                y = event1.getSceneY();
+	                            });
+
+	                            Stage stage = new Stage();
+	                            stage.initStyle(StageStyle.TRANSPARENT);
+	                            Scene scene = new Scene(root);
+
+	                            billBookRoom_Controller billBookRoom = loader2.getController();
+
+	                            root.setOnMouseDragged((MouseEvent event1) -> {
+	                                stage.setX(event1.getScreenX() - x);
+	                                stage.setY(event1.getScreenY() - y);
+	                            });
+
+	                            stage.setScene(scene);
+	                            stage.showAndWait();
+
+	                            anchorPane.setVisible(false);
+	                            refreshBookRoomList();
+	                        } catch (IOException e) {
+	                            e.printStackTrace();
+	                        }
+	                    });
+
+	                    deleteItem.setOnAction(deleteEvent -> {
+	                        // Delete item logic here
+	                    });
+
+	                    contextMenu.getItems().addAll(billItem, countdownItem, deleteItem);
+	                    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
 	                });
 
-//	                countdownItem.setOnAction(detailEvent -> {
-//	                    try {
-//	                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-//	                        anchorPane.setVisible(true);
-//
-//	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("staffDetails.fxml"));
-//	                        Parent root = loader1.load();
-//
-//	                        root.setOnMousePressed((MouseEvent event1) -> {
-//	                            x = event1.getSceneX();
-//	                            y = event1.getSceneY();
-//	                        });
-//
-//	                        Stage stage = new Stage();
-//	                        stage.initStyle(StageStyle.TRANSPARENT);
-//	                        Scene scene = new Scene(root);
-//
-//	                        staffDetails_Controller staffDetails = loader1.getController();
-//	                        staffDetails.setStaff(item);
-//
-//	                        root.setOnMouseDragged((MouseEvent event1) -> {
-//	                            stage.setX(event1.getScreenX() - x);
-//	                            stage.setY(event1.getScreenY() - y);
-//	                        });
-//
-//	                        stage.setScene(scene);
-//	                        stage.showAndWait();
-//
-//	                        anchorPane.setVisible(false);
-//	                        // refreshStaffList();
-//	                    } catch (IOException e) {
-//	                        e.printStackTrace();
-//	                    }
-//	                });
-
-	                contextMenu.getItems().addAll(billItem, countdownItem, deleteItem);
-	                contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
-	            });
-			
-	               	          
-				Platform.runLater(() -> listBookRoom_vbox.getChildren().add(bookRoomDataPane));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	         	
-			
-	    }		
-
+	                Platform.runLater(() -> listBookRoom_vbox.getChildren().add(bookRoomDataPane));
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
 	}
+
 	
 	public void bookRoom() {
 		try {
@@ -229,23 +257,22 @@ public class bookRoomWindow_Controller implements Initializable{
 //            stage.setScene(scene);     
 //            stage.show();
             stage.setScene(scene);     
-//    		stage.showAndWait();
-            stage.show();
+    		stage.showAndWait();
             
     		anchorPane.setVisible(false);
+    		refreshBookRoomList();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static String getTrangThai(String ngayNhan, String hinhThuc) {
+	public static String getStatus(String ngayNhan, String hinhThuc) {
 	
 		LocalDate now = LocalDate.now();
         int ngaynow = now.getDayOfMonth();
         int thangnow = now.getMonthValue();
         int namnow = now.getYear();
         int day = 0, month = 0, year = 0;
-        int flag = 0;
         String status = null;
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -261,7 +288,6 @@ public class bookRoomWindow_Controller implements Initializable{
            
             if (hinhThuc.equals("Offline")) {
             	status = "Trực tiếp";
-            	flag = 1;
             } 
             else {            	
             	if (year < namnow) {
@@ -294,15 +320,14 @@ public class bookRoomWindow_Controller implements Initializable{
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(flag);
 		return status ;        
            
 	}
 	
-	private String getTrangThaiStyle(String trangThai) {
+	private String getStatusStyle(String status) {
 	    String textColor = "";
 	    String bgColor = "";
-	    switch (trangThai) {
+	    switch (status) {
 	        case "Chưa":
 	            textColor = "#448DF2";
 	            bgColor = "#E8F1FD";
@@ -320,24 +345,21 @@ public class bookRoomWindow_Controller implements Initializable{
 	            bgColor = "#FEF4E6";
 	            break;
 	    }
-	    return String.format("-fx-background-color: %s; -fx-text-fill: %s; -fx-background-radius: 20; -fx-padding: 0 10;", bgColor, textColor);
+	    return String.format("-fx-background-color: %s; -fx-text-fill: %s", bgColor, textColor);
 	}
-
-	private String getButtonStyle(String trangThai) {
-	    String textColor = "#1570EF";
-	    String bgColor = "";
-	    switch (trangThai) {
-	        case "Chưa":
-	            bgColor = "#E8F1FD";
-	            break;
-	        case "Hôm nay":
-	            bgColor = "#FFFFFF";
-	            break;
-	        default:
-	            bgColor = "#E8F1FD"; // Default background color for other states
+	
+	private void filterBookRoomList() {
+	    ObservableList<Object[]> filteredList = FXCollections.observableArrayList();
+	    for (Object[] item : PHIEUDATPHONG_BLL.listBookRoom()) { 
+	        String status = getStatus(item[3].toString(), item[5].toString());
+	        if (selectedStatuses.isEmpty() || selectedStatuses.contains(status)) {
+	            filteredList.add(item);
+	        }
 	    }
-	    return String.format("-fx-background-color: %s; -fx-text-fill: %s; -fx-background-radius: 20; -fx-padding: 5 10;", bgColor, textColor);
+	    listBookRoom_vbox.getChildren().clear();
+	    showListBookRoom(filteredList);
 	}
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

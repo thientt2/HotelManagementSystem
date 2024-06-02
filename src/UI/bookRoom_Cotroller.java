@@ -3,6 +3,7 @@ package UI;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -16,6 +17,8 @@ import BLL.HOADONPHONG_BLL;
 import BLL.KHACHHANG_BLL;
 import BLL.LOAIPHONG_BLL;
 import BLL.PHIEUDATPHONG_BLL;
+import BLL.PHONG_BLL;
+import DAO.PHONG_DAO;
 import DTO.HOADONPHONG;
 import DTO.KHACHHANG;
 import DTO.LOAIPHONG;
@@ -34,6 +37,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import system.SystemMessage;
@@ -80,26 +84,39 @@ public class bookRoom_Cotroller implements Initializable {
     @FXML
     private ComboBox<String> roomType_cb;
     
+    private MainWindow_Controller mainWindowController;
+    
+    public void setMainWindowController(MainWindow_Controller controller) {
+        this.mainWindowController = controller;
+    }
+    
+    public MainWindow_Controller getMainWindowController() {
+		return mainWindowController;
+	}
+    
     private String MANV = SystemMessage.getMANV();
     
     private List<LOAIPHONG> roomTypes = LOAIPHONG_BLL.getRoomTypes();
     
     public void showRoomType() {
-    	ObservableList<String> list = FXCollections.observableArrayList();
-		for(LOAIPHONG loai : roomTypes) {
-			list.add(loai.getTENLOAI());
-		}
-		roomType_cb.setItems(list);
-		
-		if(roomType_cb.getValue() != null) {
-			String selectedValue = roomType_cb.getValue().toString();
-			for(LOAIPHONG loai : roomTypes) {
-				if(loai.getTENLOAI().equals(selectedValue)) {
-					price_txt.setText(String.valueOf(loai.getGIA()));
-					break;
-				}
-			}
-		}
+        ObservableList<String> list = FXCollections.observableArrayList();
+        for(LOAIPHONG loai : roomTypes) {
+            list.add(loai.getTENLOAI());
+        }
+        roomType_cb.setItems(list);
+        
+        roomType_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                String selectedValue = newVal.toString();
+                for(LOAIPHONG loai : roomTypes) {
+                    if(loai.getTENLOAI().equals(selectedValue)) {
+                        price_txt.setText(String.valueOf(loai.getGIA()));
+                        showQuantity(loai.getMALOAI());
+                        break;
+                    }
+                }
+            }
+        });
     }
     
     
@@ -129,13 +146,29 @@ public class bookRoom_Cotroller implements Initializable {
     }
 		
     
-	public void showQuantity() {
-		ObservableList<Integer> list = FXCollections.observableArrayList();
-		for(int i = 1; i <= 10; i++) {
-			list.add(i);
-		}
-		quantity_cb.setItems(list);
-	}
+//	public void showQuantity() {
+//		ObservableList<Integer> list = FXCollections.observableArrayList();
+//		for(int i = 1; i <= 10; i++) {
+//			list.add(i);
+//		}
+//		quantity_cb.setItems(list);
+//	}
+    
+    public void showQuantity(int roomTypeId) {
+        ObservableList<Integer> list = FXCollections.observableArrayList();
+        try {
+            LocalDate checkinDate = checkin_datepicker.getValue();
+            LocalDate checkoutDate = checkout_datepicker.getValue();
+            int availableRooms = PHONG_BLL.getAvailableRooms(roomTypeId, checkinDate, checkoutDate);
+            for (int i = 1; i <= availableRooms; i++) {
+                list.add(i);
+            }
+            quantity_cb.setItems(list);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+	
 	private ObservableList<Object[]> listDetailBookRoom = FXCollections.observableArrayList();
     
 	public void addDetailBill() {
@@ -237,9 +270,13 @@ public class bookRoom_Cotroller implements Initializable {
 			Stage stage = (Stage) close_btn.getScene().getWindow();
 			stage.close();
 			
+			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
 			Parent root;
+			//AnchorPane anchorPane = mainWindowController.getAnchorPane();
 			try {
+	
+                //anchorPane.setVisible(true);
 				root = loader.load();
 				String checkin = checkin_datepicker.getValue().toString();
 				String checkout = checkout_datepicker.getValue().toString();
@@ -249,8 +286,11 @@ public class bookRoom_Cotroller implements Initializable {
 				
 				controller.setData(checkin, checkout, lastBillBookRoom, listDetailBookRoom);
 				Scene scene = new Scene(root);
+				
 				stage.setScene(scene);
 				stage.show();
+				
+				//anchorPane.setVisible(false);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -275,13 +315,8 @@ public class bookRoom_Cotroller implements Initializable {
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		showRoomType();			
-		showQuantity();		
+		showRoomType();				
 		searchCustomer();		
-		
-		
+			
 	}
-
-	
-
 }

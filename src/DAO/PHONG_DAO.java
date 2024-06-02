@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.time.LocalDate;
 import java.util.*;
 
 import DTO.PHONG;
@@ -16,6 +16,40 @@ import system.SystemMessage;
 
 public class PHONG_DAO {
 	
+	public static int getAvailableRooms(int roomTypeId, LocalDate checkinDate, LocalDate checkoutDate) throws SQLException {
+        Connection con = DatabaseConnection.connectDb();
+        int totalRooms = 0;
+        int bookedRooms = 0;
+        
+        String totalRoomsQuery = "SELECT COUNT(*) FROM PHONG WHERE MALOAIP = ?";
+        PreparedStatement totalRoomsStmt = con.prepareStatement(totalRoomsQuery);
+        totalRoomsStmt.setInt(1, roomTypeId);
+        ResultSet totalRoomsRs = totalRoomsStmt.executeQuery();
+        if (totalRoomsRs.next()) {
+            totalRooms = totalRoomsRs.getInt(1);
+        }
+        
+        String bookedRoomsQuery = "SELECT COUNT(*) FROM PHIEUDATPHONG p INNER JOIN CHITIETPDP c ON p.MAPDP = c.MAPDP "
+                                + "WHERE c.MALOAIP = ? AND ((p.NGAYNHAN <= ? AND p.NGAYTRA >= ?) OR (p.NGAYNHAN <= ? AND p.NGAYTRA >= ?))";
+        PreparedStatement bookedRoomsStmt = con.prepareStatement(bookedRoomsQuery);
+        bookedRoomsStmt.setInt(1, roomTypeId);
+        bookedRoomsStmt.setDate(2, java.sql.Date.valueOf(checkoutDate));
+        bookedRoomsStmt.setDate(3, java.sql.Date.valueOf(checkinDate));
+        bookedRoomsStmt.setDate(4, java.sql.Date.valueOf(checkoutDate));
+        bookedRoomsStmt.setDate(5, java.sql.Date.valueOf(checkinDate));
+        ResultSet bookedRoomsRs = bookedRoomsStmt.executeQuery();
+        if (bookedRoomsRs.next()) {
+            bookedRooms = bookedRoomsRs.getInt(1);
+        }
+        
+        int availableRooms = totalRooms - bookedRooms;
+        
+        totalRoomsStmt.close();
+        bookedRoomsStmt.close();
+        con.close();
+        
+        return availableRooms;
+    }
    
     public static ObservableList<Object[]> getListRoomByFloor(int floorNumber) {
     	
