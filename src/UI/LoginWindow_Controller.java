@@ -74,11 +74,13 @@ public class LoginWindow_Controller implements Initializable {
     private AlertMessage alert = new AlertMessage();    
     
     @FXML
-    private ToggleButton toggleButton;
+    private Button toggleButton;
+    
+    private boolean isPasswordVisible = false;
 
     @FXML
     private void initialize() {
-        
+
     }
     
     public void login() throws SQLException, IOException{
@@ -135,20 +137,18 @@ public class LoginWindow_Controller implements Initializable {
     }
     
     public void showPassword() {
-        if (toggleButton.isSelected()) {
-//            passwordTxt.setManaged(false);
-//            passwordTxt.setVisible(false);
-        	passwordTxt.setVisible(false);
-        	showPasswordTxt.setVisible(true);
-        	showPasswordTxt.setText(passwordTxt.getText());
-        	
+        if (isPasswordVisible) {
+            // Hiển thị PasswordField và ẩn TextField
+            passwordTxt.setText(showPasswordTxt.getText());
+            passwordTxt.setVisible(true);
+            showPasswordTxt.setVisible(false);
         } else {
-//            passwordTxt.setManaged(true);
-//            passwordTxt.setVisible(true);
-        	passwordTxt.setVisible(true);
-        	passwordTxt.setText(showPasswordTxt.getText());
-        	showPasswordTxt.setVisible(false);
+            // Hiển thị TextField và ẩn PasswordField
+            showPasswordTxt.setText(passwordTxt.getText());
+            showPasswordTxt.setVisible(true);
+            passwordTxt.setVisible(false);
         }
+        isPasswordVisible = !isPasswordVisible; 
     }
     
     public void exit(){
