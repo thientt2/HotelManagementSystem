@@ -23,70 +23,70 @@
                      <children>
                         <AnchorPane prefHeight="37.0" prefWidth="202.0">
                            <children>
-                              <Button fx:id="mainWindow_btn" graphicTextGap="10.0" mnemonicParsing="false" onAction="#changeSceneDashBoardWindow" prefHeight="40.0" prefWidth="166.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Trang chủ" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="mainWindow_btn" graphicTextGap="15.0" mnemonicParsing="false" onAction="#changeSceneDashBoardWindow" prefHeight="40.0" prefWidth="166.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Trang chủ" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fx:id="iconDashBoard" fill="#1366d9" glyphName="HOME" size="20" strokeWidth="0.0" styleClass="icon" />
+                                    <FontAwesomeIcon fx:id="iconDashBoard" fill="#1366d9" glyphName="HOME" size="25" strokeWidth="0.0" styleClass="icon" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="selectMainWindow_btn" graphicTextGap="10.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Trang chủ" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="selectMainWindow_btn" graphicTextGap="15.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Trang chủ" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fx:id="iconDashBoard1" fill="#1366d9" glyphName="HOME" size="20" strokeWidth="0.0" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fx:id="iconDashBoard1" fill="#1366d9" glyphName="HOME" size="25" strokeWidth="0.0" styleClass="selected-icon" />
                                  </graphic>
                               </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="customer_btn" prefHeight="40.0" prefWidth="165.0" styleClass="pane">
                            <children>
-                              <Button fx:id="customerWindow_btn" graphicTextGap="9.0" mnemonicParsing="false" onAction="#changeSceneCustomerWindow" prefHeight="40.0" prefWidth="166.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Khách hàng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="customerWindow_btn" graphicTextGap="16.0" mnemonicParsing="false" onAction="#changeSceneCustomerWindow" prefHeight="40.0" prefWidth="166.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Khách hàng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="HOTEL" size="20" strokeWidth="0.0" styleClass="icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="USER" size="24" strokeWidth="0.0" styleClass="icon" wrappingWidth="21.257137298583984" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="selectCustomerWindow_btn" graphicTextGap="9.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Khách hàng" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="selectCustomerWindow_btn" graphicTextGap="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Khách hàng" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="GROUP" size="20" strokeWidth="0.0" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="USER" size="24" strokeWidth="0.0" styleClass="selected-icon" wrappingWidth="21.257137298583984" />
                                  </graphic>
                               </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="staff_btn" prefHeight="40.0" prefWidth="165.0" styleClass="pane-text">
                            <children>
-                              <Button fx:id="staffWindow_btn" graphicTextGap="10.0" mnemonicParsing="false" onAction="#changeSceneStaffWindow" prefHeight="40.0" prefWidth="166.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Nhân viên" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="staffWindow_btn" graphicTextGap="14.0" mnemonicParsing="false" onAction="#changeSceneStaffWindow" prefHeight="40.0" prefWidth="166.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Nhân viên" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="WHITE" glyphName="USER" size="25" stroke="#080808" styleClass="icon" />
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SUITCASE" size="20" stroke="#080808" styleClass="icon" wrappingWidth="24.799957275390625" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="selectStaffWindow_btn" graphicTextGap="10.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Nhân viên" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="selectStaffWindow_btn" graphicTextGap="14.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Nhân viên" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="WHITE" glyphName="USER" size="25" stroke="#080808" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SUITCASE" size="20" stroke="#080808" styleClass="selected-icon" wrappingWidth="24.799957275390625" />
                                  </graphic>
                               </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="room_btn" prefHeight="40.0" prefWidth="165.0" styleClass="pane-text">
                            <children>
-                              <Button fx:id="roomWindow_btn" graphicTextGap="15.0" layoutX="2.0" layoutY="-7.0" mnemonicParsing="false" onAction="#changeSceneRoomWindow" prefHeight="40.0" prefWidth="168.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Phòng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="roomWindow_btn" graphicTextGap="16.0" layoutX="2.0" layoutY="-7.0" mnemonicParsing="false" onAction="#changeSceneRoomWindow" prefHeight="40.0" prefWidth="168.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Phòng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="WHITE" glyphName="BOOKMARK" size="20" stroke="#080808" styleClass="icon" />
+                                    <FontAwesomeIcon fill="WHITE" glyphName="BOOKMARK" size="24" stroke="#080808" styleClass="icon" wrappingWidth="22.742862701416016" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="selectRoomWindow_btn" graphicTextGap="15.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="168.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Phòng" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="selectRoomWindow_btn" graphicTextGap="16.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="168.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Phòng" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="WHITE" glyphName="BOOKMARK" size="20" stroke="#080808" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fill="WHITE" glyphName="BOOKMARK" size="24" stroke="#080808" styleClass="selected-icon" wrappingWidth="22.742862701416016" />
                                  </graphic>
                               </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="bookRoom_btn" prefHeight="40.0" prefWidth="165.0" styleClass="pane-text">
                            <children>
-                              <Button fx:id="bookRoomWindow_btn" graphicTextGap="12.0" layoutX="16.0" layoutY="-2.0" mnemonicParsing="false" onAction="#changeSceneBookRoomWindow" prefHeight="40.0" prefWidth="184.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Đặt phòng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="bookRoomWindow_btn" graphicTextGap="15.0" layoutX="16.0" layoutY="-2.0" mnemonicParsing="false" onAction="#changeSceneBookRoomWindow" prefHeight="40.0" prefWidth="184.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Đặt phòng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="TAG" size="20" strokeWidth="0.0" styleClass="icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="TAG" size="24" strokeWidth="0.0" styleClass="icon" wrappingWidth="24.571428298950195" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="selectBookRoomWindow_btn" graphicTextGap="12.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="184.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Đặt phòng" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="selectBookRoomWindow_btn" graphicTextGap="15.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="184.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Đặt phòng" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="TAG" size="20" strokeWidth="0.0" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="TAG" size="24" strokeWidth="0.0" styleClass="selected-icon" wrappingWidth="24.571428298950195" />
                                  </graphic>
                               </Button>
                            </children>
@@ -95,61 +95,61 @@
                            <children>
                               <Button fx:id="billWindow_btn" graphicTextGap="17.0" layoutX="13.0" layoutY="-18.0" mnemonicParsing="false" onAction="#changeSceneBillWindow" prefHeight="40.0" prefWidth="197.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Hóa đơn" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="BED" size="20" strokeWidth="0.0" styleClass="icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="CLIPBOARD" size="20" strokeWidth="0.0" styleClass="icon" wrappingWidth="23.199981689453125" />
                                  </graphic>
                               </Button>
                               <Button fx:id="selectBillWindow_btn" graphicTextGap="17.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="197.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Hóa đơn" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="DOLLAR" size="20" strokeWidth="0.0" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="CLIPBOARD" size="20" strokeWidth="0.0" styleClass="selected-icon" wrappingWidth="23.199981689453125" />
                                  </graphic>
                               </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="statistical_btn" prefHeight="40.0" prefWidth="165.0" styleClass="pane-text">
                            <children>
-                              <Button fx:id="statisticalWindow_btn" graphicTextGap="8.0" layoutX="6.0" layoutY="1.0" mnemonicParsing="false" onAction="#changeSceneStatisticalWindow" onDragEntered="#changeSceneStatisticalWindow" prefHeight="41.0" prefWidth="203.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Thống kê" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="statisticalWindow_btn" graphicTextGap="15.0" layoutX="6.0" layoutY="1.0" mnemonicParsing="false" onAction="#changeSceneStatisticalWindow" onDragEntered="#changeSceneStatisticalWindow" prefHeight="41.0" prefWidth="203.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Thống kê" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="WHITE" glyphName="BOOK" size="20" stroke="#716363" />
+                                    <FontAwesomeIcon fill="WHITE" glyphName="PIE_CHART" size="22" stroke="#716363" wrappingWidth="25.199981689453125" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="selectStatisticalWindow_btn" graphicTextGap="8.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" onDragEntered="#changeSceneStatisticalWindow" prefHeight="41.0" prefWidth="203.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Thống kê" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="selectStatisticalWindow_btn" graphicTextGap="15.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" onDragEntered="#changeSceneStatisticalWindow" prefHeight="41.0" prefWidth="203.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Thống kê" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="WHITE" glyphName="BOOK" size="20" stroke="#716363" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fill="WHITE" glyphName="PIE_CHART" size="22" stroke="#716363" styleClass="selected-icon" wrappingWidth="25.199981689453125" />
                                  </graphic>
                               </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="param_btn" prefHeight="40.0" prefWidth="165.0" styleClass="pane-text">
                            <children>
-                              <Button fx:id="paramWindow_btn" graphicTextGap="8.0" layoutX="10.0" layoutY="-9.0" mnemonicParsing="false" onAction="#changeSceneParamWindow" prefHeight="40.0" prefWidth="213.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Thông số" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="paramWindow_btn" graphicTextGap="15.0" layoutX="10.0" layoutY="-9.0" mnemonicParsing="false" onAction="#changeSceneParamWindow" prefHeight="40.0" prefWidth="213.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Thông số" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="LIST" size="20" strokeWidth="0.0" styleClass="icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="LIST" size="20" strokeWidth="0.0" styleClass="icon" wrappingWidth="24.0" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="selectParamWindow_btn" graphicTextGap="8.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Thông số" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="selectParamWindow_btn" graphicTextGap="15.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Thông số" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="LIST" size="20" strokeWidth="0.0" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="LIST" size="20" strokeWidth="0.0" styleClass="selected-icon" wrappingWidth="24.0" />
                                  </graphic>
                               </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="feedback_btn" layoutX="10.0" layoutY="386.0" prefHeight="40.0" prefWidth="165.0" styleClass="pane-text">
                            <children>
-                              <Button fx:id="feedbackWindow_btn" graphicTextGap="8.0" layoutX="10.0" layoutY="-9.0" mnemonicParsing="false" onAction="#changeSceneParamWindow" prefHeight="40.0" prefWidth="213.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Đánh giá" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="feedbackWindow_btn" graphicTextGap="14.0" layoutX="10.0" layoutY="-9.0" mnemonicParsing="false" onAction="#changeSceneParamWindow" prefHeight="40.0" prefWidth="213.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Đánh giá" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="STAR" size="20" strokeWidth="0.0" styleClass="icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="STAR" size="22" strokeWidth="0.0" styleClass="icon" wrappingWidth="26.02857780456543" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="selectFeedbackWindow_btn" graphicTextGap="8.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Đánh giá" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="selectFeedbackWindow_btn" graphicTextGap="14.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" styleClass="selected-btn" stylesheets="@../Designs/MainWindow.css" text="Đánh giá" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <FontAwesomeIcon fill="#1366d9" glyphName="STAR" size="20" strokeWidth="0.0" styleClass="selected-icon" />
+                                    <FontAwesomeIcon fill="#1366d9" glyphName="STAR" size="22" strokeWidth="0.0" styleClass="selected-icon" wrappingWidth="26.02857780456543" />
                                  </graphic>
                               </Button>
                            </children>
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <Label layoutX="32.0" layoutY="29.0" style="-fx-font-size: 20px;" styleClass="logo" stylesheets="@../Designs/MainWindow.css" text="La Opera Hotel" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="29.0">
+                  <Label layoutX="18.0" layoutY="33.0" style="-fx-font-size: 24px;" styleClass="logo" stylesheets="@../Designs/MainWindow.css" text="La Opera Hotel" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="33.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -173,13 +173,13 @@
                <children>
                   <AnchorPane layoutX="18.4" prefHeight="70.0" prefWidth="897.0" styleClass="white-bg" stylesheets="@../Designs/MainWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <FontAwesomeIcon glyphName="CALENDAR" layoutX="223.0" layoutY="41.0" size="20" stroke="WHITE" strokeWidth="0.0" styleClass="icon" text="" wrappingWidth="11.428571701049805" />
+                       	<FontAwesomeIcon fill="#1366d9" glyphName="CALENDAR_ALT" layoutX="222.0" layoutY="39.0" size="20" strokeWidth="0.0" styleClass="icon" />
                         <Label fx:id="toDay" layoutX="251.0" layoutY="20.0" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="DD:MM:YYYY">
                            <font>
                               <Font name="Bauhaus 93" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER_RIGHT" layoutX="593.0" layoutY="8.0" prefHeight="50.0" prefWidth="304.0" spacing="20.0" AnchorPane.rightAnchor="-0.20000000000004547" AnchorPane.topAnchor="8.0">
+                        <HBox alignment="CENTER_RIGHT" layoutX="593.0" layoutY="8.0" prefHeight="38.0" prefWidth="305.0" spacing="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="8.0">
                            <children>
                               <FontAwesomeIcon fill="#a48d75" glyphName="BELL" size="20" stroke="#0d0202" strokeWidth="0.0" />
                               <Label fx:id="username_label" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="Trần Trung Thông" />

@@ -32,7 +32,8 @@
 
 .pane-text {
 	-fx-text-fill: #5D6679;
-	-fx-font-size: 20px;
+	-fx-font-size: 16px;
+	-fx-font-weight: bold;
 	-fx-font-family: "Inter-Medium";
 }
 
@@ -90,11 +91,6 @@
 	-fx-font-weight: 700;
 	-fx-font-family: "Inter-Medium";
 	-fx-alignment:center-left;
-}
-
-.selected-btn .graphic{
-	-fx-pref-width: 20px; 
-    -fx-pref-height: 20px;
 }
 
 .unselected-btn{
