@@ -6,7 +6,6 @@
 	-fx-background-color:transparent;
 	-fx-text-fill: #5D6679;
 	-fx-font-family:"Inter";
-	-fx-font-weight: 630;	
 	-fx-alignment:center;
 	-fx-cell-size: 30px;
 	-fx-font-size: 14px;
@@ -27,7 +26,6 @@
 	-fx-padding:0px 0px 0px 30px;
 	-fx-font-size: 16px;
 	-fx-font-family:"Inter";
-	-fx-font-weight: 630;
 	-fx-alignment:center-left;
 }
 
