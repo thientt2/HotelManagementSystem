@@ -2,6 +2,7 @@ package BLL;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 import DAO.*;
@@ -42,6 +43,10 @@ public class PHONG_BLL {
 	 public static int getAvailableRooms(int roomTypeId, LocalDate checkinDate, LocalDate checkoutDate) throws SQLException
 	 {
 		 return PHONG_DAO.getAvailableRooms(roomTypeId, checkinDate, checkoutDate);
+	 }
+	 
+	 public static List<String> getRoomNumbersByTypeAndStatus(String roomType, int status) throws SQLException {
+		 return PHONG_DAO.getRoomNumbersByTypeAndStatus(roomType, status);
 	 }
 }
 
