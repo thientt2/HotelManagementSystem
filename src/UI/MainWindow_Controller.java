@@ -356,73 +356,64 @@ public class MainWindow_Controller implements Initializable {
 	private double x = 0;
 	private double y = 0;
     
-//    public void accountInfo() throws IOException {
-//    	NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-//    	FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
-//        Parent root = loader.load();
-//
-////        root.setOnMousePressed((MouseEvent event) -> {            
-////            x = event.getSceneX();            
-////            y = event.getSceneY();    
-////        });
-//        
-//        Stage stage = new Stage();        
-//        stage.initStyle(StageStyle.TRANSPARENT);        
-//        Scene scene = new Scene(root);
-//
-//        accountInfo_Controller accountInfo = loader.getController();
-//        accountInfo.accountInfo(nhanVien);
-//
-////        root.setOnMouseDragged((MouseEvent event) -> {
-////            stage.setX(event.getScreenX() - x);            
-////            stage.setY(event.getScreenY() - y);       
-////        });
-//        root.setOnMouseDragged((MouseEvent event) -> {
-//            stage.setX(950);            
-//            stage.setY(30);       
-//        });
-//        
-//        stage.setScene(scene);     
-//        stage.showAndWait();
-//        
-//        //anchorPane.setVisible(false);
-//    }
-//    
-	public void accountInfo() throws IOException {
-	    NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-	    FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
-	    Parent root = loader.load();
+    public void accountInfo() throws IOException {
+    	NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
+        Parent root = loader.load();
+        
+        Stage stage = new Stage();        
+        stage.initStyle(StageStyle.TRANSPARENT);        
+        Scene scene = new Scene(root);
 
-	    Stage stage = new Stage();
-	    stage.initStyle(StageStyle.TRANSPARENT);
-	    Scene scene = new Scene(root);
-
-	    accountInfo_Controller accountInfo = loader.getController();
-	    accountInfo.accountInfo(nhanVien);
-
-	    // Define initial X and Y coordinates for the window
-	    double initialX = 1010;
+        double initialX = 1010;
 	    double initialY = 130;
 	    stage.setX(initialX);
 	    stage.setY(initialY);
+        
+        accountInfo_Controller accountInfo = loader.getController();
+        accountInfo.accountInfo(nhanVien);
 
-	    // Variables to store the offset of the mouse click relative to the window's position
-	    final double[] offsetX = {0};
-	    final double[] offsetY = {0};
-
-	    root.setOnMousePressed((MouseEvent event) -> {
-	        offsetX[0] = event.getSceneX();
-	        offsetY[0] = event.getSceneY();
-	    });
-
-	    root.setOnMouseDragged((MouseEvent event) -> {
-	        stage.setX(event.getScreenX() - offsetX[0]);
-	        stage.setY(event.getScreenY() - offsetY[0]);
-	    });
-
-	    stage.setScene(scene);
-	    stage.showAndWait();
-	}
+        
+        stage.setScene(scene);     
+        stage.showAndWait();
+        
+    }
+    
+//	public void accountInfo() throws IOException {
+//	    NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
+//	    FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
+//	    Parent root = loader.load();
+//
+//	    Stage stage = new Stage();
+//	    stage.initStyle(StageStyle.TRANSPARENT);
+//	    Scene scene = new Scene(root);
+//
+//	    accountInfo_Controller accountInfo = loader.getController();
+//	    accountInfo.accountInfo(nhanVien);
+//
+//	    // Define initial X and Y coordinates for the window
+//	    double initialX = 1010;
+//	    double initialY = 130;
+//	    stage.setX(initialX);
+//	    stage.setY(initialY);
+//
+//	    // Variables to store the offset of the mouse click relative to the window's position
+//	    final double[] offsetX = {0};
+//	    final double[] offsetY = {0};
+//
+//	    root.setOnMousePressed((MouseEvent event) -> {
+//	        offsetX[0] = event.getSceneX();
+//	        offsetY[0] = event.getSceneY();
+//	    });
+//
+//	    root.setOnMouseDragged((MouseEvent event) -> {
+//	        stage.setX(event.getScreenX() - offsetX[0]);
+//	        stage.setY(event.getScreenY() - offsetY[0]);
+//	    });
+//
+//	    stage.setScene(scene);
+//	    stage.showAndWait();
+//	}
     // Đặt username với username_label
     public void initData(String username) {
         this.username = username;
@@ -442,22 +433,6 @@ public class MainWindow_Controller implements Initializable {
 	    
     }
     
-//    public void initData(String username) {
-//        this.username = username;
-//        NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-//        username_label.setText(nhanVien.getTENNV());
-//        SystemMessage.setMANV(nhanVien.getMANV());
-//
-//        byte[] photoData = nhanVien.getPHOTO();
-//        if (photoData != null && photoData.length > 0) {
-//            ByteArrayInputStream bis = new ByteArrayInputStream(photoData);
-//            Image image = new Image(bis);
-//            photo.setImage(image);
-//        } else {
-//            Image defaultImage = new Image("/Images/LAOPERA.jpg");
-//            photo.setImage(defaultImage);
-//        }
-//    }
 
 //    public void setStaff(NHANVIEN nhanVien) {
 //        if (nhanVien.getPHOTO() != null) {

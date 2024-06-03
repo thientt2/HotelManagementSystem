@@ -6,7 +6,10 @@ import java.util.ResourceBundle;
 import BLL.LOAINHANVIEN_BLL;
 import DTO.NHANVIEN;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
@@ -27,7 +30,7 @@ public class accountInfo_Controller implements Initializable{
     private Label sdt_txt;
 
     @FXML
-    private Button signOut_btn;
+    private Button logOut_btn;
 
     @FXML
     private Circle top_circle;
@@ -42,15 +45,22 @@ public class accountInfo_Controller implements Initializable{
 		type_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
 	}  
     
-    public void signOut() {
-    	
+    public void logOut() {
+    	try {
+			Parent root = FXMLLoader.load(getClass().getResource("LoginWindow.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
     }
     
     public void exit() {
-    	Stage stage = (Stage) exit_btn.getScene().getWindow();
-    	stage.close();
+    	System.exit(0);
     }
-	 
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
