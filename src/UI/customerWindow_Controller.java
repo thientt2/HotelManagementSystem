@@ -55,19 +55,6 @@ public class customerWindow_Controller implements Initializable {
 	private double x = 0;
 	private double y = 0;
 	
-//	private String ngaysinh;
-//	
-//	public String getFormattedNgaySinh() {
-//        try {
-//            SimpleDateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd");
-//            SimpleDateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy");
-//            Date date = originalFormat.parse(this.ngaysinh);
-//            return targetFormat.format(date);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return this.ngaysinh;
-//        }
-//    }
 
 	public void refreshCustomerList() {
         // Xóa tất cả các nút con trong VBox

@@ -29,14 +29,12 @@ public class PHONG_DAO {
             totalRooms = totalRoomsRs.getInt(1);
         }
         
-        String bookedRoomsQuery = "SELECT COUNT(*) FROM PHIEUDATPHONG p INNER JOIN CHITIETPDP c ON p.MAPDP = c.MAPDP "
-                                + "WHERE c.MALOAIP = ? AND ((p.NGAYNHAN <= ? AND p.NGAYTRA >= ?) OR (p.NGAYNHAN <= ? AND p.NGAYTRA >= ?))";
+        String bookedRoomsQuery = "SELECT SUM(c.SOLUONG) FROM PHIEUDATPHONG p INNER JOIN CHITIETPDP c ON p.MAPDP = c.MAPDP "
+                				+ "WHERE c.MALOAIP = ? AND p.NGAYNHAN < ? AND p.NGAYTRA > ?";
         PreparedStatement bookedRoomsStmt = con.prepareStatement(bookedRoomsQuery);
         bookedRoomsStmt.setInt(1, roomTypeId);
         bookedRoomsStmt.setDate(2, java.sql.Date.valueOf(checkoutDate));
         bookedRoomsStmt.setDate(3, java.sql.Date.valueOf(checkinDate));
-        bookedRoomsStmt.setDate(4, java.sql.Date.valueOf(checkoutDate));
-        bookedRoomsStmt.setDate(5, java.sql.Date.valueOf(checkinDate));
         ResultSet bookedRoomsRs = bookedRoomsStmt.executeQuery();
         if (bookedRoomsRs.next()) {
             bookedRooms = bookedRoomsRs.getInt(1);
@@ -178,5 +176,36 @@ public class PHONG_DAO {
 			}
 		return null;
 	}
+    
+    public static List<String> getRoomNumbersByTypeAndStatus(String roomType, int status) throws SQLException {
+        List<String> roomNumbers = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            con = DatabaseConnection.connectDb();
+            String query = "SELECT MAPHONG FROM PHONG WHERE MALOAIP = (SELECT MALOAIP FROM LOAIPHONG WHERE TENLOAI = ?) AND MATRANGTHAI = ?";
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, roomType);
+            stmt.setInt(2, status);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                roomNumbers.add(rs.getString("MAPHONG"));
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return roomNumbers;
+    }
 
 }

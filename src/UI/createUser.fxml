@@ -56,7 +56,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="staff_cb" layoutY="27.0" onAction="#showStaffType" prefHeight="40.0" prefWidth="250.0" promptText="Chọn nhân viên" stylesheets="@../Designs/addCustomer.css">
+                                    <ComboBox fx:id="staff_cb" layoutY="27.0" prefHeight="40.0" prefWidth="250.0" promptText="Chọn nhân viên" stylesheets="@../Designs/addCustomer.css">
                                        <styleClass>
                                           <String fx:value="text-field" />
                                           <String fx:value="-fx-font-" />

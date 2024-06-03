@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 
 import BLL.LOAINHANVIEN_BLL;
 import BLL.NHANVIEN_BLL;
+import DAO.NHANVIEN_DAO;
+import DTO.LOAIPHONG;
 import DTO.NHANVIEN;
 import application.AlertMessage;
 import javafx.collections.FXCollections;
@@ -52,14 +54,21 @@ public class createUser_Controller implements Initializable {
     
     public void showStaffType() {
 		job_cb.getItems().addAll("Quản trị viên", "Nhân viên quản lý", "Nhân viên lễ tân");
+		job_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                String selectedValue = newVal.toString();
+                showStaffNames(selectedValue);
+            }
+        });
 	}
     
-    private List<String> staffTypes = LOAINHANVIEN_BLL.listStaffType();
-    public void showStaffName() {
-        ObservableList<String> listStaffTypes = FXCollections.observableArrayList(staffTypes);
-        job_cb.setItems(listStaffTypes);
+    public void showStaffNames(String selectedValue) {
+        int jobType = LOAINHANVIEN_BLL.getStaffTypeId(selectedValue);
+        List<String> staffNames = NHANVIEN_BLL.getStaffNamesByJob(jobType);
+        ObservableList<String> staffNamesList = FXCollections.observableArrayList(staffNames);
+        staff_cb.setItems(staffNamesList);
     }
-    //lấy tên nhân viên
+    
     
     public void setUser(NHANVIEN item) {
     	//staffName_txt.setText(item.getTENNV());
@@ -68,7 +77,7 @@ public class createUser_Controller implements Initializable {
     		username_txt.setText(item.getTENDANGNHAP());
     		password_txt.setText(item.getMATKHAU());
     		confirmPassword_txt.setText(item.getMATKHAU());
-    		photoUrl_txt.setText(item.getPHOTOURL());
+    		//photoUrl_txt.setText(item.getPHOTOURL());
 		}
     }
     
@@ -89,7 +98,7 @@ public class createUser_Controller implements Initializable {
 		data.put("confirmPassword", confirmPassword_txt.getText());
 		//data.put("staffName", staffName_txt.getText());
 		//data.put("job", job_txt.getText());
-		data.put("photoUrl", photoUrl_txt.getText());
+		//data.put("photoUrl", photoUrl_txt.getText());
 		
 		NHANVIEN_BLL.createUser(data);
 		AlertMessage alert = new AlertMessage();
@@ -114,7 +123,6 @@ public class createUser_Controller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		showStaffType();
-	
 		
 	}
 

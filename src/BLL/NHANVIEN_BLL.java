@@ -1,5 +1,6 @@
 package BLL;
 
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -90,6 +91,10 @@ public class NHANVIEN_BLL {
 	
 	public static void deleteStaff(NHANVIEN nhanVien) {
 		NHANVIEN_DAO.deleteStaff(nhanVien);
+	}
+	
+	public static List<String> getStaffNamesByJob(int jobType) {
+		return NHANVIEN_DAO.getStaffNamesByJob(jobType);
 	}
 	
 }

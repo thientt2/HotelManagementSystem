@@ -1,9 +1,15 @@
 package DAO;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import DTO.NHANVIEN;
@@ -19,6 +25,7 @@ public class NHANVIEN_DAO {
 			PreparedStatement prepare = connection.prepareStatement(query);
 			ResultSet resultSet = prepare.executeQuery();
 			while (resultSet.next()) {
+				byte[] photoBytes = resultSet.getBytes("PHOTO");
 				list.add(new NHANVIEN(resultSet.getString("MANV")                 		   					
 	   					,resultSet.getString("TENNV")                		   					
 	   					,resultSet.getString("EMAIL")
@@ -31,8 +38,8 @@ public class NHANVIEN_DAO {
 	   					,resultSet.getString("NGAYVAOLAM")
 	   					,resultSet.getString("TENDANGNHAP")
 	   					,resultSet.getString("MATKHAU")
-	   					,resultSet.getString("PHOTOURL")
-	   					,resultSet.getInt("TINHTRANG")));
+	   					,resultSet.getInt("TINHTRANG")
+	   					,photoBytes));
 				
 			}
 		} catch (SQLException e) {
@@ -43,32 +50,35 @@ public class NHANVIEN_DAO {
 	
 	
 	public static NHANVIEN getStaffById(String id) {
-		NHANVIEN nhanVen = null;
-		try (Connection connection = DatabaseConnection.connectDb();) {
-			String query = "SELECT * FROM NHANVIEN WHERE MANV = ?";
-			PreparedStatement prepare = connection.prepareStatement(query);
-			prepare.setString(1, id);
-			ResultSet resultSet = prepare.executeQuery();
-			while (resultSet.next()) {
-				 nhanVen = new NHANVIEN(resultSet.getString("MANV")                 		   					
-		   					,resultSet.getString("TENNV")                		   					
-		   					,resultSet.getString("EMAIL")
-		   					,resultSet.getInt("MALOAINV")
-		   					,resultSet.getString("CCCD")
-		   					,resultSet.getString("NGAYSINH")
-		   					,resultSet.getString("GIOITINH")                		   					
-		   					,resultSet.getString("DIACHI")
-		   					,resultSet.getString("SDT")
-		   					,resultSet.getString("NGAYVAOLAM")
-		   					,resultSet.getString("TENDANGNHAP")
-		   					,resultSet.getString("MATKHAU")
-		   					,resultSet.getString("PHOTOURL")
-		   					,resultSet.getInt("TINHTRANG"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return nhanVen;		
+	    NHANVIEN nhanVien = null;
+	    try (Connection connection = DatabaseConnection.connectDb();) {
+	        String query = "SELECT * FROM NHANVIEN WHERE MANV = ?";
+	        PreparedStatement prepare = connection.prepareStatement(query);
+	        prepare.setString(1, id);
+	        ResultSet resultSet = prepare.executeQuery();
+	        if (resultSet.next()) {
+	            byte[] photoBytes = resultSet.getBytes("PHOTO");
+	            nhanVien = new NHANVIEN(
+	                    resultSet.getString("MANV"),
+	                    resultSet.getString("TENNV"),
+	                    resultSet.getString("EMAIL"),
+	                    resultSet.getInt("MALOAINV"),
+	                    resultSet.getString("CCCD"),
+	                    resultSet.getString("NGAYSINH"),
+	                    resultSet.getString("GIOITINH"),
+	                    resultSet.getString("DIACHI"),
+	                    resultSet.getString("SDT"),
+	                    resultSet.getString("NGAYVAOLAM"),
+	                    resultSet.getString("TENDANGNHAP"),
+	                    resultSet.getString("MATKHAU"),
+	                    resultSet.getInt("TINHTRANG"),
+	                    photoBytes // Store the byte array
+	            );
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return nhanVien;
 	}
 	
 	public static NHANVIEN getStaff(String user) {
@@ -80,6 +90,7 @@ public class NHANVIEN_DAO {
                ResultSet resultSet = prepare.executeQuery();
 
                while (resultSet.next()) {
+            	   byte[] photoBytes = resultSet.getBytes("PHOTO");
                    nhanVien = new NHANVIEN(resultSet.getString("MANV")                 		   					
                 		   					,resultSet.getString("TENNV")                		   					
                 		   					,resultSet.getString("EMAIL")
@@ -92,8 +103,8 @@ public class NHANVIEN_DAO {
                 		   					,resultSet.getString("NGAYVAOLAM")
                 		   					,resultSet.getString("TENDANGNHAP")
                 		   					,resultSet.getString("MATKHAU")
-                		   					,resultSet.getString("PHOTOURL")
-                		   					,resultSet.getInt("TINHTRANG"));
+                		   					,resultSet.getInt("TINHTRANG")
+                		   					,photoBytes);
                }
                
 
@@ -105,22 +116,32 @@ public class NHANVIEN_DAO {
 
 	
 	public static void createUser(Map<String, String> data) {
-		String staffName = data.get("staffName");
-		String username = data.get("username");
-		String password = data.get("password");
-		String photoUrl = data.get("photoUrl");
-		try (Connection connection = DatabaseConnection.connectDb();) {
-			String query = "UPDATE NHANVIEN SET TENDANGNHAP = ?, MATKHAU = ?, PHOTOURL = ? WHERE TENNV = ?";
-			PreparedStatement prepare = connection.prepareStatement(query);
-			prepare.setString(1, username);
-			prepare.setString(2, password);
-			prepare.setString(3, photoUrl);
-			prepare.setString(4, staffName);
-			prepare.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}	
+	    String staffName = data.get("staffName");
+	    String username = data.get("username");
+	    String password = data.get("password");
+	    String photoPath = data.get("photoUrl");
+
+	    try (Connection connection = DatabaseConnection.connectDb();) {
+	        String query = "UPDATE NHANVIEN SET TENDANGNHAP = ?, MATKHAU = ?, PHOTO = ? WHERE TENNV = ?";
+	        PreparedStatement prepare = connection.prepareStatement(query);
+	        prepare.setString(1, username);
+	        prepare.setString(2, password);
+
+	        File file = new File(photoPath);
+	        try (FileInputStream inputStream = new FileInputStream(file)) {
+	            byte[] photoBytes = new byte[(int) file.length()];
+	            inputStream.read(photoBytes);
+	            prepare.setBytes(3, photoBytes);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+
+	        prepare.setString(4, staffName);
+	        prepare.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
 
 	
 	public static void insertStaff(Map<String, String> data) {
@@ -200,4 +221,21 @@ public class NHANVIEN_DAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public static List<String> getStaffNamesByJob(int jobType) {
+	    List<String> staffNames = new ArrayList<>();
+	    try (Connection connection = DatabaseConnection.connectDb()) {
+	        String query = "SELECT TENNV FROM NHANVIEN WHERE MALOAINV = ? AND TENDANGNHAP IS NULL AND MATKHAU IS NULL";
+	        PreparedStatement prepare = connection.prepareStatement(query);
+	        prepare.setInt(1, jobType);
+	        ResultSet resultSet = prepare.executeQuery();
+	        while (resultSet.next()) {
+	            staffNames.add(resultSet.getString("TENNV"));
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return staffNames;
+	}
+	
 }
