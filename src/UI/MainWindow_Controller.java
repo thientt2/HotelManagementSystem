@@ -340,8 +340,8 @@ public class MainWindow_Controller implements Initializable {
     private AnchorPane anchorPane;
     
     @FXML
-    private ImageView photo;
-    
+    private Button accountInfo_btn;
+
     @FXML
     private customerWindow_Controller customerController;
     
@@ -353,47 +353,111 @@ public class MainWindow_Controller implements Initializable {
         return anchorPane;
     }
     
-    // Đặt username với username_label
-//    public void initData(String username) {
-//        this.username = username;
-//        NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-//        username_label.setText(nhanVien.getTENNV());
-//        SystemMessage.setMANV(nhanVien.getMANV());
-//
-//        // Ensure the PHOTOURL is correctly formatted
-//        String path = "file:///" + nhanVien.getPHOTOURL();
-//        System.out.println("Loading image from path: " + path); // Logging the path for debugging
-//
-//        // Load the image with appropriate error handling
-//        Image image = new Image(path, 1012, 22, false, true);
-//        if (image.isError()) {
-//            System.out.println("Error loading image: " + image.getException());
-//            // Handle the error accordingly, maybe set a default image or notify the user
-//            // Example: set a default image or a placeholder
-//            Image defaultImage = new Image("/Images/home.png", 1012, 22, false, true);
-//            top_circle.setFill(new ImagePattern(defaultImage));
-//        } else {
-//            // If the image is loaded successfully, set it to the circle
-//            top_circle.setFill(new ImagePattern(image));
-//        }
-//    }
+	private double x = 0;
+	private double y = 0;
     
+//    public void accountInfo() throws IOException {
+//    	NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
+//    	FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
+//        Parent root = loader.load();
+//
+////        root.setOnMousePressed((MouseEvent event) -> {            
+////            x = event.getSceneX();            
+////            y = event.getSceneY();    
+////        });
+//        
+//        Stage stage = new Stage();        
+//        stage.initStyle(StageStyle.TRANSPARENT);        
+//        Scene scene = new Scene(root);
+//
+//        accountInfo_Controller accountInfo = loader.getController();
+//        accountInfo.accountInfo(nhanVien);
+//
+////        root.setOnMouseDragged((MouseEvent event) -> {
+////            stage.setX(event.getScreenX() - x);            
+////            stage.setY(event.getScreenY() - y);       
+////        });
+//        root.setOnMouseDragged((MouseEvent event) -> {
+//            stage.setX(950);            
+//            stage.setY(30);       
+//        });
+//        
+//        stage.setScene(scene);     
+//        stage.showAndWait();
+//        
+//        //anchorPane.setVisible(false);
+//    }
+//    
+	public void accountInfo() throws IOException {
+	    NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
+	    FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
+	    Parent root = loader.load();
+
+	    Stage stage = new Stage();
+	    stage.initStyle(StageStyle.TRANSPARENT);
+	    Scene scene = new Scene(root);
+
+	    accountInfo_Controller accountInfo = loader.getController();
+	    accountInfo.accountInfo(nhanVien);
+
+	    // Define initial X and Y coordinates for the window
+	    double initialX = 1010;
+	    double initialY = 130;
+	    stage.setX(initialX);
+	    stage.setY(initialY);
+
+	    // Variables to store the offset of the mouse click relative to the window's position
+	    final double[] offsetX = {0};
+	    final double[] offsetY = {0};
+
+	    root.setOnMousePressed((MouseEvent event) -> {
+	        offsetX[0] = event.getSceneX();
+	        offsetY[0] = event.getSceneY();
+	    });
+
+	    root.setOnMouseDragged((MouseEvent event) -> {
+	        stage.setX(event.getScreenX() - offsetX[0]);
+	        stage.setY(event.getScreenY() - offsetY[0]);
+	    });
+
+	    stage.setScene(scene);
+	    stage.showAndWait();
+	}
+    // Đặt username với username_label
     public void initData(String username) {
         this.username = username;
         NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
         username_label.setText(nhanVien.getTENNV());
         SystemMessage.setMANV(nhanVien.getMANV());
 
-        byte[] photoData = nhanVien.getPHOTO();
-        if (photoData != null && photoData.length > 0) {
-            ByteArrayInputStream bis = new ByteArrayInputStream(photoData);
-            Image image = new Image(bis);
-            photo.setImage(image);
-        } else {
-            Image defaultImage = new Image("/Images/LAOPERA.jpg");
-            photo.setImage(defaultImage);
-        }
+	    byte[] photoData = nhanVien.getPHOTO();
+	    if (photoData != null && photoData.length > 0) {
+	        ByteArrayInputStream bis = new ByteArrayInputStream(photoData);
+	        Image image = new Image(bis);
+	        top_circle.setFill(new ImagePattern(image));
+	    } else {
+	        Image defaultImage = new Image("/Images/LAOPERA.jpg");
+	        top_circle.setFill(new ImagePattern(defaultImage));
+	    }
+	    
     }
+    
+//    public void initData(String username) {
+//        this.username = username;
+//        NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
+//        username_label.setText(nhanVien.getTENNV());
+//        SystemMessage.setMANV(nhanVien.getMANV());
+//
+//        byte[] photoData = nhanVien.getPHOTO();
+//        if (photoData != null && photoData.length > 0) {
+//            ByteArrayInputStream bis = new ByteArrayInputStream(photoData);
+//            Image image = new Image(bis);
+//            photo.setImage(image);
+//        } else {
+//            Image defaultImage = new Image("/Images/LAOPERA.jpg");
+//            photo.setImage(defaultImage);
+//        }
+//    }
 
 //    public void setStaff(NHANVIEN nhanVien) {
 //        if (nhanVien.getPHOTO() != null) {
@@ -791,26 +855,27 @@ public class MainWindow_Controller implements Initializable {
 	}
 	
 	
-	public void refresh() {
-		ContextMenu contextMenu = new ContextMenu();
-		MenuItem refreshMenuItem = new MenuItem("Refresh");
-		contextMenu.getItems().add(refreshMenuItem);
-		refreshMenuItem.setOnAction(event -> {			
-			initData(username);
-		});
-		 
-		main.setOnContextMenuRequested(event -> {
-            contextMenu.show(main, event.getScreenX(), event.getScreenY());
-        });
-		
-		
-	}
+//	public void refresh() {
+//		ContextMenu contextMenu = new ContextMenu();
+//		MenuItem refreshMenuItem = new MenuItem("Refresh");
+//		contextMenu.getItems().add(refreshMenuItem);
+//		refreshMenuItem.setOnAction(event -> {			
+//			//initData(username);
+//		});
+//		 
+//		main.setOnContextMenuRequested(event -> {
+//            contextMenu.show(main, event.getScreenX(), event.getScreenY());
+//        });
+//		
+//		
+//	}
 	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
-		
+		initData("22521434");
+		changeSceneDashBoardWindow();	
 		
 	}
 

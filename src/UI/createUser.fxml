@@ -13,24 +13,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="363.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.createUser_Controller">
+<AnchorPane prefHeight="12.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.createUser_Controller">
    <children>
       <StackPane prefHeight="345.0" prefWidth="612.0">
          <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <top>
-                  <AnchorPane prefHeight="30.0" prefWidth="200.0" styleClass="blue-bg" stylesheets="@../Designs/addNhanVien.css" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="71.0" layoutY="8.0" text="Cấp tài khoản nhân viên" textFill="WHITE" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="5.0">
-                           <font>
-                              <Font name="Inter Medium" size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </top>
+            <BorderPane prefHeight="340.0" prefWidth="612.0">
                <center>
-                  <AnchorPane prefHeight="324.0" prefWidth="612.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="334.0" prefWidth="612.0" BorderPane.alignment="CENTER">
                      <children>
                         <AnchorPane layoutX="27.0" layoutY="24.0" prefHeight="228.0" prefWidth="250.0" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="16.0">
                            <children>
@@ -119,7 +108,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="389.6" layoutY="270.59999999999997" prefHeight="40.0" prefWidth="190.0" AnchorPane.bottomAnchor="3.8000000000000114" AnchorPane.rightAnchor="32.0">
+                        <AnchorPane layoutX="389.0" layoutY="270.0" prefHeight="40.0" prefWidth="190.0" AnchorPane.bottomAnchor="35.60000000000002" AnchorPane.rightAnchor="32.60000000000002">
                            <children>
                               <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <Button fx:id="confirm_btn" layoutX="95.2" layoutY="-0.19999999999999996" mnemonicParsing="false" onAction="#createUser" prefHeight="40.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Xác nhận" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-0.19999999999999996" />

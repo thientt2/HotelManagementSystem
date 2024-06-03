@@ -69,7 +69,7 @@ public class createUser_Controller implements Initializable {
         staff_cb.setItems(staffNamesList);
     }
     
-    
+    //sử dụng đổi mật khẩu
     public void setUser(NHANVIEN item) {
     	//staffName_txt.setText(item.getTENNV());
     	//job_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
@@ -96,9 +96,8 @@ public class createUser_Controller implements Initializable {
 		data.put("username", username_txt.getText());
 		data.put("password", password_txt.getText());
 		data.put("confirmPassword", confirmPassword_txt.getText());
-		//data.put("staffName", staffName_txt.getText());
-		//data.put("job", job_txt.getText());
-		//data.put("photoUrl", photoUrl_txt.getText());
+		data.put("staffName", staff_cb.getValue());
+		data.put("job", job_cb.getValue());
 		
 		NHANVIEN_BLL.createUser(data);
 		AlertMessage alert = new AlertMessage();

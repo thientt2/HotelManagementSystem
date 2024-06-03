@@ -24,11 +24,11 @@ public class NHANVIEN_BLL {
 	
 	public static void createUser(Map<String, String> data) {
 		String staffName = data.get("staffName");
+		String job = data.get("job");
 		String username = data.get("username");
 		String password = data.get("password");
 		String confirmPassword = data.get("confirmPassword");
-		String photoUrl = data.get("photoUrl");
-		if(staffName.isEmpty() || username.isEmpty() || password.isEmpty() || photoUrl.isEmpty()) {
+		if(staffName.isEmpty() || job.isEmpty() || username.isEmpty() || password.isEmpty()) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
 		}else if(password.equals(confirmPassword) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_PASSWORD";

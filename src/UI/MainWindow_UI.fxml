@@ -184,11 +184,15 @@
                            <children>
                               <FontAwesomeIcon fill="#a48d75" glyphName="BELL" size="20" stroke="#0d0202" strokeWidth="0.0" />
                               <Label fx:id="username_label" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="Trần Trung Thông" />
-                              <Circle fx:id="top_circle" fill="DODGERBLUE" radius="20.0" stroke="#818181" strokeType="INSIDE">
-                                 <HBox.margin>
-                                    <Insets right="30.0" />
-                                 </HBox.margin>
-                              </Circle>
+                              <Button fx:id="accountInfo_btn" mnemonicParsing="false" onAction="#accountInfo" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <Circle fx:id="top_circle" fill="DODGERBLUE" radius="20.0" stroke="#818181" strokeType="INSIDE">
+                                       <HBox.margin>
+                                          <Insets right="30.0" />
+                                       </HBox.margin>
+                                    </Circle>
+                                 </graphic>
+	                          </Button>    
                            </children>
                         </HBox>
                      </children>
@@ -206,7 +210,7 @@
       </BorderPane>
       <AnchorPane fx:id="anchorPane" prefHeight="611.0" prefWidth="1103.0" style="-fx-background-color: black; -fx-opacity: 0.4;" visible="false" />
    </children>
-   <effect>
+      <effect>
       <DropShadow />
    </effect>
 </AnchorPane>
