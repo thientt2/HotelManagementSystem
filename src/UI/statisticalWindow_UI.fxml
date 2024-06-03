@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: #ffff;" stylesheets="@../Designs/StatisticalWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="statisticalWindow_form" prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane layoutX="92.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: lightgray; -fx-border-radius: 8px;" />
+            <AnchorPane layoutX="532.0" layoutY="311.0" prefHeight="116.0" prefWidth="297.0" style="-fx-border-color: lightgray; -fx-border-radius: 8px;" />
+            <PieChart fx:id="pieChart" layoutX="66.0" layoutY="129.0" prefHeight="341.0" prefWidth="396.0" />
          </children>
       </AnchorPane>
    </children>

@@ -4,23 +4,23 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class NHANVIEN {
-	public SimpleStringProperty MANV;
-	public SimpleStringProperty TENNV;
-	public SimpleStringProperty EMAIL;
-	public SimpleIntegerProperty MALOAINV; 
-	public SimpleStringProperty CCCD;
-	public SimpleStringProperty NGAYSINH;	
-	public SimpleStringProperty GIOITINH;
-	public SimpleStringProperty DIACHI;
-	public SimpleStringProperty SDT;
-	public SimpleStringProperty NGAYVAOLAM;
-	public SimpleStringProperty TENDANGNHAP;
-	public SimpleStringProperty MATKHAU;
-	public SimpleStringProperty PHOTOURL;
-	public SimpleIntegerProperty TINHTRANG;
+	private SimpleStringProperty MANV;
+	private SimpleStringProperty TENNV;
+	private SimpleStringProperty EMAIL;
+	private SimpleIntegerProperty MALOAINV; 
+	private SimpleStringProperty CCCD;
+	private SimpleStringProperty NGAYSINH;	
+	private SimpleStringProperty GIOITINH;
+	private SimpleStringProperty DIACHI;
+	private SimpleStringProperty SDT;
+	private SimpleStringProperty NGAYVAOLAM;
+	private SimpleStringProperty TENDANGNHAP;
+	private SimpleStringProperty MATKHAU;
+	private SimpleIntegerProperty TINHTRANG;
+	private byte[] PHOTO;
 	
 	
-	public NHANVIEN(String mANV, String tENNV, String eMAIL, Integer mALOAINV, String cCCD, String nGAYSINH, String gIOITINH, String dIACHI, String sDT, String nGAYVAOLAM, String tENDANGNHAP, String mATKHAU, String pHOTOURL, Integer tINHTRANG) {
+	public NHANVIEN(String mANV, String tENNV, String eMAIL, Integer mALOAINV, String cCCD, String nGAYSINH, String gIOITINH, String dIACHI, String sDT, String nGAYVAOLAM, String tENDANGNHAP, String mATKHAU, Integer tINHTRANG, byte[] pHOTO) {
 		MANV = new SimpleStringProperty(mANV);
 		TENNV = new SimpleStringProperty(tENNV);
 		EMAIL = new SimpleStringProperty(eMAIL);
@@ -33,17 +33,17 @@ public class NHANVIEN {
 		NGAYVAOLAM = new SimpleStringProperty(nGAYVAOLAM);
 		TENDANGNHAP = new SimpleStringProperty(tENDANGNHAP);
 		MATKHAU = new SimpleStringProperty(mATKHAU);
-		PHOTOURL = new SimpleStringProperty(pHOTOURL);
 		TINHTRANG = new SimpleIntegerProperty(tINHTRANG);
+		this.PHOTO = pHOTO;
 	}
 	
-	public String getPHOTOURL() {
-		return PHOTOURL.get();
-	}
-	
-	public void setPHOTOURL(String pHOTOURL) {
-		PHOTOURL.set(pHOTOURL);
-	}
+	public byte[] getPHOTO() { 
+        return PHOTO;
+    }
+    
+    public void setPHOTO(byte[] pHOTO) { 
+        this.PHOTO = pHOTO;
+    }
 	
 	public Integer getTINHTRANG() {
 		return TINHTRANG.get();

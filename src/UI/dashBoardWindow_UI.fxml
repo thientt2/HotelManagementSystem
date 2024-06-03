@@ -1,174 +1,399 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="541.0" prefWidth="897.0" stylesheets="@../Designs/DashBoardWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="dashBoard_form" prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="dashBoard_form" prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="541.0" prefWidth="897.0" spacing="10.0" stylesheets="@../Designs/DashBoardWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutX="35.0" layoutY="29.0" prefHeight="484.0" prefWidth="799.0" spacing="25.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="5.0">
                <children>
-                  <Label layoutX="16.0" layoutY="12.0" styleClass="first-text" stylesheets="@../Designs/MainWindow.css" text="Tổng quan">
-                     <font>
-                        <Font name="Inter Medium" size="22.0" />
-                     </font>
-                     <padding>
-                        <Insets left="12.0" top="14.0" />
-                     </padding>
-                  </Label>
-                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="886.0" spacing="20.0">
+                  <AnchorPane prefHeight="122.0" prefWidth="849.0">
                      <children>
-                        <AnchorPane prefHeight="54.0" prefWidth="142.0">
+                        <Pane prefHeight="107.0" prefWidth="836.0" styleClass="pane">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                            <children>
-                              <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Hôm nay" />
-                              <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Check-in" />
-                              <Label fx:id="numberCheckInLabel" layoutX="104.0" layoutY="16.0" styleClass="third-text" text="23">
-                                 <font>
-                                    <Font name="Inter SemiBold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="54.0" prefWidth="142.0">
-                           <children>
-                              <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Hôm nay" />
-                              <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Check-out" />
-                              <Label fx:id="numberCheckOutLabel" layoutX="104.0" layoutY="16.0" styleClass="third-text" text="23">
-                                 <font>
-                                    <Font name="Inter SemiBold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="54.0" prefWidth="154.0">
-                           <children>
-                              <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" />
-                              <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Khách hàng" />
-                              <Label fx:id="numberCustomerLabel" layoutX="115.0" layoutY="16.0" styleClass="third-text" text="23">
-                                 <font>
-                                    <Font name="Inter SemiBold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="54.0" prefWidth="160.0">
-                           <children>
-                              <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" />
-                              <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Phòng trống" />
-                              <Label fx:id="numberEmptyRoomLabel" layoutX="121.0" layoutY="16.0" styleClass="third-text" text="23">
-                                 <font>
-                                    <Font name="Inter SemiBold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="54.0" prefWidth="167.0">
-                           <children>
-                              <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" />
-                              <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Phòng đã đặt" />
-                              <Label fx:id="numberBookedRoomLabel" layoutX="127.0" layoutY="16.0" styleClass="third-text" text="23">
-                                 <font>
-                                    <Font name="Inter SemiBold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <AnchorPane prefHeight="457.0" prefWidth="917.0">
-                     <children>
-                        <AnchorPane layoutX="10.0" layoutY="231.0" prefHeight="146.0" prefWidth="420.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane">
-                           <children>
-                              <Label fx:id="numberOfPaymentLabel" layoutX="15.0" layoutY="12.0" styleClass="number-payment-text" text="12 đã thanh toán" />
-                              <Label fx:id="roomTypeLabel" layoutX="17.0" layoutY="44.0" styleClass="type-room-text" text="Standard" />
-                              <Label fx:id="availabelRoomLabel" layoutX="17.0" layoutY="73.0" styleClass="normal-text" text="12/21" />
-                              <Label fx:id="typeBedLabel" layoutX="21.0" layoutY="151.0" styleClass="normal-text" text="Giường đôi" />
-                              <Label fx:id="squareLabel" layoutX="70.0" layoutY="139.0" prefHeight="18.0" prefWidth="62.0" />
-                              <Label fx:id="amountMoneyLabel" layoutX="164.0" layoutY="151.0" styleClass="normal-text" text="15m^2" />
-                              <HBox alignment="BOTTOM_RIGHT" layoutX="19.0" layoutY="99.0">
+                              <HBox alignment="CENTER" layoutX="6.0" layoutY="46.0" prefHeight="54.0" prefWidth="762.0" spacing="25.0">
                                  <children>
-                                    <Label fx:id="moneyPerNightLabel" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="đ1.300.000" />
-                                    <Label styleClass="normal-text" text=" / đêm" />
+                                    <AnchorPane prefHeight="54.0" prefWidth="142.0">
+                                       <children>
+                                          <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Hôm nay" AnchorPane.bottomAnchor="30.0" />
+                                          <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Check-in" />
+                                          <Label fx:id="numberCheckInLabel" layoutX="88.0" layoutY="16.0" prefWidth="30.0" styleClass="third-text" text="30" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="104.0" AnchorPane.topAnchor="19.0">
+                                             <font>
+                                                <Font name="Inter SemiBold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="54.0" prefWidth="142.0">
+                                       <children>
+                                          <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Hôm nay" AnchorPane.bottomAnchor="30.0" />
+                                          <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Check-out" />
+                                          <Label fx:id="numberCheckOutLabel" layoutX="104.0" layoutY="16.0" styleClass="third-text" text="10" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
+                                             <font>
+                                                <Font name="Inter SemiBold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="54.0" prefWidth="154.0">
+                                       <children>
+                                          <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" AnchorPane.bottomAnchor="30.0" />
+                                          <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Khách hàng" />
+                                          <Label fx:id="numberCustomerLabel" layoutX="115.0" layoutY="16.0" styleClass="third-text" text="60" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
+                                             <font>
+                                                <Font name="Inter SemiBold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="54.0" prefWidth="160.0">
+                                       <children>
+                                          <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" AnchorPane.bottomAnchor="30.0" />
+                                          <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Phòng trống" />
+                                          <Label fx:id="numberEmptyRoomLabel" layoutX="121.0" layoutY="16.0" styleClass="third-text" text="14" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
+                                             <font>
+                                                <Font name="Inter SemiBold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="54.0" prefWidth="167.0">
+                                       <children>
+                                          <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" AnchorPane.bottomAnchor="30.0" />
+                                          <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Phòng đã đặt" />
+                                          <Label fx:id="numberBookedRoomLabel" layoutX="127.0" layoutY="16.0" styleClass="third-text" text="11" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
+                                             <font>
+                                                <Font name="Inter SemiBold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </HBox>
-                              <Label contentDisplay="CENTER" ellipsisString="3" layoutX="397.0" layoutY="-14.0" lineSpacing="3.0" prefHeight="46.0" prefWidth="21.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+                              <Label layoutX="14.0" layoutY="14.0" style="-fx-font-size: 22px; -fx-text-fill: black; -fx-font-weight: bold;" styleClass="first-text" stylesheets="@../Designs/MainWindow.css" text="Tổng quan">
                                  <font>
-                                    <Font name="Cambria" size="30.0" />
+                                    <Font name="Inter Medium" size="22.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="145.0" layoutY="73.0" styleClass="normal-text" text="2" />
-                              <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
                            </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="449.0" layoutY="231.0" prefHeight="177.0" prefWidth="438.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="10.0">
-                           <children>
-                              <Label fx:id="numberOfPaymentLabel1" layoutX="15.0" layoutY="12.0" styleClass="number-payment-text" text="12 đã thanh toán" />
-                              <Label fx:id="roomTypeLabel1" layoutX="17.0" layoutY="44.0" styleClass="type-room-text" text="Standard" />
-                              <Label fx:id="availabelRoomLabel1" layoutX="17.0" layoutY="73.0" styleClass="normal-text" text="12/21" />
-                              <Label fx:id="typeBedLabel1" layoutX="21.0" layoutY="151.0" styleClass="normal-text" text="Giường đôi" />
-                              <Label fx:id="squareLabel1" layoutX="70.0" layoutY="139.0" prefHeight="18.0" prefWidth="62.0" />
-                              <Label fx:id="amountMoneyLabel1" layoutX="164.0" layoutY="151.0" styleClass="normal-text" text="15m^2" />
-                              <HBox alignment="BOTTOM_RIGHT" layoutX="19.0" layoutY="99.0">
-                                 <children>
-                                    <Label fx:id="moneyPerNightLabel1" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="đ1.300.000" />
-                                    <Label styleClass="normal-text" text=" / đêm" />
-                                 </children>
-                              </HBox>
-                              <Label contentDisplay="CENTER" ellipsisString="3" layoutX="397.0" layoutY="-14.0" lineSpacing="3.0" prefHeight="46.0" prefWidth="21.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
-                                 <font>
-                                    <Font name="Cambria" size="30.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="145.0" layoutY="73.0" styleClass="normal-text" text="2" />
-                              <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="131.0" layoutY="112.0" prefHeight="190.0" prefWidth="438.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <children>
-                              <Label fx:id="numberOfPaymentLabel11" layoutX="15.0" layoutY="12.0" styleClass="number-payment-text" text="12 đã thanh toán" />
-                              <Label fx:id="roomTypeLabel11" layoutX="17.0" layoutY="44.0" styleClass="type-room-text" text="Standard" />
-                              <Label fx:id="availabelRoomLabel11" layoutX="17.0" layoutY="73.0" styleClass="normal-text" text="12/21" />
-                              <Label fx:id="typeBedLabel11" layoutX="21.0" layoutY="151.0" styleClass="normal-text" text="Giường đôi" />
-                              <Label fx:id="squareLabel11" layoutX="70.0" layoutY="139.0" prefHeight="18.0" prefWidth="62.0" />
-                              <Label fx:id="amountMoneyLabel11" layoutX="164.0" layoutY="151.0" styleClass="normal-text" text="15m^2" />
-                              <HBox alignment="BOTTOM_RIGHT" layoutX="19.0" layoutY="99.0">
-                                 <children>
-                                    <Label fx:id="moneyPerNightLabel11" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="đ1.300.000" />
-                                    <Label styleClass="normal-text" text=" / đêm" />
-                                 </children>
-                              </HBox>
-                              <Label contentDisplay="CENTER" ellipsisString="3" layoutX="397.0" layoutY="-14.0" lineSpacing="3.0" prefHeight="46.0" prefWidth="21.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
-                                 <font>
-                                    <Font name="Cambria" size="30.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="145.0" layoutY="73.0" styleClass="normal-text" text="2" />
-                              <FontAwesomeIcon glyphName="USER" layoutX="126.0" layoutY="91.0" size="15" styleClass="icon" tabSize="0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="169.0" prefWidth="422.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane" stylesheets="@../../../HotelManagementSystem/src/Designs/MainWindow.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <children>
-                              <AnchorPane layoutX="224.0" layoutY="-15.0" prefHeight="169.0" prefWidth="172.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <ImageView fitHeight="168.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <image>
-                                          <Image url="@../../../HotelManagementSystem/src/Images/Standard1.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </AnchorPane>
+                        </Pane>
                      </children>
                   </AnchorPane>
+                  <HBox prefHeight="210.0" prefWidth="898.0" spacing="30.0">
+                     <children>
+                        <Pane prefHeight="172.0" prefWidth="574.0" styleClass="pane">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="12.0" prefHeight="179.0" prefWidth="181.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0" spacing="13.0">
+                                       <children>
+                                          <Label fx:id="numberOfPaymentLabel11" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="12 đang được sử dụng" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="3" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="0.0" prefWidth="22.0" rotate="90.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+                                             <font>
+                                                <Font name="Cambria" size="30.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Pane prefHeight="40.0" prefWidth="165.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="14.0" prefHeight="40.0" prefWidth="146.0">
+                                             <children>
+                                                <Label fx:id="roomTypeLabel11" prefHeight="32.0" prefWidth="87.0" styleClass="type-room-text" text="Standard" />
+                                                <Region prefHeight="40.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="availabelRoomLabel11" style="-fx-font-size: 12px;" styleClass="normal-text" text="12/22" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="40.0" prefWidth="149.0">
+                                       <children>
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="5.0" prefHeight="30.0" prefWidth="152.0">
+                                             <children>
+                                                <Label fx:id="moneyPerNightLabel11" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="₫ 1.300.000" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 13px;" styleClass="normal-text" text=" / đêm" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="9.0" prefHeight="40.0" prefWidth="164.0" spacing="10.0">
+                                             <children>
+                                                <Label fx:id="typeBedLabel11" styleClass="normal-text" text="Giường Đôi" />
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="27.0" spacing="5.0">
+                                                   <children>
+                                                      <FontAwesomeIcon glyphName="USER" size="12" styleClass="icon" tabSize="0" text="" />
+                                                      <Label styleClass="normal-text" text="2" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="35.0">
+                                                   <children>
+                                                      <Label fx:id="amountMoneyLabel11" styleClass="normal-text" text="15" />
+                                                      <Label styleClass="normal-text" text="m²" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="153.0" fitWidth="182.0" layoutX="202.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Rooms/Standard.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Pane>
+                        <Pane prefHeight="172.0" prefWidth="574.0" styleClass="pane">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="12.0" prefHeight="179.0" prefWidth="181.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0" spacing="13.0">
+                                       <children>
+                                          <Label fx:id="numberOfPaymentLabel113" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="3 đang được sử dụng" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="3" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="0.0" prefWidth="22.0" rotate="90.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+                                             <font>
+                                                <Font name="Cambria" size="30.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Pane prefHeight="40.0" prefWidth="165.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="14.0" prefHeight="40.0" prefWidth="146.0">
+                                             <children>
+                                                <Label fx:id="roomTypeLabel113" prefHeight="32.0" prefWidth="73.0" styleClass="type-room-text" text="Deluxe" />
+                                                <Region prefHeight="40.0" prefWidth="38.0" HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="availabelRoomLabel113" style="-fx-font-size: 12px;" styleClass="normal-text" text="3/10" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="40.0" prefWidth="149.0">
+                                       <children>
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="5.0" prefHeight="30.0" prefWidth="152.0">
+                                             <children>
+                                                <Label fx:id="moneyPerNightLabel113" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="₫ 1.500.000" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 13px;" styleClass="normal-text" text=" / đêm" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="9.0" prefHeight="40.0" prefWidth="164.0" spacing="10.0">
+                                             <children>
+                                                <Label fx:id="typeBedLabel113" styleClass="normal-text" text="Giường Queen" />
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="27.0" spacing="5.0">
+                                                   <children>
+                                                      <FontAwesomeIcon glyphName="USER" size="12" styleClass="icon" tabSize="0" text="" />
+                                                      <Label styleClass="normal-text" text="2" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="35.0">
+                                                   <children>
+                                                      <Label fx:id="amountMoneyLabel113" styleClass="normal-text" text="25" />
+                                                      <Label styleClass="normal-text" text="m²" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="153.0" fitWidth="182.0" layoutX="202.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Rooms/Deluxe.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="209.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Pane prefHeight="172.0" prefWidth="574.0" styleClass="pane">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="12.0" prefHeight="179.0" prefWidth="181.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0" spacing="13.0">
+                                       <children>
+                                          <Label fx:id="numberOfPaymentLabel1131" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="4 đang được sử dụng" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="3" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="0.0" prefWidth="22.0" rotate="90.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+                                             <font>
+                                                <Font name="Cambria" size="30.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Pane prefHeight="40.0" prefWidth="165.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="14.0" prefHeight="40.0" prefWidth="146.0">
+                                             <children>
+                                                <Label fx:id="roomTypeLabel1131" prefHeight="32.0" prefWidth="87.0" styleClass="type-room-text" text="Premium" />
+                                                <Region prefHeight="40.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="availabelRoomLabel1131" style="-fx-font-size: 12px;" styleClass="normal-text" text="4/8" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="40.0" prefWidth="149.0">
+                                       <children>
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="4.0" prefHeight="30.0" prefWidth="152.0">
+                                             <children>
+                                                <Label fx:id="moneyPerNightLabel1131" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="₫ 1.800.000" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 13px;" styleClass="normal-text" text=" / đêm" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="9.0" prefHeight="40.0" prefWidth="164.0" spacing="10.0">
+                                             <children>
+                                                <Label fx:id="typeBedLabel1131" styleClass="normal-text" text="Giường Queen" />
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="27.0" spacing="5.0">
+                                                   <children>
+                                                      <FontAwesomeIcon glyphName="USER" size="12" styleClass="icon" tabSize="0" text="" />
+                                                      <Label styleClass="normal-text" text="2" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="35.0">
+                                                   <children>
+                                                      <Label fx:id="amountMoneyLabel1131" style="-fx-font-size: 12px;" styleClass="normal-text" text="27" />
+                                                      <Label styleClass="normal-text" text="m²" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="153.0" fitWidth="182.0" layoutX="202.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Rooms/Premium.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Pane>
+                        <Pane prefHeight="172.0" prefWidth="574.0" styleClass="pane">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="12.0" prefHeight="179.0" prefWidth="181.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0" spacing="13.0">
+                                       <children>
+                                          <Label fx:id="numberOfPaymentLabel11311" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="1 đang được sử dụng" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="3" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="0.0" prefWidth="22.0" rotate="90.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
+                                             <font>
+                                                <Font name="Cambria" size="30.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Pane prefHeight="40.0" prefWidth="165.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="14.0" prefHeight="40.0" prefWidth="146.0">
+                                             <children>
+                                                <Label fx:id="roomTypeLabel11311" prefHeight="32.0" prefWidth="87.0" styleClass="type-room-text" text="La Opera" />
+                                                <Region prefHeight="40.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="availabelRoomLabel11311" style="-fx-font-size: 12px;" styleClass="normal-text" text="1/6" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="40.0" prefWidth="149.0">
+                                       <children>
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="4.0" prefHeight="30.0" prefWidth="152.0">
+                                             <children>
+                                                <Label fx:id="moneyPerNightLabel11311" alignment="CENTER" contentDisplay="CENTER" styleClass="money-room-text" text="₫ 2.000.000" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 13px;" styleClass="normal-text" text=" / đêm" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="40.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="9.0" prefHeight="40.0" prefWidth="164.0" spacing="10.0">
+                                             <children>
+                                                <Label fx:id="typeBedLabel11311" styleClass="normal-text" text="Queen &amp; King" />
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="27.0" spacing="5.0">
+                                                   <children>
+                                                      <FontAwesomeIcon glyphName="USER" size="12" styleClass="icon" tabSize="0" text="" />
+                                                      <Label styleClass="normal-text" text="4" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="35.0">
+                                                   <children>
+                                                      <Label fx:id="amountMoneyLabel11311" styleClass="normal-text" text="30" />
+                                                      <Label styleClass="normal-text" text="m²" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="153.0" fitWidth="182.0" layoutX="202.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Rooms/LaOpera.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Pane>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>

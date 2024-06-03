@@ -1,5 +1,6 @@
 package UI;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -339,6 +340,9 @@ public class MainWindow_Controller implements Initializable {
     private AnchorPane anchorPane;
     
     @FXML
+    private ImageView photo;
+    
+    @FXML
     private customerWindow_Controller customerController;
     
     private String username;
@@ -350,47 +354,61 @@ public class MainWindow_Controller implements Initializable {
     }
     
     // Đặt username với username_label
+//    public void initData(String username) {
+//        this.username = username;
+//        NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
+//        username_label.setText(nhanVien.getTENNV());
+//        SystemMessage.setMANV(nhanVien.getMANV());
+//
+//        // Ensure the PHOTOURL is correctly formatted
+//        String path = "file:///" + nhanVien.getPHOTOURL();
+//        System.out.println("Loading image from path: " + path); // Logging the path for debugging
+//
+//        // Load the image with appropriate error handling
+//        Image image = new Image(path, 1012, 22, false, true);
+//        if (image.isError()) {
+//            System.out.println("Error loading image: " + image.getException());
+//            // Handle the error accordingly, maybe set a default image or notify the user
+//            // Example: set a default image or a placeholder
+//            Image defaultImage = new Image("/Images/home.png", 1012, 22, false, true);
+//            top_circle.setFill(new ImagePattern(defaultImage));
+//        } else {
+//            // If the image is loaded successfully, set it to the circle
+//            top_circle.setFill(new ImagePattern(image));
+//        }
+//    }
+    
     public void initData(String username) {
         this.username = username;
         NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
         username_label.setText(nhanVien.getTENNV());
         SystemMessage.setMANV(nhanVien.getMANV());
 
-        // Ensure the PHOTOURL is correctly formatted
-        String path = "file:///" + nhanVien.getPHOTOURL();
-        System.out.println("Loading image from path: " + path); // Logging the path for debugging
-
-        // Load the image with appropriate error handling
-        Image image = new Image(path, 1012, 22, false, true);
-        if (image.isError()) {
-            System.out.println("Error loading image: " + image.getException());
-            // Handle the error accordingly, maybe set a default image or notify the user
-            // Example: set a default image or a placeholder
-            Image defaultImage = new Image("/Images/home.png", 1012, 22, false, true);
-            top_circle.setFill(new ImagePattern(defaultImage));
+        byte[] photoData = nhanVien.getPHOTO();
+        if (photoData != null && photoData.length > 0) {
+            ByteArrayInputStream bis = new ByteArrayInputStream(photoData);
+            Image image = new Image(bis);
+            photo.setImage(image);
         } else {
-            // If the image is loaded successfully, set it to the circle
-            top_circle.setFill(new ImagePattern(image));
+            Image defaultImage = new Image("/Images/LAOPERA.jpg");
+            photo.setImage(defaultImage);
         }
     }
+
+//    public void setStaff(NHANVIEN nhanVien) {
+//        if (nhanVien.getPHOTO() != null) {
+//            ByteArrayInputStream bis = new ByteArrayInputStream(nhanVien.getPHOTO());
+//            Image image = new Image(bis);
+//            photo.setImage(image);
+//        }
+//        // Các phần khác của setStaff
+//    }
 	
 	public void unvisible() {
 		//Visible = true;
 		anchorPane.setVisible(Visible);
 	}
 	
-	
-    //Đặt thời gian hiển thị
-//	public void setTime() {
-//	    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-//	        LocalDateTime now = LocalDateTime.now();        
-//	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-//	        String formattedDateTime = now.format(formatter);
-//	        toDay.setText(formattedDateTime);
-//	    }));
-//	    timeline.setCycleCount(Timeline.INDEFINITE);
-//	    timeline.play();
-//	}
 
 	enum VietnameseDayOfWeek {
         MONDAY("Thứ Hai"),

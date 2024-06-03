@@ -87,7 +87,7 @@
 .set-text-fill{
 	-fx-text-fill: #2b2f38;
 	-fx-font-family:"Inter";
-	-fx-font-weight: 630;	
+
 }
 
 .icon {
@@ -119,11 +119,13 @@
 .pane {
 	-fx-background-color: white;
 	-fx-background-radius: 10;
+	-fx-border-color: lightgrey;
+	-fx-border-radius: 10px;
 }
 
 .first-text {
 	-fx-text-fill: #858D9D;
-	-fx-font-size: 14px;
+	-fx-font-size: 13px;
 	-fx-font-family: "Inter-Regular";
 }
 
@@ -136,33 +138,37 @@
 .third-text {
 	-fx-text-fill: #1366D9;
 	-fx-font-size: 26px;
+	-fx-font-weight: bold;
 	-fx-font-family: "Inter-SemiBold";
 }
 
 .normal-text {
 	-fx-text-fill: #5D6679;
-	-fx-font-size: 16px;
+	-fx-font-size: 12px;
 	-fx-font-family: "Inter-Medium";
 }
 
 .type-room-text {
 	-fx-text-fill: #5D6679;
-	-fx-font-size: 22px;
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
 	-fx-font-family: "Inter-SemiBold";
 }
 
 .money-room-text {
 	-fx-text-fill: #1366D9;
-	-fx-font-size: 30px;
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
 	-fx-font-family: "Inter-SemiBold";
 }
 
 .number-payment-text {
-	-fx-text-fill: #1366D9;
-	-fx-font-size: 16px;
+	-fx-text-fill:  #0D824B;
+	-fx-font-size: 10px;
 	-fx-font-family: "Inter-SemiBold";
 	-fx-background-color: #B6E9D1;
 	-fx-background-radius: 4;
 	-fx-label-padding: 0.0 10 0.0 10;
 	-fx-fill: #0D824B;
 }
+

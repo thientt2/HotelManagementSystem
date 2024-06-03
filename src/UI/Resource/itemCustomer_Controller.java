@@ -1,6 +1,9 @@
 package UI.Resource;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import DTO.KHACHHANG;
@@ -49,14 +52,28 @@ public class itemCustomer_Controller implements Initializable{
     public void setCustomer(KHACHHANG item) {
         customerId_txt.setText(item.getMAKH());
         customerName_txt.setText(item.getTENKH());
-        birthDay_txt.setText(item.getNGAYSINH());
+        
+        String ngaysinh = item.getNGAYSINH();
+        String formattedDate = formatDate(ngaysinh);
+        birthDay_txt.setText(formattedDate);
+        //birthDay_txt.setText(item.getNGAYSINH());
+        
         gender_txt.setText(item.getGIOITINH());
         cccd_txt.setText(item.getCCCD());
         phoneNumber_txt.setText(item.getSDT());
         country_txt.setText(item.getQUOCTICH());	    	
 	}
+    
+    private String formatDate(String dateStr) {
+        SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date = fromUser.parse(dateStr);
+            return myFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return dateStr;  
+        }
+    }
 
-//	public void refreshCustomerList() {
-//		//staffController.refreshStaffList();
-//	}
 }

@@ -72,7 +72,7 @@ public class addStaff_Controller implements Initializable {
 		data.put("gender", gender_cb.getValue());
 		data.put("cccd", cccd_txt.getText());
 		data.put("address", address_txt.getText());
-		data.put("phoneNumber", phoneNumber_txt.getText());
+		data.put("phone", phoneNumber_txt.getText());
 		data.put("email", email_txt.getText());
 		data.put("job", String.valueOf(LOAINHANVIEN_BLL.getStaffTypeId(job_cb.getValue())));
 		data.put("startDay", startDay_datepicker.getValue().toString());
