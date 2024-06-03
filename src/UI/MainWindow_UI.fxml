@@ -171,15 +171,15 @@
          <top>
             <AnchorPane prefHeight="70.0" prefWidth="897.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane layoutX="18.4" prefHeight="70.0" prefWidth="897.0" styleClass="white-bg" stylesheets="@../Designs/MainWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="18.4" prefHeight="66.0" prefWidth="897.0" styleClass="white-bg" stylesheets="@../Designs/MainWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                       	<FontAwesomeIcon fill="#1366d9" glyphName="CALENDAR_ALT" layoutX="222.0" layoutY="39.0" size="20" strokeWidth="0.0" styleClass="icon" />
-                        <Label fx:id="toDay" layoutX="251.0" layoutY="20.0" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="DD:MM:YYYY">
+                       	<FontAwesomeIcon fill="#1366d9" glyphName="CALENDAR_ALT" layoutX="33.0" layoutY="41.0" size="20" strokeWidth="0.0" styleClass="icon" text="" />
+                        <Label fx:id="toDay" layoutX="62.0" layoutY="22.0" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="DD:MM:YYYY">
                            <font>
                               <Font name="Bauhaus 93" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER_RIGHT" layoutX="593.0" layoutY="8.0" prefHeight="38.0" prefWidth="305.0" spacing="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="8.0">
+                        <HBox alignment="CENTER_RIGHT" layoutX="591.0" layoutY="15.0" prefHeight="38.0" prefWidth="305.0" spacing="20.0" AnchorPane.rightAnchor="0.1999999999999318" AnchorPane.topAnchor="15.0">
                            <children>
                               <FontAwesomeIcon fill="#a48d75" glyphName="BELL" size="20" stroke="#0d0202" strokeWidth="0.0" />
                               <Label fx:id="username_label" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="Trần Trung Thông" />

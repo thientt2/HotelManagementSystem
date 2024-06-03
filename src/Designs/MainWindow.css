@@ -1,7 +1,7 @@
 
 .icon {
 	-fx-fill: white;
-	-fx-stroke: #5D6679;
+	-fx-stroke: #000000;
 	-fx-stroke-width: 1;
 	-fx-cursor: hand;
 }
@@ -31,7 +31,7 @@
 }
 
 .pane-text {
-	-fx-text-fill: #5D6679;
+	-fx-text-fill: #000000;
 	-fx-font-size: 16px;
 	-fx-font-weight: bold;
 	-fx-font-family: "Inter-Medium";
