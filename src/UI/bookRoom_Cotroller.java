@@ -250,6 +250,7 @@ public class bookRoom_Cotroller implements Initializable {
 		AlertMessage alert = new AlertMessage();
 		if(error.equals("ERROR_EMPTY")) {
 			alert.errorMessage("Vui lòng điền đầy đủ thông tin!");
+			SystemMessage.ERROR_MESSAGE = "";
 		}else {
 			alert.successMessage("Đặt phòng thành công");
 			PHIEUDATPHONG lastBookRoom = PHIEUDATPHONG_BLL.getLastBookRoom();

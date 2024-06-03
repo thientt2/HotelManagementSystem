@@ -2,6 +2,7 @@ package UI;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -90,7 +91,7 @@ public class billBookRoom_Controller implements Initializable {
     }
     
     public void print() {
-    	WritableImage snapshot = new WritableImage(496, 530);
+        WritableImage snapshot = new WritableImage(496, 530);
         detail_vbox.getScene().getRoot().snapshot(new SnapshotParameters(), snapshot);
 
         // Chuyển đổi ảnh thành byte array
@@ -106,8 +107,14 @@ public class billBookRoom_Controller implements Initializable {
 
         // Xác định đường dẫn tới desktop
         String userHome = System.getProperty("user.home");
-        String desktopPath = userHome + "/Desktop";
-        String dest = desktopPath + "/" + billId_txt.getText() + ".pdf";
+        String desktopPath = userHome + File.separator + "Desktop";
+        String dest = desktopPath + File.separator + billId_txt.getText() + ".pdf";
+
+        // Tạo thư mục nếu cần thiết
+        File directory = new File(desktopPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
 
         // Tạo PDF và chèn ảnh vào
         try {

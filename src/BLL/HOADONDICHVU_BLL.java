@@ -11,4 +11,8 @@ public class HOADONDICHVU_BLL {
 		return HOADONDICHVU_DAO.listBillService();
 	}
 	
+	public static ObservableList<Object[]> listBill() {
+		return HOADONDICHVU_DAO.listBill();
+	}
+	
 }
