@@ -1,6 +1,9 @@
 package UI;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import BLL.LOAINHANVIEN_BLL;
@@ -47,12 +50,29 @@ public class staffDetails_Controller implements Initializable{
 		phone_txt.setText(item.getSDT());
 		address_txt.setText(item.getDIACHI());
 		email_txt.setText(item.getEMAIL());
+		
 		birthday_picker.setText(item.getNGAYSINH());// DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+//		String ngaysinh = item.getNGAYSINH();
+//        String formattedDate = formatDate(ngaysinh);
+//        birthday_picker.setText(formattedDate);
+        
 		cccd_txt.setText(item.getCCCD());
 		gender_combobox.setText(item.getGIOITINH());
 		daywork_txt.setText(item.getNGAYVAOLAM());
 		type_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));	
 	}  
+    
+    private String formatDate(String dateStr) {
+        SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date = fromUser.parse(dateStr);
+            return myFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return dateStr;  
+        }
+    }
     
     public void cancel() {
     	Stage stage = (Stage) cancel_btn.getScene().getWindow();

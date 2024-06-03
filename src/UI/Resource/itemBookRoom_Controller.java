@@ -58,12 +58,33 @@ public class itemBookRoom_Controller implements Initializable{
     	id_txt.setText(item[0].toString());
     	roomType_txt.setText(item[2].toString());
     	customerName_txt.setText(item[1].toString()); 
-    	arrivalDay_txt.setText(item[3].toString());
-    	departmentDay_txt.setText(item[4].toString());
+    	
+    	String checkin = item[3].toString();
+        String formattedDate1 = formatDate(checkin);
+        arrivalDay_txt.setText(formattedDate1);
+    	//arrivalDay_txt.setText(item[3].toString());
+    	
+    	String checkout = item[4].toString();
+        String formattedDate2 = formatDate(checkout);
+        departmentDay_txt.setText(formattedDate2);
+    	//departmentDay_txt.setText(item[4].toString());
+    	
     	status_txt.setText(getStatus(item[3].toString(), item[5].toString()));   
     	status_txt.setStyle(getStatusStyle(status_txt.getText()));
     	//status_txt.setPadding(new Insets(0,5,0,5));
 	}
+    
+    private String formatDate(String dateStr) {
+        SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date = fromUser.parse(dateStr);
+            return myFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return dateStr;  
+        }
+    }
     
     public static String getStatus(String ngayNhan, String hinhThuc) {
     	

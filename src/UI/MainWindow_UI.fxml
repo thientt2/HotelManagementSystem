@@ -136,7 +136,7 @@
                         </AnchorPane>
                         <AnchorPane fx:id="feedback_btn" layoutX="10.0" layoutY="386.0" prefHeight="40.0" prefWidth="165.0" styleClass="pane-text">
                            <children>
-                              <Button fx:id="feedbackWindow_btn" graphicTextGap="14.0" layoutX="10.0" layoutY="-9.0" mnemonicParsing="false" onAction="#changeSceneParamWindow" prefHeight="40.0" prefWidth="213.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Đánh giá" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="feedbackWindow_btn" graphicTextGap="14.0" layoutX="10.0" layoutY="-9.0" mnemonicParsing="false" onAction="#changeSceneFeedbackWindow" prefHeight="40.0" prefWidth="213.0" styleClass="unselected-btn" stylesheets="@../Designs/MainWindow.css" text="Đánh giá" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
                                     <FontAwesomeIcon fill="#1366d9" glyphName="STAR" size="22" strokeWidth="0.0" styleClass="icon" wrappingWidth="26.02857780456543" />
                                  </graphic>

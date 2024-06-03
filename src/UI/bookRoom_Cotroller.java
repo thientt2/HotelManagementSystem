@@ -187,8 +187,6 @@ public class bookRoom_Cotroller implements Initializable {
 	    rowdata[4] = numberOfDays;
 	    
 	    
-	    
-	    
 	    boolean isExists = listDetailBookRoom.stream()
 	    		.anyMatch(row -> selectedRoomType.equals(row[0]));
 	    if(isExists) {

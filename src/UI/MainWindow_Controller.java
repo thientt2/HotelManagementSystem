@@ -528,7 +528,7 @@ public class MainWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("dashBoardWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            dashBoardWindow_Controller controller = loader.getController();
-	            //controller.setMainWindowController(this);
+	            controller.setMainWindowController(this);
 				mainWindow.getChildren().setAll(newWindow);			
 				
 	    		selectMainWindow_btn.setVisible(true);
@@ -779,11 +779,10 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneFeedbackWindow() {
 		Platform.runLater(() -> {
 			try {
-				//Parent newWindow = FXMLLoader.load(getClass().getResource("bookRoomWindow_UI.fxml"));
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("feedbackWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
-//	            feedbackWindow_Controller controller = loader.getController();
-//	            controller.setMainWindowController(this);
+	            //feedbackWindow_Controller controller = loader.getController();
+	            //controller.setMainWindowController(this);
 				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);

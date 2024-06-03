@@ -119,7 +119,7 @@ public class NHANVIEN_DAO {
 	    String staffName = data.get("staffName");
 	    String username = data.get("username");
 	    String password = data.get("password");
-	    String photoPath = data.get("photoUrl");
+	    String photoPath = data.get("photourl");
 
 	    try (Connection connection = DatabaseConnection.connectDb();) {
 	        String query = "UPDATE NHANVIEN SET TENDANGNHAP = ?, MATKHAU = ?, PHOTO = ? WHERE TENNV = ?";

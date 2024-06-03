@@ -28,7 +28,8 @@ public class NHANVIEN_BLL {
 		String username = data.get("username");
 		String password = data.get("password");
 		String confirmPassword = data.get("confirmPassword");
-		if(staffName.isEmpty() || job.isEmpty() || username.isEmpty() || password.isEmpty()) {
+		String photuUrl = data.get("photourl");
+		if(staffName.isEmpty() || job.isEmpty() || photuUrl.isEmpty() || username.isEmpty() || password.isEmpty()) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
 		}else if(password.equals(confirmPassword) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_PASSWORD";

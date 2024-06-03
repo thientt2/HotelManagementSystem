@@ -96,6 +96,7 @@ public class createUser_Controller implements Initializable {
 		data.put("username", username_txt.getText());
 		data.put("password", password_txt.getText());
 		data.put("confirmPassword", confirmPassword_txt.getText());
+		data.put("photourl", photoUrl_txt.getText());
 		data.put("staffName", staff_cb.getValue());
 		data.put("job", job_cb.getValue());
 		
