@@ -3,26 +3,19 @@ package UI.BookRoom;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
-import BLL.CHITIETPDP_BLL;
 import BLL.CHITIETPNP_BLL;
 import BLL.KHACHHANG_BLL;
-import BLL.LOAINHANVIEN_BLL;
-import BLL.LOAIPHONG_BLL;
 import BLL.PHIEUNHANPHONG_BLL;
 import BLL.PHONG_BLL;
 import DTO.KHACHHANG;
-import DTO.LOAIPHONG;
-import DTO.PHIEUNHANPHONG;
 import UI.MainWindow_Controller;
 import UI.Resource.itemReceiveRoom_Controller;
 import application.AlertMessage;
@@ -40,7 +33,7 @@ import javafx.stage.Stage;
 import system.SystemMessage;
 
 public class receiveRoom_Controller implements Initializable {
-
+	
 	@FXML
     private Button addDetail_btn;
 

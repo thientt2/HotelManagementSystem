@@ -1,13 +1,12 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Map;
 
 import DTO.PHONG;
 import javafx.collections.FXCollections;
@@ -180,7 +179,7 @@ public class PHONG_DAO {
     public static ObservableList<String> getRoomNumbersByTypeAndStatus(String roomType, int status){
 	    ObservableList<String> roomNumbers = FXCollections.observableArrayList();
 	    try (Connection con = DatabaseConnection.connectDb();){
-	        String query = "SELECT MAPHONG FROM PHONG WHERE MALOAIP = (SELECT MALOAIP FROM LOAIPHONG WHERE TENLOAI = ?) AND MATRANGTHAI = ?";
+	        String query = "SELECT MAPHONG FROM PHONG WHERE MALOAIP IN (SELECT MALOAIP FROM LOAIPHONG WHERE TENLOAI = ?) AND MATRANGTHAI = ?";
 	        PreparedStatement stmt = con.prepareStatement(query);
 	        stmt.setString(1, roomType);
 	        stmt.setInt(2, status);
