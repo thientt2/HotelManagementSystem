@@ -455,7 +455,7 @@ public class MainWindow_Controller implements Initializable {
         Platform.runLater(() -> {
         	try {
 				//Parent newWindow = FXMLLoader.load(getClass().getResource("dashBoardWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/DashBorad/dashBoardWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/DashBoard/dashBoardWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            dashBoardWindow_Controller controller = loader.getController();
 	            controller.setMainWindowController(this);
