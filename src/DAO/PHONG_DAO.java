@@ -195,5 +195,18 @@ public class PHONG_DAO {
 	    }
 	    return roomNumbers;
     }
+    
+    public static void changeRoomStatus(String maPhong) {
+    	String query = "UPDATE PHONG"
+    			+ "SET MATRANGTHAI = 3"
+				+ "WHERE MAPHONG = '"+ maPhong +"'";
+		try (Connection connection = DatabaseConnection.connectDb();
+				PreparedStatement prepare = connection.prepareStatement(query)) {
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}    	
+    	
+    }
 
 }

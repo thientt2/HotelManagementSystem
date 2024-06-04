@@ -48,6 +48,8 @@ public class PHONG_BLL {
 	 public static ObservableList<String> getRoomNumbersByTypeAndStatus(String roomType, int status) throws SQLException {
 		 return PHONG_DAO.getRoomNumbersByTypeAndStatus(roomType, status);
 	 }
+	 
+	 public static void changeRoomStatus(String maPhong) { PHONG_DAO.changeRoomStatus(maPhong); }
 }
 
 

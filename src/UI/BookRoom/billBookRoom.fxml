@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="602.0" prefWidth="496.0" style="-fx-background-color: white;" styleClass="white-bg" stylesheets="@../Designs/billBookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.billBookRoom_Controller">
+<AnchorPane prefHeight="602.0" prefWidth="496.0" style="-fx-background-color: white;" styleClass="white-bg" stylesheets="@../../Designs/BillWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.billBookRoom_Controller">
    <children>
       <ScrollPane prefHeight="602.0" prefWidth="496.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
@@ -153,8 +153,8 @@
       </ScrollPane>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="195.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
          <children>
-            <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="print_btn" layoutX="88.0" mnemonicParsing="false" onAction="#print" prefHeight="40.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="In hóa đơn" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="print_btn" layoutX="88.0" mnemonicParsing="false" onAction="#print" prefHeight="40.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../../Designs/addDichVu.css" text="In hóa đơn" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </children>

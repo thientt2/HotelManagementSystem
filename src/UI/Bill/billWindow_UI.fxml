@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="541.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Bill.billWindow_Controller">
+<AnchorPane prefHeight="541.0" prefWidth="897.0" stylesheets="@../../Designs/BillWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Bill.billWindow_Controller">
    <children>
       <AnchorPane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: white;">
          <children>

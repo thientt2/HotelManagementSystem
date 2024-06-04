@@ -3,15 +3,22 @@ package UI.BookRoom;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
 import BLL.CHITIETPDP_BLL;
+import BLL.CHITIETPNP_BLL;
 import BLL.KHACHHANG_BLL;
 import BLL.LOAINHANVIEN_BLL;
 import BLL.LOAIPHONG_BLL;
+import BLL.PHIEUNHANPHONG_BLL;
 import BLL.PHONG_BLL;
 import DTO.KHACHHANG;
 import DTO.LOAIPHONG;
@@ -83,7 +90,6 @@ public class receiveRoom_Controller implements Initializable {
         ObservableList<String> roomNumbers = FXCollections.observableArrayList();
         try {
             roomNumbers = PHONG_BLL.getRoomNumbersByTypeAndStatus(selectedRoomType, 1);             
-            System.out.println(roomNumbers.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -118,6 +124,8 @@ public class receiveRoom_Controller implements Initializable {
 		
     
 	private ObservableList<Object[]> listDetailReceiveRoom = FXCollections.observableArrayList();
+	private List<String> listOrtherCustomer = new ArrayList<String>();
+
     
 	public void addCustomer(KHACHHANG kh) {
 	    String name = kh.getTENKH();
@@ -126,6 +134,8 @@ public class receiveRoom_Controller implements Initializable {
 	    Object[] rowdata = new Object[2];
 	    rowdata[0] = name;
 	    rowdata[1] = birthday;
+	    
+	    listOrtherCustomer.add(kh.getMAKH());
 	      
 	    listDetailReceiveRoom.add(rowdata);
 	    
@@ -140,6 +150,7 @@ public class receiveRoom_Controller implements Initializable {
 	            Button deletetItem_btn = controller.getDeleteItem_btn();
 	            deletetItem_btn.setOnAction(e -> {
 	            	listDetailReceiveRoom.remove(item);
+	            	listOrtherCustomer.remove(kh.getMAKH());
 	            	detailReceiveRoom_vbox.getChildren().remove(roomData);
 	            });
 	            detailReceiveRoom_vbox.getChildren().add(roomData);
@@ -151,7 +162,36 @@ public class receiveRoom_Controller implements Initializable {
 
 
     public void receiveRoom() {
-	
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		String checkin = formatter.format(now);
+		String checkout = formatter.format(now.plusDays(2));
+		
+		
+		System.out.println(bookRoomId_txt.getText());
+		System.out.println(roomNumber_cb.getValue());
+		System.out.println(checkin);
+		System.out.println(checkout);
+		System.out.println(listOrtherCustomer.toString());
+		Map<String, Object> data  = new HashMap<String, Object>();
+		data.put("ngayNhan", checkin);
+		data.put("ngayTra", checkout);
+		data.put("maPNP", bookRoomId_txt.getText());
+		data.put("maPhong", roomNumber_cb.getValue());
+		String error = SystemMessage.ERROR_MESSAGE;
+		AlertMessage alert = new AlertMessage();
+		if(error.equals("ERROR_EMPTY")) {
+			alert.errorMessage("Vui lòng nhập đầy đủ thông tin!");
+			SystemMessage.ERROR_MESSAGE = "";
+		}else {
+			PHIEUNHANPHONG_BLL.insertReceiveRoom(data);
+			PHONG_BLL.changeRoomStatus(roomNumber_cb.getValue());
+			String maPNP = PHIEUNHANPHONG_BLL.getLastReceiveRoom();
+			CHITIETPNP_BLL.insertDetailRecieveRoom(maPNP, listOrtherCustomer);
+			alert.successMessage("Nhận phòng thành công!");
+		}
+		
+    	
 	}
     
 	
@@ -162,7 +202,9 @@ public class receiveRoom_Controller implements Initializable {
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {			
-		
+
+
+
 	}
 
 	

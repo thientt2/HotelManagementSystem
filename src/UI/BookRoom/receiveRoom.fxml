@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="326.0" prefWidth="514.0" style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.receiveRoom_Controller">
+<AnchorPane prefHeight="326.0" prefWidth="514.0" style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.receiveRoom_Controller">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -38,7 +38,7 @@
             <AnchorPane layoutX="198.0" prefHeight="300.0" prefWidth="326.0">
                <children>
                   <Button fx:id="close_btn" layoutX="119.0" layoutY="262.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" />
-                  <Button fx:id="confirmBookRoom_btn" layoutX="210.0" layoutY="262.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.bottomAnchor="0.39999999999997726" />
+                  <Button fx:id="confirmBookRoom_btn" layoutX="210.0" layoutY="262.0" mnemonicParsing="false" onAction="#receiveRoom" prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.bottomAnchor="0.39999999999997726" />
                   <VBox fx:id="detailReceiveRoom_vbox" layoutY="130.0" prefHeight="118.0" prefWidth="302.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="136.0" />
                   <AnchorPane layoutY="90.0" prefHeight="40.0" prefWidth="302.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;">
                      <children>

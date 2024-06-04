@@ -779,7 +779,7 @@ public class MainWindow_Controller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
 		changeSceneDashBoardWindow();	
-		
+		initData("22521393");
 	}
 
 

@@ -138,7 +138,7 @@ public class bookRoomWindow_Controller implements Initializable{
 	                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
 	                        anchorPane.setVisible(true);
 
-	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/UI/receiveRoom.fxml"));
+	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/UI/BookRoom/receiveRoom.fxml"));
 	                        Parent root = loader1.load();
 
 	                        root.setOnMousePressed((MouseEvent event1) -> {
