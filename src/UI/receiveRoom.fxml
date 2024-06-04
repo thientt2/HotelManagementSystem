@@ -55,7 +55,7 @@
                      </children>
                   </AnchorPane>
                   <Button fx:id="addDetail_btn" layoutX="221.0" layoutY="38.0" mnemonicParsing="false" onAction="#searchCustomer" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" />
-                  <TextField fx:id="cccd_txt" editable="false" layoutY="40.0" prefHeight="40.0" prefWidth="199.0" promptText="Nhập số CCCD/Passport" />
+                  <TextField fx:id="cccd_txt" layoutY="40.0" prefHeight="40.0" prefWidth="199.0" promptText="Nhập số CCCD/Passport" />
                   <Label layoutY="14.0" text="Thông tin các khách hàng">
                      <font>
                         <Font name="Inter Medium" size="14.0" />
