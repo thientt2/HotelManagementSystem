@@ -259,6 +259,8 @@ public class MainWindow_Controller implements Initializable {
     
     private String username;
     
+    private Stage accountInfoStage = null;
+    
     public Boolean Visible = false;
     
     public AnchorPane getAnchorPane() {
@@ -269,25 +271,31 @@ public class MainWindow_Controller implements Initializable {
 	private double y = 0;
     
     public void accountInfo() throws IOException {
-    	NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
-        Parent root = loader.load();
-        
-        Stage stage = new Stage();        
-        stage.initStyle(StageStyle.TRANSPARENT);        
-        Scene scene = new Scene(root);
+        if (accountInfoStage != null && accountInfoStage.isShowing()) {
+            accountInfoStage.close();
+            accountInfoStage = null;
+        } else {
+            NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
+            Parent root = loader.load();
+            
+            accountInfoStage = new Stage();
+            accountInfoStage.initStyle(StageStyle.TRANSPARENT);
+            Scene scene = new Scene(root);
 
-        double initialX = 1010;
-	    double initialY = 130;
-	    stage.setX(initialX);
-	    stage.setY(initialY);
-        
-        accountInfo_Controller accountInfo = loader.getController();
-        accountInfo.accountInfo(nhanVien);
+            double initialX = 1010;
+            double initialY = 130;
+            accountInfoStage.setX(initialX);
+            accountInfoStage.setY(initialY);
+            
+            accountInfo_Controller accountInfo = loader.getController();
+            accountInfo.accountInfo(nhanVien);
 
-        
-        stage.setScene(scene);     
-        stage.showAndWait();
+            accountInfoStage.setScene(scene);
+            accountInfoStage.show();
+
+            accountInfoStage.setOnHiding(event -> accountInfoStage = null);
+        }
         
     }
     
