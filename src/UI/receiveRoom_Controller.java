@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 import BLL.CHITIETPDP_BLL;
@@ -66,24 +67,26 @@ public class receiveRoom_Controller implements Initializable {
 		return mainWindowController;
 	}
     
+    
     public void setData(Object[] item) {
     	bookRoomId_txt.setText(item[0].toString());
-    	roomType_txt.setText(item[2].toString());
+    	roomType_txt.setText(item[2].toString());    	
+    	showRoomNumber();   	
 	}  
     
     
     public void showRoomNumber() {
-    	roomNumber_cb.getItems().clear(); 
-        
+    	roomNumber_cb.getItems().clear();         
         String selectedRoomType = roomType_txt.getText();
-        List<String> roomNumbers = new ArrayList<>();
+      
+        ObservableList<String> roomNumbers = FXCollections.observableArrayList();
         try {
-            roomNumbers = PHONG_BLL.getRoomNumbersByTypeAndStatus(selectedRoomType, 1); 
-            roomNumbers.addAll(PHONG_BLL.getRoomNumbersByTypeAndStatus(selectedRoomType, 2)); 
+            roomNumbers = PHONG_BLL.getRoomNumbersByTypeAndStatus(selectedRoomType, 1);             
+            System.out.println(roomNumbers.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        roomNumber_cb.getItems().addAll(roomNumbers);
+        roomNumber_cb.setItems(roomNumbers);
     }
     
     
@@ -158,7 +161,7 @@ public class receiveRoom_Controller implements Initializable {
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		showRoomNumber();					
+//		showRoomNumber();				
 		
 	}
 

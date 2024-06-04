@@ -177,35 +177,23 @@ public class PHONG_DAO {
 		return null;
 	}
     
-    public static List<String> getRoomNumbersByTypeAndStatus(String roomType, int status) throws SQLException {
-        List<String> roomNumbers = new ArrayList<>();
-        Connection con = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
-        try {
-            con = DatabaseConnection.connectDb();
-            String query = "SELECT MAPHONG FROM PHONG WHERE MALOAIP = (SELECT MALOAIP FROM LOAIPHONG WHERE TENLOAI = ?) AND MATRANGTHAI = ?";
-            stmt = con.prepareStatement(query);
-            stmt.setString(1, roomType);
-            stmt.setInt(2, status);
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                roomNumbers.add(rs.getString("MAPHONG"));
-            }
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (stmt != null) {
-                stmt.close();
-            }
-            if (con != null) {
-                con.close();
-            }
-        }
-
-        return roomNumbers;
+    public static ObservableList<String> getRoomNumbersByTypeAndStatus(String roomType, int status){
+	    ObservableList<String> roomNumbers = FXCollections.observableArrayList();
+	    try (Connection con = DatabaseConnection.connectDb();){
+	        String query = "SELECT MAPHONG FROM PHONG WHERE MALOAIP = (SELECT MALOAIP FROM LOAIPHONG WHERE TENLOAI = ?) AND MATRANGTHAI = ?";
+	        PreparedStatement stmt = con.prepareStatement(query);
+	        stmt.setString(1, roomType);
+	        stmt.setInt(2, status);
+	        ResultSet rs = stmt.executeQuery();
+	        while (rs.next()) {
+	            roomNumbers.add(rs.getString("MAPHONG"));
+	        }
+	        DatabaseConnection.closeDb(con);
+	    } catch(SQLException e)
+	    {
+	    	e.printStackTrace();
+	    }
+	    return roomNumbers;
     }
 
 }

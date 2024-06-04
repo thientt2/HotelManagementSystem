@@ -42,7 +42,7 @@
                   <VBox fx:id="detailReceiveRoom_vbox" layoutY="130.0" prefHeight="118.0" prefWidth="302.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="136.0" />
                   <AnchorPane layoutY="90.0" prefHeight="40.0" prefWidth="302.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;">
                      <children>
-                        <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="103.0" text="Tên khách hàng">
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="116.0" text="Tên khách hàng">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>

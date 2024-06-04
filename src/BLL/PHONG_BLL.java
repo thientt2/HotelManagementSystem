@@ -45,7 +45,7 @@ public class PHONG_BLL {
 		 return PHONG_DAO.getAvailableRooms(roomTypeId, checkinDate, checkoutDate);
 	 }
 	 
-	 public static List<String> getRoomNumbersByTypeAndStatus(String roomType, int status) throws SQLException {
+	 public static ObservableList<String> getRoomNumbersByTypeAndStatus(String roomType, int status) throws SQLException {
 		 return PHONG_DAO.getRoomNumbersByTypeAndStatus(roomType, status);
 	 }
 }
