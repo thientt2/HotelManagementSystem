@@ -176,17 +176,19 @@ public class receiveRoom_Controller implements Initializable {
 		Map<String, Object> data  = new HashMap<String, Object>();
 		data.put("ngayNhan", checkin);
 		data.put("ngayTra", checkout);
-		data.put("maPNP", bookRoomId_txt.getText());
+		data.put("maPDP", bookRoomId_txt.getText());
 		data.put("maPhong", roomNumber_cb.getValue());
+		System.out.println(data.toString());
 		String error = SystemMessage.ERROR_MESSAGE;
 		AlertMessage alert = new AlertMessage();
+		PHIEUNHANPHONG_BLL.insertReceiveRoom(data);
 		if(error.equals("ERROR_EMPTY")) {
 			alert.errorMessage("Vui lòng nhập đầy đủ thông tin!");
 			SystemMessage.ERROR_MESSAGE = "";
-		}else {
-			PHIEUNHANPHONG_BLL.insertReceiveRoom(data);
+		}else {			
 			PHONG_BLL.changeRoomStatus(roomNumber_cb.getValue());
 			String maPNP = PHIEUNHANPHONG_BLL.getLastReceiveRoom();
+			System.out.println(maPNP);
 			CHITIETPNP_BLL.insertDetailRecieveRoom(maPNP, listOrtherCustomer);
 			alert.successMessage("Nhận phòng thành công!");
 		}

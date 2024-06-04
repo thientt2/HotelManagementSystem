@@ -197,16 +197,19 @@ public class PHONG_DAO {
     }
     
     public static void changeRoomStatus(String maPhong) {
-    	String query = "UPDATE PHONG"
-    			+ "SET MATRANGTHAI = 3"
-				+ "WHERE MAPHONG = '"+ maPhong +"'";
-		try (Connection connection = DatabaseConnection.connectDb();
-				PreparedStatement prepare = connection.prepareStatement(query)) {
-			prepare.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}    	
-    	
+        String query = "UPDATE PHONG "
+                + "SET MATRANGTHAI = 3 "
+                + "WHERE MAPHONG = ?";
+        try (Connection connection = DatabaseConnection.connectDb();
+             PreparedStatement prepare = connection.prepareStatement(query)) {
+            // Set the parameter value for the placeholder (?)
+            prepare.setString(1, maPhong);
+            // Execute the update
+            prepare.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
 
 }

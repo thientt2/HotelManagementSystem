@@ -79,6 +79,7 @@ public class addStaff_Controller implements Initializable {
 		
 		String check = SystemMessage.ERROR_MESSAGE;
 		AlertMessage alert = new AlertMessage();
+		NHANVIEN_BLL.insertStaff(data);
 		if(check.equals("ERROR_EMPTY")) {
 			alert.errorMessage("Vui lòng điền đầy đủ thông tin!");
 			SystemMessage.ERROR_MESSAGE = "";
@@ -88,8 +89,7 @@ public class addStaff_Controller implements Initializable {
 		}else if(check.equals("ERROR_PHONE")) {
 			alert.errorMessage("Vui lòng nhập số điện thoại hợp lệ!");
 			SystemMessage.ERROR_MESSAGE = "";
-		}else {
-			NHANVIEN_BLL.insertStaff(data);
+		}else {			
 			alert.successMessage("Thêm nhân viên thành công!");
 			clearStaff();
 		}

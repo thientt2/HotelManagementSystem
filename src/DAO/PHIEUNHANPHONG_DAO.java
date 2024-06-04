@@ -13,7 +13,7 @@ public class PHIEUNHANPHONG_DAO {
 	public static void insertReceiveRoom(Map<String, Object> data) {
 		// TODO Auto-generated method stub
 		String maPDP = (String) data.get("maPDP");
-		String maPH = (String) data.get("maPH");
+		String maPH = (String) data.get("maPhong");
 		String ngayNhan = (String) data.get("ngayNhan");
 		String ngayTra = (String) data.get("ngayTra");
 		String query = "INSERT INTO PHIEUNHANPHONG(MAPDP, MAPHONG, TGNHAN, TGTRA) VALUES(?,?,?,?)";

@@ -17,7 +17,7 @@
          <children>
             <Pane prefHeight="506.0" prefWidth="130.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10px;">
                <children>
-                  <VBox alignment="CENTER" layoutX="-6.0" layoutY="14.0" prefHeight="488.0" prefWidth="142.0">
+                  <VBox alignment="CENTER" layoutX="-6.0" layoutY="14.0" prefHeight="488.0" prefWidth="142.0" stylesheets="@../../Designs/RoomWindow.css">
                      <children>
                         <AnchorPane prefHeight="56.0" prefWidth="170.0">
                            <children>
