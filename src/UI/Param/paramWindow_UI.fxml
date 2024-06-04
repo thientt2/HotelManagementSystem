@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: #EBEBEB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Param.paramWindow_Controller">
+   <children>
+      <AnchorPane fx:id="paramWindow_form" prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: whirte;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="28.0" prefHeight="486.0" prefWidth="400.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="16.0">
+                     <children>
+                        <AnchorPane prefHeight="30.0" prefWidth="200.0" styleClass="header-pain" stylesheets="@../Designs/ParamWindow.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutY="5.0" prefHeight="20.0" prefWidth="57.0" text="Loại DV">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="100.0" layoutY="5.0" prefHeight="20.0" prefWidth="106.0" text="Tên DV">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="220.0" layoutY="5.0" prefHeight="20.0" prefWidth="54.0" text="Đơn giá">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="addService_btn" layoutX="320.0" layoutY="2.0" mnemonicParsing="false" onAction="#addService" prefHeight="20.0" prefWidth="54.0" styleClass="button-design" stylesheets="@../Designs/ParamWindow.css" text="Thêm" />
+                           </children>
+                        </AnchorPane>
+                        <VBox fx:id="listService_vbox" layoutX="0.0" layoutY="30.0" prefHeight="431.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="449.0" layoutY="16.0" prefHeight="486.0" prefWidth="400.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" layoutX="41.0" layoutY="14.0" prefHeight="30.0" prefWidth="200.0" spacing="30.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="210.0" text="Tên phụ thu/ giảm giá">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="212.0" layoutY="21.0" prefHeight="20.0" prefWidth="37.0" text="Tỉ lệ">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox fx:id="listParam_vbox" layoutX="0.0" layoutY="30.0" prefHeight="431.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

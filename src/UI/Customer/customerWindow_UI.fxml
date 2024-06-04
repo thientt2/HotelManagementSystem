@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="customerWindow" prefHeight="541.0" prefWidth="897.0" stylesheets="@../Designs/CustomerWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Customer.customerWindow_Controller">
+   <children>
+      <AnchorPane fx:id="customerWindow_form" layoutX="10.0" layoutY="10.0" prefHeight="630.0" prefWidth="1123.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: white; -fx-background-radius: 7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="289.0" layoutY="237.0" prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <AnchorPane prefHeight="30.0" prefWidth="877.0" styleClass="header-pain" stylesheets="@../Designs/CustomerWindow.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                               <Label layoutX="2.0" layoutY="8.0" text="Mã khách hàng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="107.0" layoutY="8.0" text="Tên khách hàng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="280.0" layoutY="8.0" text="CCCD">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="400.0" layoutY="8.0" text="Giới tính">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="499.0" layoutY="8.0" text="Ngày sinh">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="604.0" layoutY="8.0" text="Số điện thoại">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="718.0" layoutY="8.0" text="Quốc tịch">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <ScrollPane layoutX="14.0" layoutY="36.0" prefHeight="433.0" prefWidth="877.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <content>
+                              <VBox fx:id="listCustomer_vbox" prefHeight="430.0" prefWidth="875.0" style="-fx-background-color: #ffff;" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="addCustomer_btn" layoutX="59.0" layoutY="17.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="36.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #E8F1FD;" text="Thêm khách hàng" textFill="#0f50aa" AnchorPane.leftAnchor="12.0">
+                     <font>
+                        <Font name="Inter SemiBold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button graphicTextGap="10.0" layoutX="468.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="77.0" style="-fx-background-color: white; -fx-border-color: lightgrey; -fx-border-radius: 10;" styleClass="pane-text" text="Lọc" textAlignment="RIGHT">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="FILTER" size="18" styleClass="icon" />
+                     </graphic>
+                     <font>
+                        <Font name="Inter Medium" size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="searchCustomer" layoutX="570.0" layoutY="17.0" prefHeight="36.0" prefWidth="300.0" promptText="Tìm kiếm tên khách hàng" styleClass="search-text-field" stylesheets="@../Designs/CustomerWindow.css">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <CheckBox layoutX="214.0" layoutY="24.0" mnemonicParsing="false" text="Khách hàng gần đây" />
+                  <FontAwesomeIcon glyphName="SEARCH" layoutX="576.0" layoutY="41.0" size="1.5em" strokeWidth="0.5" tabSize="7">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </FontAwesomeIcon>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

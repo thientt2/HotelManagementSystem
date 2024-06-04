@@ -13,7 +13,14 @@ import BLL.KHACHHANG_BLL;
 import BLL.NHANVIEN_BLL;
 import DTO.KHACHHANG;
 import DTO.NHANVIEN;
+import UI.BookRoom.bookRoomWindow_Controller;
+import UI.Customer.customerWindow_Controller;
+import UI.DashBoard.dashBoardWindow_Controller;
+import UI.Param.paramWindow_Controller;
 import UI.Resource.itemStaff_Controller;
+import UI.Room.roomWindow_Controller;
+import UI.Staff.staffWindow_Controller;
+import UI.Statistical.statisticalWindow_Controller;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -25,6 +32,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -41,6 +49,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -295,6 +304,7 @@ public class MainWindow_Controller implements Initializable {
             accountInfoStage.show();
 
             accountInfoStage.setOnHiding(event -> accountInfoStage = null);
+            
         }
         
     }
@@ -408,7 +418,7 @@ public class MainWindow_Controller implements Initializable {
 		Platform.runLater(() -> {
 			try {
 				//Parent newWindow = FXMLLoader.load(getClass().getResource("roomWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("roomWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Room/roomWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            roomWindow_Controller controller = loader.getController();
 	            controller.setMainWindowController(this);
@@ -445,7 +455,7 @@ public class MainWindow_Controller implements Initializable {
         Platform.runLater(() -> {
         	try {
 				//Parent newWindow = FXMLLoader.load(getClass().getResource("dashBoardWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("dashBoardWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/DashBorad/dashBoardWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            dashBoardWindow_Controller controller = loader.getController();
 	            controller.setMainWindowController(this);
@@ -482,7 +492,7 @@ public class MainWindow_Controller implements Initializable {
 		Platform.runLater(() -> {
 			try {
 				//Parent newWindow = FXMLLoader.load(getClass().getResource("paramWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("paramWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Param/paramWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            paramWindow_Controller controller = loader.getController();
 	            controller.setMainWindowController(this);
@@ -520,7 +530,7 @@ public class MainWindow_Controller implements Initializable {
 		Platform.runLater(() -> {
 			 	try {
 					//Parent newWindow = FXMLLoader.load(getClass().getResource("staffWindow_UI.fxml"));
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("staffWindow_UI.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Staff/staffWindow_UI.fxml"));
 		            Parent newWindow = loader.load();
 		            staffWindow_Controller controller = loader.getController();
 		            controller.setMainWindowController(this);
@@ -557,7 +567,7 @@ public class MainWindow_Controller implements Initializable {
 		Platform.runLater(() -> {
 		 	try {
 		 		//Parent newWindow = FXMLLoader.load(getClass().getResource("customerWindow_UI.fxml"));
-		 		FXMLLoader loader = new FXMLLoader(getClass().getResource("customerWindow_UI.fxml"));
+		 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Customer/customerWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            customerWindow_Controller controller = loader.getController();
 	            controller.setMainWindowController(this);
@@ -594,7 +604,7 @@ public class MainWindow_Controller implements Initializable {
 		Platform.runLater(() -> {			
 			try {
 				//Parent newWindow = FXMLLoader.load(getClass().getResource("statisticalWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("statisticalWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Statistical/statisticalWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            statisticalWindow_Controller controller = loader.getController();
 	            //controller.setMainWindowController(this);
@@ -629,7 +639,7 @@ public class MainWindow_Controller implements Initializable {
 		Platform.runLater(() -> {
 			try {
 				//Parent newWindow = FXMLLoader.load(getClass().getResource("billWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("billWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Bill/billWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            //billWindow_Controller controller = loader.getController();
 	            //controller.setMainWindowController(this);
@@ -665,7 +675,7 @@ public class MainWindow_Controller implements Initializable {
 		Platform.runLater(() -> {
 			try {
 				//Parent newWindow = FXMLLoader.load(getClass().getResource("bookRoomWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("bookRoomWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/BookRoom/bookRoomWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            bookRoomWindow_Controller controller = loader.getController();
 	            controller.setMainWindowController(this);
@@ -699,7 +709,7 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneFeedbackWindow() {
 		Platform.runLater(() -> {
 			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("feedbackWindow_UI.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Feedback/feedbackWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            //feedbackWindow_Controller controller = loader.getController();
 	            //controller.setMainWindowController(this);
