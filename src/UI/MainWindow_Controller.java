@@ -50,34 +50,6 @@ import system.SystemMessage;
 
 public class MainWindow_Controller implements Initializable {
 
-
-    @FXML
-    private Button addCustomer_btn;
-    
-	@FXML
-    private Label amountMoneyLabel;
-
-    @FXML
-    private Label amountMoneyLabel1;
-
-    @FXML
-    private Label amountMoneyLabel11;
-
-    @FXML
-    private Label amountMoneyLabel12;
-
-    @FXML
-    private Label availabelRoomLabel;
-
-    @FXML
-    private Label availabelRoomLabel1;
-
-    @FXML
-    private Label availabelRoomLabel11;
-
-    @FXML
-    private Label availabelRoomLabel12;
-
     @FXML
     private Button billWindow_btn;
 
@@ -104,66 +76,6 @@ public class MainWindow_Controller implements Initializable {
     
     @FXML
     private Button selectFeedbackWindow_btn;
-    
-    @FXML
-    private TableColumn<KHACHHANG, String> colAddressCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, String> colBirthdayCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, String> colCccdCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, Void> colControlCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, String> colCountryCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, Integer> colCustomerType;
-
-    @FXML
-    private TableColumn<KHACHHANG, String> colEmailCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, String> colGenderCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, String> colIdCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, String> colNameCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, String> colPhoneCustomer;
-
-    @FXML
-    private TableColumn<KHACHHANG, Integer> colStatusCustomer;
-    
-    @FXML
-    private TableView<KHACHHANG> customer_table;
-    
-    @FXML
-    private TableColumn<NHANVIEN, String> colBeginStaff;
-
-    @FXML
-    private TableColumn<NHANVIEN, String> colBirthStaff;
-    
-    @FXML
-    private TableColumn<NHANVIEN, String> colCccdStaff;
-    
-    @FXML
-    private TableColumn<NHANVIEN, String> colNameStaff;
-
-    @FXML
-    private TableColumn<NHANVIEN, String> colIdStaff;
-    
-    @FXML
-    private TableColumn<NHANVIEN, String> colGenderStaff;
-    
-    @FXML
-    private TableView<NHANVIEN> staff_table;
     
     @FXML
     private Button selectBillWindow_btn;
@@ -848,7 +760,6 @@ public class MainWindow_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
-		initData("22521434");
 		changeSceneDashBoardWindow();	
 		
 	}

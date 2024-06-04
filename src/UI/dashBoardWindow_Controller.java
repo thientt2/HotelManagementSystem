@@ -11,7 +11,6 @@ public class dashBoardWindow_Controller implements Initializable{
 	
 	private MainWindow_Controller mainWindowController;
 
-    // Phương thức để thiết lập tham chiếu của main window controller từ bên ngoài
     public void setMainWindowController(MainWindow_Controller controller) {
         this.mainWindowController = controller;
     }

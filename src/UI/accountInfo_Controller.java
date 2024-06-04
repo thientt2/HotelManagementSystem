@@ -1,10 +1,12 @@
 package UI;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import BLL.LOAINHANVIEN_BLL;
+import BLL.NHANVIEN_BLL;
 import DTO.NHANVIEN;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +15,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import system.SystemMessage;
 
 public class accountInfo_Controller implements Initializable{
 	
@@ -50,6 +55,16 @@ public class accountInfo_Controller implements Initializable{
 		sdt_txt.setText(item.getSDT());
 		email_txt.setText(item.getEMAIL());
 		type_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
+		
+	    byte[] photoData = item.getPHOTO();
+	    if (photoData != null && photoData.length > 0) {
+	        ByteArrayInputStream bis = new ByteArrayInputStream(photoData);
+	        Image image = new Image(bis);
+	        top_circle.setFill(new ImagePattern(image));
+	    } else {
+	        Image defaultImage = new Image("/Images/LAOPERA.jpg");
+	        top_circle.setFill(new ImagePattern(defaultImage));
+	    }
 	}  
     
     public void logOut() throws IOException {
