@@ -42,5 +42,10 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
+      <Button fx:id="checkOut_btn" layoutX="322.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="91.0" style="-fx-background-color: #E8F1FD; -fx-background-radius: 100; -fx-border-color: #1570EF; -fx-border-radius: 100;" text="Check out" textFill="#0f50aa" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font name="Inter Medium" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

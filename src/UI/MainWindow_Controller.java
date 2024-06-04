@@ -61,28 +61,15 @@ public class MainWindow_Controller implements Initializable {
 
     @FXML
     private Button billWindow_btn;
-
-    @FXML
-    private AnchorPane billWindow_form;
-
-    @FXML
-    private AnchorPane bill_btn;
-
+    
     @FXML
     private Button bookRoomWindow_btn;
 
-    @FXML
-    private AnchorPane bookRoomWindow_form;
-
-    @FXML
-    private AnchorPane bookRoom_btn;
-    
+       
     @FXML
     private Button feedbackWindow_btn;
 
-    @FXML
-    private AnchorPane feedback_btn;
-    
+        
     @FXML
     private Button selectFeedbackWindow_btn;
     
@@ -114,15 +101,6 @@ public class MainWindow_Controller implements Initializable {
     private Button customerWindow_btn;
 
     @FXML
-    private AnchorPane customerWindow_form;
-
-    @FXML
-    private AnchorPane customer_btn;
-
-    @FXML
-    private AnchorPane dashBoard_form;
-
-    @FXML
     private FontAwesomeIcon iconDashBoard;
 
     @FXML
@@ -132,103 +110,16 @@ public class MainWindow_Controller implements Initializable {
     private Button mainWindow_btn;
 
     @FXML
-    private Label moneyPerNightLabel;
-
-    @FXML
-    private Label moneyPerNightLabel1;
-
-    @FXML
-    private Label moneyPerNightLabel11;
-
-    @FXML
-    private Label moneyPerNightLabel12;
-
-    @FXML
-    private Label numberBookedRoomLabel;
-
-    @FXML
-    private Label numberCheckInLabel;
-
-    @FXML
-    private Label numberCheckOutLabel;
-
-    @FXML
-    private Label numberCustomerLabel;
-
-    @FXML
-    private Label numberEmptyRoomLabel;
-
-    @FXML
-    private Label numberOfPaymentLabel;
-
-    @FXML
-    private Label numberOfPaymentLabel1;
-
-    @FXML
-    private Label numberOfPaymentLabel11;
-
-    @FXML
-    private Label numberOfPaymentLabel12;
-
-    @FXML
     private Button paramWindow_btn;
 
     @FXML
-    private AnchorPane paramWindow_form;
-
-    @FXML
-    private AnchorPane param_btn;
-
-    @FXML
-    private Label roomTypeLabel;
-
-    @FXML
-    private Label roomTypeLabel1;
-
-    @FXML
-    private Label roomTypeLabel11;
-
-    @FXML
-    private Label roomTypeLabel12;
-
-    @FXML
     private Button roomWindow_btn;
-
-    @FXML
-    private AnchorPane roomWindow_form;
-
-    @FXML
-    private AnchorPane room_btn;
-
-    @FXML
-    private Label squareLabel;
-
-    @FXML
-    private Label squareLabel1;
-
-    @FXML
-    private Label squareLabel11;
-
-    @FXML
-    private Label squareLabel12;
-
+    
     @FXML
     private Button staffWindow_btn;
 
     @FXML
-    private AnchorPane staffWindow_form;
-
-    @FXML
-    private AnchorPane staff_btn;
-
-    @FXML
     private Button statisticalWindow_btn;
-
-    @FXML
-    private AnchorPane statisticalWindow_form;
-
-    @FXML
-    private AnchorPane statistical_btn;
 
     @FXML
     private Label toDay;
@@ -237,26 +128,11 @@ public class MainWindow_Controller implements Initializable {
     private Circle top_circle;
 
     @FXML
-    private Label typeBedLabel;
-
-    @FXML
-    private Label typeBedLabel1;
-
-    @FXML
-    private Label typeBedLabel11;
-
-    @FXML
-    private Label typeBedLabel12;
-
-    @FXML
     private Label username_label;
     
     @FXML
     private AnchorPane mainWindow;
     
-    @FXML
-    private TableColumn<NHANVIEN,Void> colControlStaff;
-
     @FXML
     private AnchorPane anchorPane;
     

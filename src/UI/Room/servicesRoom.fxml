@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="699.0" style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Room.servicesRoom_Cotroller">
+<AnchorPane prefHeight="400.0" prefWidth="699.0" style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Room.servicesRoom_Controller">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -32,7 +32,7 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="serviceType_cb" layoutX="-1.0" layoutY="27.0" onAction="#showRoomType" prefHeight="40.0" prefWidth="214.0" promptText="Chọn loại dịch vụ" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" />
+                        <ComboBox fx:id="serviceType_cb" layoutX="-1.0" layoutY="27.0"  prefHeight="40.0" prefWidth="214.0" promptText="Chọn loại dịch vụ" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="213.0">
@@ -42,7 +42,7 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="serviceName_cb" layoutX="22.0" layoutY="21.0" onAction="#showRoomType" prefHeight="40.0" prefWidth="150.0" promptText="Chọn tên dịch vụ" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <ComboBox fx:id="serviceName_cb" layoutX="22.0" layoutY="21.0"  prefHeight="40.0" prefWidth="150.0" promptText="Chọn tên dịch vụ" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutY="249.0" prefHeight="67.0" prefWidth="213.0">
@@ -74,8 +74,8 @@
             </AnchorPane>
             <AnchorPane layoutX="317.0" layoutY="65.0" prefHeight="366.0" prefWidth="436.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <Button fx:id="close_btn" layoutX="250.0" layoutY="335.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="80.0" stylesheets="@../Designs/addDichVu.css" text="Hủy" />
-                  <Button fx:id="confirmBookRoom_btn" layoutX="348.0" layoutY="315.0" mnemonicParsing="false" onAction="#bookService" prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.bottomAnchor="0.0" />
+                  <Button fx:id="close_btn" layoutX="250.0" layoutY="335.0" mnemonicParsing="false"  prefHeight="40.0" prefWidth="80.0" stylesheets="@../Designs/addDichVu.css" text="Hủy" />
+                  <Button fx:id="confirmBookRoom_btn" layoutX="348.0" layoutY="315.0" mnemonicParsing="false"  prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.bottomAnchor="0.0" />
                   <VBox fx:id="detailServiceRoom_vbox" layoutX="6.0" layoutY="66.0" prefHeight="208.0" prefWidth="438.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-6.0" />
                   <Label layoutX="60.0" layoutY="287.0" text="Tổng tiền:">
                      <font>
@@ -94,7 +94,7 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="87.0" layoutY="10.0" prefHeight="20.0" prefWidth="71.0" text="Tên dịch vụ">
+                        <Label layoutX="87.0" layoutY="10.0" prefHeight="20.0" prefWidth="82.0" text="Tên dịch vụ">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
@@ -109,7 +109,7 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="275.0" layoutY="10.0" prefHeight="20.0" prefWidth="59.0" text="Số lượng">
+                        <Label layoutX="275.0" layoutY="10.0" prefHeight="20.0" prefWidth="60.0" text="Số lượng">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
@@ -120,6 +120,6 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button fx:id="addDetail_btn" layoutX="146.0" layoutY="343.0" mnemonicParsing="false" onAction="#addDetailBill" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="473.20000000000005" AnchorPane.topAnchor="343.0" />
+      <Button fx:id="addDetail_btn" layoutX="146.0" layoutY="343.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="473.20000000000005" AnchorPane.topAnchor="343.0" />
    </children>
 </AnchorPane>
