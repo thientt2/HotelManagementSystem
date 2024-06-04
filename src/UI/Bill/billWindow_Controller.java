@@ -24,7 +24,7 @@ public class billWindow_Controller implements Initializable {
     @FXML
     private Pagination pagination;
     
-    private static final int ITEMS_PER_PAGE = 8;
+    private static final int ITEMS_PER_PAGE = 7;
     private ObservableList<Object[]> listBill= FXCollections.observableArrayList();
 
 	@Override
@@ -62,20 +62,4 @@ public class billWindow_Controller implements Initializable {
 	    return new VBox(); // Return an empty VBox as a placeholder
 	}
 	
-	private void changePaginationButtonLabels() {
-        pagination.lookupAll(".arrow-button").forEach(node -> {
-            if (node instanceof HBox) {
-                HBox hbox = (HBox) node;
-                hbox.getChildren().forEach(button -> {
-                    if (button.getStyleClass().contains("left-arrow")) {
-                        ((javafx.scene.control.Button) button).setText("Previous"); // Đổi tên nút trái
-                    } else if (button.getStyleClass().contains("right-arrow")) {
-                        ((javafx.scene.control.Button) button).setText("Next"); // Đổi tên nút phải
-                    }
-                });
-            }
-        });
-    }
-
-
 }

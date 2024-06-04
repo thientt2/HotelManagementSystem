@@ -7,44 +7,44 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="39.0" prefWidth="897.0" style="-fx-background-color: #ffff; -fx-border-color: #E8F1FD; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBill_Controller">
+<AnchorPane prefHeight="49.0" prefWidth="837.0" style="-fx-background-color: #ffff; -fx-border-color: #E8F1FD; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBill_Controller">
    <children>
-      <Label fx:id="billId_txt" layoutX="14.0" layoutY="11.0" text="MAHD">
+      <Label fx:id="billId_txt" layoutX="14.0" layoutY="15.0" text="MAHD">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="room_txt" layoutX="82.0" layoutY="11.0" text="SP">
+      <Label fx:id="room_txt" layoutX="82.0" layoutY="15.0" text="SP">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="priceService_txt" layoutX="196.0" layoutY="11.0" text="TIENDV">
+      <Label fx:id="priceService_txt" layoutX="162.0" layoutY="15.0" text="TIENDV">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="surcharge_txt" layoutX="306.0" layoutY="11.0" text="TIENPT">
+      <Label fx:id="surcharge_txt" layoutX="267.0" layoutY="15.0" text="TIENPT">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="checkinDate_txt" layoutX="409.0" layoutY="11.0" text="TGCHECKIN">
+      <Label fx:id="checkinDate_txt" layoutX="370.0" layoutY="15.0" text="TGCHECKIN">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="checkoutDate_txt" layoutX="575.0" layoutY="11.0" text="TGCHECKOUT">
+      <Label fx:id="checkoutDate_txt" layoutX="534.0" layoutY="15.0" text="TGCHECKOUT">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="pay_btn" layoutX="759.0" layoutY="6.0" mnemonicParsing="false" styleClass="select-btn" stylesheets="@../../Designs/BillWindow.css" text="Thanh toán" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="6.0">
+      <Button fx:id="pay_btn" layoutX="691.0" layoutY="9.0" mnemonicParsing="false" styleClass="select-btn" stylesheets="@../../Designs/BillWindow.css" text="Thanh toán" AnchorPane.bottomAnchor="10.199999999999996" AnchorPane.topAnchor="9.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="control_btn" layoutX="850.0" layoutY="9.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+      <Button fx:id="control_btn" contentDisplay="RIGHT" layoutX="795.0" layoutY="12.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: transparent;" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>

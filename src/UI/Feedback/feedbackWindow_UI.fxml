@@ -1,10 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<AnchorPane prefHeight="541.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="22.0" layoutY="-15.0" prefHeight="200.0" prefWidth="200.0" />
+      <Pane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: #fff;">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="128.0" prefWidth="898.0" spacing="20.0">
+               <children>
+                  <Pane prefHeight="107.0" prefWidth="124.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutY="16.0" prefHeight="97.0" prefWidth="124.0" spacing="5.0" styleClass="pane" stylesheets="@../../Designs/feedbackWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Region prefHeight="13.0" prefWidth="122.0" />
+                              <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Tổng đánh giá" />
+                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="500" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="107.0" prefWidth="124.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutY="16.0" prefHeight="97.0" prefWidth="124.0" spacing="5.0" styleClass="pane" stylesheets="@../../Designs/feedbackWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Region prefHeight="13.0" prefWidth="122.0" />
+                              <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text=" Đánh giá 1 sao" />
+                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-background-color: #EF4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="1.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="107.0" prefWidth="124.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutY="16.0" prefHeight="97.0" prefWidth="124.0" spacing="5.0" styleClass="pane" stylesheets="@../../Designs/feedbackWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Region prefHeight="13.0" prefWidth="122.0" />
+                              <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 2 sao" />
+                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-background-color: #CA8A04; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="2.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="107.0" prefWidth="124.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutY="16.0" prefHeight="97.0" prefWidth="124.0" spacing="5.0" styleClass="pane" stylesheets="@../../Designs/feedbackWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Region prefHeight="13.0" prefWidth="122.0" />
+                              <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 3 sao" />
+                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-background-color: #FACC15; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="3.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="107.0" prefWidth="124.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutY="16.0" prefHeight="97.0" prefWidth="124.0" spacing="5.0" styleClass="pane" stylesheets="@../../Designs/feedbackWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Region prefHeight="13.0" prefWidth="122.0" />
+                              <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 4 sao" />
+                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-background-color: #4ADE80; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="4.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="107.0" prefWidth="124.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutY="16.0" prefHeight="97.0" prefWidth="124.0" spacing="5.0" styleClass="pane" stylesheets="@../../Designs/feedbackWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Region prefHeight="13.0" prefWidth="122.0" />
+                              <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 5 sao" />
+                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-background-color: #16A34A; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="5.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <ScrollPane layoutX="-1.0" layoutY="128.0" prefHeight="415.0" prefWidth="897.0" style="-fx-background-color: white;">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

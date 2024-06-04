@@ -12,56 +12,56 @@
    <children>
       <AnchorPane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: white;">
          <children>
-            <AnchorPane prefHeight="50.0" prefWidth="897.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane prefHeight="50.0" prefWidth="897.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <CheckBox layoutX="25.0" layoutY="14.0" mnemonicParsing="false" text="Hóa đơn hiện tại" />
-                  <Button layoutX="219.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Chưa thanh toán" />
-                  <Button layoutX="375.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đã thanh toán" />
+                  <CheckBox layoutY="6.0" mnemonicParsing="false" text="Hóa đơn hiện tại" />
+                  <Button layoutX="219.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Chưa thanh toán" />
+                  <Button layoutX="372.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đã thanh toán" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <AnchorPane layoutY="6.0" prefHeight="39.0" prefWidth="897.0" styleClass="header-pain" stylesheets="@../Designs/BillWindow.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutY="6.0" prefHeight="39.0" prefWidth="897.0" styleClass="header-pain" stylesheets="@../Designs/BillWindow.css" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label layoutX="14.0" layoutY="11.0" text="Mã HD">
+                        <Label layoutX="14.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Mã HD">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="82.0" layoutY="11.0" text="Số phòng">
+                        <Label layoutX="82.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Số phòng">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="196.0" layoutY="11.0" text="Tiền dịch vụ">
+                        <Label layoutX="165.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Tiền dịch vụ">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="306.0" layoutY="11.0" text="Tiền phụ thu">
+                        <Label layoutX="268.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Tiền phụ thu">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="409.0" layoutY="11.0" text="Thời gian check-in">
+                        <Label layoutX="370.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Thời gian check-in">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="575.0" layoutY="11.0" text="Thời gian check-out">
+                        <Label layoutX="536.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Thời gian check-out">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="754.0" layoutY="11.0" text="In hóa đơn">
+                        <Label layoutX="695.0" layoutY="11.0" style="-fx-font-weight: bold;" text="In hóa đơn">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <VBox fx:id="bill_vbox" layoutX="-6.0" layoutY="41.0" prefHeight="404.0" prefWidth="897.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Pagination fx:id="pagination" layoutX="103.0" layoutY="98.0" pageCount="50" pickOnBounds="false" prefHeight="450.0" prefWidth="897.0" stylesheets="@../Designs/BillWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <VBox fx:id="bill_vbox" layoutX="-6.0" layoutY="41.0" prefHeight="130.0" prefWidth="837.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                  <Pagination fx:id="pagination" layoutX="30.0" layoutY="39.0" pageCount="50" pickOnBounds="false" prefHeight="437.0" prefWidth="837.0" stylesheets="@../Designs/BillWindow.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
                </children>
             </AnchorPane>
          </children>

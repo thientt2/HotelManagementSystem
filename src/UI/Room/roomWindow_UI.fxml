@@ -126,39 +126,39 @@
                         <Region prefHeight="71.0" prefWidth="211.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
-                  <AnchorPane prefHeight="51.0" prefWidth="660.0" style="-fx-background-color: #D8E6F0;" styleClass="header-pain" stylesheets="@../Designs/RoomWindow.css">
+                  <AnchorPane prefHeight="51.0" prefWidth="660.0" style="-fx-background-color: #D8E6F0; -fx-background-radius: 10px 10px 0 0;" styleClass="header-pain" stylesheets="@../Designs/RoomWindow.css">
                      <children>
-                        <Label layoutX="14.0" layoutY="17.0" styleClass="header-text" stylesheets="@../Designs/RoomWindow.css" text="Mã phòng">
+                        <Label layoutX="14.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Mã phòng">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="89.0" layoutY="17.0" styleClass="header-text" stylesheets="@../Designs/RoomWindow.css" text="Loại phòng">
+                        <Label layoutX="89.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Loại phòng">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="172.0" layoutY="17.0" styleClass="header-text" stylesheets="@../Designs/RoomWindow.css" text="Trạng thái">
+                        <Label layoutX="172.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Trạng thái">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="337.0" layoutY="17.0" styleClass="header-text" stylesheets="@../Designs/RoomWindow.css" text="Xử lý">
+                        <Label layoutX="337.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Xử lý">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="435.0" layoutY="17.0" styleClass="header-text" stylesheets="@../Designs/RoomWindow.css" text="Dịch vụ">
+                        <Label layoutX="435.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Dịch vụ">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="544.0" layoutY="17.0" styleClass="header-text" stylesheets="@../Designs/RoomWindow.css" text="Chi tiết">
+                        <Label layoutX="544.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Chi tiết">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="622.0" layoutY="17.0" styleClass="header-text" stylesheets="@../Designs/RoomWindow.css" text="Countdown">
+                        <Label layoutX="622.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Countdown">
                            <font>
                               <Font name="Inter Medium" size="12.0" />
                            </font>

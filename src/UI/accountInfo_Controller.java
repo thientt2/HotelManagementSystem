@@ -23,11 +23,23 @@ import system.SystemMessage;
 
 public class accountInfo_Controller implements Initializable{
 	
-	@FXML
+	 @FXML
+    private Label birthday_txt;
+	 
+	 @FXML
+    private Label type_txt;
+
+    @FXML
+    private Label cccd_txt;
+
+    @FXML
     private Label email_txt;
 
     @FXML
     private Button exit_btn;
+
+    @FXML
+    private Button logOut_btn;
 
     @FXML
     private Label name_txt;
@@ -36,13 +48,11 @@ public class accountInfo_Controller implements Initializable{
     private Label sdt_txt;
 
     @FXML
-    private Button logOut_btn;
+    private Label startdate_txt;
 
     @FXML
     private Circle top_circle;
 
-    @FXML
-    private Label type_txt;
     
     private Stage mainStage;  // Tham chiếu đến cửa sổ chính
 
