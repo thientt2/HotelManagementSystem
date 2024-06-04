@@ -16,41 +16,51 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="14.0" layoutY="8.0" prefHeight="200.0" prefWidth="213.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane layoutX="14.0" layoutY="11.2" prefHeight="375.0" prefWidth="188.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="11.0">
                <children>
-                  <AnchorPane prefHeight="67.0" prefWidth="213.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane prefHeight="67.0" prefWidth="190.0">
                      <children>
-                        <Label layoutX="29.0" layoutY="14.0" text="Tên khách hàng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label layoutX="29.0" layoutY="14.0" text="Check in" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="customerName_txt" editable="false" layoutX="22.0" layoutY="21.0" prefHeight="40.0" prefWidth="213.0" promptText="Tên khách hàng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <DatePicker fx:id="checkin_datepicker" editable="false" layoutY="27.0" prefHeight="40.0" prefWidth="190.0" promptText="Thời gian checkin" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <styleClass>
+                              <String fx:value="custom-date-picker" />
+                              <String fx:value="text-field" />
+                           </styleClass>
+                        </DatePicker>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="213.0">
+                  <AnchorPane layoutY="85.0" prefHeight="67.0" prefWidth="190.0">
                      <children>
-                        <Label layoutX="29.0" layoutY="14.0" text="Số CCCD/Passport" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label layoutX="29.0" layoutY="14.0" text="Check out" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="cccd_txt" layoutX="22.0" layoutY="21.0" prefHeight="40.0" prefWidth="213.0" promptText="Số CCCD/Passport" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <DatePicker fx:id="checkout_datepicker" layoutX="7.0" layoutY="30.0" prefHeight="40.0" promptText="Chọn ngày checkout" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <styleClass>
+                              <String fx:value="custom-date-picker" />
+                              <String fx:value="text-field" />
+                           </styleClass>
+                        </DatePicker>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="213.0">
+                  <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="190.0">
                      <children>
                         <Label layoutX="29.0" layoutY="14.0" text="Loại phòng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="roomType_cb" layoutX="22.0" layoutY="21.0" onAction="#showRoomType" prefHeight="40.0" prefWidth="150.0" promptText="Chọn loại phòng" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <ComboBox fx:id="roomType_cb" layoutX="22.0" layoutY="21.0" onAction="#showRoomType" prefHeight="40.0" prefWidth="214.0" promptText="Chọn loại phòng" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutY="249.0" prefHeight="67.0" prefWidth="213.0">
                      <children>
-                        <AnchorPane prefHeight="67.0" prefWidth="100.0">
+                        <AnchorPane prefHeight="67.0" prefWidth="105.0">
                            <children>
                               <Label layoutX="29.0" layoutY="14.0" text="Đơn giá" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
@@ -60,14 +70,14 @@
                               <TextField fx:id="price_txt" alignment="CENTER" prefHeight="40.0" prefWidth="213.0" promptText="Giá" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="67.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="118.6" prefHeight="67.0" prefWidth="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="24.599999999999994" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label layoutX="29.0" layoutY="14.0" text="Số lượng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="quantity_cb" layoutX="-38.0" layoutY="21.0" prefHeight="40.0" prefWidth="100.0" promptText="Chọn" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <ComboBox fx:id="quantity_cb" layoutX="-38.0" layoutY="21.0" prefHeight="40.0" prefWidth="80.0" promptText="0" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -75,7 +85,7 @@
                   <AnchorPane layoutX="32.0" layoutY="233.0" prefHeight="40.0" prefWidth="181.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="317.0" layoutY="65.0" prefHeight="366.0" prefWidth="436.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane layoutX="317.0" layoutY="65.0" prefHeight="376.0" prefWidth="438.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="10.0">
                <children>
                   <Button fx:id="close_btn" layoutX="250.0" layoutY="335.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="80.0" stylesheets="@../Designs/addDichVu.css" text="Hủy" />
                   <Button fx:id="confirmBookRoom_btn" layoutX="348.0" layoutY="315.0" mnemonicParsing="false" onAction="#bookRoom" prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.bottomAnchor="0.0" />
@@ -84,32 +94,22 @@
                      <children>
                         <AnchorPane prefHeight="67.0" prefWidth="190.0">
                            <children>
-                              <Label layoutX="29.0" layoutY="14.0" text="Check in" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label layoutX="29.0" layoutY="14.0" text="Số CCCD/Passport" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <DatePicker fx:id="checkin_datepicker" editable="false" layoutY="27.0" prefHeight="40.0" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                 <styleClass>
-                                    <String fx:value="custom-date-picker" />
-                                    <String fx:value="text-field" />
-                                 </styleClass>
-                              </DatePicker>
+                              <TextField fx:id="cccd_txt" layoutX="22.0" layoutY="21.0" prefHeight="40.0" prefWidth="213.0" promptText="Số CCCD/Passport" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="67.0" prefWidth="190.0">
+                        <AnchorPane prefHeight="67.0" prefWidth="210.0">
                            <children>
-                              <Label layoutX="29.0" layoutY="14.0" text="Check out" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label layoutX="29.0" layoutY="14.0" text="Tên khách hàng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <DatePicker fx:id="checkout_datepicker" layoutX="7.0" layoutY="30.0" prefHeight="40.0" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                 <styleClass>
-                                    <String fx:value="custom-date-picker" />
-                                    <String fx:value="text-field" />
-                                 </styleClass>
-                              </DatePicker>
+                              <TextField fx:id="customerName_txt" editable="false" layoutX="22.0" layoutY="21.0" prefHeight="40.0" prefWidth="213.0" promptText="Tên khách hàng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -157,6 +157,6 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button fx:id="addDetail_btn" layoutX="146.0" layoutY="343.0" mnemonicParsing="false" onAction="#addDetailBill" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="473.20000000000005" AnchorPane.topAnchor="343.0" />
+      <Button fx:id="addDetail_btn" layoutX="126.20000000000005" layoutY="343.2" mnemonicParsing="false" onAction="#addDetailBill" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="493.0" AnchorPane.topAnchor="343.2" />
    </children>
 </AnchorPane>

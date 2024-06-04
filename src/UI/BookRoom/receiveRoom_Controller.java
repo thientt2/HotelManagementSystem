@@ -183,7 +183,7 @@ public class receiveRoom_Controller implements Initializable {
 			String maPNP = PHIEUNHANPHONG_BLL.getLastReceiveRoom();
 			System.out.println(maPNP);
 			CHITIETPNP_BLL.insertDetailRecieveRoom(maPNP, listOrtherCustomer);
-			alert.successMessage("Nhận phòng thành công!");
+			alert.successMessage("Nhận phòng " + roomNumber_cb.getValue() + " thành công!");
 		}
 		
     	

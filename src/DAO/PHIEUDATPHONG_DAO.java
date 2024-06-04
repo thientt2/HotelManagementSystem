@@ -40,34 +40,86 @@ public class PHIEUDATPHONG_DAO {
 //		}
 //		return list;
 //	}
-	public static ObservableList<Object[]> listBookRoom() {
-    	ObservableList<Object[]> dataList = FXCollections.observableArrayList();   	    	 
-    	 try (Connection connection = DatabaseConnection.connectDb();
-                Statement statement = connection.createStatement()) {
-                String query = "SELECT PDP.MAPDP, KH.TENKH , LP.TENLOAI, PDP.NGAYNHAN, PDP.NGAYTRA, PDP.HINHTHUC, CTP.SOLUONG "+
-                				"FROM PHIEUDATPHONG PDP " +
-                				"JOIN CHITIETPDP CTP ON PDP.MAPDP = CTP.MAPDP " +
-                				"JOIN LOAIPHONG LP ON CTP.MALOAIP = LP.MALOAIP " +
-                				"JOIN KHACHHANG KH ON PDP.MAKH = KH.MAKH";
-                ResultSet resultSet = statement.executeQuery(query);
-                while (resultSet.next()) {
-                    Object[] rowData = new Object[7];
-                    rowData[0] = resultSet.getString("MAPDP");
-                    rowData[1] = resultSet.getString("TENKH");
-                    rowData[2] = resultSet.getString("TENLOAI");
-                    rowData[3] = resultSet.getString("NGAYNHAN");
-                    rowData[4] = resultSet.getString("NGAYTRA");
-                    rowData[5] = resultSet.getString("HINHTHUC");
-                    rowData[6] = resultSet.getInt("SOLUONG");
-                    dataList.add(rowData);
-                }
+//	public static ObservableList<Object[]> listBookRoom() {
+//    	ObservableList<Object[]> dataList = FXCollections.observableArrayList();   	    	 
+//    	 try (Connection connection = DatabaseConnection.connectDb();
+//                Statement statement = connection.createStatement()) {
+//                String query = "SELECT PDP.MAPDP, KH.TENKH , LP.TENLOAI, PDP.NGAYNHAN, PDP.NGAYTRA, PDP.HINHTHUC, CTP.SOLUONG "+
+//                				"FROM PHIEUDATPHONG PDP " +
+//                				"JOIN CHITIETPDP CTP ON PDP.MAPDP = CTP.MAPDP " +
+//                				"JOIN LOAIPHONG LP ON CTP.MALOAIP = LP.MALOAIP " +
+//                				"JOIN KHACHHANG KH ON PDP.MAKH = KH.MAKH";
+//                ResultSet resultSet = statement.executeQuery(query);
+//                while (resultSet.next()) {
+//                    Object[] rowData = new Object[7];
+//                    rowData[0] = resultSet.getString("MAPDP");
+//                    rowData[1] = resultSet.getString("TENKH");
+//                    rowData[2] = resultSet.getString("TENLOAI");
+//                    rowData[3] = resultSet.getString("NGAYNHAN");
+//                    rowData[4] = resultSet.getString("NGAYTRA");
+//                    rowData[5] = resultSet.getString("HINHTHUC");
+//                    rowData[6] = resultSet.getInt("SOLUONG");
+//                    dataList.add(rowData);
+//                }
+//
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//    	 
+//		return dataList;    	
+//    }
+//	
+//	public static int getReceiveRoomNumber(String idBookRoom) {
+//        String sql = "SELECT COUNT(*) AS roomCount FROM PHIEUNHANPHONG WHERE MAPDP = ?";
+//        int roomCount = 0;
+//
+//        try (Connection con = DatabaseConnection.connectDb();
+//             PreparedStatement pst = con.prepareStatement(sql)) {
+//             
+//            pst.setString(1, idBookRoom);
+//            ResultSet rs = pst.executeQuery();
+//
+//            if (rs.next()) {
+//                roomCount = rs.getInt("roomCount");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return roomCount;
+//    }
+	public static ObservableList<Object[]> listBookRoomWithReceiveCount() {
+	    ObservableList<Object[]> dataList = FXCollections.observableArrayList();
+	    String query = "SELECT PDP.MAPDP, KH.TENKH, LP.TENLOAI, PDP.NGAYNHAN, PDP.NGAYTRA, PDP.HINHTHUC, CTP.SOLUONG, " +
+	                   "(SELECT COUNT(*) FROM PHIEUNHANPHONG PNP WHERE PNP.MAPDP = PDP.MAPDP) AS RECEIVEDROOM " +
+	                   "FROM PHIEUDATPHONG PDP " +
+	                   "JOIN CHITIETPDP CTP ON PDP.MAPDP = CTP.MAPDP " +
+	                   "JOIN LOAIPHONG LP ON CTP.MALOAIP = LP.MALOAIP " +
+	                   "JOIN KHACHHANG KH ON PDP.MAKH = KH.MAKH";
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-    	 
-		return dataList;    	
-    }
+	    try (Connection connection = DatabaseConnection.connectDb();
+	         Statement statement = connection.createStatement();
+	         ResultSet resultSet = statement.executeQuery(query)) {
+	         
+	        while (resultSet.next()) {
+	            Object[] rowData = new Object[8];
+	            rowData[0] = resultSet.getString("MAPDP");
+	            rowData[1] = resultSet.getString("TENKH");
+	            rowData[2] = resultSet.getString("TENLOAI");
+	            rowData[3] = resultSet.getString("NGAYNHAN");
+	            rowData[4] = resultSet.getString("NGAYTRA");
+	            rowData[5] = resultSet.getString("HINHTHUC");
+	            rowData[6] = resultSet.getInt("SOLUONG");
+	            rowData[7] = resultSet.getInt("RECEIVEDROOM"); 
+	            dataList.add(rowData);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return dataList;
+	}
+
 	
 	public static void insertBookRoom(Map<String, Object> data) {
 		String maKH = (String) data.get("maKH");

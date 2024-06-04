@@ -8,9 +8,13 @@ import javafx.collections.ObservableList;
 import system.SystemMessage;
 
 public class PHIEUDATPHONG_BLL {
-	public static ObservableList<Object[]> listBookRoom() {
-		return PHIEUDATPHONG_DAO.listBookRoom();
+	public static ObservableList<Object[]> listBookRoomWithReceiveCount() {
+		return PHIEUDATPHONG_DAO.listBookRoomWithReceiveCount();
 	}
+	
+//	public static int getReceiveRoomNumber(String idBookRoom) {
+//		return PHIEUDATPHONG_DAO.getReceiveRoomNumber(idBookRoom);
+//	}
 	
 	public static void insertBookRoom(Map<String, Object> data) {
 		String maKH = (String) data.get("maKH");
