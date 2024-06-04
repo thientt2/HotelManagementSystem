@@ -144,15 +144,7 @@ public class bookRoom_Cotroller implements Initializable {
     private KHACHHANG searchCustomer(String cccd) throws SQLException {
     	return KHACHHANG_BLL.getCustomerByCCCD(cccd);
     }
-		
     
-//	public void showQuantity() {
-//		ObservableList<Integer> list = FXCollections.observableArrayList();
-//		for(int i = 1; i <= 10; i++) {
-//			list.add(i);
-//		}
-//		quantity_cb.setItems(list);
-//	}
     
     public void showQuantity(int roomTypeId) {
         ObservableList<Integer> list = FXCollections.observableArrayList();
@@ -314,6 +306,11 @@ public class bookRoom_Cotroller implements Initializable {
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String formattedDate = formatter.format(now);
+		LocalDate date = LocalDate.parse(formattedDate);
+		checkin_datepicker.setValue(date);
 		showRoomType();				
 		searchCustomer();		
 			

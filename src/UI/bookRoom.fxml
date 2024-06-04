@@ -89,7 +89,7 @@
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <DatePicker fx:id="checkin_datepicker" layoutY="27.0" prefHeight="40.0" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                              <DatePicker fx:id="checkin_datepicker" editable="false" layoutY="27.0" prefHeight="40.0" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <styleClass>
                                     <String fx:value="custom-date-picker" />
                                     <String fx:value="text-field" />
