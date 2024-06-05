@@ -30,8 +30,75 @@
 }
 
 .header-pain {
-	-fx-background-color: #F7F9FC;
+	-fx-background-color: #D8E6F0;
 	-fx-background-radius: 10px 10px 0px 0px;
 	-fx-border-color: #E8F1FD;
-	-fx-border-radius: 10px 10px 0px 0px;	
+	-fx-border-radius: 5px 5px 0px 0px;	
+}
+
+.pagination .control-button,
+.pagination .number-button,
+.pagination .bullet-button {
+    -fx-background-insets: 0, 1;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-radius: 5px;
+    -fx-min-width: 50px;
+    -fx-min-height: 30px;
+    -fx-text-fill: black;
+	-fx-font-family: "Inter-Medium";
+    -fx-font-size: 14px;
+}
+
+/* Colors on hover */
+.pagination .control-button:hover,
+.pagination .number-button:hover,
+.pagination .bullet-button:hover {
+    -fx-background-color: transparent;
+}
+
+/* Selected toggle color */
+.pagination .number-button:selected,
+.pagination .bullet-button:selected {
+    -fx-background-color: #F7F9FC;
+    -fx-text-fill: #1366D9;
+    -fx-border-color: transparent;
+}
+
+/* Remove default background and border */
+.pagination .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: black; /* Màu chữ */
+    -fx-font-family: "Inter-Medium"; /* Font chữ */
+    -fx-font-size: 14px; /* Kích thước font chữ */
+}
+
+/* Change hover effect for arrow buttons */
+.pagination .arrow-button:hover {
+    -fx-background-color: #e0e0e0; /* Màu nền khi hover */
+}
+
+.pagination .left-arrow,
+.pagination .right-arrow {
+    -fx-background-color: black;
+    -fx-border-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-family: "Inter-Medium";
+    -fx-font-size: 14px;
+}
+
+/* Change the shape to remove any unwanted borders or backgrounds */
+.pagination .arrow-button .arrow {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+
+.pagination .page-information {
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+    -fx-padding: 0;
+    -fx-border-width: 0;
 }
