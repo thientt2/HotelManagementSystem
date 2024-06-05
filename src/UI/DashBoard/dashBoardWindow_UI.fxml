@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -107,11 +108,15 @@
                                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0" spacing="13.0">
                                        <children>
                                           <Label fx:id="numberOfPaymentLabel1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="12 đang được sử dụng" />
-                                          <Label fx:id="contextMenu_btn1" alignment="CENTER" contentDisplay="CENTER" ellipsisString="3" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="0.0" prefWidth="22.0" rotate="90.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
-                                             <font>
-                                                <Font name="Cambria" size="30.0" />
-                                             </font>
-                                          </Label>
+                                          <Button fx:id="contextMenu_btn1" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;">
+                                             <graphic>
+                                                <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Images/ellipsis_v.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
                                        </children>
                                     </HBox>
                                     <Pane prefHeight="40.0" prefWidth="165.0">
@@ -148,7 +153,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="35.0">
                                                    <children>
-                                                      <Label fx:id="areaLabel1" styleClass="normal-text" text="15" />
+                                                      <Label fx:id="areaLabel1" prefHeight="18.0" prefWidth="17.0" styleClass="normal-text" text="15" />
                                                       <Label styleClass="normal-text" text="m²" />
                                                    </children>
                                                 </HBox>
@@ -179,11 +184,15 @@
                                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0" spacing="13.0">
                                        <children>
                                           <Label fx:id="numberOfPaymentLabel2" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="3 đang được sử dụng" />
-                                          <Label fx:id="contextMenu_btn2" alignment="CENTER" contentDisplay="CENTER" ellipsisString="3" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="0.0" prefWidth="22.0" rotate="90.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
-                                             <font>
-                                                <Font name="Cambria" size="30.0" />
-                                             </font>
-                                          </Label>
+                                          <Button fx:id="contextMenu_btn2" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;">
+                                             <graphic>
+                                                <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Images/ellipsis_v.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
                                        </children>
                                     </HBox>
                                     <Pane prefHeight="40.0" prefWidth="165.0">
@@ -220,7 +229,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="35.0">
                                                    <children>
-                                                      <Label fx:id="areaLabel2" styleClass="normal-text" text="25" />
+                                                      <Label fx:id="areaLabel2" prefHeight="18.0" prefWidth="17.0" styleClass="normal-text" text="25" />
                                                       <Label styleClass="normal-text" text="m²" />
                                                    </children>
                                                 </HBox>
@@ -255,11 +264,15 @@
                                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0" spacing="13.0">
                                        <children>
                                           <Label fx:id="numberOfPaymentLabel3" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="4 đang được sử dụng" />
-                                          <Label fx:id="contextMenu_btn3" alignment="CENTER" contentDisplay="CENTER" ellipsisString="3" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="0.0" prefWidth="22.0" rotate="90.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
-                                             <font>
-                                                <Font name="Cambria" size="30.0" />
-                                             </font>
-                                          </Label>
+                                          <Button fx:id="contextMenu_btn3" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;">
+                                             <graphic>
+                                                <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Images/ellipsis_v.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
                                        </children>
                                     </HBox>
                                     <Pane prefHeight="40.0" prefWidth="165.0">
@@ -296,7 +309,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="35.0">
                                                    <children>
-                                                      <Label fx:id="areaLabel3" style="-fx-font-size: 12px;" styleClass="normal-text" text="27" />
+                                                      <Label fx:id="areaLabel3" prefHeight="18.0" prefWidth="17.0" style="-fx-font-size: 12px;" styleClass="normal-text" text="27" />
                                                       <Label styleClass="normal-text" text="m²" />
                                                    </children>
                                                 </HBox>
@@ -327,11 +340,15 @@
                                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0" spacing="13.0">
                                        <children>
                                           <Label fx:id="numberOfPaymentLabel4" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="1 đang được sử dụng" />
-                                          <Label fx:id="contextMenu_btn4" alignment="CENTER" contentDisplay="CENTER" ellipsisString="3" graphicTextGap="0.0" lineSpacing="3.0" prefHeight="0.0" prefWidth="22.0" rotate="90.0" text="..." textAlignment="CENTER" textFill="#aeaeae" textOverrun="CLIP">
-                                             <font>
-                                                <Font name="Cambria" size="30.0" />
-                                             </font>
-                                          </Label>
+                                          <Button fx:id="contextMenu_btn4" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;">
+                                             <graphic>
+                                                <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Images/ellipsis_v.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
                                        </children>
                                     </HBox>
                                     <Pane prefHeight="40.0" prefWidth="165.0">
@@ -368,7 +385,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="35.0">
                                                    <children>
-                                                      <Label fx:id="areaLabel4" styleClass="normal-text" text="30" />
+                                                      <Label fx:id="areaLabel4" prefHeight="18.0" prefWidth="17.0" styleClass="normal-text" text="30" />
                                                       <Label styleClass="normal-text" text="m²" />
                                                    </children>
                                                 </HBox>

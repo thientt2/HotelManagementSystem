@@ -35,4 +35,7 @@ public class PHIEUDATPHONG_BLL {
 		return PHIEUDATPHONG_DAO.getLastBookRoom();
 	}
 	
+	public static ObservableList<Object[]> showBookRoom(int id) {
+		return PHIEUDATPHONG_DAO.showBookRoom(id);
+	}
 }

@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
+import DTO.LOAIPHONG;
 import DTO.NHANVIEN;
 import DTO.PHIEUDATPHONG;
 import javafx.collections.FXCollections;
@@ -165,5 +166,41 @@ public class PHIEUDATPHONG_DAO {
 		}
 		return phieuDatPhong;
 	}
+	
+	public static ObservableList<Object[]> showBookRoom(int id) {
+	    ObservableList<Object[]> dataList = FXCollections.observableArrayList();
+	    String query = "SELECT pdp.*, lp.MALOAIP, lp.TENLOAI, c.SOLUONG " +
+	                   "FROM PHIEUDATPHONG pdp " +
+	                   "INNER JOIN CHITIETPDP c ON pdp.MAPDP = c.MAPDP " +
+	                   "INNER JOIN LOAIPHONG lp ON c.MALOAIP = lp.MALOAIP " +
+	                   "WHERE lp.MALOAIP = ?";
+
+	    try (Connection connection = DatabaseConnection.connectDb();
+	         PreparedStatement pst = connection.prepareStatement(query)) {
+	         
+	        pst.setInt(1, id);
+	        ResultSet resultSet = pst.executeQuery();
+	        
+	        while (resultSet.next()) {
+	            Object[] rowData = new Object[9];
+	            rowData[0] = resultSet.getString("MAPDP");
+	            rowData[1] = resultSet.getString("MAKH");
+	            rowData[2] = resultSet.getString("TGDAT");
+	            rowData[3] = resultSet.getString("NGAYNHAN");
+	            rowData[4] = resultSet.getString("NGAYTRA");
+	            rowData[5] = resultSet.getString("HINHTHUC");
+	            rowData[6] = resultSet.getInt("MALOAIP");
+	            rowData[7] = resultSet.getString("TENLOAI");
+	            rowData[8] = resultSet.getInt("SOLUONG");
+	            dataList.add(rowData);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return dataList;        
+	}
+
 	
 }

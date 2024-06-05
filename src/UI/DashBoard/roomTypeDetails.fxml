@@ -1,8 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="400.0" prefWidth="577.0" style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DashBoard.roomTypeDetails_Controller">
+   <children>
+      <AnchorPane layoutX="2.0" prefHeight="343.0" prefWidth="602.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="45.0" prefHeight="297.0" prefWidth="436.0">
+               <children>
+                  <ScrollPane layoutX="6.0" layoutY="42.0" prefHeight="257.0" prefWidth="560.0">
+                     <content>
+                        <VBox fx:id="detailTypeRoom_vbox" prefHeight="234.0" prefWidth="544.0" />
+                     </content>
+                  </ScrollPane>
+                  <AnchorPane layoutX="6.4" prefHeight="40.0" prefWidth="544.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" AnchorPane.leftAnchor="6.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="8.0" text="Mã phiếu">
+                          <font>
+                             <Font name="Inter Medium" size="14.0" />
+                          </font>
+                       </Label>
+                       <Label layoutX="80.0" layoutY="8.0" text="Số lượng">
+                          <font>
+                             <Font name="Inter Medium" size="14.0" />
+                          </font>
+                       </Label>
+                       <Label layoutX="148.0" layoutY="8.0" text="Tên khách hàng">
+                          <font>
+                             <Font name="Inter Medium" size="14.0" />
+                          </font>
+                       </Label>
+                       <Label layoutX="300.0" layoutY="8.0" text="Ngày nhận phòng">
+                          <font>
+                             <Font name="Inter Medium" size="14.0" />
+                          </font>
+                       </Label>
+                       <Label layoutX="431.0" layoutY="8.0" text="Ngày trả phòng">
+                          <font>
+                             <Font name="Inter Medium" size="14.0" />
+                          </font>
+                       </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Label fx:id="typeName_txt" layoutX="251.0" layoutY="14.0" text="Standard" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="cancel_btn" layoutX="251.0" layoutY="343.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Đóng" AnchorPane.rightAnchor="273.4" AnchorPane.topAnchor="343.0" />
+   </children>
 </AnchorPane>
-

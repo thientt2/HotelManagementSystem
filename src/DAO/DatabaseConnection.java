@@ -9,10 +9,10 @@ public class DatabaseConnection {
 //                + "encrypt=true;trustServerCertificate=true";
 //      String strDbUrl = "jdbc:sqlserver://localhost:1433; databaseName=QLKS_LAOPERA;user=ThienTT;password=12345#;"
 //              + "encrypt=true;trustServerCertificate=true";
-//    	String strDbUrl = "jdbc:sqlserver://localhost:1433; databaseName=QLKS_LAOPERA;user=22521434;password=thong134;"
-//                + "encrypt=true;trustServerCertificate=true";
-        String strDbUrl = "jdbc:sqlserver://localhost:1433; databaseName=QLKS_LAOPERA;user=22521578;password=22521578;"
+    	String strDbUrl = "jdbc:sqlserver://localhost:1433; databaseName=QLKS_LAOPERA;user=22521434;password=thong134;"
                 + "encrypt=true;trustServerCertificate=true";
+//        String strDbUrl = "jdbc:sqlserver://localhost:1433; databaseName=QLKS_LAOPERA;user=22521578;password=22521578;"
+//                + "encrypt=true;trustServerCertificate=true";
 
         try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
