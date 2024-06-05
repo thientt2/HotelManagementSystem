@@ -32,7 +32,7 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="serviceType_cb" layoutX="-1.0" layoutY="27.0" onAction="#showListServiceType" prefHeight="40.0" prefWidth="214.0" promptText="Chọn loại dịch vụ" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" />
+                        <ComboBox fx:id="serviceType_cb" layoutX="-1.0" layoutY="27.0" onAction="#showListServiceType" prefHeight="40.0" prefWidth="214.0" promptText="Chọn loại dịch vụ" styleClass="text-field" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutY="166.0" prefHeight="67.0" prefWidth="213.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -42,7 +42,7 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="serviceName_cb" layoutX="22.0" layoutY="21.0" onAction="#showListServiceName" prefHeight="40.0" prefWidth="150.0" promptText="Chọn tên dịch vụ" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <ComboBox fx:id="serviceName_cb" layoutX="22.0" layoutY="21.0" onAction="#showListServiceName" prefHeight="40.0" prefWidth="150.0" promptText="Chọn tên dịch vụ" styleClass="text-field" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutY="249.0" prefHeight="67.0" prefWidth="213.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -64,14 +64,14 @@
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="quantity_cb" layoutY="21.0" prefHeight="40.0" prefWidth="90.0" promptText="Chọn" styleClass="text-field" stylesheets="@../Designs/bookRoom.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <ComboBox fx:id="quantity_cb" layoutY="21.0" prefHeight="40.0" prefWidth="90.0" promptText="Chọn" styleClass="text-field" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="32.0" layoutY="233.0" prefHeight="40.0" prefWidth="154.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <Button fx:id="addDetail_btn" layoutX="81.0" layoutY="-5.0" mnemonicParsing="false" onAction="#addDetail" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button fx:id="addDetail_btn" layoutX="81.0" layoutY="-5.0" mnemonicParsing="false" onAction="#addDetail" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" text="Thêm" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children></AnchorPane>
                </children>
             </AnchorPane>
@@ -119,8 +119,8 @@
                   </AnchorPane>
                   <AnchorPane layoutX="255.0" layoutY="309.0" prefHeight="40.0" prefWidth="198.0" stylesheets="@../../Designs/addDichVu.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="27.0">
                      <children>
-                        <Button fx:id="close_btn" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Hủy" />
-                        <Button fx:id="confirmBookRoom_btn" mnemonicParsing="false" onAction="#addDetailBill" prefHeight="40.0" prefWidth="90.0" text="Xác nhận" AnchorPane.rightAnchor="0.0" />
+                        <Button fx:id="close_btn" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" text="Hủy" />
+                        <Button fx:id="confirmBookRoom_btn" mnemonicParsing="false" onAction="#addDetailBill" prefHeight="40.0" prefWidth="90.0" styleClass="add-btn" text="Xác nhận" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>

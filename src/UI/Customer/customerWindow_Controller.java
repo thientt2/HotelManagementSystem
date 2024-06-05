@@ -54,8 +54,7 @@ public class customerWindow_Controller implements Initializable {
     }
     
     private VBox createPage(int pageIndex) {	    
-	    listCustomer_vbox.getChildren().clear(); 
-
+		VBox page = new VBox();
 	    int startIndex = pageIndex * ITEMS_PER_PAGE;
 	    int endIndex = Math.min(startIndex + ITEMS_PER_PAGE, listCustomer.size());
 
@@ -91,7 +90,7 @@ public class customerWindow_Controller implements Initializable {
 	                        Stage stage = new Stage();        
 	                        stage.initStyle(StageStyle.TRANSPARENT);        
 	                        stage.initModality(Modality.WINDOW_MODAL);
-	                        stage.initOwner(customerWindow_form.getScene().getWindow());
+	                        stage.initOwner(addCustomer_btn.getScene().getWindow());
 	                        Scene scene = new Scene(root);
 
 	                        editCustomer_Controller editCustomer = loader2.getController();
@@ -130,7 +129,7 @@ public class customerWindow_Controller implements Initializable {
 	                        Stage stage = new Stage();        
 	                        stage.initStyle(StageStyle.TRANSPARENT);  
 	                        stage.initModality(Modality.WINDOW_MODAL);
-	                        stage.initOwner(customerWindow_form.getScene().getWindow());
+	                        stage.initOwner(addCustomer_btn.getScene().getWindow());
 	                        Scene scene = new Scene(root);
 
 	                        customerDetails_Controller customerDetails = loader1.getController();
@@ -152,14 +151,14 @@ public class customerWindow_Controller implements Initializable {
 	        	    contextMenu.getItems().addAll(editItem, deleteItem, detailItem);  	
 	        	    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
 	            });
-	            Platform.runLater(() -> listCustomer_vbox.getChildren().add(customerDataPane));
+	            page.getChildren().add(customerDataPane);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
 	    }
 
-	    return new VBox(); // Return an empty VBox as a placeholder
+	    return page; // Return an empty VBox as a placeholder
 	}
     
 	private double x = 0;

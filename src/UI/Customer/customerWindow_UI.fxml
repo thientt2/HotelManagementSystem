@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="customerWindow" prefHeight="541.0" prefWidth="897.0" stylesheets="@../Designs/CustomerWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Customer.customerWindow_Controller">
+<AnchorPane fx:id="customerWindow" prefHeight="541.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Customer.customerWindow_Controller">
    <children>
       <AnchorPane prefHeight="620.0" prefWidth="1113.0" style="-fx-background-color: white; -fx-background-radius: 7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

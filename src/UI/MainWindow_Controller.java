@@ -511,7 +511,7 @@ public class MainWindow_Controller implements Initializable {
 		 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Customer/customerWindow_UI.fxml"));
 	            Parent newWindow = loader.load();
 	            customerWindow_Controller controller = loader.getController();
-	            controller.setMainWindowController(this);
+//	            controller.setMainWindowController(this);
 				mainWindow.getChildren().setAll(newWindow);
 				
 				

@@ -21,8 +21,8 @@
                      <children>
                         <AnchorPane prefHeight="56.0" prefWidth="170.0">
                            <children>
-                              <Button fx:id="unselectAllRoom_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showAllRoom" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tất cả" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="selectAllRoom_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tất cả" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselectAllRoom_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showAllRoom" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tất cả" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="selectAllRoom_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" text="Tất cả" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -30,8 +30,8 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="56.0" prefWidth="119.0">
                            <children>
-                              <Button fx:id="unselect1Floor_btn" alignment="CENTER" layoutX="23.2" layoutY="10.0" mnemonicParsing="false" onAction="#showFirstFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 1" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="select1Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="122.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 1" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselect1Floor_btn" alignment="CENTER" layoutX="23.2" layoutY="10.0" mnemonicParsing="false" onAction="#showFirstFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tầng 1" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="select1Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="122.0" styleClass="selected-btn" text="Tầng 1" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -39,8 +39,8 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="56.0" prefWidth="170.0">
                            <children>
-                              <Button fx:id="unselect2Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSecondFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 2" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="select2Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 2" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselect2Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSecondFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tầng 2" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="select2Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" text="Tầng 2" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -48,8 +48,8 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="56.0" prefWidth="170.0">
                            <children>
-                              <Button fx:id="unselect3Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showThirdFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 3" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="select3Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 3" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselect3Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showThirdFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tầng 3" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="select3Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" text="Tầng 3" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -57,8 +57,8 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="56.0" prefWidth="170.0">
                            <children>
-                              <Button fx:id="unselect4Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showFourthFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 4" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="select4Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 4" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselect4Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showFourthFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tầng 4" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="select4Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" text="Tầng 4" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -66,8 +66,8 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="54.0" prefWidth="113.0">
                            <children>
-                              <Button fx:id="unselect5Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showFifthFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 5" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="select5Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 5" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselect5Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showFifthFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tầng 5" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="select5Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" text="Tầng 5" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -75,8 +75,8 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="56.0" prefWidth="170.0">
                            <children>
-                              <Button fx:id="unselect6Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSixthFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 6" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="select6Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 6" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselect6Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSixthFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tầng 6" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="select6Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" text="Tầng 6" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -84,8 +84,8 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="56.0" prefWidth="170.0">
                            <children>
-                              <Button fx:id="unselect7Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSeventhFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 7" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="select7Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 7" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselect7Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSeventhFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tầng 7" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="select7Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" text="Tầng 7" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -93,8 +93,8 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="56.0" prefWidth="170.0">
                            <children>
-                              <Button fx:id="unselect8Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showEighthFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 8" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-                              <Button fx:id="select8Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" stylesheets="@../Designs/RoomWindow.css" text="Tầng 8" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="unselect8Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#showEighthFloor" prefHeight="40.0" prefWidth="102.0" styleClass="unselected-btn" text="Tầng 8" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <Button fx:id="select8Floor_btn" alignment="CENTER" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="selected-btn" text="Tầng 8" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -108,17 +108,17 @@
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="56.0" prefWidth="635.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="60.0" style="-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Trống">
+                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="60.0" style="-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2;" styleClass="button-control" text="Trống">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="132.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Chưa dọn dẹp">
+                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="132.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" text="Chưa dọn dẹp">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../Designs/MainWindow.css" text="Đang được sử dụng">
+                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" text="Đang được sử dụng">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
@@ -126,41 +126,41 @@
                         <Region prefHeight="71.0" prefWidth="211.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
-                  <AnchorPane prefHeight="51.0" prefWidth="660.0" style="-fx-background-color: #D8E6F0; -fx-background-radius: 10px 10px 0 0;" styleClass="header-pain" stylesheets="@../Designs/RoomWindow.css">
+                  <AnchorPane prefHeight="51.0" prefWidth="660.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0 0; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" styleClass="header-pain">
                      <children>
                         <Label layoutX="14.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Mã phòng">
                            <font>
-                              <Font name="Inter Medium" size="12.0" />
+                              <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
                         <Label layoutX="89.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Loại phòng">
                            <font>
-                              <Font name="Inter Medium" size="12.0" />
+                              <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
                         <Label layoutX="172.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Trạng thái">
                            <font>
-                              <Font name="Inter Medium" size="12.0" />
+                              <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
                         <Label layoutX="337.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Xử lý">
                            <font>
-                              <Font name="Inter Medium" size="12.0" />
+                              <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
                         <Label layoutX="435.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Dịch vụ">
                            <font>
-                              <Font name="Inter Medium" size="12.0" />
+                              <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
                         <Label layoutX="544.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Chi tiết">
                            <font>
-                              <Font name="Inter Medium" size="12.0" />
+                              <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
                         <Label layoutX="622.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Countdown">
                            <font>
-                              <Font name="Inter Medium" size="12.0" />
+                              <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
                      </children>

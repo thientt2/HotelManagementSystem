@@ -28,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -55,15 +56,6 @@ public class staffWindow_Controller implements Initializable {
     
     private int calculatePageCount() {
         return (int) Math.ceil((double) listStaff.size() / ITEMS_PER_PAGE);
-    }
-    
-    // Phương thức để thiết lập tham chiếu của main window controller từ bên ngoài
-    public void setMainWindowController(MainWindow_Controller controller) {
-        this.mainWindowController = controller;
-    }    
-    
-    public MainWindow_Controller getMainWindowController() {
-        return mainWindowController;
     }
     
     private VBox createPage(int pageIndex) {
@@ -106,6 +98,8 @@ public class staffWindow_Controller implements Initializable {
 
                             Stage stage = new Stage();
                             stage.initStyle(StageStyle.TRANSPARENT);
+                            stage.initModality(Modality.WINDOW_MODAL);
+                            stage.initOwner(addStaff_btn.getScene().getWindow());
                             Scene scene = new Scene(root);
 
                             editStaff_Controller editStaff = loader2.getController();
@@ -148,6 +142,8 @@ public class staffWindow_Controller implements Initializable {
 
                             Stage stage = new Stage();
                             stage.initStyle(StageStyle.TRANSPARENT);
+                            stage.initModality(Modality.WINDOW_MODAL);
+                            stage.initOwner(addStaff_btn.getScene().getWindow());
                             Scene scene = new Scene(root);
 
                             staffDetails_Controller staffDetails = loader1.getController();
@@ -192,9 +188,6 @@ public class staffWindow_Controller implements Initializable {
     private ContextMenu contextMenu = new ContextMenu();
     
     public void createUser() throws IOException {
-        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-        anchorPane.setVisible(true);
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("createUser.fxml"));
         Parent root = loader.load();
 
@@ -205,6 +198,8 @@ public class staffWindow_Controller implements Initializable {
 
         Stage stage = new Stage();
         stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(addStaff_btn.getScene().getWindow());
         Scene scene = new Scene(root);
 
         root.setOnMouseDragged((MouseEvent event) -> {
@@ -214,15 +209,11 @@ public class staffWindow_Controller implements Initializable {
 
         stage.setScene(scene);
         stage.showAndWait();
-
-        anchorPane.setVisible(false);
+        
         refreshStaffList();
     }
     
     public void addStaff() throws IOException {
-//        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-//        anchorPane.setVisible(true);
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addStaff.fxml"));
         Parent root = loader.load();
 
@@ -233,6 +224,8 @@ public class staffWindow_Controller implements Initializable {
 
         Stage stage = new Stage();
         stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(addStaff_btn.getScene().getWindow());
         Scene scene = new Scene(root);
 
         root.setOnMouseDragged((MouseEvent event) -> {
@@ -243,7 +236,7 @@ public class staffWindow_Controller implements Initializable {
         stage.setScene(scene);
         stage.showAndWait();
 
-//        anchorPane.setVisible(false);
+
         refreshStaffList();
     }
 
