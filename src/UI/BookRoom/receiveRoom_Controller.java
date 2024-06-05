@@ -28,7 +28,10 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import system.SystemMessage;
 
@@ -55,6 +58,9 @@ public class receiveRoom_Controller implements Initializable {
     @FXML
     private ComboBox<String> roomNumber_cb;
 
+    @FXML
+    private AnchorPane mainAnchor;
+    
     @FXML
     private TextField roomType_txt;
     
@@ -195,7 +201,14 @@ public class receiveRoom_Controller implements Initializable {
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {		
+		DropShadow dropShadow = new DropShadow();
+        dropShadow.setRadius(10.0);
+        dropShadow.setOffsetX(0.0);
+        dropShadow.setOffsetY(0.0);
+        dropShadow.setColor(Color.BLACK);
 
+        // Áp dụng hiệu ứng bóng mờ cho AnchorPane
+        mainAnchor.setEffect(dropShadow);
 
 	}
 

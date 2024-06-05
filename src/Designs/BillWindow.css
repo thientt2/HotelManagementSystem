@@ -16,6 +16,15 @@
 	-fx-border-radius: 100;
 }
 
+.select-btn:hover{
+	-fx-background-color: #1570EF;
+	-fx-text-fill: #ffff;
+	-fx-background-radius: 100;
+	-fx-border-color: #1570EF;
+	-fx-border-radius: 100;
+}
+
+
 /* Remove spacing */
 .pagination > .pagination-control > .control-box {
     -fx-spacing: 0;

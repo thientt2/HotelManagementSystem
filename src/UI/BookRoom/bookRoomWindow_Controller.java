@@ -35,6 +35,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -140,8 +141,8 @@ public class bookRoomWindow_Controller implements Initializable{
 
 	                checkIn_btn.setOnAction(eventCheckIn -> {
 	                    try {
-	                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                        anchorPane.setVisible(true);
+//	                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
+//	                        anchorPane.setVisible(true);
 
 	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/UI/BookRoom/receiveRoom.fxml"));
 	                        Parent root = loader1.load();
@@ -153,6 +154,8 @@ public class bookRoomWindow_Controller implements Initializable{
 
 	                        Stage stage = new Stage();
 	                        stage.initStyle(StageStyle.TRANSPARENT);
+	                        stage.initModality(Modality.WINDOW_MODAL);
+	                        stage.initOwner(checkIn_btn.getScene().getWindow());
 	                        Scene scene = new Scene(root);
 
 	                        receiveRoom_Controller receiveRoom = loader1.getController();
@@ -167,7 +170,7 @@ public class bookRoomWindow_Controller implements Initializable{
 	                        stage.setScene(scene);
 	                        stage.showAndWait();
 
-	                        anchorPane.setVisible(false);
+//	                        anchorPane.setVisible(false);
 	                        refreshBookRoomList();
 	                    } catch (IOException e) {
 	                        e.printStackTrace();

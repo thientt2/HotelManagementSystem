@@ -11,7 +11,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Pagination;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -25,41 +27,44 @@ public class billWindow_Controller implements Initializable {
     private Pagination pagination;
     
     private static final int ITEMS_PER_PAGE = 7;
-    private ObservableList<Object[]> listBill= FXCollections.observableArrayList();
+    private ObservableList<Object[]> listData= FXCollections.observableArrayList();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		listBill = HOADONDICHVU_BLL.listBill();
-		pagination.setPageCount(calculatePageCount());
+		listData = HOADONDICHVU_BLL.listBill();		
+		pagination.setPageCount(calculatePageCount(listData));
 	    pagination.setPageFactory(this::createPage);	    
 	}
 	
-	private int calculatePageCount() {
-        return (int) Math.ceil((double) listBill.size() / ITEMS_PER_PAGE);
+	private int calculatePageCount(ObservableList<Object[]> listData) {
+        return (int) Math.ceil((double) listData.size() / ITEMS_PER_PAGE);
     }
 	
 
-	private VBox createPage(int pageIndex) {	    
-	    bill_vbox.getChildren().clear(); // Clear old items
+	private VBox createPage(int pageIndex) {
+		VBox page = new VBox();
 
 	    int startIndex = pageIndex * ITEMS_PER_PAGE;
-	    int endIndex = Math.min(startIndex + ITEMS_PER_PAGE, listBill.size());
+	    int endIndex = Math.min(startIndex + ITEMS_PER_PAGE, listData.size());
 
 	    for (int i = startIndex; i < endIndex; i++) {
-	        Object[] billService = listBill.get(i);	        
+	        Object[] billService = listData.get(i);	        
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemBill.fxml"));
 	        try {
 	            Parent billData = loader.load();
 	            itemBill_Controller controller = loader.getController();
 	            controller.setData(billService);
-	            bill_vbox.getChildren().add(billData);
+	            page.getChildren().add(billData);
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
 	    }
 
-	    return new VBox(); // Return an empty VBox as a placeholder
+	    return page;
 	}
+
+
+
 	
 }

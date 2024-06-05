@@ -39,7 +39,7 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="pay_btn" layoutX="691.0" layoutY="9.0" mnemonicParsing="false" styleClass="select-btn" stylesheets="@../../Designs/BillWindow.css" text="Thanh toán" AnchorPane.bottomAnchor="10.199999999999996" AnchorPane.topAnchor="9.0">
+      <Button fx:id="pay_btn" layoutX="691.0" layoutY="9.0" mnemonicParsing="false" onAction="#printBill" styleClass="select-btn" stylesheets="@../../Designs/BillWindow.css" text="Thanh toán" AnchorPane.bottomAnchor="10.199999999999996" AnchorPane.topAnchor="9.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
