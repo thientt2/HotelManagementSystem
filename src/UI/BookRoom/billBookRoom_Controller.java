@@ -173,6 +173,9 @@ public class billBookRoom_Controller implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        Stage stage = (Stage) print_btn.getScene().getWindow();
+    	stage.close();
     }
     
     public void cancel() {

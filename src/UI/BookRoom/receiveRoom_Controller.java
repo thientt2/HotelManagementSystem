@@ -178,6 +178,9 @@ public class receiveRoom_Controller implements Initializable {
 			
 			CHITIETPNP_BLL.insertDetailRecieveRoom(maPNP, listOrtherCustomer);
 			alert.successMessage("Nhận phòng " + roomNumber_cb.getValue() + " thành công!");
+			
+			Stage stage = (Stage) confirmBookRoom_btn.getScene().getWindow();
+	    	stage.close();
 		}
 		
     	
