@@ -3,9 +3,12 @@ package UI;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -202,13 +205,34 @@ public class MainWindow_Controller implements Initializable {
     private double x = 0;
 	private double y = 0;
 	
+	private String formatDate(String dateStr) {
+        SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date = fromUser.parse(dateStr);
+            return myFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return dateStr;  
+        }
+    }
+	
     public void accountInfo(NHANVIEN item) {
     	name_txt.setText(item.getTENNV());
 		sdt_txt.setText(item.getSDT());
 		email_txt.setText(item.getEMAIL());
 		gender_txt.setText(item.getGIOITINH());
-		birthday_txt.setText(item.getNGAYSINH());
-		startdate_txt.setText(item.getNGAYVAOLAM());
+		
+		//birthday_txt.setText(item.getNGAYSINH());
+		String birthday = item.getNGAYSINH();
+        String formattedDate1 = formatDate(birthday);
+        birthday_txt.setText(formattedDate1);
+        
+		//startdate_txt.setText(item.getNGAYVAOLAM());
+		String startdate = item.getNGAYVAOLAM();
+        String formattedDate2 = formatDate(startdate);
+        startdate_txt.setText(formattedDate2);
+        
 		cccd_txt.setText(item.getCCCD());
 		id_txt.setText(item.getMANV());
 		type_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
@@ -217,10 +241,10 @@ public class MainWindow_Controller implements Initializable {
 	    if (photoData != null && photoData.length > 0) {
 	        ByteArrayInputStream bis = new ByteArrayInputStream(photoData);
 	        Image image = new Image(bis);
-	        top_circle.setFill(new ImagePattern(image));
+	        top_circle1.setFill(new ImagePattern(image));
 	    } else {
 	        Image defaultImage = new Image("/Images/LAOPERA.jpg");
-	        top_circle.setFill(new ImagePattern(defaultImage));
+	        top_circle1.setFill(new ImagePattern(defaultImage));
 	    }
 	}  
     
