@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.Set;
 
 import DTO.PHONG;
 import javafx.collections.FXCollections;
@@ -208,6 +209,38 @@ public class PHONG_DAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    
+    public static ObservableList<Object[]> getRoomsByStatus(Set<String> statuses) {
+        ObservableList<Object[]> dataList = FXCollections.observableArrayList();
+        if (statuses.isEmpty()) {
+            return dataList;
+        }
+
+        StringBuilder statusCondition = new StringBuilder();
+        for (String status : statuses) {
+            statusCondition.append("T.TENTRANGTHAI = N'").append(status).append("' OR ");
+        }
+        // Remove the last " OR "
+        statusCondition.setLength(statusCondition.length() - 4);
+
+        try (Connection connection = DatabaseConnection.connectDb();
+             Statement statement = connection.createStatement()) {
+            String query = "SELECT P.MAPHONG, L.TENLOAI, T.TENTRANGTHAI "
+                    + "FROM PHONG P, LOAIPHONG L, TRANGTHAIPHONG T "
+                    + "WHERE P.MALOAIP = L.MALOAIP AND P.MATRANGTHAI = T.MATRANGTHAI AND (" + statusCondition + ")";
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                Object[] rowData = new Object[3];
+                rowData[0] = resultSet.getString("MAPHONG");
+                rowData[1] = resultSet.getString("TENLOAI");
+                rowData[2] = resultSet.getString("TENTRANGTHAI");
+                dataList.add(rowData);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return dataList;
     }
 
 

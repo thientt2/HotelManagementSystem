@@ -55,4 +55,22 @@ public class LOAINHANVIEN_DAO {
 		}
 		return maloainv;
 	}
+	
+	public static List<String> getStaffTypeScreens(int staffTypeId) {
+        List<String> screens = new ArrayList<>();
+        try (Connection connection = DatabaseConnection.connectDb();
+             Statement statement = connection.createStatement()) {
+            String query = "SELECT CV.MANHINH FROM LOAINHANVIEN LN " +
+                           "JOIN TRUYCAP TC ON LN.MALOAINV = TC.MALOAINV " +
+                           "JOIN CONGVIEC CV ON TC.MACONGVIEC = CV.MACONGVIEC " +
+                           "WHERE LN.MALOAINV = " + staffTypeId;
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                screens.add(resultSet.getString("MANHINH"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return screens;
+    }
 }

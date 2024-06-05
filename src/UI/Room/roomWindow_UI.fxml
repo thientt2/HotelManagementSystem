@@ -108,17 +108,17 @@
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="56.0" prefWidth="635.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="60.0" style="-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2;" styleClass="button-control" text="Trống">
+                        <Button fx:id="empty_btn" mnemonicParsing="false" onAction="#handleEmptyButtonAction" prefHeight="37.0" prefWidth="60.0" style="-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2;" styleClass="button-control" text="Trống">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="132.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" text="Chưa dọn dẹp">
+                        <Button fx:id="notClean_btn" mnemonicParsing="false" onAction="#handleNotCleanButtonAction" prefHeight="37.0" prefWidth="132.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" text="Chưa dọn dẹp">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" text="Đang được sử dụng">
+                        <Button fx:id="inUse_btn" mnemonicParsing="false" onAction="#handleInUseButtonAction" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" text="Đang được sử dụng">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>

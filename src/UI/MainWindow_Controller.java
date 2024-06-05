@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -21,6 +22,7 @@ import UI.BookRoom.bookRoomWindow_Controller;
 import UI.Customer.customerWindow_Controller;
 import UI.DashBoard.dashBoardWindow_Controller;
 import UI.Param.paramWindow_Controller;
+import UI.Resource.itemService_Controller;
 import UI.Resource.itemStaff_Controller;
 import UI.Room.roomWindow_Controller;
 import UI.Staff.staffWindow_Controller;
@@ -39,6 +41,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Control;
@@ -69,11 +73,9 @@ public class MainWindow_Controller implements Initializable {
     
     @FXML
     private Button bookRoomWindow_btn;
-
        
     @FXML
     private Button feedbackWindow_btn;
-
         
     @FXML
     private Button selectFeedbackWindow_btn;
@@ -201,9 +203,228 @@ public class MainWindow_Controller implements Initializable {
     public Pane getPane() {
         return accountInfo_pane;
     }
+    
+    private int staffTypeId;
+    
+    private List<String> listScreens;
 
     private double x = 0;
 	private double y = 0;
+	
+	private boolean access = false;
+	
+	public void setCreateUserAccess() {
+		
+	}
+	
+	public void setAccessIcon() {
+		for (String item: listScreens)
+		{
+//			if(item.equalsIgnoreCase("Màn hình thông số"))
+//				icon.setVisible(false);
+//			if(item.equalsIgnoreCase("Màn hình trang chủ"))
+//				icon.setVisible(false);
+//			if(item.equalsIgnoreCase("Màn hình khách hàng"))
+//				icon.setVisible(false);
+//			if(item.equalsIgnoreCase("Màn hình nhân viên"))
+//				icon.setVisible(false);
+//			if(item.equalsIgnoreCase("Màn hình phòng"))
+//				icon.setVisible(false);
+//			if(item.equalsIgnoreCase("Màn hình đặt phòng"))
+//				icon.setVisible(false);
+//			if(item.equalsIgnoreCase("Màn hình báo cáo"))
+//				icon.setVisible(false);
+//			if(item.equalsIgnoreCase("Màn hình hóa đơn"))
+//				icon.setVisible(false);
+//			if(item.equalsIgnoreCase("Màn hình đánh giá"))
+//				icon.setVisible(false);
+		}
+			
+	}
+	
+	
+	public void accessParam()
+	{
+		for (String item: listScreens)
+			if(item.equalsIgnoreCase("Màn hình thông số"))
+			{
+				changeSceneParamWindow();
+				access = true;
+			}
+		if (!access)
+		{
+			Alert alert = new Alert(AlertType.WARNING);
+		    alert.setTitle("Không có quyền truy cập");
+		    alert.setHeaderText(null);
+		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+		    alert.showAndWait();
+		}
+		else
+			access = false;
+	}
+	
+	public void accessCustomer()
+	{
+		for (String item: listScreens)
+			if(item.equalsIgnoreCase("Màn hình khách hàng"))
+			{
+				System.out.printf("có");
+				changeSceneCustomerWindow();
+				access = true;
+			}		
+		if (!access)
+		{
+			Alert alert = new Alert(AlertType.WARNING);
+		    alert.setTitle("Không có quyền truy cập");
+		    alert.setHeaderText(null);
+		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+		    alert.showAndWait();
+		}
+		else
+			access = false;
+	}
+	
+	public void accessStaff()
+	{
+		for (String item: listScreens)
+			if(item.equalsIgnoreCase("Màn hình nhân viên"))
+			{
+				changeSceneStaffWindow();
+				access = true;
+			}
+		if (!access)
+		{
+			Alert alert = new Alert(AlertType.WARNING);
+		    alert.setTitle("Không có quyền truy cập");
+		    alert.setHeaderText(null);
+		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+		    alert.showAndWait();
+		}
+		else
+			access = false;
+	}
+	
+	public void accessRoom()
+	{
+		for (String item: listScreens)
+			if(item.equalsIgnoreCase("Màn hình phòng"))
+			{
+				changeSceneRoomWindow();
+				access = true;
+			}
+		if (!access)
+		{
+			Alert alert = new Alert(AlertType.WARNING);
+		    alert.setTitle("Không có quyền truy cập");
+		    alert.setHeaderText(null);
+		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+		    alert.showAndWait();
+		}
+		else
+			access = false;
+	}
+	
+	public void accessBookRoom()
+	{
+		for (String item: listScreens)
+			if(item.equalsIgnoreCase("Màn hình đặt phòng"))
+			{
+				changeSceneBookRoomWindow();
+				access = true;
+			}
+		if (!access)
+		{
+			Alert alert = new Alert(AlertType.WARNING);
+		    alert.setTitle("Không có quyền truy cập");
+		    alert.setHeaderText(null);
+		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+		    alert.showAndWait();
+		}
+		else
+			access = false;
+	}
+	
+	public void accessBillRoom()
+	{
+		for (String item: listScreens)
+			if(item.equalsIgnoreCase("Màn hình hóa đơn"))
+			{
+				changeSceneBillWindow();
+				access = true;
+			}
+		if (!access)
+		{
+			Alert alert = new Alert(AlertType.WARNING);
+		    alert.setTitle("Không có quyền truy cập");
+		    alert.setHeaderText(null);
+		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+		    alert.showAndWait();
+		}
+		else
+			access = false;
+	}
+	
+	public void accessStatisticalRoom()
+	{
+		for (String item: listScreens)
+			if(item.equalsIgnoreCase("Màn hình báo cáo"))
+			{
+				changeSceneStatisticalWindow();
+				access = true;
+			}
+		if (!access)
+		{
+			Alert alert = new Alert(AlertType.WARNING);
+		    alert.setTitle("Không có quyền truy cập");
+		    alert.setHeaderText(null);
+		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+		    alert.showAndWait();
+		}
+		else
+			access = false;
+	}
+	
+	public void accessFeedbackRoom()
+	{
+		for (String item: listScreens)
+			if(item.equalsIgnoreCase("Màn hình đánh giá"))
+			{
+				changeSceneFeedbackWindow();
+				access = true;
+			}
+		if (!access)
+		{
+			Alert alert = new Alert(AlertType.WARNING);
+		    alert.setTitle("Không có quyền truy cập");
+		    alert.setHeaderText(null);
+		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+		    alert.showAndWait();
+		}
+		else
+			access = false;
+	}
+	
+	//Trường hợp đặc biệt
+	public void accessDashBoardRoom()
+	{
+//		for (String item: listScreens)
+//			if(item.equalsIgnoreCase("Màn hình trang chủ"))
+//			{
+//				changeSceneDashBoardWindow();
+//				access = true;
+//			}
+//		if (!access)
+//		{
+//			Alert alert = new Alert(AlertType.WARNING);
+//		    alert.setTitle("Không có quyền truy cập");
+//		    alert.setHeaderText(null);
+//		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+//		    alert.showAndWait();
+//		}
+//		else
+//			access = false;
+		changeSceneDashBoardWindow();
+	}
 	
 	private String formatDate(String dateStr) {
         SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
@@ -246,6 +467,9 @@ public class MainWindow_Controller implements Initializable {
 	        Image defaultImage = new Image("/Images/LAOPERA.jpg");
 	        top_circle1.setFill(new ImagePattern(defaultImage));
 	    }
+	    
+	    staffTypeId = item.getMALOAINV();
+	    listScreens = LOAINHANVIEN_BLL.getStaffTypeScreens(staffTypeId);
 	}  
     
     public void logOut() throws IOException {
@@ -313,12 +537,6 @@ public class MainWindow_Controller implements Initializable {
 //        }
 //        // Các phần khác của setStaff
 //    }
-	
-	public void unvisible() {
-		//Visible = true;
-		anchorPane.setVisible(Visible);
-	}
-	
 
 	enum VietnameseDayOfWeek {
         MONDAY("Thứ Hai"),
@@ -358,11 +576,7 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneRoomWindow() {		
 		Platform.runLater(() -> {
 			try {
-				//Parent newWindow = FXMLLoader.load(getClass().getResource("roomWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Room/roomWindow_UI.fxml"));
-	            Parent newWindow = loader.load();
-	            roomWindow_Controller controller = loader.getController();
-	            controller.setMainWindowController(this);
+				Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/Room/roomWindow_UI.fxml"));
 				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);
@@ -395,11 +609,7 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneDashBoardWindow() {		
         Platform.runLater(() -> {
         	try {
-				//Parent newWindow = FXMLLoader.load(getClass().getResource("dashBoardWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/DashBoard/dashBoardWindow_UI.fxml"));
-	            Parent newWindow = loader.load();
-	            dashBoardWindow_Controller controller = loader.getController();
-	            controller.setMainWindowController(this);
+				Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/DashBoard/dashBoardWindow_UI.fxml"));
 				mainWindow.getChildren().setAll(newWindow);			
 				
 	    		selectMainWindow_btn.setVisible(true);
@@ -429,17 +639,11 @@ public class MainWindow_Controller implements Initializable {
 	}
 		
 	public void changeSceneParamWindow() {	
-		
 		Platform.runLater(() -> {
 			try {
-				//Parent newWindow = FXMLLoader.load(getClass().getResource("paramWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Param/paramWindow_UI.fxml"));
-	            Parent newWindow = loader.load();
-	            paramWindow_Controller controller = loader.getController();
-	            controller.setMainWindowController(this);
+				Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/Param/paramWindow_UI.fxml"));
 				mainWindow.getChildren().setAll(newWindow);			
 				
-
 				selectMainWindow_btn.setVisible(false);
 				selectRoomWindow_btn.setVisible(false);
 				selectCustomerWindow_btn.setVisible(false);
@@ -470,12 +674,14 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneStaffWindow() {
 		Platform.runLater(() -> {
 			 	try {
-					//Parent newWindow = FXMLLoader.load(getClass().getResource("staffWindow_UI.fxml"));
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Staff/staffWindow_UI.fxml"));
-		            Parent newWindow = loader.load();
-		            staffWindow_Controller controller = loader.getController();
-//		            controller.setMainWindowController(this);
-					mainWindow.getChildren().setAll(newWindow);			
+					//Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/Staff/staffWindow_UI.fxml"));
+			 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Staff/staffWindow_UI.fxml"));
+			 		Parent newWindow = loader.load();
+					staffWindow_Controller controller = loader.getController();
+		            Button createUser_btn = controller.getAddUser_btn();
+		            if(!type_txt.getText().equalsIgnoreCase("Quản trị viên"))
+		            	createUser_btn.setVisible(false);
+		            mainWindow.getChildren().setAll(newWindow);	
 					
 					selectMainWindow_btn.setVisible(false);
 					selectRoomWindow_btn.setVisible(false);
@@ -507,11 +713,7 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneCustomerWindow() {
 		Platform.runLater(() -> {
 		 	try {
-		 		//Parent newWindow = FXMLLoader.load(getClass().getResource("customerWindow_UI.fxml"));
-		 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Customer/customerWindow_UI.fxml"));
-	            Parent newWindow = loader.load();
-	            customerWindow_Controller controller = loader.getController();
-//	            controller.setMainWindowController(this);
+		 		Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/Customer/customerWindow_UI.fxml"));
 				mainWindow.getChildren().setAll(newWindow);
 				
 				
@@ -544,11 +746,7 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneStatisticalWindow() {
 		Platform.runLater(() -> {			
 			try {
-				//Parent newWindow = FXMLLoader.load(getClass().getResource("statisticalWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Statistical/statisticalWindow_UI.fxml"));
-	            Parent newWindow = loader.load();
-	            statisticalWindow_Controller controller = loader.getController();
-	            //controller.setMainWindowController(this);
+				Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/Statistical/statisticalWindow_UI.fxml"));
 				mainWindow.getChildren().setAll(newWindow);		
 				
 				selectMainWindow_btn.setVisible(false);
@@ -579,11 +777,7 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneBillWindow() {
 		Platform.runLater(() -> {
 			try {
-				//Parent newWindow = FXMLLoader.load(getClass().getResource("billWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Bill/billWindow_UI.fxml"));
-	            Parent newWindow = loader.load();
-	            //billWindow_Controller controller = loader.getController();
-	            //controller.setMainWindowController(this);
+				Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/Bill/billWindow_UI.fxml"));
 				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);
@@ -615,11 +809,7 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneBookRoomWindow() {
 		Platform.runLater(() -> {
 			try {
-				//Parent newWindow = FXMLLoader.load(getClass().getResource("bookRoomWindow_UI.fxml"));
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/BookRoom/bookRoomWindow_UI.fxml"));
-	            Parent newWindow = loader.load();
-	            bookRoomWindow_Controller controller = loader.getController();
-	            controller.setMainWindowController(this);
+				Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/BookRoom/bookRoomWindow_UI.fxml"));
 				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);
@@ -650,10 +840,7 @@ public class MainWindow_Controller implements Initializable {
 	public void changeSceneFeedbackWindow() {
 		Platform.runLater(() -> {
 			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Feedback/feedbackWindow_UI.fxml"));
-	            Parent newWindow = loader.load();
-	            //feedbackWindow_Controller controller = loader.getController();
-	            //controller.setMainWindowController(this);
+				Parent newWindow = FXMLLoader.load(getClass().getResource("/UI/Feedback/feedbackWindow_UI.fxml"));
 				mainWindow.getChildren().setAll(newWindow);
 				
 				selectMainWindow_btn.setVisible(false);
@@ -704,7 +891,7 @@ public class MainWindow_Controller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
 		changeSceneDashBoardWindow();	
-
+		//setAccessIcon();
 	}
 
 

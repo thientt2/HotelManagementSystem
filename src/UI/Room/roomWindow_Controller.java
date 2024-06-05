@@ -2,14 +2,19 @@ package UI.Room;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
+import BLL.PHIEUDATPHONG_BLL;
 import BLL.PHONG_BLL;
 import UI.MainWindow_Controller;
 import UI.Resource.itemRoom_Controller;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -82,12 +87,109 @@ public class roomWindow_Controller implements Initializable {
     @FXML
     private Button unselectAllRoom_btn;
     
-        	 
-    private MainWindow_Controller mainWindowController;   
+    @FXML
+    private Button empty_btn;
+
+    @FXML
+    private Button inUse_btn;
+
+    @FXML
+    private Button notClean_btn;
     
-    public void setMainWindowController(MainWindow_Controller controller) {
-        this.mainWindowController = controller;
-    }   
+    @FXML
+    void handleEmptyButtonAction(ActionEvent event) {
+    	toggleStatus("Trống", empty_btn);
+    }
+
+    @FXML
+    void handleInUseButtonAction(ActionEvent event) {
+    	toggleStatus("Đang được sử dụng", inUse_btn);
+    }
+
+    @FXML
+    void handleNotCleanButtonAction(ActionEvent event) {
+    	toggleStatus("Chưa dọn dẹp", notClean_btn);
+    }
+    
+    private Set<String> selectedStatuses = new HashSet<>();
+	
+	private void toggleStatus(String status, Button button) {
+	    if (selectedStatuses.contains(status)) {
+	        selectedStatuses.remove(status);
+	        button.setStyle(getStatusStyle(status)); 
+	    } else {
+	        selectedStatuses.add(status);
+	        button.setStyle("-fx-background-color: #FF6347;"); 
+	    }
+	    filterRoomList();
+	}
+    
+	private String getStatusStyle(String status) {
+		String textColor = "";
+	    String bgColor = "";
+	    switch (status) {
+	        case "Trống":
+	            textColor = "#448DF2";
+	            bgColor = "#E8F1FD";
+	            break;
+	        case "Chưa dọn dẹp":
+	            textColor = "#F36960";
+	            bgColor = "#FEECEB";
+	            break;
+	        case "Đang được sử dụng":
+	            textColor = "#41C588";
+	            bgColor = "#E7F8F0";
+	            break;
+	    }
+	    return String.format("-fx-background-color: %s; -fx-text-fill: %s", bgColor, textColor);
+	}
+	
+	private void filterRoomList() {
+		Task<ObservableList<Object[]>> task = new Task<>() {
+			@Override
+	        protected ObservableList<Object[]> call() throws Exception {
+	            if (selectedStatuses.isEmpty()) {
+	                return PHONG_BLL.getAllRoom();
+	            } else {
+	                return PHONG_BLL.getRoomsByStatus(selectedStatuses);
+	            }
+	        }
+	    };
+
+	    task.setOnSucceeded(event -> {
+	        ObservableList<Object[]> result = task.getValue();
+	        showRoom_vbox.getChildren().clear();
+	        for (Object[] room : result) {
+	            try {
+	                FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
+	                Parent roomData = loader.load();
+	                itemRoom_Controller controller = loader.getController();
+	                controller.setData(room[0], room[1], room[2], 0);
+
+	                Button bookService = controller.getBookServiceBtn();
+	                bookService.setOnAction(event1 -> {
+	                    try {
+	                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+	                        Parent root = loaderServices.load();
+	                        servicesRoom_Controller servicesController = loaderServices.getController();
+	                        servicesController.setData(room);
+	                        Scene scene = new Scene(root);
+	                        Stage stage = new Stage();
+	                        stage.initStyle(StageStyle.TRANSPARENT);
+	                        stage.setScene(scene);
+	                        stage.show();
+	                    } catch (IOException e) {
+	                        e.printStackTrace();
+	                    }
+	                });
+	                showRoom_vbox.getChildren().add(roomData);
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    });
+	    new Thread(task).start();
+	}
     
 	public void showAllRoom() {
 		Platform.runLater(() -> {

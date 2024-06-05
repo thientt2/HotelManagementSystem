@@ -176,8 +176,6 @@ public class customerWindow_Controller implements Initializable {
 	private ContextMenu contextMenu = new ContextMenu();
 	
 	public void addCustomer() throws IOException {		
-
-		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("addCustomer.fxml"));
 		Parent root = loader.load();
 		
@@ -204,36 +202,35 @@ public class customerWindow_Controller implements Initializable {
 	}
 
     //Tìm kiếm khách hàng
-	public void search() {
-		searchCustomer.textProperty().addListener((observable, oldValue, newValue) -> {
-		    String searchText = newValue.trim();
-		    ObservableList<KHACHHANG> filteredList = FXCollections.observableArrayList();
+	public void search(String newValue) {
+		String searchText = newValue.trim();
+	    ObservableList<KHACHHANG> filteredList = FXCollections.observableArrayList();
 
-		    if (searchText.isEmpty()) {
-		        filteredList.addAll(KHACHHANG_BLL.listCustomer());
-		    } else {
-		        for (KHACHHANG customer : KHACHHANG_BLL.listCustomer()) {
-		            if (customer.getTENKH().toLowerCase().contains(searchText.toLowerCase())) {
-		                filteredList.add(customer);
-		            }
-		        }
-		    }
-		    listCustomer_vbox.getChildren().clear();
-		    listCustomer = filteredList;
-		    pagination.setPageCount(calculatePageCount());
-		    pagination.setPageFactory(this::createPage);	
-		});
+	    if (searchText.isEmpty()) {
+	        filteredList.addAll(KHACHHANG_BLL.listCustomer());
+	    } else {
+	        for (KHACHHANG customer : KHACHHANG_BLL.listCustomer()) {
+	            if (customer.getTENKH().toLowerCase().contains(searchText.toLowerCase())) {
+	                filteredList.add(customer);
+	            }
+	        }
+	    }
+	    listCustomer_vbox.getChildren().clear();
+	    listCustomer = filteredList;
+	    pagination.setPageCount(calculatePageCount());
+	    pagination.setPageFactory(this::createPage);	
 	}
 
 		
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		searchCustomer.textProperty().addListener((observable, oldValue, newValue) -> {
+	        search(newValue);
+	    });
 		listCustomer = KHACHHANG_BLL.listCustomer();
 		pagination.setPageCount(calculatePageCount());
 	    pagination.setPageFactory(this::createPage);	
-	    //searchCustomer.
 	}
 	
 

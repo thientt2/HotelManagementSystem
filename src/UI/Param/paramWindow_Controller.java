@@ -36,19 +36,6 @@ public class paramWindow_Controller implements Initializable {
     @FXML
     private Button addService_btn;
     
-    private MainWindow_Controller mainWindowController;
-    
-//    private Button edit_btn = new Button();
-//    private Button delete_btn = new Button();
-    
-    public void setMainWindowController(MainWindow_Controller controller) {
-        this.mainWindowController = controller;
-    }
-    
-    public MainWindow_Controller getMainWindowController() {
-		return mainWindowController;
-	}
-    
     private double x = 0;
     private double y = 0;
     
@@ -75,8 +62,6 @@ public class paramWindow_Controller implements Initializable {
 	            Button delete_btn = controller.getDeleteService_btn();
 	            edit_btn.setOnAction(eventEditService -> {
 	            	try {
-	                    AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                    anchorPane.setVisible(true);
 	                    
 	                    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("editService.fxml"));
 	                    Parent root = loader1.load();
@@ -100,8 +85,7 @@ public class paramWindow_Controller implements Initializable {
 	                    
 	                    stage.setScene(scene);     
 	                    stage.showAndWait();
-	                    
-	                    anchorPane.setVisible(false);
+
 	                    refreshServiceList();
 	                } catch (IOException e) {
 	                    e.printStackTrace();
@@ -127,10 +111,7 @@ public class paramWindow_Controller implements Initializable {
         }        
     }
     
-    public void addService() throws IOException {        
-        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-        anchorPane.setVisible(true);
-        
+    public void addService() throws IOException {              
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addService.fxml"));
         Parent root = loader.load();
         
@@ -151,7 +132,6 @@ public class paramWindow_Controller implements Initializable {
         stage.setScene(scene);     
         stage.showAndWait();
         
-        anchorPane.setVisible(false);
         refreshServiceList();
     }
     
@@ -165,9 +145,6 @@ public class paramWindow_Controller implements Initializable {
 	            Button edit_btn = controller.getEditParam_btn();
 	            edit_btn.setOnAction(eventEditService -> {
 	            	try {
-	                    AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                    anchorPane.setVisible(true);
-	                    
 	                    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("editParam.fxml"));
 	                    Parent root = loader1.load();
 	
@@ -191,14 +168,12 @@ public class paramWindow_Controller implements Initializable {
 	                    stage.setScene(scene);     
 	                    stage.showAndWait();
 	                    
-	                    anchorPane.setVisible(false);
 	                    refreshServiceList();
 	                } catch (IOException e) {
 	                    e.printStackTrace();
 	                }
                 });
-			
-	            
+				         
 				Platform.runLater(() -> listParam_vbox.getChildren().add(paramDataPane));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

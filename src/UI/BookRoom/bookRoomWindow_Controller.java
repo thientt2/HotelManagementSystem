@@ -40,8 +40,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class bookRoomWindow_Controller implements Initializable{
-	
-
 	@FXML
     private VBox listBookRoom_vbox;
 	
@@ -94,12 +92,6 @@ public class bookRoomWindow_Controller implements Initializable{
 //    }
     
     private ContextMenu contextMenu = new ContextMenu();
-	
-    private MainWindow_Controller mainWindowController;
-    
-    public void setMainWindowController(MainWindow_Controller controller) {
-        this.mainWindowController = controller;
-    }
     
     private double x = 0;
 	private double y = 0;
@@ -141,9 +133,6 @@ public class bookRoomWindow_Controller implements Initializable{
 
 	                checkIn_btn.setOnAction(eventCheckIn -> {
 	                    try {
-//	                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-//	                        anchorPane.setVisible(true);
-
 	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/UI/BookRoom/receiveRoom.fxml"));
 	                        Parent root = loader1.load();
 
@@ -170,7 +159,6 @@ public class bookRoomWindow_Controller implements Initializable{
 	                        stage.setScene(scene);
 	                        stage.showAndWait();
 
-//	                        anchorPane.setVisible(false);
 	                        refreshBookRoomList();
 	                    } catch (IOException e) {
 	                        e.printStackTrace();
@@ -190,9 +178,6 @@ public class bookRoomWindow_Controller implements Initializable{
 
 	                    billItem.setOnAction(eventEditStaff -> {
 	                        try {
-	                            AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                            anchorPane.setVisible(true);
-
 	                            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
 	                            Parent root = loader2.load();
 
@@ -215,7 +200,6 @@ public class bookRoomWindow_Controller implements Initializable{
 	                            stage.setScene(scene);
 	                            stage.showAndWait();
 
-	                            anchorPane.setVisible(false);
 	                            refreshBookRoomList();
 	                        } catch (IOException e) {
 	                            e.printStackTrace();
@@ -241,8 +225,6 @@ public class bookRoomWindow_Controller implements Initializable{
 	
 	public void bookRoom() {
 		try {
-			AnchorPane anchorPane = mainWindowController.getAnchorPane();
-		    anchorPane.setVisible(true);
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("bookRoom.fxml"));
             Parent root = loader.load();
@@ -269,7 +251,6 @@ public class bookRoomWindow_Controller implements Initializable{
             stage.setScene(scene);     
     		stage.showAndWait();
             
-    		anchorPane.setVisible(false);
     		refreshBookRoomList();
 		} catch(Exception e) {
 			e.printStackTrace();

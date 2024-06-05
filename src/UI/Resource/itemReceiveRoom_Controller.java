@@ -1,6 +1,9 @@
 package UI.Resource;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -21,8 +24,23 @@ public class itemReceiveRoom_Controller implements Initializable {
     
     public void setData(Object[] item) {
 		customerName_txt.setText(String.valueOf(item[0]));
-		birthday_txt.setText(String.valueOf(item[1]));
+		//birthday_txt.setText(String.valueOf(item[1]));
+		String ngaysinh = String.valueOf(item[1]);
+        String formattedDate = formatDate(ngaysinh);
+        birthday_txt.setText(formattedDate);
 	}
+    
+    private String formatDate(String dateStr) {
+        SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date = fromUser.parse(dateStr);
+            return myFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return dateStr;  
+        }
+    }
     
     public Button getDeleteItem_btn() {
 		return deleteItem_btn;

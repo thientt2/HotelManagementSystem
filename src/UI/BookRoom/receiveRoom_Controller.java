@@ -64,16 +64,6 @@ public class receiveRoom_Controller implements Initializable {
     @FXML
     private TextField roomType_txt;
     
-    private MainWindow_Controller mainWindowController;
-    
-    public void setMainWindowController(MainWindow_Controller controller) {
-        this.mainWindowController = controller;
-    }
-    
-    public MainWindow_Controller getMainWindowController() {
-		return mainWindowController;
-	}
-    
     
     private String checkout;
     

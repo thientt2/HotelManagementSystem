@@ -18,4 +18,7 @@ public class LOAINHANVIEN_BLL {
 		return LOAINHANVIEN_DAO.getStaffTypeId(name);
 	}
 
+	public static List<String> getStaffTypeScreens(int staffTypeId) {
+		return LOAINHANVIEN_DAO.getStaffTypeScreens(staffTypeId);
+	}
 }

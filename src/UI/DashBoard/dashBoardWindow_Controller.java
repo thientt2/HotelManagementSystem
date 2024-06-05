@@ -32,16 +32,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class dashBoardWindow_Controller implements Initializable{
-	
-	private MainWindow_Controller mainWindowController;
-
-    public void setMainWindowController(MainWindow_Controller controller) {
-        this.mainWindowController = controller;
-    }
-    
-    public MainWindow_Controller getMainWindowController() {
-		return mainWindowController;
-	}
     
     @FXML
     private Label areaLabel1;
@@ -201,9 +191,6 @@ public class dashBoardWindow_Controller implements Initializable{
                 
                 editItem.setOnAction(editEvent -> {
                 	try {
-                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                        anchorPane.setVisible(true);
-                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("editRoomType.fxml"));
                         Parent root = loader.load();
 
@@ -227,7 +214,6 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        anchorPane.setVisible(false);
                         refreshStandardType();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -235,10 +221,7 @@ public class dashBoardWindow_Controller implements Initializable{
                 });
         	    
         	    detailItem.setOnAction(detailEvent -> {
-        	    	try {
-                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                        anchorPane.setVisible(true);
-                        
+        	    	try {                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
                         Parent root = loader.load();
 
@@ -262,7 +245,6 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        anchorPane.setVisible(false);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -315,9 +297,6 @@ public class dashBoardWindow_Controller implements Initializable{
                 
                 editItem.setOnAction(editEvent -> {
                 	try {
-                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                        anchorPane.setVisible(true);
-                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("editRoomType.fxml"));
                         Parent root = loader.load();
 
@@ -341,7 +320,6 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        anchorPane.setVisible(false);
                         refreshStandardType();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -350,9 +328,6 @@ public class dashBoardWindow_Controller implements Initializable{
         	    
                 detailItem.setOnAction(detailEvent -> {
         	    	try {
-                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                        anchorPane.setVisible(true);
-                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
                         Parent root = loader.load();
 
@@ -376,7 +351,6 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        anchorPane.setVisible(false);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -429,9 +403,6 @@ public class dashBoardWindow_Controller implements Initializable{
                 
                 editItem.setOnAction(editEvent -> {
                 	try {
-                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                        anchorPane.setVisible(true);
-                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("editRoomType.fxml"));
                         Parent root = loader.load();
 
@@ -455,7 +426,6 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        anchorPane.setVisible(false);
                         refreshStandardType();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -463,10 +433,7 @@ public class dashBoardWindow_Controller implements Initializable{
                 });
         	    
                 detailItem.setOnAction(detailEvent -> {
-        	    	try {
-                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                        anchorPane.setVisible(true);
-                        
+        	    	try {       
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
                         Parent root = loader.load();
 
@@ -490,7 +457,6 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        anchorPane.setVisible(false);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -542,10 +508,7 @@ public class dashBoardWindow_Controller implements Initializable{
                 MenuItem detailItem = new MenuItem("Chi tiết");
                 
                 editItem.setOnAction(editEvent -> {
-                	try {
-                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                        anchorPane.setVisible(true);
-                        
+                	try {       
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("editRoomType.fxml"));
                         Parent root = loader.load();
 
@@ -569,7 +532,6 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        anchorPane.setVisible(false);
                         refreshStandardType();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -578,9 +540,6 @@ public class dashBoardWindow_Controller implements Initializable{
         	    
                 detailItem.setOnAction(detailEvent -> {
         	    	try {
-                        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                        anchorPane.setVisible(true);
-                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
                         Parent root = loader.load();
 
@@ -604,7 +563,6 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        anchorPane.setVisible(false);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

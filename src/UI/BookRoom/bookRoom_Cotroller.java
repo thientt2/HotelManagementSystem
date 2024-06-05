@@ -85,16 +85,6 @@ public class bookRoom_Cotroller implements Initializable {
     @FXML
     private ComboBox<String> roomType_cb;
     
-    private MainWindow_Controller mainWindowController;
-    
-    public void setMainWindowController(MainWindow_Controller controller) {
-        this.mainWindowController = controller;
-    }
-    
-    public MainWindow_Controller getMainWindowController() {
-		return mainWindowController;
-	}
-    
     private String MANV = SystemMessage.getMANV();
     
     private List<LOAIPHONG> roomTypes = LOAIPHONG_BLL.getRoomTypes();
@@ -264,10 +254,8 @@ public class bookRoom_Cotroller implements Initializable {
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
 			Parent root;
-			//AnchorPane anchorPane = mainWindowController.getAnchorPane();
 			try {
 	
-                //anchorPane.setVisible(true);
 				root = loader.load();
 				String checkin = checkin_datepicker.getValue().toString();
 				String checkout = checkout_datepicker.getValue().toString();
@@ -281,7 +269,6 @@ public class bookRoom_Cotroller implements Initializable {
 				stage.setScene(scene);
 				stage.show();
 				
-				//anchorPane.setVisible(false);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

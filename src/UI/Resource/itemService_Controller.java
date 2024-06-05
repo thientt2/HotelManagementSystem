@@ -42,7 +42,18 @@ public class itemService_Controller implements Initializable{
 	}
 
     public void setService(Object[] item) {
-    	price_txt.setText(item[3].toString());
+    	//price_txt.setText(item[3].toString());
+    	Double gia = Double.parseDouble(item[3].toString());
+    	String formattedPrice = String.format("%.0f", gia);
+    	StringBuilder sb = new StringBuilder(formattedPrice);
+    	int length = sb.length();
+    	for (int i = length - 3; i > 0; i -= 3) {
+    	    sb.insert(i, ".");
+    	}
+    	sb.append(" VND");
+    	String finalPrice = sb.toString();
+    	price_txt.setText(finalPrice);
+    	
     	serviceName_txt.setText(item[2].toString());
     	typeName_txt.setText(item[1].toString());   
     	//typeName_txt.setText(LOAIDICHVU_BLL.getServiceTypeName(item.getLOAIDV()));   

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import DAO.*;
 import DTO.PHONG;
@@ -50,6 +51,10 @@ public class PHONG_BLL {
 	 }
 	 
 	 public static void changeRoomStatus(String maPhong) { PHONG_DAO.changeRoomStatus(maPhong); }
+	 
+	 public static ObservableList<Object[]> getRoomsByStatus(Set<String> statuses) {
+		 return PHONG_DAO.getRoomsByStatus(statuses);
+	 }
 }
 
 

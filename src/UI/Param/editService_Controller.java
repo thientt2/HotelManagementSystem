@@ -38,6 +38,8 @@ public class editService_Controller implements Initializable{
 	    
     public void setService(Object[] item) {
     	price_txt.setText(item[3].toString());
+    	
+    	
     	name_txt.setText(item[2].toString());
     	type_txt.setText(item[1].toString());   
 		madv = item[0].toString();

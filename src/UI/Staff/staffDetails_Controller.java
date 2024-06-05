@@ -51,14 +51,19 @@ public class staffDetails_Controller implements Initializable{
 		address_txt.setText(item.getDIACHI());
 		email_txt.setText(item.getEMAIL());
 		
-		birthday_picker.setText(item.getNGAYSINH());// DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-//		String ngaysinh = item.getNGAYSINH();
-//        String formattedDate = formatDate(ngaysinh);
-//        birthday_picker.setText(formattedDate);
+		//birthday_picker.setText(item.getNGAYSINH());// DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		String ngaysinh = item.getNGAYSINH();
+        String formattedDate = formatDate(ngaysinh);
+        birthday_picker.setText(formattedDate);
         
 		cccd_txt.setText(item.getCCCD());
 		gender_combobox.setText(item.getGIOITINH());
-		daywork_txt.setText(item.getNGAYVAOLAM());
+		
+		//daywork_txt.setText(item.getNGAYVAOLAM());
+		String ngaylam = item.getNGAYVAOLAM();
+        String formattedDate1 = formatDate(ngaylam);
+        daywork_txt.setText(formattedDate1);
+		
 		type_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));	
 	}  
     

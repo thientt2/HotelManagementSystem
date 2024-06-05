@@ -49,7 +49,9 @@ public class staffWindow_Controller implements Initializable {
     @FXML
     private Pagination pagination;
     
-    private MainWindow_Controller mainWindowController;  
+    public Button getAddUser_btn() {
+		return addUser_btn;
+	}	
     
     private static final int ITEMS_PER_PAGE = 8;
     private ObservableList<NHANVIEN> listStaff = FXCollections.observableArrayList();
@@ -85,9 +87,6 @@ public class staffWindow_Controller implements Initializable {
 
                     editItem.setOnAction(eventEditStaff -> {
                         try {
-                            AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                            anchorPane.setVisible(true);
-
                             FXMLLoader loader2 = new FXMLLoader(getClass().getResource("editStaff.fxml"));
                             Parent root = loader2.load();
 
@@ -113,7 +112,6 @@ public class staffWindow_Controller implements Initializable {
                             stage.setScene(scene);
                             stage.showAndWait();
 
-                            anchorPane.setVisible(false);
                             refreshStaffList();
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -129,9 +127,6 @@ public class staffWindow_Controller implements Initializable {
 
                     detailItem.setOnAction(detailEvent -> {
                         try {
-                            AnchorPane anchorPane = mainWindowController.getAnchorPane();
-                            anchorPane.setVisible(true);
-
                             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("staffDetails.fxml"));
                             Parent root = loader1.load();
 
@@ -157,7 +152,6 @@ public class staffWindow_Controller implements Initializable {
                             stage.setScene(scene);
                             stage.showAndWait();
 
-                            anchorPane.setVisible(false);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -236,35 +230,34 @@ public class staffWindow_Controller implements Initializable {
         stage.setScene(scene);
         stage.showAndWait();
 
-
         refreshStaffList();
     }
 
     // Tìm kiếm nhân viên
-    public void search() {
-        searchStaff.textProperty().addListener((observable, oldValue, newValue) -> {
-            String searchText = newValue.trim();
-            ObservableList<NHANVIEN> filteredList = FXCollections.observableArrayList();
+    public void search(String newValue) {
+    	String searchText = newValue.trim();
+        ObservableList<NHANVIEN> filteredList = FXCollections.observableArrayList();
 
-            if (searchText.isEmpty()) {
-                filteredList.addAll(NHANVIEN_BLL.listStaff());
-            } else {
-                for (NHANVIEN staff : NHANVIEN_BLL.listStaff()) {
-                    if (staff.getTENNV().toLowerCase().contains(searchText.toLowerCase())) {
-                        filteredList.add(staff);
-                    }
+        if (searchText.isEmpty()) {
+            filteredList.addAll(NHANVIEN_BLL.listStaff());
+        } else {
+            for (NHANVIEN staff : NHANVIEN_BLL.listStaff()) {
+                if (staff.getTENNV().toLowerCase().contains(searchText.toLowerCase())) {
+                    filteredList.add(staff);
                 }
             }
-
-            listStaff = filteredList;
-            pagination.setPageCount(calculatePageCount());
-            pagination.setPageFactory(this::createPage);
-        });
+        }
+        listStaff_vbox.getChildren().clear();
+        listStaff = filteredList;
+        pagination.setPageCount(calculatePageCount());
+        pagination.setPageFactory(this::createPage);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        search();
+    	searchStaff.textProperty().addListener((observable, oldValue, newValue) -> {
+    		search(newValue);
+    	});
         refreshStaffList();
     }
 }
