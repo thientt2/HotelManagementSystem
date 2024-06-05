@@ -67,7 +67,7 @@ public class customerWindow_Controller implements Initializable {
 	}
     
     private VBox createPage(int pageIndex) {	    
-	    listCustomer_vbox.getChildren().clear(); // Clear old items
+	    listCustomer_vbox.getChildren().clear(); 
 
 	    int startIndex = pageIndex * ITEMS_PER_PAGE;
 	    int endIndex = Math.min(startIndex + ITEMS_PER_PAGE, listCustomer.size());
@@ -120,7 +120,7 @@ public class customerWindow_Controller implements Initializable {
 	                        stage.showAndWait();
 	                        
 	                        anchorPane.setVisible(false);
-	                        //refreshCustomerList();
+	                        refreshCustomerList();
 	                    } catch (IOException e) {
 	                        e.printStackTrace();
 	                    }
@@ -186,116 +186,117 @@ public class customerWindow_Controller implements Initializable {
 	public void refreshCustomerList() {
         // Xóa tất cả các nút con trong VBox
         listCustomer_vbox.getChildren().clear();
-        ObservableList<KHACHHANG> listCustomer = KHACHHANG_BLL.listCustomer();
-        showListCustomer(listCustomer);
+        listCustomer = KHACHHANG_BLL.listCustomer();
+		pagination.setPageCount(calculatePageCount());
+	    pagination.setPageFactory(this::createPage);	
     }
 	
 	private ContextMenu contextMenu = new ContextMenu();
 
-	public void showListCustomer(ObservableList<KHACHHANG> list) {	
-	    for(KHACHHANG item : list) {
-	    	try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemCustomer.fxml"));
-				Parent customerDataPane = loader.load();
-				itemCustomer_Controller controller = loader.getController();
-				controller.setCustomer(item);
-				Button contextMenu_btn = controller.getContextMenu_btn();
-	            contextMenu_btn.setOnMouseClicked(event -> {
-	            	if (contextMenu.isShowing()) {
-	                    contextMenu.hide();
-	                    return;
-	                }
-	                contextMenu.getItems().clear();
-
-	                MenuItem editItem = new MenuItem("Chỉnh sửa");
-	                MenuItem deleteItem = new MenuItem("Xóa");
-	                MenuItem detailItem = new MenuItem("Chi tiết");
-
-	                editItem.setOnAction(eventEditCustomer -> {
-	                    try {
-	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                	    anchorPane.setVisible(true);
-	                	    
-	                        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("editCustomer.fxml"));
-	                        Parent root = loader2.load();
-
-	                        root.setOnMousePressed((MouseEvent event1) -> {            
-	                            x = event1.getSceneX();            
-	                            y = event1.getSceneY();    
-	                        });
-	                        
-	                        Stage stage = new Stage();        
-	                        stage.initStyle(StageStyle.TRANSPARENT);        
-	                        Scene scene = new Scene(root);
-
-	                        editCustomer_Controller editCustomer = loader2.getController();
-	                        editCustomer.setCustomer(item);
-
-	                        root.setOnMouseDragged((MouseEvent event1) -> {
-	                            stage.setX(event1.getScreenX() - x);            
-	                            stage.setY(event1.getScreenY() - y);       
-	                        });
-	                        
-	                        stage.setScene(scene);     
-	                        stage.showAndWait();
-	                        
-	                        anchorPane.setVisible(false);
-	                        //refreshCustomerList();
-	                    } catch (IOException e) {
-	                        e.printStackTrace();
-	                    }
-	                });
-	        	    
-	        	    deleteItem.setOnAction(deleteEvent -> {
-	        	    	KHACHHANG_BLL.deleteCustomer(item);
-	        	    	refreshCustomerList();
-	        	    });
-	        	    
-	        	    detailItem.setOnAction(detailEvent -> {
-	        	    	try {
-	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                	    anchorPane.setVisible(true);
-	                	    
-	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("customerDetails.fxml"));
-	                        Parent root = loader1.load();
-
-	                        root.setOnMousePressed((MouseEvent event1) -> {            
-	                            x = event1.getSceneX();            
-	                            y = event1.getSceneY();    
-	                        });
-	                        
-	                        Stage stage = new Stage();        
-	                        stage.initStyle(StageStyle.TRANSPARENT);        
-	                        Scene scene = new Scene(root);
-
-	                        customerDetails_Controller customerDetails = loader1.getController();
-	                        customerDetails.setCustomer(item);
-
-	                        root.setOnMouseDragged((MouseEvent event1) -> {
-	                            stage.setX(event1.getScreenX() - x);            
-	                            stage.setY(event1.getScreenY() - y);       
-	                        });
-	                        
-	                        stage.setScene(scene);     
-	                        stage.showAndWait();
-	                        
-	                        anchorPane.setVisible(false);
-	                        //refreshCustomerList();
-	                    } catch (IOException e) {
-	                        e.printStackTrace();
-	                    }
-	        	    });
-	        	    
-	        	    contextMenu.getItems().addAll(editItem, deleteItem, detailItem);  	
-	        	    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
-	            });
-	            Platform.runLater(() -> listCustomer_vbox.getChildren().add(customerDataPane));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	    	
-	    }		
-	}
+//	public void showListCustomer(ObservableList<KHACHHANG> list) {	
+//	    for(KHACHHANG item : list) {
+//	    	try {
+//				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemCustomer.fxml"));
+//				Parent customerDataPane = loader.load();
+//				itemCustomer_Controller controller = loader.getController();
+//				controller.setCustomer(item);
+//				Button contextMenu_btn = controller.getContextMenu_btn();
+//	            contextMenu_btn.setOnMouseClicked(event -> {
+//	            	if (contextMenu.isShowing()) {
+//	                    contextMenu.hide();
+//	                    return;
+//	                }
+//	                contextMenu.getItems().clear();
+//
+//	                MenuItem editItem = new MenuItem("Chỉnh sửa");
+//	                MenuItem deleteItem = new MenuItem("Xóa");
+//	                MenuItem detailItem = new MenuItem("Chi tiết");
+//
+//	                editItem.setOnAction(eventEditCustomer -> {
+//	                    try {
+//	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
+//	                	    anchorPane.setVisible(true);
+//	                	    
+//	                        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("editCustomer.fxml"));
+//	                        Parent root = loader2.load();
+//
+//	                        root.setOnMousePressed((MouseEvent event1) -> {            
+//	                            x = event1.getSceneX();            
+//	                            y = event1.getSceneY();    
+//	                        });
+//	                        
+//	                        Stage stage = new Stage();        
+//	                        stage.initStyle(StageStyle.TRANSPARENT);        
+//	                        Scene scene = new Scene(root);
+//
+//	                        editCustomer_Controller editCustomer = loader2.getController();
+//	                        editCustomer.setCustomer(item);
+//
+//	                        root.setOnMouseDragged((MouseEvent event1) -> {
+//	                            stage.setX(event1.getScreenX() - x);            
+//	                            stage.setY(event1.getScreenY() - y);       
+//	                        });
+//	                        
+//	                        stage.setScene(scene);     
+//	                        stage.showAndWait();
+//	                        
+//	                        anchorPane.setVisible(false);
+//	                        //refreshCustomerList();
+//	                    } catch (IOException e) {
+//	                        e.printStackTrace();
+//	                    }
+//	                });
+//	        	    
+//	        	    deleteItem.setOnAction(deleteEvent -> {
+//	        	    	KHACHHANG_BLL.deleteCustomer(item);
+//	        	    	refreshCustomerList();
+//	        	    });
+//	        	    
+//	        	    detailItem.setOnAction(detailEvent -> {
+//	        	    	try {
+//	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
+//	                	    anchorPane.setVisible(true);
+//	                	    
+//	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("customerDetails.fxml"));
+//	                        Parent root = loader1.load();
+//
+//	                        root.setOnMousePressed((MouseEvent event1) -> {            
+//	                            x = event1.getSceneX();            
+//	                            y = event1.getSceneY();    
+//	                        });
+//	                        
+//	                        Stage stage = new Stage();        
+//	                        stage.initStyle(StageStyle.TRANSPARENT);        
+//	                        Scene scene = new Scene(root);
+//
+//	                        customerDetails_Controller customerDetails = loader1.getController();
+//	                        customerDetails.setCustomer(item);
+//
+//	                        root.setOnMouseDragged((MouseEvent event1) -> {
+//	                            stage.setX(event1.getScreenX() - x);            
+//	                            stage.setY(event1.getScreenY() - y);       
+//	                        });
+//	                        
+//	                        stage.setScene(scene);     
+//	                        stage.showAndWait();
+//	                        
+//	                        anchorPane.setVisible(false);
+//	                        //refreshCustomerList();
+//	                    } catch (IOException e) {
+//	                        e.printStackTrace();
+//	                    }
+//	        	    });
+//	        	    
+//	        	    contextMenu.getItems().addAll(editItem, deleteItem, detailItem);  	
+//	        	    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
+//	            });
+//	            Platform.runLater(() -> listCustomer_vbox.getChildren().add(customerDataPane));
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}	    	
+//	    }		
+//	}
    
 
 	
@@ -342,9 +343,10 @@ public class customerWindow_Controller implements Initializable {
 		            }
 		        }
 		    }
-		    // Xóa tất cả các nút con trong VBox
 		    listCustomer_vbox.getChildren().clear();
-		    showListCustomer(filteredList);
+		    listCustomer = filteredList;
+		    pagination.setPageCount(calculatePageCount());
+		    pagination.setPageFactory(this::createPage);	
 		});
 	}
 
@@ -356,8 +358,7 @@ public class customerWindow_Controller implements Initializable {
 		listCustomer = KHACHHANG_BLL.listCustomer();
 		pagination.setPageCount(calculatePageCount());
 	    pagination.setPageFactory(this::createPage);	
-
-		search();
+	    //searchCustomer.
 	}
 	
 

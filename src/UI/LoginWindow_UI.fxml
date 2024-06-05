@@ -52,7 +52,7 @@
             <TextField fx:id="usernameTxt" layoutX="34.0" layoutY="187.0" prefHeight="30.0" prefWidth="220.0" promptText="Nhập tên đăng nhập" styleClass="textfield-1" />
             <PasswordField fx:id="passwordTxt" layoutX="32.0" layoutY="254.0" prefHeight="30.0" prefWidth="220.0" promptText="Nhập mật khẩu" styleClass="textfield-1" />
             <TextField fx:id="showPasswordTxt" layoutX="32.0" layoutY="254.0" prefHeight="30.0" prefWidth="220.0" promptText="Nhập mật khẩu" styleClass="textfield-1" visible="false" />
-            <Button fx:id="loginBtn" layoutX="32.0" layoutY="324.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="220.0" style="-fx-font-size: 15px;" styleClass="login-btn" text="">
+            <Button fx:id="loginBtn" layoutX="32.0" layoutY="324.0" mnemonicParsing="false" onKeyPressed="#login" prefHeight="30.0" prefWidth="220.0" style="-fx-font-size: 15px;" styleClass="login-btn" text="">
                	<graphic>
       		            <FontAwesomeIcon fill="WHITE" glyphName="ARROW_CIRCLE_RIGHT" text="" />
 		         </graphic>

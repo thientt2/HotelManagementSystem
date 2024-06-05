@@ -8,7 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
@@ -198,6 +200,105 @@
          </center>
       </BorderPane>
       <AnchorPane fx:id="anchorPane" prefHeight="611.0" prefWidth="1103.0" style="-fx-background-color: black; -fx-opacity: 0.4;" visible="false" />
+      <Pane fx:id="accountInfo_pane" layoutX="780.0" layoutY="60.0" prefHeight="375.0" prefWidth="320.0" style="-fx-background-color: #fff; -fx-border-radius: 10px; -fx-background-radius: 10px;" visible="false">
+         <children>
+            <VBox layoutX="29.0" layoutY="24.0" prefHeight="84.0" prefWidth="261.0" style="-fx-background-color: #fff; -fx-background-radius: 5px; -fx-border-radius: 5px;">
+               <children>
+                  <HBox prefHeight="119.0" prefWidth="259.0">
+                     <children>
+                        <Pane prefHeight="74.0" prefWidth="126.0">
+                           <children>
+                              <Circle fx:id="top_circle1" fill="DODGERBLUE" layoutX="46.0" layoutY="42.0" radius="31.0" stroke="#818181" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
+                        <VBox alignment="CENTER_LEFT" prefHeight="147.0" prefWidth="202.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="170.0" spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="18.0" prefWidth="82.0" style="-fx-font-size: 12px; -fx-font-weight: bold;" text="Mã nhân viên:" />
+                                    <Label fx:id="id_txt" style="-fx-font-weight: bold;" text="NV001" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="170.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 12px; -fx-font-weight: bold;" text="Vị trí:" />
+                                    <Label fx:id="type_txt" style="-fx-font-weight: 700;" text="Nhân viên quản lí" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="170.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 12px; -fx-font-weight: bold;" text="Giới tính:" />
+                                    <Label fx:id="gender_txt" style="-fx-font-weight: bold;" text="Nam" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.5263158082962036" green="0.5048732757568359" blue="0.5048732757568359" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="36.0" layoutY="127.0" prefHeight="172.0" prefWidth="246.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="102.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Họ và tên:" />
+                        <Label fx:id="name_txt" prefHeight="23.0" prefWidth="110.0" text="Nguyễn Hữu Trường" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="172.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Email:" />
+                        <Label fx:id="email_txt" prefHeight="23.0" prefWidth="201.0" text="truongbmt4@gmail.com" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="141.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="SDT:" />
+                        <Label fx:id="sdt_txt" prefHeight="23.0" prefWidth="173.0" text="0914259475" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="142.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="CCCD:" />
+                        <Label fx:id="cccd_txt" prefHeight="23.0" prefWidth="173.0" text="066204002069" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="140.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Ngày sinh:" />
+                        <Label fx:id="birthday_txt" prefHeight="23.0" prefWidth="173.0" text="05/01/2004" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="142.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Ngày vào làm:" />
+                        <Label fx:id="startdate_txt" prefHeight="23.0" prefWidth="173.0" text="01/04/2024" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <AnchorPane layoutX="100.0" layoutY="317.0" prefHeight="51.0" prefWidth="206.0">
+               <children>
+                  <Button fx:id="exit_btn" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#exit" prefHeight="27.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Thoát" />
+                  <Button fx:id="logOut_btn" layoutX="115.0" layoutY="10.0" mnemonicParsing="false" onAction="#logOut" prefHeight="31.0" prefWidth="90.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Đăng xuất" />
+               </children>
+            </AnchorPane>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.17894737422466278" green="0.16237816214561462" blue="0.16237816214561462" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
    </children>
       <effect>
       <DropShadow />

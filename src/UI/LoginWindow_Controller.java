@@ -119,7 +119,7 @@ public class LoginWindow_Controller implements Initializable {
     		});
     		
     		MainWindow_Controller main = loader.getController();
-    		main.initData(usernameTxt.getText());    		
+    		main.initData(usernameTxt.getText());   
     		
     		stage.setScene(scene);     
     		stage.show();   		

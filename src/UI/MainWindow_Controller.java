@@ -10,6 +10,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import BLL.KHACHHANG_BLL;
+import BLL.LOAINHANVIEN_BLL;
 import BLL.NHANVIEN_BLL;
 import DTO.KHACHHANG;
 import DTO.NHANVIEN;
@@ -49,6 +50,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -144,88 +146,127 @@ public class MainWindow_Controller implements Initializable {
     
     private String username;
     
-    private Stage accountInfoStage = null;
     
     public Boolean Visible = false;
+    
+    private boolean isPaneVisible = false;
     
     public AnchorPane getAnchorPane() {
         return anchorPane;
     }
     
-	private double x = 0;
-	private double y = 0;
+    // Các thành phần màn hình accountInfo
+	@FXML
+    private Label birthday_txt;
+
+    @FXML
+    private Label cccd_txt;
+
+    @FXML
+    private Label email_txt;
+
+    @FXML
+    private Button exit_btn;
+
+    @FXML
+    private Label gender_txt;
+
+    @FXML
+    private Label id_txt;
+
+    @FXML
+    private Button logOut_btn;
+
+    @FXML
+    private Label name_txt;
+
+    @FXML
+    private Label sdt_txt;
+
+    @FXML
+    private Label startdate_txt;
+
+    @FXML
+    private Circle top_circle1;
+
+    @FXML
+    private Label type_txt;
     
-    public void accountInfo() throws IOException {
-        if (accountInfoStage != null && accountInfoStage.isShowing()) {
-            accountInfoStage.close();
-            accountInfoStage = null;
-        } else {
-            NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
-            Parent root = loader.load();
-            
-            accountInfoStage = new Stage();
-            accountInfoStage.initStyle(StageStyle.TRANSPARENT);
-            Scene scene = new Scene(root);
+    @FXML
+    private Pane accountInfo_pane;
+    
+    public Pane getPane() {
+        return accountInfo_pane;
+    }
 
-            double initialX = 1010;
-            double initialY = 130;
-            accountInfoStage.setX(initialX);
-            accountInfoStage.setY(initialY);
-            
-            accountInfo_Controller accountInfo = loader.getController();
-            accountInfo.accountInfo(nhanVien);
-
-            accountInfoStage.setScene(scene);
-            accountInfoStage.show();
-
-            accountInfoStage.setOnHiding(event -> accountInfoStage = null);
-            
-        }
-        
+    private double x = 0;
+	private double y = 0;
+	
+    public void accountInfo(NHANVIEN item) {
+    	name_txt.setText(item.getTENNV());
+		sdt_txt.setText(item.getSDT());
+		email_txt.setText(item.getEMAIL());
+		gender_txt.setText(item.getGIOITINH());
+		birthday_txt.setText(item.getNGAYSINH());
+		startdate_txt.setText(item.getNGAYVAOLAM());
+		cccd_txt.setText(item.getCCCD());
+		id_txt.setText(item.getMANV());
+		type_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
+		
+	    byte[] photoData = item.getPHOTO();
+	    if (photoData != null && photoData.length > 0) {
+	        ByteArrayInputStream bis = new ByteArrayInputStream(photoData);
+	        Image image = new Image(bis);
+	        top_circle.setFill(new ImagePattern(image));
+	    } else {
+	        Image defaultImage = new Image("/Images/LAOPERA.jpg");
+	        top_circle.setFill(new ImagePattern(defaultImage));
+	    }
+	}  
+    
+    public void logOut() throws IOException {
+    	logOut_btn.getScene().getWindow().hide();   
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginWindow_UI.fxml"));
+		Parent root = loader.load();
+		
+		root.setOnMousePressed((MouseEvent event)->{            
+			x = event.getSceneX();            
+			y = event.getSceneY();    
+		});
+		
+		Stage stage = new Stage();        
+		stage.initStyle(StageStyle.TRANSPARENT);        
+		Scene scene = new Scene(root);
+    
+		root.setOnMouseDragged((MouseEvent event)->{
+			stage.setX(event.getScreenX() - x);            
+			stage.setY(event.getScreenY() - y);       
+		});
+		
+		stage.setScene(scene);     
+		stage.show();  
     }
     
-//	public void accountInfo() throws IOException {
-//	    NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
-//	    FXMLLoader loader = new FXMLLoader(getClass().getResource("accountInfo.fxml"));
-//	    Parent root = loader.load();
-//
-//	    Stage stage = new Stage();
-//	    stage.initStyle(StageStyle.TRANSPARENT);
-//	    Scene scene = new Scene(root);
-//
-//	    accountInfo_Controller accountInfo = loader.getController();
-//	    accountInfo.accountInfo(nhanVien);
-//
-//	    // Define initial X and Y coordinates for the window
-//	    double initialX = 1010;
-//	    double initialY = 130;
-//	    stage.setX(initialX);
-//	    stage.setY(initialY);
-//
-//	    // Variables to store the offset of the mouse click relative to the window's position
-//	    final double[] offsetX = {0};
-//	    final double[] offsetY = {0};
-//
-//	    root.setOnMousePressed((MouseEvent event) -> {
-//	        offsetX[0] = event.getSceneX();
-//	        offsetY[0] = event.getSceneY();
-//	    });
-//
-//	    root.setOnMouseDragged((MouseEvent event) -> {
-//	        stage.setX(event.getScreenX() - offsetX[0]);
-//	        stage.setY(event.getScreenY() - offsetY[0]);
-//	    });
-//
-//	    stage.setScene(scene);
-//	    stage.showAndWait();
-//	}
+
+	public void accountInfo() {
+		if (isPaneVisible) {
+			accountInfo_pane.setVisible(false);
+            isPaneVisible = false;
+        } else { // Nếu pane chưa hiển thị, thì hiển thị lên
+        	accountInfo_pane.setVisible(true);
+            isPaneVisible = true;
+        }
+	}
+    
+
     // Đặt username với username_label
     public void initData(String username) {
         this.username = username;
         NHANVIEN nhanVien = NHANVIEN_BLL.getStaff(username);
         username_label.setText(nhanVien.getTENNV());
         SystemMessage.setMANV(nhanVien.getMANV());
+        accountInfo(nhanVien);
 
 	    byte[] photoData = nhanVien.getPHOTO();
 	    if (photoData != null && photoData.length > 0) {
@@ -635,27 +676,11 @@ public class MainWindow_Controller implements Initializable {
 	}
 	
 	
-//	public void refresh() {
-//		ContextMenu contextMenu = new ContextMenu();
-//		MenuItem refreshMenuItem = new MenuItem("Refresh");
-//		contextMenu.getItems().add(refreshMenuItem);
-//		refreshMenuItem.setOnAction(event -> {			
-//			//initData(username);
-//		});
-//		 
-//		main.setOnContextMenuRequested(event -> {
-//            contextMenu.show(main, event.getScreenX(), event.getScreenY());
-//        });
-//		
-//		
-//	}
-	
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
 		changeSceneDashBoardWindow();	
-		initData("22521393");
+
 	}
 
 
