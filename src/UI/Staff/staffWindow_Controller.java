@@ -220,8 +220,8 @@ public class staffWindow_Controller implements Initializable {
     }
     
     public void addStaff() throws IOException {
-        AnchorPane anchorPane = mainWindowController.getAnchorPane();
-        anchorPane.setVisible(true);
+//        AnchorPane anchorPane = mainWindowController.getAnchorPane();
+//        anchorPane.setVisible(true);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addStaff.fxml"));
         Parent root = loader.load();
@@ -243,7 +243,7 @@ public class staffWindow_Controller implements Initializable {
         stage.setScene(scene);
         stage.showAndWait();
 
-        anchorPane.setVisible(false);
+//        anchorPane.setVisible(false);
         refreshStaffList();
     }
 

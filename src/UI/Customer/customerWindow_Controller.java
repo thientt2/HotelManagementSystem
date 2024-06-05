@@ -2,32 +2,28 @@ package UI.Customer;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import BLL.KHACHHANG_BLL;
-import BLL.NHANVIEN_BLL;
 import DTO.KHACHHANG;
-import DTO.NHANVIEN;
-import UI.MainWindow_Controller;
 import UI.Resource.itemCustomer_Controller;
-import UI.Resource.itemStaff_Controller;
-import UI.Staff.editStaff_Controller;
-import UI.Staff.staffDetails_Controller;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.Pagination;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -48,7 +44,7 @@ public class customerWindow_Controller implements Initializable {
     @FXML
     private TextField searchCustomer;
     
-    private MainWindow_Controller mainWindowController;
+
     
     private static final int ITEMS_PER_PAGE = 8;
     private ObservableList<KHACHHANG> listCustomer= FXCollections.observableArrayList();
@@ -56,15 +52,6 @@ public class customerWindow_Controller implements Initializable {
     private int calculatePageCount() {
         return (int) Math.ceil((double) listCustomer.size() / ITEMS_PER_PAGE);
     }
-
-    // Phương thức để thiết lập tham chiếu của main window controller từ bên ngoài
-    public void setMainWindowController(MainWindow_Controller controller) {
-        this.mainWindowController = controller;
-    }
-    
-    public MainWindow_Controller getMainWindowController() {
-		return mainWindowController;
-	}
     
     private VBox createPage(int pageIndex) {	    
 	    listCustomer_vbox.getChildren().clear(); 
@@ -92,10 +79,7 @@ public class customerWindow_Controller implements Initializable {
 	                MenuItem detailItem = new MenuItem("Chi tiết");
 
 	                editItem.setOnAction(eventEditCustomer -> {
-	                    try {
-	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                	    anchorPane.setVisible(true);
-	                	    
+	                    try {	                	    
 	                        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("editCustomer.fxml"));
 	                        Parent root = loader2.load();
 
@@ -106,6 +90,8 @@ public class customerWindow_Controller implements Initializable {
 	                        
 	                        Stage stage = new Stage();        
 	                        stage.initStyle(StageStyle.TRANSPARENT);        
+	                        stage.initModality(Modality.WINDOW_MODAL);
+	                        stage.initOwner(customerWindow_form.getScene().getWindow());
 	                        Scene scene = new Scene(root);
 
 	                        editCustomer_Controller editCustomer = loader2.getController();
@@ -119,7 +105,6 @@ public class customerWindow_Controller implements Initializable {
 	                        stage.setScene(scene);     
 	                        stage.showAndWait();
 	                        
-	                        anchorPane.setVisible(false);
 	                        refreshCustomerList();
 	                    } catch (IOException e) {
 	                        e.printStackTrace();
@@ -133,9 +118,7 @@ public class customerWindow_Controller implements Initializable {
 	        	    
 	        	    detailItem.setOnAction(detailEvent -> {
 	        	    	try {
-	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	                	    anchorPane.setVisible(true);
-	                	    
+               	    
 	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("customerDetails.fxml"));
 	                        Parent root = loader1.load();
 
@@ -145,7 +128,9 @@ public class customerWindow_Controller implements Initializable {
 	                        });
 	                        
 	                        Stage stage = new Stage();        
-	                        stage.initStyle(StageStyle.TRANSPARENT);        
+	                        stage.initStyle(StageStyle.TRANSPARENT);  
+	                        stage.initModality(Modality.WINDOW_MODAL);
+	                        stage.initOwner(customerWindow_form.getScene().getWindow());
 	                        Scene scene = new Scene(root);
 
 	                        customerDetails_Controller customerDetails = loader1.getController();
@@ -157,9 +142,7 @@ public class customerWindow_Controller implements Initializable {
 	                        });
 	                        
 	                        stage.setScene(scene);     
-	                        stage.showAndWait();
-	                        
-	                        anchorPane.setVisible(false);
+	                        stage.show();	                        
 	                        //refreshCustomerList();
 	                    } catch (IOException e) {
 	                        e.printStackTrace();
@@ -192,117 +175,9 @@ public class customerWindow_Controller implements Initializable {
     }
 	
 	private ContextMenu contextMenu = new ContextMenu();
-
-//	public void showListCustomer(ObservableList<KHACHHANG> list) {	
-//	    for(KHACHHANG item : list) {
-//	    	try {
-//				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemCustomer.fxml"));
-//				Parent customerDataPane = loader.load();
-//				itemCustomer_Controller controller = loader.getController();
-//				controller.setCustomer(item);
-//				Button contextMenu_btn = controller.getContextMenu_btn();
-//	            contextMenu_btn.setOnMouseClicked(event -> {
-//	            	if (contextMenu.isShowing()) {
-//	                    contextMenu.hide();
-//	                    return;
-//	                }
-//	                contextMenu.getItems().clear();
-//
-//	                MenuItem editItem = new MenuItem("Chỉnh sửa");
-//	                MenuItem deleteItem = new MenuItem("Xóa");
-//	                MenuItem detailItem = new MenuItem("Chi tiết");
-//
-//	                editItem.setOnAction(eventEditCustomer -> {
-//	                    try {
-//	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-//	                	    anchorPane.setVisible(true);
-//	                	    
-//	                        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("editCustomer.fxml"));
-//	                        Parent root = loader2.load();
-//
-//	                        root.setOnMousePressed((MouseEvent event1) -> {            
-//	                            x = event1.getSceneX();            
-//	                            y = event1.getSceneY();    
-//	                        });
-//	                        
-//	                        Stage stage = new Stage();        
-//	                        stage.initStyle(StageStyle.TRANSPARENT);        
-//	                        Scene scene = new Scene(root);
-//
-//	                        editCustomer_Controller editCustomer = loader2.getController();
-//	                        editCustomer.setCustomer(item);
-//
-//	                        root.setOnMouseDragged((MouseEvent event1) -> {
-//	                            stage.setX(event1.getScreenX() - x);            
-//	                            stage.setY(event1.getScreenY() - y);       
-//	                        });
-//	                        
-//	                        stage.setScene(scene);     
-//	                        stage.showAndWait();
-//	                        
-//	                        anchorPane.setVisible(false);
-//	                        //refreshCustomerList();
-//	                    } catch (IOException e) {
-//	                        e.printStackTrace();
-//	                    }
-//	                });
-//	        	    
-//	        	    deleteItem.setOnAction(deleteEvent -> {
-//	        	    	KHACHHANG_BLL.deleteCustomer(item);
-//	        	    	refreshCustomerList();
-//	        	    });
-//	        	    
-//	        	    detailItem.setOnAction(detailEvent -> {
-//	        	    	try {
-//	                    	AnchorPane anchorPane = mainWindowController.getAnchorPane();
-//	                	    anchorPane.setVisible(true);
-//	                	    
-//	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("customerDetails.fxml"));
-//	                        Parent root = loader1.load();
-//
-//	                        root.setOnMousePressed((MouseEvent event1) -> {            
-//	                            x = event1.getSceneX();            
-//	                            y = event1.getSceneY();    
-//	                        });
-//	                        
-//	                        Stage stage = new Stage();        
-//	                        stage.initStyle(StageStyle.TRANSPARENT);        
-//	                        Scene scene = new Scene(root);
-//
-//	                        customerDetails_Controller customerDetails = loader1.getController();
-//	                        customerDetails.setCustomer(item);
-//
-//	                        root.setOnMouseDragged((MouseEvent event1) -> {
-//	                            stage.setX(event1.getScreenX() - x);            
-//	                            stage.setY(event1.getScreenY() - y);       
-//	                        });
-//	                        
-//	                        stage.setScene(scene);     
-//	                        stage.showAndWait();
-//	                        
-//	                        anchorPane.setVisible(false);
-//	                        //refreshCustomerList();
-//	                    } catch (IOException e) {
-//	                        e.printStackTrace();
-//	                    }
-//	        	    });
-//	        	    
-//	        	    contextMenu.getItems().addAll(editItem, deleteItem, detailItem);  	
-//	        	    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
-//	            });
-//	            Platform.runLater(() -> listCustomer_vbox.getChildren().add(customerDataPane));
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}	    	
-//	    }		
-//	}
-   
-
 	
 	public void addCustomer() throws IOException {		
-		AnchorPane anchorPane = mainWindowController.getAnchorPane();
-	    anchorPane.setVisible(true);
+
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("addCustomer.fxml"));
 		Parent root = loader.load();
@@ -313,7 +188,9 @@ public class customerWindow_Controller implements Initializable {
 		});
 		
 		Stage stage = new Stage();        
-		stage.initStyle(StageStyle.TRANSPARENT);        
+		stage.initStyle(StageStyle.TRANSPARENT);
+		stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(addCustomer_btn.getScene().getWindow());
 		Scene scene = new Scene(root);
     
 		root.setOnMouseDragged((MouseEvent event)->{
@@ -322,9 +199,8 @@ public class customerWindow_Controller implements Initializable {
 		});			
 		
 		stage.setScene(scene);     
-		stage.showAndWait();
-        
-		anchorPane.setVisible(false);
+		stage.showAndWait();       
+		
         refreshCustomerList();
 	}
 
