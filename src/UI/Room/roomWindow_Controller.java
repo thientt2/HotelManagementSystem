@@ -14,9 +14,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class roomWindow_Controller implements Initializable {
 	@FXML
@@ -126,6 +129,24 @@ public class roomWindow_Controller implements Initializable {
 					Parent roomData = loader.load();
 					itemRoom_Controller controller = loader.getController();
 					controller.setData(room[0],room[1],room[2],0);
+					
+					Button bookService = controller.getBookServiceBtn();
+					bookService.setOnAction(event1 -> {
+						try {
+							FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+							Parent root = loaderServices.load();
+							servicesRoom_Controller servicesController = loaderServices.getController();
+							servicesController.setData(room);
+							Scene scene = new Scene(root);
+							Stage stage = new Stage();
+							stage.initStyle(StageStyle.TRANSPARENT);
+							stage.setScene(scene);
+							stage.show();
+						}catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					});
 					showRoom_vbox.getChildren().add(roomData);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -158,31 +179,40 @@ public class roomWindow_Controller implements Initializable {
 			unselect7Floor_btn.setVisible(true);
 			unselect8Floor_btn.setVisible(true);			
 		});
-		Task<ObservableList<Object[]>> task = new Task<>() {
-			
-			@Override
-			protected ObservableList<Object[]> call() throws Exception {
-				return PHONG_BLL.getListRoomByFloor(1);
-			}			
-		};
+		showRoom_vbox.getChildren().clear();
+		ObservableList<Object[]> listRoom = PHONG_BLL.getListRoomByFloor(1);
 		
-		task.setOnSucceeded(event -> {
-			ObservableList<Object[]> result = task.getValue();
-			showRoom_vbox.getChildren().clear();
-			for(Object[] room : result) {
-				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
-					Parent roomData = loader.load();
-					itemRoom_Controller controller = loader.getController();
-					controller.setData(room[0],room[1],room[2],0);
-					showRoom_vbox.getChildren().add(roomData);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		for(Object[] room : listRoom) {			
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
+				Parent roomData = loader.load();
+				itemRoom_Controller controller = loader.getController();
+				controller.setData(room[0],room[1],room[2],0);
+				
+				Button bookService = controller.getBookServiceBtn();
+				bookService.setOnAction(event -> {
+					try {
+						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+						Parent root = loaderServices.load();
+						servicesRoom_Controller servicesController = loaderServices.getController();
+						servicesController.setData(room);
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.setScene(scene);
+						stage.show();
+					}catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
+				showRoom_vbox.getChildren().add(roomData);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		});
-		new Thread(task).start();
+			
+		}
 	}
 	
 	public void showSecondFloor() {
@@ -216,6 +246,24 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2],0);
+				
+				Button bookService = controller.getBookServiceBtn();
+				bookService.setOnAction(event -> {
+					try {
+						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+						Parent root = loaderServices.load();
+						servicesRoom_Controller servicesController = loaderServices.getController();
+						servicesController.setData(room);
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.setScene(scene);
+						stage.show();
+					}catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
 				showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -255,6 +303,24 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2],0);
+				
+				Button bookService = controller.getBookServiceBtn();
+				bookService.setOnAction(event -> {
+					try {
+						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+						Parent root = loaderServices.load();
+						servicesRoom_Controller servicesController = loaderServices.getController();
+						servicesController.setData(room);
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.setScene(scene);
+						stage.show();
+					}catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
 				showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -294,6 +360,24 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2],0);
+				
+				Button bookService = controller.getBookServiceBtn();
+				bookService.setOnAction(event -> {
+					try {
+						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+						Parent root = loaderServices.load();
+						servicesRoom_Controller servicesController = loaderServices.getController();
+						servicesController.setData(room);
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.setScene(scene);
+						stage.show();
+					}catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
 				showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -333,6 +417,24 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2],0);
+				
+				Button bookService = controller.getBookServiceBtn();
+				bookService.setOnAction(event -> {
+					try {
+						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+						Parent root = loaderServices.load();
+						servicesRoom_Controller servicesController = loaderServices.getController();
+						servicesController.setData(room);
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.setScene(scene);
+						stage.show();
+					}catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
 				showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -372,6 +474,24 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2],0);
+				
+				Button bookService = controller.getBookServiceBtn();
+				bookService.setOnAction(event -> {
+					try {
+						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+						Parent root = loaderServices.load();
+						servicesRoom_Controller servicesController = loaderServices.getController();
+						servicesController.setData(room);
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.setScene(scene);
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.show();
+					}catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
 				showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -411,6 +531,24 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2],0);
+				
+				Button bookService = controller.getBookServiceBtn();
+				bookService.setOnAction(event -> {
+					try {
+						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+						Parent root = loaderServices.load();
+						servicesRoom_Controller servicesController = loaderServices.getController();
+						servicesController.setData(room);
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.setScene(scene);
+						stage.show();
+					}catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
 				showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -450,6 +588,25 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2],0);
+				
+				Button bookService = controller.getBookServiceBtn();
+				bookService.setOnAction(event -> {
+					try {
+						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+						Parent root = loaderServices.load();
+						servicesRoom_Controller servicesController = loaderServices.getController();
+						servicesController.setData(room);
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.setScene(scene);
+						stage.show();
+					}catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
+
 				showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

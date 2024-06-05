@@ -15,4 +15,15 @@ public class HOADONDICHVU_BLL {
 		return HOADONDICHVU_DAO.listBill();
 	}
 	
+	public static void insertBillService(Map<String, Object> data) {
+		HOADONDICHVU_DAO.insertBillService(data);
+	}
+	
+	public static HOADONDICHVU getLastBill() {
+		return HOADONDICHVU_DAO.getLastBill();
+	}
+	
+	public static void updateBillService(Map<String, Object> data) {
+		HOADONDICHVU_DAO.updateBillService(data);
+	}
 }

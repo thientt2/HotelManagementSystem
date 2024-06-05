@@ -44,5 +44,21 @@ public class PHIEUNHANPHONG_DAO {
 		}
 		return lastReceiveRoom;
 	}
+	
+	public static String getReceiveRoomIDByRoomID(String roomID) {
+		String receiveRoomID = null;
+		String query = "SELECT * FROM PHIEUNHANPHONG WHERE MAPHONG = '" + roomID + "' AND GETDATE() >= TGNHAN AND GETDATE() <= TGTRA";
+		try(Connection connection = DatabaseConnection.connectDb();
+			PreparedStatement prepare = connection.prepareStatement(query);) {			
+			ResultSet resultSet = prepare.executeQuery();
+			while(resultSet.next()) {
+				receiveRoomID = resultSet.getString("MAPNP");
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return receiveRoomID;
+	}
 
 }

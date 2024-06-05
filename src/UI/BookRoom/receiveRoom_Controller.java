@@ -69,9 +69,12 @@ public class receiveRoom_Controller implements Initializable {
 	}
     
     
+    private String checkout;
+    
     public void setData(Object[] item) {
     	bookRoomId_txt.setText(item[0].toString());
     	roomType_txt.setText(item[2].toString());    	
+    	checkout = item[4].toString();
     	showRoomNumber();   	
 	}  
     
@@ -152,26 +155,21 @@ public class receiveRoom_Controller implements Initializable {
 	        }
 	    }
 	}	
+	
+	
 
 
     public void receiveRoom() {
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		String checkin = formatter.format(now);
-		String checkout = formatter.format(now.plusDays(2));
+		String checkin = formatter.format(now);		
 		
-		
-		System.out.println(bookRoomId_txt.getText());
-		System.out.println(roomNumber_cb.getValue());
-		System.out.println(checkin);
-		System.out.println(checkout);
-		System.out.println(listOrtherCustomer.toString());
 		Map<String, Object> data  = new HashMap<String, Object>();
 		data.put("ngayNhan", checkin);
 		data.put("ngayTra", checkout);
 		data.put("maPDP", bookRoomId_txt.getText());
 		data.put("maPhong", roomNumber_cb.getValue());
-		System.out.println(data.toString());
+		
 		String error = SystemMessage.ERROR_MESSAGE;
 		AlertMessage alert = new AlertMessage();
 		PHIEUNHANPHONG_BLL.insertReceiveRoom(data);
@@ -181,7 +179,7 @@ public class receiveRoom_Controller implements Initializable {
 		}else {			
 			PHONG_BLL.changeRoomStatus(roomNumber_cb.getValue());
 			String maPNP = PHIEUNHANPHONG_BLL.getLastReceiveRoom();
-			System.out.println(maPNP);
+			
 			CHITIETPNP_BLL.insertDetailRecieveRoom(maPNP, listOrtherCustomer);
 			alert.successMessage("Nhận phòng " + roomNumber_cb.getValue() + " thành công!");
 		}
@@ -196,8 +194,7 @@ public class receiveRoom_Controller implements Initializable {
     }
     
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {			
-
+	public void initialize(URL arg0, ResourceBundle arg1) {		
 
 
 	}

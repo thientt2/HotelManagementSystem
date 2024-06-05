@@ -1,13 +1,16 @@
 package BLL;
 
-import java.util.List;
-
 import DAO.LOAIDICHVU_DAO;
+import javafx.collections.ObservableList;
 
 public class LOAIDICHVU_BLL {
 	
-	public static List<String> listServiceType() {
+	public static ObservableList<String> listServiceType() {
 		return LOAIDICHVU_DAO.listServiceType();
+	}
+	
+	public static ObservableList<String> listServiceName(int serviceType) {
+		return LOAIDICHVU_DAO.listServiceName(serviceType);
 	}
 	
 	public static String getServiceTypeName(int id) {

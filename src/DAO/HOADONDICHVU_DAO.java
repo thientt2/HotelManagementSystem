@@ -58,4 +58,67 @@ public class HOADONDICHVU_DAO {
 		return list;		
 	}
 	
+	public static void insertBillService(Map<String, Object> data) {
+		String maPNP = data.get("maPNP").toString();
+		String maNVNhap = data.get("maNVNhap").toString();
+		String ngayTao = data.get("ngayTao").toString();
+		int tienDichVu = 0 ;
+		int phuThu = 0;
+		int trangThai = 0;
+		int tongTien = 0;
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			String query = "INSERT INTO HOADONDICHVU(MAPNP,NVNHAP,NGAYTAO,GIADICHVU,PHUTHU,TRANGTHAI,TONGTIEN) VALUES (?,?,?,?,?,?,?)";
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setString(1, maPNP);
+			prepare.setString(2, maNVNhap);
+			prepare.setString(3, ngayTao);
+			prepare.setInt(4, tienDichVu);
+			prepare.setInt(5, phuThu);
+			prepare.setInt(6, trangThai);
+			prepare.setInt(7, tongTien);			
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static HOADONDICHVU getLastBill() {
+		HOADONDICHVU billService = null;
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			String query = "SELECT TOP 1 * FROM HOADONDICHVU ORDER BY MAHD DESC";
+			PreparedStatement pst;
+			pst = connection.prepareStatement(query);
+			pst.executeQuery();
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				billService = new HOADONDICHVU(rs.getString("MAHD")   
+						,rs.getString("MAPNP")
+						,rs.getString("NVNHAP")                		   					
+						,rs.getString("NGAYTAO")
+						,rs.getInt("GIADICHVU")
+						,rs.getInt("PHUTHU")
+						,rs.getInt("TRANGTHAI")
+						,rs.getInt("TONGTIEN"));
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return billService;
+	}
+
+	public static void updateBillService(Map<String, Object> data) {
+		// TODO Auto-generated method stub
+		String maHD = (String) data.get("maHD");
+		double giaDV = (Double) data.get("giaDV");
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			String query = "UPDATE HOADONDICHVU SET GIADICHVU = ? WHERE MAHD = ?";
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setDouble(1, giaDV);
+			prepare.setString(2, maHD);
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

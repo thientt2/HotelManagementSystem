@@ -24,5 +24,8 @@ public class PHIEUNHANPHONG_BLL {
 	public static String getLastReceiveRoom() {
 		return PHIEUNHANPHONG_DAO.getLastReceiveRoom();
 	}
-
+	
+	public static String getReceiveRoomIDByRoomID(String roomID) {
+		return PHIEUNHANPHONG_DAO.getReceiveRoomIDByRoomID(roomID);
+	}
 }

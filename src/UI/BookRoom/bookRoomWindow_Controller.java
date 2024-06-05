@@ -5,6 +5,9 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
@@ -154,6 +157,7 @@ public class bookRoomWindow_Controller implements Initializable{
 
 	                        receiveRoom_Controller receiveRoom = loader1.getController();
 	                        receiveRoom.setData(item);
+	                        
 
 	                        root.setOnMouseDragged((MouseEvent event1) -> {
 	                            stage.setX(event1.getScreenX() - x);

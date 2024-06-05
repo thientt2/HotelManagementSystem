@@ -7,24 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="30.0" prefWidth="875.0" style="-fx-background-color: #ffff; -fx-border-width: 1px 0px 1px 0px; -fx-border-color: #E8F1FD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemStaff_Controller">
+<AnchorPane prefHeight="30.0" prefWidth="838.0" style="-fx-background-color: #ffff; -fx-border-width: 1px; -fx-border-color: #E8F1FD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemStaff_Controller">
    <children>
       <Label fx:id="staffId_txt" layoutX="15.0" text="MANV" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="staffName_txt" layoutX="107.0" layoutY="8.0" text="TenNhanVien" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="staffName_txt" layoutX="118.0" layoutY="8.0" text="TenNhanVien" AnchorPane.bottomAnchor="7.199999999999996" AnchorPane.topAnchor="8.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="cccd_txt" layoutX="260.0" layoutY="7.0" text="CCCD" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="cccd_txt" layoutX="266.0" layoutY="8.0" text="CCCD" AnchorPane.bottomAnchor="7.199999999999996" AnchorPane.topAnchor="8.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="gender_txt" layoutX="395.0" layoutY="8.0" text="GioiTinh " AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="gender_txt" layoutX="389.0" layoutY="12.0" text="GioiTinh " AnchorPane.bottomAnchor="11.199999999999996" AnchorPane.topAnchor="12.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
@@ -39,12 +39,12 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="startDay_txt" layoutX="698.0" layoutY="9.0" text="NgayVaoLam" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="startDay_txt" layoutX="704.0" layoutY="8.0" text="NgayVaoLam" AnchorPane.bottomAnchor="7.199999999999996" AnchorPane.topAnchor="8.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="contextMenu_btn" layoutX="823.0" layoutY="7.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Button fx:id="contextMenu_btn" layoutX="801.0" layoutY="8.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="7.199999999999996" AnchorPane.topAnchor="8.0">
          <graphic>
             <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                <image>

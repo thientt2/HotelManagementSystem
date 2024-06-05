@@ -7,34 +7,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="40.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemServicesRoom_Controller">
+<AnchorPane prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemServicesRoom_Controller">
    <children>
       <Label fx:id="serviceType_txt" layoutX="2.0" layoutY="10.0" prefHeight="20.0" prefWidth="74.0" text="LoaiDV">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="serviceName_txt" layoutX="87.0" layoutY="10.0" prefHeight="20.0" prefWidth="56.0" text="TenDV">
+      <Label fx:id="serviceName_txt" layoutX="87.0" layoutY="10.0" prefHeight="20.0" prefWidth="138.0" text="TenDV">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="price_txt" layoutX="202.0" layoutY="10.0" prefHeight="20.0" prefWidth="56.0" text="DonGia">
+      <Label fx:id="price_txt" layoutX="234.0" layoutY="10.0" prefHeight="20.0" prefWidth="125.0" text="DonGia">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="number_txt" layoutX="300.0" layoutY="10.0" prefHeight="20.0" prefWidth="80.0" text="SL">
+      <Label fx:id="number_txt" layoutX="363.0" layoutY="10.0" prefHeight="20.0" prefWidth="23.0" text="SL">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="totalPrice_txt" layoutX="330.0" layoutY="10.0" prefHeight="20.0" prefWidth="80.0" text="ThanhTien">
+      <Label fx:id="totalPrice_txt" layoutX="423.0" layoutY="10.0" prefHeight="20.0" prefWidth="125.0" text="ThanhTien">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="deleteItem_btn" layoutX="460.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button fx:id="deleteItem_btn" layoutX="460.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="10.0">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>

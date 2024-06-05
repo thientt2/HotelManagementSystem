@@ -212,7 +212,6 @@ public class bookRoom_Cotroller implements Initializable {
 	            e.printStackTrace();
 	        }
 	    }
-
 	    showPrice();
 	}	
 

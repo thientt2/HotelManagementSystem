@@ -54,6 +54,22 @@ public class DICHVU_DAO {
 		return dataList;    	
     }
 	
+	public static ObservableList<String> listServiceName(int id){
+		ObservableList<String> list = FXCollections.observableArrayList();
+		try {
+			String sql = "SELECT TENDV FROM DICHVU WHERE LOAIDV = " + id;
+			Connection con = DatabaseConnection.connectDb();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			while(rs.next()) {
+				list.add(rs.getString("TENDV"));
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public static void insertService(Map<String, String> data) throws SQLException {
 		String tenDV = data.get("name");
 		int loaiDV = Integer.parseInt(data.get("type"));
@@ -106,35 +122,38 @@ public class DICHVU_DAO {
 	        e.printStackTrace();
 	    }
 	}
+	
+	public static double getPriceService(String serviceName) {
+		double price = 0;
+		String query = "SELECT GIA FROM DICHVU WHERE TENDV = N'" + serviceName + "'";
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery(query)) {
+			if (resultSet.next()) {
+				price = resultSet.getDouble("GIA");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return price;
+	}
 
-	
-//	public static KHACHHANG getCustomerById(String customerId) {
-//		KHACHHANG kh = null;
-//		String sql = "SELECT * FROM KHACHHANG WHERE MAKH=?";
-//		
-//		PreparedStatement pst;
-//		try(Connection con = DatabaseConnection.connectDb();) {
-//			pst = con.prepareStatement(sql);
-//			pst.setString(1, customerId);
-//			ResultSet rs = pst.executeQuery();
-//			while(rs.next()) {
-//				kh = new KHACHHANG(rs.getString("MAKH")
-//						,rs.getString("TENKH")
-//						,rs.getString("CCCD")
-//						,rs.getString("GIOITINH")
-//						,rs.getString("NGAYSINH")
-//						,rs.getString("EMAIL")
-//						,rs.getInt("LOAIKH")
-//						,rs.getString("DIACHI")
-//						,rs.getString("SDT")
-//						,rs.getString("QUOCTICH")
-//						,rs.getInt("TINHTRANG"));
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return kh;
-//	}
-	
+	public static String getServiceIdByName(String serviceName) {
+		// TODO Auto-generated method stub
+		String serviceId = null;
+		
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("SELECT MADV FROM DICHVU WHERE TENDV = N'" + serviceName + "'")) {
+			if (resultSet.next()) {
+				serviceId = resultSet.getString("MADV");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return serviceId;
+	}
+
+
     
 }

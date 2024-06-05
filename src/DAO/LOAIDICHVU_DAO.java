@@ -7,11 +7,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class LOAIDICHVU_DAO {
 	
-	public static List<String> listServiceType(){
+	public static ObservableList<String> listServiceType(){
 
-		List<String> list = new ArrayList<>();		
+		ObservableList<String> list = FXCollections.observableArrayList();
 		try (Connection connection = DatabaseConnection.connectDb();
 				Statement statement = connection.createStatement()) {
 			String query = "SELECT * FROM LOAIDICHVU";
@@ -48,11 +51,27 @@ public class LOAIDICHVU_DAO {
 			String query = "SELECT * FROM LOAIDICHVU WHERE TENLOAIDV = N'" + name + "'";
 			ResultSet resultSet = statement.executeQuery(query);
 			if (resultSet.next()) {
-				 return maloaidv = resultSet.getInt("MALOAIDV");
+				maloaidv = resultSet.getInt("MALOAIDV");
 			}
 		} catch (SQLException e) {	
 			e.printStackTrace();
 		}
 		return maloaidv;
+	}
+	
+	public static ObservableList<String> listServiceName(int serviceType){
+		ObservableList<String> list = FXCollections.observableArrayList();
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+			String query = "SELECT * FROM DICHVU WHERE MALOAIDV = " + serviceType;
+			ResultSet resultSet = statement.executeQuery(query);			
+			while (resultSet.next()) {
+				list.add(resultSet.getString("TENDV"));
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return list;	
 	}
 }

@@ -21,6 +21,14 @@ public class DICHVU_BLL {
 		 return DICHVU_DAO.listService();
 	}
 	
+	public static ObservableList<String> listServiceName(int id) {
+		return DICHVU_DAO.listServiceName(id);
+	}
+	
+	public static String getServiceIdByName(String serviceName) {
+		return DICHVU_DAO.getServiceIdByName(serviceName);
+	}
+	
 	public static void addService(Map<String, String> data) throws SQLException {
 		String tenDV = data.get("tenDV");
 		int loaiDV = Integer.parseInt(data.get("loaiDV"));
@@ -58,8 +66,7 @@ public class DICHVU_BLL {
 		DICHVU_DAO.deleteService(dichVu);
 	}
 
-
-	//public static KHACHHANG getCustomerById(String customerId) throws SQLException {return KHACHHANG_DAO.getCustomerById(customerId);}
-	
-	//public static KHACHHANG getCustomerByCCCD(String customerId) throws SQLException {return KHACHHANG_DAO.getCustomerByCCCD(customerId);}
+	public static double getPriceService(String serviceName) {
+		return DICHVU_DAO.getPriceService(serviceName);
+	}
 }

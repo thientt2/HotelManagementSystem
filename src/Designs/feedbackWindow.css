@@ -1,0 +1,12 @@
+.pane {
+	-fx-background-color: white;
+	-fx-background-radius: 10;
+	-fx-border-color: lightgrey;
+	-fx-border-radius: 10px;
+}
+
+.header_text {
+	-fx-text-fill: #000;
+	-fx-font-family: "Inter-medium";
+	-fx-font-size: 15px;
+}

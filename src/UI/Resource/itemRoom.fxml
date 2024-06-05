@@ -18,7 +18,7 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="status_txt" contentDisplay="CENTER" layoutX="168.0" layoutY="7.199999999999999" prefHeight="30.0" prefWidth="64.0" text="TrangThai" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0">
+      <Label fx:id="status_txt" contentDisplay="CENTER" layoutX="166.0" layoutY="16.0" prefHeight="26.0" text="TrangThai">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
