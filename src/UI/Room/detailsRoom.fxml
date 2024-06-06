@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchor" prefHeight="505.0" prefWidth="553.0" style="-fx-background-color: transparent;" stylesheets="@../../Designs/customerDetails.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Room.detailsRoom_Controller">
+   <children>
+      <AnchorPane prefHeight="344.0" prefWidth="494.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="21.0" prefHeight="227.0" prefWidth="196.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="16.0">
+               <children>
+                  <AnchorPane layoutY="162.6" prefHeight="67.0" prefWidth="187.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.800000000000011" AnchorPane.topAnchor="162.6">
+                     <children>
+                        <Label layoutX="28.0" layoutY="14.0" text="Thời gian check-in" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="checkIn_txt" editable="false" layoutX="21.0" layoutY="34.0" prefHeight="40.0" prefWidth="191.0" promptText="Thời gian check-in" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="187.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0">
+                     <children>
+                        <Label layoutX="28.0" layoutY="14.0" text="Khách hàng đặt phòng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="customerName_txt" editable="false" layoutX="21.0" layoutY="34.0" prefHeight="40.0" prefWidth="191.0" promptText="Tên khách hàng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="67.0" prefWidth="80.0" AnchorPane.leftAnchor="0.0">
+                     <children>
+                        <Label layoutX="28.0" layoutY="14.0" text="Số phòng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="roomNumber_txt" editable="false" layoutX="21.0" layoutY="34.0" prefHeight="40.0" prefWidth="65.0" promptText="Số phòng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="88.19999999999999" layoutY="-1.4210854715202004E-14" prefHeight="67.0" prefWidth="98.0" AnchorPane.rightAnchor="9.400000000000006">
+                     <children>
+                        <Label layoutX="28.0" layoutY="14.0" text="Loại phòng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="roomType_txt" editable="false" layoutX="21.0" layoutY="34.0" prefHeight="40.0" prefWidth="111.0" promptText="Loại phòng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="1.0" layoutY="245.0" prefHeight="67.0" prefWidth="187.0">
+                     <children>
+                        <Label layoutX="28.0" layoutY="14.0" text="Ngày check-out" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="checkOut_txt" editable="false" layoutX="21.0" layoutY="34.0" prefHeight="40.0" prefWidth="191.0" promptText="Ngày check-out" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="1.0" layoutY="326.0" prefHeight="67.0" prefWidth="187.0">
+                     <children>
+                        <Label layoutX="28.0" layoutY="14.0" text="Thời gian còn lại" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="timeLeft_txt" editable="false" layoutX="21.0" layoutY="34.0" prefHeight="40.0" prefWidth="191.0" promptText="Thời gian còn lại" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button fx:id="cancel_btn" layoutX="235.0" layoutY="439.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" text="Đóng" />
+            <Label layoutX="226.0" layoutY="16.0" text="Thông tin các khách hàng sử dụng">
+               <font>
+                  <Font name="Inter Medium" size="14.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="220.0" layoutY="42.0" prefHeight="40.0" prefWidth="302.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;">
+               <children>
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="116.0" text="Tên khách hàng">
+                     <font>
+                        <Font name="Inter Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="180.0" layoutY="10.0" prefHeight="20.0" prefWidth="70.0" text="Ngày sinh">
+                     <font>
+                        <Font name="Inter Medium" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <VBox fx:id="detailCustomer_vbox" layoutX="220.0" layoutY="83.0" prefHeight="118.0" prefWidth="302.0" />
+            <Label layoutX="226.0" layoutY="205.0" text="Các dịch vụ đã đặt">
+               <font>
+                  <Font name="Inter Medium" size="14.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="220.0" layoutY="229.0" prefHeight="40.0" prefWidth="302.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;">
+               <children>
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="98.0" text="Tên dịch vụ">
+                     <font>
+                        <Font name="Inter Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="190.0" layoutY="10.0" prefHeight="20.0" prefWidth="70.0" text="Thành tiền">
+                     <font>
+                        <Font name="Inter Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="121.0" layoutY="10.0" prefHeight="20.0" prefWidth="80.0" text="Số lượng">
+                     <font>
+                        <Font name="Inter Medium" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <VBox fx:id="detailService_vbox" layoutX="220.0" layoutY="269.0" prefHeight="118.0" prefWidth="302.0" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

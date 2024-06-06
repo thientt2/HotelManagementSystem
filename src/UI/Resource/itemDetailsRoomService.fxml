@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="39.0" prefWidth="456.0" style="-fx-background-color: white; -fx-border-color: #E8F1FD; -fx-border-width: 2px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemDetailsRoomService_Controller">
+   <children>
+      <Label fx:id="serviceName_txt" layoutX="6.0" layoutY="11.0" prefHeight="18.0" text="TenDichVu">
+         <font>
+            <Font name="Inter Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="quanlity_txt" layoutX="180.0" layoutY="11.0" text="SL">
+         <font>
+            <Font name="Inter Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalPrice_txt" layoutX="220.0" layoutY="11.0" text="ThanhTien">
+         <font>
+            <Font name="Inter Medium" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

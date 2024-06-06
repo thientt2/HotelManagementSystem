@@ -10,8 +10,10 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import DTO.LOAIPHONG;
@@ -202,5 +204,39 @@ public class PHIEUDATPHONG_DAO {
 	    return dataList;        
 	}
 
+	public static Object[] getRoomDetails(String maPhong) {
+        Object[] rowData = null;
+        String query = "SELECT P.MAPHONG, LP.TENLOAI, KH.TENKH, PNP.TGNHAN, PDP.NGAYTRA, PNP.MAPNP " +
+                       "FROM PHONG P " +
+                       "JOIN LOAIPHONG LP ON P.MALOAIP = LP.MALOAIP " +
+                       "JOIN CHITIETPDP CTP ON LP.MALOAIP = CTP.MALOAIP " +
+                       "JOIN PHIEUDATPHONG PDP ON CTP.MAPDP = PDP.MAPDP " +
+                       "JOIN PHIEUNHANPHONG PNP ON PDP.MAPDP = PNP.MAPDP " +
+                       "JOIN KHACHHANG KH ON PDP.MAKH = KH.MAKH " +
+                       "WHERE P.MAPHONG = ? AND P.MATRANGTHAI = ?";
+
+        try (Connection connection = DatabaseConnection.connectDb();
+             PreparedStatement pst = connection.prepareStatement(query)) {
+             
+            pst.setString(1, maPhong);
+            pst.setInt(2, 3);
+            ResultSet resultSet = pst.executeQuery();
+            
+            if (resultSet.next()) {
+                rowData = new Object[6];
+                rowData[0] = resultSet.getString("MAPHONG");
+                rowData[1] = resultSet.getString("TENLOAI");
+                rowData[2] = resultSet.getString("TENKH");
+                rowData[3] = resultSet.getTimestamp("TGNHAN");
+                rowData[4] = resultSet.getDate("NGAYTRA");
+                rowData[5] = resultSet.getString("MAPNP");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return rowData != null ? rowData : new Object[0];
+    }
 	
 }

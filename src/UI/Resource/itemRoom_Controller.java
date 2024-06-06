@@ -70,6 +70,10 @@ public class itemRoom_Controller implements Initializable {
 	    	return control_btn;
 	    }
 	    
+	    public Button getCheckOutBtn() {
+	    	return checkOut_btn;
+	    }
+	    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

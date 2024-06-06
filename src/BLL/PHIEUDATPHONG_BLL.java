@@ -38,4 +38,8 @@ public class PHIEUDATPHONG_BLL {
 	public static ObservableList<Object[]> showBookRoom(int id) {
 		return PHIEUDATPHONG_DAO.showBookRoom(id);
 	}
+	
+	public static Object[] getRoomDetails(String maPhong) {
+		return PHIEUDATPHONG_DAO.getRoomDetails(maPhong);
+	}
 }

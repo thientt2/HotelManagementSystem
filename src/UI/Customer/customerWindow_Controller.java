@@ -34,9 +34,6 @@ public class customerWindow_Controller implements Initializable {
     
     @FXML
     private AnchorPane customerWindow_form;
-
-    @FXML
-    private VBox listCustomer_vbox;
     
     @FXML
     private Pagination pagination;
@@ -44,7 +41,6 @@ public class customerWindow_Controller implements Initializable {
     @FXML
     private TextField searchCustomer;
     
-
     
     private static final int ITEMS_PER_PAGE = 8;
     private ObservableList<KHACHHANG> listCustomer= FXCollections.observableArrayList();
@@ -167,7 +163,6 @@ public class customerWindow_Controller implements Initializable {
 
 	public void refreshCustomerList() {
         // Xóa tất cả các nút con trong VBox
-        listCustomer_vbox.getChildren().clear();
         listCustomer = KHACHHANG_BLL.listCustomer();
 		pagination.setPageCount(calculatePageCount());
 	    pagination.setPageFactory(this::createPage);	
@@ -215,7 +210,6 @@ public class customerWindow_Controller implements Initializable {
 	            }
 	        }
 	    }
-	    listCustomer_vbox.getChildren().clear();
 	    listCustomer = filteredList;
 	    pagination.setPageCount(calculatePageCount());
 	    pagination.setPageFactory(this::createPage);	

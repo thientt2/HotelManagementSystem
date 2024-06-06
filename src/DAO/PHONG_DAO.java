@@ -194,9 +194,39 @@ public class PHONG_DAO {
 	    return roomNumbers;
     }
     
-    public static void changeRoomStatus(String maPhong) {
+    public static void changeInUseRoomStatus(String maPhong) {
         String query = "UPDATE PHONG "
                 + "SET MATRANGTHAI = 3 "
+                + "WHERE MAPHONG = ?";
+        try (Connection connection = DatabaseConnection.connectDb();
+             PreparedStatement prepare = connection.prepareStatement(query)) {
+            // Set the parameter value for the placeholder (?)
+            prepare.setString(1, maPhong);
+            // Execute the update
+            prepare.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void changeNotCleanRoomStatus(String maPhong) {
+        String query = "UPDATE PHONG "
+                + "SET MATRANGTHAI = 2 "
+                + "WHERE MAPHONG = ?";
+        try (Connection connection = DatabaseConnection.connectDb();
+             PreparedStatement prepare = connection.prepareStatement(query)) {
+            // Set the parameter value for the placeholder (?)
+            prepare.setString(1, maPhong);
+            // Execute the update
+            prepare.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void changeEmptyRoomStatus(String maPhong) {
+        String query = "UPDATE PHONG "
+                + "SET MATRANGTHAI = 1 "
                 + "WHERE MAPHONG = ?";
         try (Connection connection = DatabaseConnection.connectDb();
              PreparedStatement prepare = connection.prepareStatement(query)) {

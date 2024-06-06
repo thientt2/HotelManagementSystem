@@ -50,7 +50,9 @@ public class PHONG_BLL {
 		 return PHONG_DAO.getRoomNumbersByTypeAndStatus(roomType, status);
 	 }
 	 
-	 public static void changeRoomStatus(String maPhong) { PHONG_DAO.changeRoomStatus(maPhong); }
+	 public static void changeInUseRoomStatus(String maPhong) { PHONG_DAO.changeInUseRoomStatus(maPhong); }
+	 public static void changeNotCleanRoomStatus(String maPhong) { PHONG_DAO.changeNotCleanRoomStatus(maPhong); }
+	 public static void changeEmptyRoomStatus(String maPhong) { PHONG_DAO.changeEmptyRoomStatus(maPhong); }
 	 
 	 public static ObservableList<Object[]> getRoomsByStatus(Set<String> statuses) {
 		 return PHONG_DAO.getRoomsByStatus(statuses);

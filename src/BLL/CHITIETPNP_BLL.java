@@ -11,7 +11,7 @@ public class CHITIETPNP_BLL {
 		CHITIETPNP_DAO.insertDetailRecieveRoom(maPNP,listOthers);
 	}
 	
-	public static String getTypeRoomId(String recieveRoomId) {
-		return CHITIETPNP_DAO.getCustomerId(recieveRoomId);
+	public static List<Object[]> getCustomerId(String receiveRoomId) {
+		return CHITIETPNP_DAO.getCustomerId(receiveRoomId);
 	}
 }

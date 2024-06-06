@@ -2,12 +2,15 @@ package UI.Room;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
 
 import BLL.PHIEUDATPHONG_BLL;
+import BLL.PHIEUNHANPHONG_BLL;
 import BLL.PHONG_BLL;
+import DAO.PHIEUNHANPHONG_DAO;
 import UI.MainWindow_Controller;
 import UI.Resource.itemRoom_Controller;
 import javafx.application.Platform;
@@ -183,6 +186,37 @@ public class roomWindow_Controller implements Initializable {
 	                        e.printStackTrace();
 	                    }
 	                });
+	                
+	                Button showDetail = controller.getDetailBtn();
+	                showDetail.setOnAction(event1 -> {
+	                    try {
+	                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+	                        Parent root = loaderDetail.load();
+	                        detailsRoom_Controller detailsController = loaderDetail.getController();
+	                        detailsController.setData(room[0].toString());
+	                        Scene scene = new Scene(root);
+	                        Stage stage = new Stage();
+	                        stage.initStyle(StageStyle.TRANSPARENT);
+	                        stage.setScene(scene);
+	                        stage.show();
+	                    } catch (IOException e) {
+	                        e.printStackTrace();
+	                    } catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+	                });
+	                
+	                Button checkOut = controller.getCheckOutBtn();
+	                checkOut.setOnAction(event1 -> {
+	                    
+	                });
+	                
+	                Button clean = controller.getControlBtn();
+	                clean.setOnAction(event1 -> {
+	                	//changeEmptyRoomStatus
+	                });
+	                            
 	                showRoom_vbox.getChildren().add(roomData);
 	            } catch (IOException e) {
 	                e.printStackTrace();
@@ -194,6 +228,10 @@ public class roomWindow_Controller implements Initializable {
     
 	public void showAllRoom() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(false);
+			inUse_btn.setDisable(false);
+			notClean_btn.setDisable(false);
+			
 			selectAllRoom_btn.setVisible(true);
 			select1Floor_btn.setVisible(false);
 			select2Floor_btn.setVisible(false);
@@ -234,23 +272,54 @@ public class roomWindow_Controller implements Initializable {
 					controller.setData(room[0],room[1],room[2]);
 					
 					Button bookService = controller.getBookServiceBtn();
-					bookService.setOnAction(event1 -> {
-						try {
-							FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-							Parent root = loaderServices.load();
-							servicesRoom_Controller servicesController = loaderServices.getController();
-							servicesController.setData(room);
-							Scene scene = new Scene(root);
-							Stage stage = new Stage();
-							stage.initStyle(StageStyle.TRANSPARENT);
-							stage.setScene(scene);
-							stage.show();
-						}catch (IOException e) {
+	                bookService.setOnAction(event1 -> {
+	                    try {
+	                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+	                        Parent root = loaderServices.load();
+	                        servicesRoom_Controller servicesController = loaderServices.getController();
+	                        servicesController.setData(room);
+	                        Scene scene = new Scene(root);
+	                        Stage stage = new Stage();
+	                        stage.initStyle(StageStyle.TRANSPARENT);
+	                        stage.setScene(scene);
+	                        stage.show();
+	                    } catch (IOException e) {
+	                        e.printStackTrace();
+	                    }
+	                });
+	                
+					
+	                Button showDetail = controller.getDetailBtn();
+	                showDetail.setOnAction(event1 -> {
+	                    try {
+	                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+	                        Parent root = loaderDetail.load();
+	                        detailsRoom_Controller detailsController = loaderDetail.getController();
+	                        detailsController.setData(room[0].toString());
+	                        Scene scene = new Scene(root);
+	                        Stage stage = new Stage();
+	                        stage.initStyle(StageStyle.TRANSPARENT);
+	                        stage.setScene(scene);
+	                        stage.show();
+	                    } catch (IOException e) {
+	                        e.printStackTrace();
+	                    } catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-					});
-					showRoom_vbox.getChildren().add(roomData);
+	                });
+	                
+	                Button checkOut = controller.getCheckOutBtn();
+	                checkOut.setOnAction(event1 -> {
+	                    
+	                });
+	                
+	                Button clean = controller.getControlBtn();
+	                clean.setOnAction(event1 -> {
+	                    
+	                });
+	                            
+	                showRoom_vbox.getChildren().add(roomData);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -262,6 +331,10 @@ public class roomWindow_Controller implements Initializable {
 	
 	public void showFirstFloor() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(true);
+			inUse_btn.setDisable(true);
+			notClean_btn.setDisable(true);
+			
 			selectAllRoom_btn.setVisible(false);
 			select1Floor_btn.setVisible(true);
 			select2Floor_btn.setVisible(false);
@@ -293,23 +366,53 @@ public class roomWindow_Controller implements Initializable {
 				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
-				bookService.setOnAction(event -> {
-					try {
-						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-						Parent root = loaderServices.load();
-						servicesRoom_Controller servicesController = loaderServices.getController();
-						servicesController.setData(room);
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-						stage.initStyle(StageStyle.TRANSPARENT);
-						stage.setScene(scene);
-						stage.show();
-					}catch (IOException e) {
+                bookService.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                        Parent root = loaderServices.load();
+                        servicesRoom_Controller servicesController = loaderServices.getController();
+                        servicesController.setData(room);
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                
+                Button showDetail = controller.getDetailBtn();
+                showDetail.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+                        Parent root = loaderDetail.load();
+                        detailsRoom_Controller detailsController = loaderDetail.getController();
+                        detailsController.setData(room[0].toString());
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				});
-				showRoom_vbox.getChildren().add(roomData);
+                });
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                    
+                });
+                
+                Button clean = controller.getControlBtn();
+                clean.setOnAction(event1 -> {
+                    
+                });
+                            
+                showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -320,6 +423,10 @@ public class roomWindow_Controller implements Initializable {
 	
 	public void showSecondFloor() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(true);
+			inUse_btn.setDisable(true);
+			notClean_btn.setDisable(true);
+			
 			selectAllRoom_btn.setVisible(false);
 			select1Floor_btn.setVisible(false);
 			select2Floor_btn.setVisible(true);
@@ -351,23 +458,53 @@ public class roomWindow_Controller implements Initializable {
 				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
-				bookService.setOnAction(event -> {
-					try {
-						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-						Parent root = loaderServices.load();
-						servicesRoom_Controller servicesController = loaderServices.getController();
-						servicesController.setData(room);
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-						stage.initStyle(StageStyle.TRANSPARENT);
-						stage.setScene(scene);
-						stage.show();
-					}catch (IOException e) {
+                bookService.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                        Parent root = loaderServices.load();
+                        servicesRoom_Controller servicesController = loaderServices.getController();
+                        servicesController.setData(room);
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                
+                Button showDetail = controller.getDetailBtn();
+                showDetail.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+                        Parent root = loaderDetail.load();
+                        detailsRoom_Controller detailsController = loaderDetail.getController();
+                        detailsController.setData(room[0].toString());
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				});
-				showRoom_vbox.getChildren().add(roomData);
+                });
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                    
+                });
+                
+                Button clean = controller.getControlBtn();
+                clean.setOnAction(event1 -> {
+                    
+                });
+                            
+                showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -378,6 +515,10 @@ public class roomWindow_Controller implements Initializable {
 
 	public void showThirdFloor() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(true);
+			inUse_btn.setDisable(true);
+			notClean_btn.setDisable(true);
+			
 			selectAllRoom_btn.setVisible(false);
 			select1Floor_btn.setVisible(false);
 			select2Floor_btn.setVisible(false);
@@ -408,23 +549,53 @@ public class roomWindow_Controller implements Initializable {
 				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
-				bookService.setOnAction(event -> {
-					try {
-						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-						Parent root = loaderServices.load();
-						servicesRoom_Controller servicesController = loaderServices.getController();
-						servicesController.setData(room);
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-						stage.initStyle(StageStyle.TRANSPARENT);
-						stage.setScene(scene);
-						stage.show();
-					}catch (IOException e) {
+                bookService.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                        Parent root = loaderServices.load();
+                        servicesRoom_Controller servicesController = loaderServices.getController();
+                        servicesController.setData(room);
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                
+                Button showDetail = controller.getDetailBtn();
+                showDetail.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+                        Parent root = loaderDetail.load();
+                        detailsRoom_Controller detailsController = loaderDetail.getController();
+                        detailsController.setData(room[0].toString());
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				});
-				showRoom_vbox.getChildren().add(roomData);
+                });
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                    
+                });
+                
+                Button clean = controller.getControlBtn();
+                clean.setOnAction(event1 -> {
+                    
+                });
+                            
+                showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -435,6 +606,10 @@ public class roomWindow_Controller implements Initializable {
 	
 	public void showFourthFloor() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(true);
+			inUse_btn.setDisable(true);
+			notClean_btn.setDisable(true);
+			
 			selectAllRoom_btn.setVisible(false);
 			select1Floor_btn.setVisible(false);
 			select2Floor_btn.setVisible(false);
@@ -465,25 +640,53 @@ public class roomWindow_Controller implements Initializable {
 				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
-				bookService.setOnAction(event -> {
-					try {
-						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-						Parent root = loaderServices.load();
-						servicesRoom_Controller servicesController = loaderServices.getController();
-						servicesController.setData(room);
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-						stage.initStyle(StageStyle.TRANSPARENT);
-						stage.initModality(Modality.WINDOW_MODAL);
-						stage.initOwner(select4Floor_btn.getScene().getWindow());
-						stage.setScene(scene);
-						stage.show();
-					}catch (IOException e) {
+                bookService.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                        Parent root = loaderServices.load();
+                        servicesRoom_Controller servicesController = loaderServices.getController();
+                        servicesController.setData(room);
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                
+                Button showDetail = controller.getDetailBtn();
+                showDetail.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+                        Parent root = loaderDetail.load();
+                        detailsRoom_Controller detailsController = loaderDetail.getController();
+                        detailsController.setData(room[0].toString());
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				});
-				showRoom_vbox.getChildren().add(roomData);
+                });
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                    
+                });
+                
+                Button clean = controller.getControlBtn();
+                clean.setOnAction(event1 -> {
+                    
+                });
+                            
+                showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -494,6 +697,10 @@ public class roomWindow_Controller implements Initializable {
 
 	public void showFifthFloor() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(true);
+			inUse_btn.setDisable(true);
+			notClean_btn.setDisable(true);
+			
 			selectAllRoom_btn.setVisible(false);
 			select1Floor_btn.setVisible(false);
 			select2Floor_btn.setVisible(false);
@@ -524,23 +731,53 @@ public class roomWindow_Controller implements Initializable {
 				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
-				bookService.setOnAction(event -> {
-					try {
-						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-						Parent root = loaderServices.load();
-						servicesRoom_Controller servicesController = loaderServices.getController();
-						servicesController.setData(room);
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-						stage.initStyle(StageStyle.TRANSPARENT);
-						stage.setScene(scene);
-						stage.show();
-					}catch (IOException e) {
+                bookService.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                        Parent root = loaderServices.load();
+                        servicesRoom_Controller servicesController = loaderServices.getController();
+                        servicesController.setData(room);
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                
+                Button showDetail = controller.getDetailBtn();
+                showDetail.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+                        Parent root = loaderDetail.load();
+                        detailsRoom_Controller detailsController = loaderDetail.getController();
+                        detailsController.setData(room[0].toString());
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				});
-				showRoom_vbox.getChildren().add(roomData);
+                });
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                    
+                });
+                
+                Button clean = controller.getControlBtn();
+                clean.setOnAction(event1 -> {
+                    
+                });
+                            
+                showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -551,6 +788,10 @@ public class roomWindow_Controller implements Initializable {
 	
 	public void showSixthFloor() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(true);
+			inUse_btn.setDisable(true);
+			notClean_btn.setDisable(true);
+			
 			selectAllRoom_btn.setVisible(false);
 			select1Floor_btn.setVisible(false);
 			select2Floor_btn.setVisible(false);
@@ -581,23 +822,53 @@ public class roomWindow_Controller implements Initializable {
 				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
-				bookService.setOnAction(event -> {
-					try {
-						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-						Parent root = loaderServices.load();
-						servicesRoom_Controller servicesController = loaderServices.getController();
-						servicesController.setData(room);
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-						stage.setScene(scene);
-						stage.initStyle(StageStyle.TRANSPARENT);
-						stage.show();
-					}catch (IOException e) {
+                bookService.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                        Parent root = loaderServices.load();
+                        servicesRoom_Controller servicesController = loaderServices.getController();
+                        servicesController.setData(room);
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                
+                Button showDetail = controller.getDetailBtn();
+                showDetail.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+                        Parent root = loaderDetail.load();
+                        detailsRoom_Controller detailsController = loaderDetail.getController();
+                        detailsController.setData(room[0].toString());
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				});
-				showRoom_vbox.getChildren().add(roomData);
+                });
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                    
+                });
+                
+                Button clean = controller.getControlBtn();
+                clean.setOnAction(event1 -> {
+                    
+                });
+                            
+                showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -608,6 +879,10 @@ public class roomWindow_Controller implements Initializable {
 	
 	public void showSeventhFloor() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(true);
+			inUse_btn.setDisable(true);
+			notClean_btn.setDisable(true);
+			
 			selectAllRoom_btn.setVisible(false);
 			select1Floor_btn.setVisible(false);
 			select2Floor_btn.setVisible(false);
@@ -638,23 +913,53 @@ public class roomWindow_Controller implements Initializable {
 				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
-				bookService.setOnAction(event -> {
-					try {
-						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-						Parent root = loaderServices.load();
-						servicesRoom_Controller servicesController = loaderServices.getController();
-						servicesController.setData(room);
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-						stage.initStyle(StageStyle.TRANSPARENT);
-						stage.setScene(scene);
-						stage.show();
-					}catch (IOException e) {
+                bookService.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                        Parent root = loaderServices.load();
+                        servicesRoom_Controller servicesController = loaderServices.getController();
+                        servicesController.setData(room);
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                
+                Button showDetail = controller.getDetailBtn();
+                showDetail.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+                        Parent root = loaderDetail.load();
+                        detailsRoom_Controller detailsController = loaderDetail.getController();
+                        detailsController.setData(room[0].toString());
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				});
-				showRoom_vbox.getChildren().add(roomData);
+                });
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                    
+                });
+                
+                Button clean = controller.getControlBtn();
+                clean.setOnAction(event1 -> {
+                    
+                });
+                            
+                showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -665,6 +970,10 @@ public class roomWindow_Controller implements Initializable {
 	
 	public void showEighthFloor() {
 		Platform.runLater(() -> {
+			empty_btn.setDisable(true);
+			inUse_btn.setDisable(true);
+			notClean_btn.setDisable(true);
+			
 			selectAllRoom_btn.setVisible(false);
 			select1Floor_btn.setVisible(false);
 			select2Floor_btn.setVisible(false);
@@ -695,24 +1004,53 @@ public class roomWindow_Controller implements Initializable {
 				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
-				bookService.setOnAction(event -> {
-					try {
-						FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-						Parent root = loaderServices.load();
-						servicesRoom_Controller servicesController = loaderServices.getController();
-						servicesController.setData(room);
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-						stage.initStyle(StageStyle.TRANSPARENT);
-						stage.setScene(scene);
-						stage.show();
-					}catch (IOException e) {
+                bookService.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                        Parent root = loaderServices.load();
+                        servicesRoom_Controller servicesController = loaderServices.getController();
+                        servicesController.setData(room);
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                
+                Button showDetail = controller.getDetailBtn();
+                showDetail.setOnAction(event1 -> {
+                    try {
+                        FXMLLoader loaderDetail = new FXMLLoader(getClass().getResource("/UI/Room/detailsRoom.fxml"));
+                        Parent root = loaderDetail.load();
+                        detailsRoom_Controller detailsController = loaderDetail.getController();
+                        detailsController.setData(room[0].toString());
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				});
-
-				showRoom_vbox.getChildren().add(roomData);
+                });
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                    
+                });
+                
+                Button clean = controller.getControlBtn();
+                clean.setOnAction(event1 -> {
+                    
+                });
+                            
+                showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
