@@ -20,33 +20,44 @@
 }
 
 .cancel-btn{
-	-fx-background-color: transparent;
-	-fx-text-fill: #2b2f38;
-	-fx-font-size: 14px;
-	-fx-font-family: "Inter Medium";
-	-fx-border-color: #858D9D;
-	-fx-border-radius: 8px;
-	-fx-border-width: 1px;
-	-fx-cursor:hand;
+	-fx-border-radius: 10;
+	-fx-border-color: grey;
+	-fx-background-radius: 10;
+	-fx-background-color:  transparent;
+	-fx-font-size: 13px;
+	-fx-alignment: center;
+	-fx-cursor: hand;
 }
 
 .cancel-btn:hover{
-	-fx-background-color: #f8a9a3;
-	-fx-text-fill: #fff;
-	-fx-background-radius:8px;
-	-fx-border-color: #f8a9a3;
-	-fx-border-radius:8px;
-	-fx-border-width:1px;
+	-fx-border-radius: 10;
+	-fx-background-radius: 10;
+	-fx-background-color:  #BC3636;
+	-fx-font-size: 13px;
+	-fx-text-fill: white;
+	-fx-alignment: center;
 }
 
 .add-btn{
 	-fx-background-color: #1570EF;
-	-fx-background-radius:8px;
+	-fx-background-radius:10px;
 	-fx-text-fill:#fff;
 	-fx-font-size:14px;
 	-fx-font-family:"Inter Medium";
 	-fx-border-color: #1570EF;
-	-fx-border-radius:8px;
+	-fx-border-radius:10px;
+	-fx-border-width:1px;
+	-fx-cursor: hand;
+}
+
+.add-btn:hover{
+	-fx-background-color: #152FEF;
+	-fx-background-radius:10px;
+	-fx-text-fill:#fff;
+	-fx-font-size:14px;
+	-fx-font-family:"Inter Medium";
+	-fx-border-color: #152FEF;
+	-fx-border-radius:10px;
 	-fx-border-width:1px;
 }
 

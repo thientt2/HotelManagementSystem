@@ -153,7 +153,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="41.0">
                                                    <children>
-                                                      <Label fx:id="areaLabel1" prefHeight="18.0" prefWidth="17.0" styleClass="normal-text" text="15" />
+                                                      <Label fx:id="areaLabel1" prefHeight="18.0" prefWidth="22.0" styleClass="normal-text" text="15" />
                                                       <Label styleClass="normal-text" text="m²" />
                                                    </children>
                                                 </HBox>
@@ -229,7 +229,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="42.0">
                                                    <children>
-                                                      <Label fx:id="areaLabel2" prefHeight="18.0" prefWidth="17.0" styleClass="normal-text" text="25" />
+                                                      <Label fx:id="areaLabel2" prefHeight="18.0" prefWidth="22.0" styleClass="normal-text" text="25" />
                                                       <Label styleClass="normal-text" text="m²" />
                                                    </children>
                                                 </HBox>
@@ -309,7 +309,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="41.0">
                                                    <children>
-                                                      <Label fx:id="areaLabel3" prefHeight="18.0" prefWidth="17.0" style="-fx-font-size: 12px;" styleClass="normal-text" text="27" />
+                                                      <Label fx:id="areaLabel3" prefHeight="18.0" prefWidth="22.0" style="-fx-font-size: 12px;" styleClass="normal-text" text="27" />
                                                       <Label styleClass="normal-text" text="m²" />
                                                    </children>
                                                 </HBox>
@@ -385,7 +385,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="43.0">
                                                    <children>
-                                                      <Label fx:id="areaLabel4" prefHeight="18.0" prefWidth="17.0" styleClass="normal-text" text="30" />
+                                                      <Label fx:id="areaLabel4" prefHeight="18.0" prefWidth="22.0" styleClass="normal-text" text="30" />
                                                       <Label styleClass="normal-text" text="m²" />
                                                    </children>
                                                 </HBox>

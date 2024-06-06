@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="541.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Room.roomWindow_Controller">
    <children>
       <HBox prefHeight="541.0" prefWidth="897.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
          <children>
-            <Pane prefHeight="506.0" prefWidth="130.0" style="-fx-border-color: lightgrey; -fx-border-radius: 10px;">
+            <Pane prefHeight="474.0" prefWidth="130.0" style="-fx-border-color: lightgrey; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-background-color: white;">
                <children>
                   <VBox alignment="CENTER" layoutX="-6.0" layoutY="14.0" prefHeight="488.0" prefWidth="142.0" stylesheets="@../../Designs/RoomWindow.css">
                      <children>
@@ -103,6 +106,13 @@
                      </children>
                   </VBox>
                </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </Pane>
             <VBox prefHeight="517.0" prefWidth="707.0">
                <children>
@@ -112,21 +122,30 @@
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button fx:id="notClean_btn" mnemonicParsing="false" onAction="#handleNotCleanButtonAction" prefHeight="37.0" prefWidth="132.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" text="Chưa dọn dẹp">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button fx:id="inUse_btn" mnemonicParsing="false" onAction="#handleInUseButtonAction" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" text="Đang được sử dụng">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Region prefHeight="71.0" prefWidth="211.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
-                  <AnchorPane prefHeight="51.0" prefWidth="660.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0 0; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" styleClass="header-pain">
+                  <AnchorPane prefHeight="51.0" prefWidth="660.0" style="-fx-background-color: #D8E6F0; -fx-background-radius: 10px 10px 0 0; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" styleClass="header-pain">
                      <children>
                         <Label layoutX="14.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Mã phòng">
                            <font>
@@ -166,6 +185,13 @@
                      </content>
                   </ScrollPane>
                </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </VBox>
          </children>
       </HBox>

@@ -3,64 +3,80 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="418.0" prefWidth="659.0" style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DashBoard.roomTypeDetails_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="665.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DashBoard.roomTypeDetails_Controller">
    <children>
-      <VBox alignment="CENTER" prefHeight="418.0" prefWidth="659.0">
+      <AnchorPane layoutX="2.0" layoutY="3.0" prefHeight="418.0" prefWidth="659.0" style="-fx-border-radius: 8px;" styleClass="white-bg" stylesheets="@../../Designs/bookRoom.css">
          <children>
-            <Pane prefHeight="48.0" prefWidth="659.0">
+            <VBox alignment="CENTER" prefHeight="418.0" prefWidth="659.0">
                <children>
-                  <Label fx:id="typeName_txt" layoutX="280.0" layoutY="-4.0" style="-fx-font-size: 25px;" text="Standard" />
-               </children>
-            </Pane>
-            <Pane prefHeight="260.0" prefWidth="558.0">
-               <children>
-                  <ScrollPane layoutX="37.0" layoutY="42.0" prefHeight="218.0" prefWidth="586.0">
-                     <content>
-                        <VBox fx:id="detailTypeRoom_vbox" prefHeight="220.0" prefWidth="570.0" />
-                     </content>
-                  </ScrollPane>
-                  <AnchorPane layoutX="37.0" prefHeight="40.0" prefWidth="586.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;">
+                  <Pane prefHeight="48.0" prefWidth="659.0">
                      <children>
-                        <Label layoutX="14.0" layoutY="10.0" text="Mã phiếu">
-                          <font>
-                             <Font name="Inter Medium" size="14.0" />
-                          </font>
-                       </Label>
-                       <Label layoutX="87.0" layoutY="10.0" text="Số lượng">
-                          <font>
-                             <Font name="Inter Medium" size="14.0" />
-                          </font>
-                       </Label>
-                       <Label layoutX="168.0" layoutY="10.0" text="Tên khách hàng">
-                          <font>
-                             <Font name="Inter Medium" size="14.0" />
-                          </font>
-                       </Label>
-                       <Label layoutX="343.0" layoutY="10.0" text="Ngày nhận phòng">
-                          <font>
-                             <Font name="Inter Medium" size="14.0" />
-                          </font>
-                       </Label>
-                       <Label layoutX="474.0" layoutY="10.0" text="Ngày trả phòng">
-                          <font>
-                             <Font name="Inter Medium" size="14.0" />
-                          </font>
-                       </Label>
+                        <Label fx:id="typeName_txt" layoutX="280.0" layoutY="-4.0" style="-fx-font-size: 25px;" text="Standard" />
                      </children>
-                  </AnchorPane>
+                  </Pane>
+                  <Pane prefHeight="260.0" prefWidth="558.0">
+                     <children>
+                        <ScrollPane layoutX="37.0" layoutY="42.0" prefHeight="218.0" prefWidth="586.0">
+                           <content>
+                              <VBox fx:id="detailTypeRoom_vbox" prefHeight="220.0" prefWidth="570.0" />
+                           </content>
+                        </ScrollPane>
+                        <AnchorPane layoutX="37.0" prefHeight="40.0" prefWidth="586.0" style="-fx-background-color: #D8E6F0; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="10.0" text="Mã phiếu">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="87.0" layoutY="10.0" text="Số lượng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="168.0" layoutY="10.0" text="Tên khách hàng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="343.0" layoutY="10.0" text="Ngày nhận phòng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="474.0" layoutY="10.0" text="Ngày trả phòng">
+                                 <font>
+                                    <Font name="Inter Medium" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.6509804129600525" green="0.4431372582912445" blue="0.4431372582912445" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Pane>
+                  <Pane prefHeight="68.0" prefWidth="659.0">
+                     <children>
+                        <Button fx:id="cancel_btn" layoutX="521.0" layoutY="21.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Đóng" />
+                     </children>
+                  </Pane>
                </children>
-            </Pane>
-            <Pane prefHeight="68.0" prefWidth="659.0">
-               <children>
-                  <Button fx:id="cancel_btn" layoutX="537.0" layoutY="22.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Đóng" />
-               </children>
-            </Pane>
+            </VBox>
          </children>
-      </VBox>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

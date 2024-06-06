@@ -6,11 +6,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="541.0" prefWidth="897.0" stylesheets="@../../Designs/StaffWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Staff.staffWindow_Controller">
@@ -19,15 +21,29 @@
          <children>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="898.0" spacing="20.0" AnchorPane.bottomAnchor="481.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Button fx:id="addStaff_btn" mnemonicParsing="false" onAction="#addStaff" prefHeight="30.0" prefWidth="155.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD; -fx-font-weight: bold;" text="Thêm nhân viên" textFill="#0f50aa">
+                  <Button fx:id="addStaff_btn" mnemonicParsing="false" onAction="#addStaff" prefHeight="30.0" prefWidth="155.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #1570EF; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13;" text="Thêm nhân viên" textFill="#0f50aa">
                      <font>
                         <Font name="Inter SemiBold" size="13.0" />
                      </font>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7568627595901489" green="0.572549045085907" blue="0.572549045085907" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </Button>
-                  <Button fx:id="addUser_btn" mnemonicParsing="false" onAction="#createUser" prefHeight="30.0" prefWidth="114.0" style="-fx-border-color: #1570ef; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: #E8F1FD; -fx-font-weight: bold;" text="Cấp tài khoản" textFill="#0f50aa">
+                  <Button fx:id="addUser_btn" mnemonicParsing="false" onAction="#createUser" prefHeight="30.0" prefWidth="114.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #1570EF; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 13px;" text="Cấp tài khoản" textFill="#0f50aa">
                      <font>
                         <Font name="Inter SemiBold" size="13.0" />
                      </font>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7568627595901489" green="0.572549045085907" blue="0.572549045085907" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </Button>
                   <Region prefHeight="60.0" prefWidth="166.0" HBox.hgrow="ALWAYS" />
                   <Pane prefHeight="60.0" prefWidth="231.0">
