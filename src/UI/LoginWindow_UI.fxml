@@ -62,11 +62,11 @@
       		            <FontAwesomeIcon glyphName="EYE" text="" />
 		        </graphic>
 		    </Button>
-            <Label layoutX="36.0" layoutY="160.0" style="-fx-font-size: 15px;" styleClass="big-text" text="Tên đăng nhập:">
+            <Label layoutX="36.0" layoutY="160.0" style="-fx-font-size: 14px;" styleClass="big-text" text="Tên đăng nhập:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label layoutX="36.0" layoutY="227.0" style="-fx-font-size: 15px;" styleClass="big-text" text="Mật khẩu:" />
+            <Label layoutX="36.0" layoutY="227.0" style="-fx-font-size: 14px;" styleClass="big-text" text="Mật khẩu:" />
          </children>
       </AnchorPane>
    </children>
