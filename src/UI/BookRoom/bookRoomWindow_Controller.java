@@ -235,21 +235,19 @@ public class bookRoomWindow_Controller implements Initializable{
             });
             
             Stage stage = new Stage();        
-            stage.initStyle(StageStyle.TRANSPARENT);        
+            stage.initStyle(StageStyle.TRANSPARENT);    
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(bookRoom_btn.getScene().getWindow());
             Scene scene = new Scene(root);
             
             root.setOnMouseDragged((MouseEvent event) -> {
                 stage.setX(event.getScreenX() - x);            
                 stage.setY(event.getScreenY() - y);       
             });
-//            bookRoom_btn.setDisable(true);
-//
-//            stage.setOnHidden(e -> bookRoom_btn.setDisable(false));
-//			stage.initOwner(bookRoom_btn.getScene().getWindow());
-//            stage.setScene(scene);     
-//            stage.show();
+
+
             stage.setScene(scene);     
-    		stage.showAndWait();
+    		stage.show();
             
     		refreshBookRoomList();
 		} catch(Exception e) {

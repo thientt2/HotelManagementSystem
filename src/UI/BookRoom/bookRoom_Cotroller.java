@@ -167,7 +167,7 @@ public class bookRoom_Cotroller implements Initializable {
     
 	public void addDetailBill() {
 	    String selectedRoomType = roomType_cb.getValue().toString();
-	    double selectedPrice = Double.parseDouble(price_txt.getText());
+	    double selectedPrice = Double.parseDouble(price_txt.getText().replace(".", ""));
 	    int selectedQuantity = Integer.parseInt(quantity_cb.getValue().toString());
 	    double selectedTotal = selectedPrice * selectedQuantity;
 	    long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue()) + 1;
@@ -224,7 +224,7 @@ public class bookRoom_Cotroller implements Initializable {
 		data.put("ngayTra", checkout_datepicker.getValue().toString());
 		String totalPriceString = totalPrice_txt.getText();
 		// 
-		totalPriceString = totalPriceString.replace(",", ".");
+		totalPriceString = totalPriceString.replace(".", "");
 		// Chuyển đổi chuỗi thành số
 		double totalPrice = Double.parseDouble(totalPriceString);
 
@@ -294,8 +294,17 @@ public class bookRoom_Cotroller implements Initializable {
 		    roomPrice += Double.parseDouble(item[3].toString());
 	    }	    	   
 		double totalPrice = roomPrice * numberOfDays;
-		String formattedTotalPrice = String.format("%.2f", totalPrice); 
-		totalPrice_txt.setText(formattedTotalPrice);
+//		String formattedTotalPrice = String.format("%.2f", totalPrice); 
+		
+		String formattedPrice = String.format("%.0f", totalPrice);
+    	StringBuilder sb = new StringBuilder(formattedPrice);
+    	int length = sb.length();
+    	for (int i = length - 3; i > 0; i -= 3) {
+    	    sb.insert(i, ".");
+    	}
+    	//sb2.append(" VND");
+    	String finalPrice = sb.toString();
+		totalPrice_txt.setText(finalPrice);
 	}
 	
     public void close() {

@@ -62,18 +62,7 @@ public class servicesRoom_Controller implements Initializable{
     private Label totalPrice_txt;
     
     public void setData(Object[] item) {
-		roomNumber_txt.setText(item[0].toString());
-		
-		Map<String, Object> data = new HashMap<String, Object>();
-		String maPNP = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(item[0].toString());
-		String maNVNhap = SystemMessage.getMANV();
-		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		String ngayTao = formatter.format(now);
-		data.put("maPNP", maPNP);
-		data.put("maNVNhap", maNVNhap);
-		data.put("ngayTao", ngayTao);
-		HOADONDICHVU_BLL.insertBillService(data);
+		roomNumber_txt.setText(item[0].toString());		
 		showListServiceType();
 		showListQuantity();
     }
@@ -154,11 +143,26 @@ public class servicesRoom_Controller implements Initializable{
 	}
 	
 	public void addDetailBill() {
-		Map<String, Object> data = new HashMap<String, Object>();
-		double totalPrice = 0;
+		Map<String, Object> dataBillService = new HashMap<String, Object>();
+		String maPNP = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber_txt.getText());
+		String maNVNhap = SystemMessage.getMANV();
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		String ngayTao = formatter.format(now);
+		double totalPrice = listDetailService.stream()
+			    .mapToDouble(item -> Double.parseDouble(item[4].toString()))
+			    .sum();
+		totalPrice_txt.setText(String.valueOf(totalPrice));
+
+		
+		dataBillService.put("maPNP", maPNP);
+		dataBillService.put("maNVNhap", maNVNhap);
+		dataBillService.put("ngayTao", ngayTao);
+		dataBillService.put("giaDV", totalPrice);	
+		HOADONDICHVU_BLL.insertBillService(dataBillService);
+		
 		HOADONDICHVU billService = HOADONDICHVU_BLL.getLastBill();
-		for(Object[] item : listDetailService) {
-			totalPrice += Double.parseDouble(item[4].toString());
+		for(Object[] item : listDetailService) {			
 			String serviceId = DICHVU_BLL.getServiceIdByName(item[1].toString());
 			Map<String, Object> billDetailService = new HashMap<String, Object>();
 			billDetailService.put("maHD", billService.getMAHD());
@@ -168,11 +172,6 @@ public class servicesRoom_Controller implements Initializable{
 			billDetailService.put("tongTien", item[4]);
 			CHITIETHOADON_BLL.insertBillDetailService(billDetailService);			
 		}
-		
-		data.put("maHD", billService.getMAHD());
-		data.put("giaDV", totalPrice);
-		HOADONDICHVU_BLL.updateBillService(data);
-		
 		AlertMessage alert = new AlertMessage();
 		alert.successMessage("Đặt dịch vụ thành công!");
 		close();

@@ -14,7 +14,7 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="price_txt" layoutX="87.0" layoutY="10.0" prefHeight="20.0" prefWidth="56.0" text="DonGia">
+      <Label fx:id="price_txt" layoutX="87.0" layoutY="10.0" prefHeight="20.0" text="DonGia">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>

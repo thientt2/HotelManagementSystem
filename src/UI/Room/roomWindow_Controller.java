@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -473,6 +474,8 @@ public class roomWindow_Controller implements Initializable {
 						Scene scene = new Scene(root);
 						Stage stage = new Stage();
 						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(select4Floor_btn.getScene().getWindow());
 						stage.setScene(scene);
 						stage.show();
 					}catch (IOException e) {
