@@ -17,9 +17,6 @@ public class itemRoom_Controller implements Initializable {
 	    private Button control_btn;
 
 	    @FXML
-	    private Label countDown_txt;
-
-	    @FXML
 	    private Button detail_btn;
 
 	    @FXML
@@ -34,11 +31,10 @@ public class itemRoom_Controller implements Initializable {
 	    @FXML
 	    private Label status_txt;
 
-	    public void setData(Object roomId, Object roomtype, Object status, Object countDown) {
+	    public void setData(Object roomId, Object roomtype, Object status) {
 		    roomId_txt.setText(String.valueOf(roomId));
 		    roomtype_txt.setText(String.valueOf(roomtype));
 		    status_txt.setText(String.valueOf(status));
-		    countDown_txt.setText(String.valueOf(countDown));
 		    
 		    if(status.equals("Trống")) {
 		    	status_txt.setStyle("-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2; -fx-background-radius: 20; -fx-padding: 5 10");

@@ -164,7 +164,7 @@ public class roomWindow_Controller implements Initializable {
 	                FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 	                Parent roomData = loader.load();
 	                itemRoom_Controller controller = loader.getController();
-	                controller.setData(room[0], room[1], room[2], 0);
+	                controller.setData(room[0], room[1], room[2]);
 
 	                Button bookService = controller.getBookServiceBtn();
 	                bookService.setOnAction(event1 -> {
@@ -230,7 +230,7 @@ public class roomWindow_Controller implements Initializable {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 					Parent roomData = loader.load();
 					itemRoom_Controller controller = loader.getController();
-					controller.setData(room[0],room[1],room[2],0);
+					controller.setData(room[0],room[1],room[2]);
 					
 					Button bookService = controller.getBookServiceBtn();
 					bookService.setOnAction(event1 -> {
@@ -289,7 +289,7 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
+				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
 				bookService.setOnAction(event -> {
@@ -347,7 +347,7 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
+				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
 				bookService.setOnAction(event -> {
@@ -404,7 +404,7 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
+				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
 				bookService.setOnAction(event -> {
@@ -461,7 +461,7 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
+				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
 				bookService.setOnAction(event -> {
@@ -518,7 +518,7 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
+				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
 				bookService.setOnAction(event -> {
@@ -575,7 +575,7 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
+				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
 				bookService.setOnAction(event -> {
@@ -632,7 +632,7 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
+				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
 				bookService.setOnAction(event -> {
@@ -689,7 +689,7 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2],0);
+				controller.setData(room[0],room[1],room[2]);
 				
 				Button bookService = controller.getBookServiceBtn();
 				bookService.setOnAction(event -> {

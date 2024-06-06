@@ -133,32 +133,27 @@
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="89.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Loại phòng">
+                        <Label layoutX="100.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Loại phòng">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="172.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Trạng thái">
+                        <Label layoutX="200.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Trạng thái">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="337.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Xử lý">
+                        <Label layoutX="397.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Xử lý">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="435.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Dịch vụ">
+                        <Label layoutX="498.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Dịch vụ">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="544.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Chi tiết">
-                           <font>
-                              <Font name="Inter Medium" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="622.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Countdown">
+                        <Label layoutX="607.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Chi tiết">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
