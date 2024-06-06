@@ -42,7 +42,7 @@
                      <effect>
                         <DropShadow>
                            <color>
-                              <Color red="0.4000000059604645" green="0.29019609093666077" blue="0.29019609093666077" />
+                              <Color red="0.6509804129600525" green="0.4431372582912445" blue="0.4431372582912445" />
                            </color>
                         </DropShadow>
                      </effect>
@@ -51,31 +51,26 @@
                      <children>
                         <VBox prefHeight="459.0" prefWidth="438.0">
                            <children>
-                              <AnchorPane prefHeight="30.0" prefWidth="200.0" styleClass="header-pane" stylesheets="@../../Designs/ParamWindow.css">
+                              <AnchorPane prefHeight="52.0" prefWidth="438.0" styleClass="header-pane" stylesheets="@../../Designs/ParamWindow.css">
                                  <children>
-                                    <Label layoutX="161.0" layoutY="4.0" prefHeight="20.0" prefWidth="57.0" style="-fx-font-weight: bold;" text="Loại DV">
+                                    <Label layoutX="161.0" layoutY="6.0" prefHeight="20.0" prefWidth="57.0" style="-fx-font-weight: bold;" text="Loại DV">
                                        <font>
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="18.0" layoutY="4.0" prefHeight="20.0" prefWidth="58.0" style="-fx-font-weight: bold;" text="Tên DV">
+                                    <Label layoutX="20.0" layoutY="6.0" prefHeight="20.0" prefWidth="58.0" style="-fx-font-weight: bold;" text="Tên DV">
                                        <font>
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="261.0" layoutY="4.0" prefHeight="20.0" prefWidth="54.0" style="-fx-font-weight: bold;" text="Đơn giá">
-                                       <font>
-                                          <Font name="Inter Medium" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="343.0" layoutY="4.0" prefHeight="20.0" prefWidth="69.0" style="-fx-font-weight: bold;" text="Chỉnh sửa">
+                                    <Label layoutX="276.0" layoutY="6.0" prefHeight="20.0" prefWidth="54.0" style="-fx-font-weight: bold;" text="Đơn giá">
                                        <font>
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <ScrollPane prefHeight="444.0" prefWidth="438.0" style="-fx-border-color: white;">
+                              <ScrollPane prefHeight="425.0" prefWidth="438.0" style="-fx-border-color: white;">
                                  <content>
                                     <VBox fx:id="listService_vbox" prefHeight="404.0" prefWidth="419.0" />
                                  </content>
@@ -84,15 +79,22 @@
                            <effect>
                               <DropShadow>
                                  <color>
-                                    <Color red="0.4000000059604645" green="0.29019609093666077" blue="0.29019609093666077" />
+                                    <Color red="0.6509804129600525" green="0.4431372582912445" blue="0.4431372582912445" />
                                  </color>
                               </DropShadow>
                            </effect>
                         </VBox>
                         <Pane prefHeight="85.0" prefWidth="366.0">
                            <children>
-                              <Button fx:id="addService_btn" layoutX="317.0" layoutY="26.0" mnemonicParsing="false" onAction="#addService" prefHeight="37.0" prefWidth="107.0" style="-fx-font-weight: bold; -fx-background-color: #1570EF; -fx-text-fill: white; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Thêm dịch vụ" />
+                              <Button fx:id="addService_btn" layoutX="317.0" layoutY="13.0" mnemonicParsing="false" onAction="#addService" prefHeight="37.0" prefWidth="107.0" style="-fx-font-weight: bold; -fx-background-color: #1570EF; -fx-text-fill: white; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Thêm dịch vụ" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.75789475440979" green="0.5726315975189209" blue="0.5726315975189209" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </Pane>
                      </children>
                   </VBox>

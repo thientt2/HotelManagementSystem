@@ -95,7 +95,7 @@ public class bookRoomWindow_Controller implements Initializable{
 //        showListBookRoom(PHIEUDATPHONG_BLL.listBookRoom()); 
 //    }
     
-    private static final int ITEMS_PER_PAGE = 8;
+    private static final int ITEMS_PER_PAGE = 6;
     private ObservableList<Object[]> listBookRoom= PHIEUDATPHONG_BLL.listBookRoomWithReceiveCount();
     
     private int calculatePageCount() {

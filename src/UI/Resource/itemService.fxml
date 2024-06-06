@@ -19,7 +19,7 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="price_txt" layoutX="260.0" layoutY="7.0" text="GiaDV" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="price_txt" layoutX="254.0" layoutY="8.0" text="GiaDV" AnchorPane.bottomAnchor="7.199999999999996" AnchorPane.topAnchor="8.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>

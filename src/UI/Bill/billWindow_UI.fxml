@@ -59,7 +59,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Pagination fx:id="pagination" layoutX="30.0" layoutY="39.0" pageCount="50" pickOnBounds="false" prefHeight="431.0" prefWidth="837.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                  <Pagination fx:id="pagination" layoutX="30.0" layoutY="40.8" pageCount="50" pickOnBounds="false" prefHeight="435.0" prefWidth="837.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="41.0" />
                </children>
             </AnchorPane>
          </children>
