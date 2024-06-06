@@ -50,25 +50,6 @@
 	-fx-alignment: center;
 }
 
-.close-btn{
-	-fx-border-radius: 10;
-	-fx-border-color: grey;
-	-fx-background-radius: 10;
-	-fx-background-color:  transparent;
-	-fx-font-size: 13px;
-	-fx-alignment: center;
-	-fx-cursor: hand;
-}
-
-.close-btn:hover{
-	-fx-border-radius: 10;
-	-fx-background-radius: 10;
-	-fx-background-color:  #BC3636;
-	-fx-font-size: 13px;
-	-fx-text-fill: white;
-	-fx-alignment: center;
-}
-
 .header-pane {
 	-fx-background-color: #D8E6F0;
 	-fx-background-radius: 10px 10px 0px 0px;

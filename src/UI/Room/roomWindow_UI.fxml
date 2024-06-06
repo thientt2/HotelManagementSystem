@@ -145,53 +145,46 @@
                         <Region prefHeight="71.0" prefWidth="211.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
-                  <AnchorPane prefHeight="51.0" prefWidth="660.0" style="-fx-background-color: #D8E6F0; -fx-background-radius: 10px 10px 0 0; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" styleClass="header-pain">
+                  <AnchorPane prefHeight="44.0" prefWidth="707.0" style="-fx-background-color: #D8E6F0; -fx-background-radius: 10px 10px 0 0; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;" styleClass="header-pain">
                      <children>
-                        <Label layoutX="14.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Mã phòng">
+                        <Label layoutX="14.0" layoutY="12.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Mã phòng">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="100.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Loại phòng">
+                        <Label layoutX="100.0" layoutY="12.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Loại phòng">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="200.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Trạng thái">
+                        <Label layoutX="200.0" layoutY="12.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Trạng thái">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="397.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Xử lý">
+                        <Label layoutX="397.0" layoutY="12.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Xử lý">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="498.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Dịch vụ">
+                        <Label layoutX="498.0" layoutY="12.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Dịch vụ">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="607.0" layoutY="17.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Chi tiết">
+                        <Label layoutX="607.0" layoutY="12.0" styleClass="header-text" stylesheets="@../../Designs/RoomWindow.css" text="Chi tiết">
                            <font>
                               <Font name="Inter Medium" size="13.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <ScrollPane prefHeight="407.0" prefWidth="610.0">
+                  <ScrollPane prefHeight="418.0" prefWidth="707.0">
                      <content>
                         <VBox fx:id="showRoom_vbox" prefHeight="406.0" prefWidth="692.0" />
                      </content>
                   </ScrollPane>
                </children>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
-                     </color>
-                  </DropShadow>
-               </effect>
             </VBox>
          </children>
       </HBox>

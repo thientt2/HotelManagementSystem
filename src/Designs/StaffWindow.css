@@ -23,6 +23,27 @@
 	-fx-border-radius: 5px 5px 0px 0px;	
 }
 
+.unselected-btn{
+	-fx-border-radius: 5;
+	-fx-background-radius: 5;
+	-fx-background-color:  #1570EF;
+	-fx-font-weight: bold;
+	-fx-font-size: 13px;
+	-fx-text-fill: white;
+	-fx-alignment: center;
+	-fx-cursor: hand;
+}
+
+.unselected-btn:hover{
+	-fx-border-radius: 5;
+	-fx-background-radius: 5;
+	-fx-background-color:  #152FEF;
+	-fx-font-weight: bold;
+	-fx-font-size: 13px;
+	-fx-text-fill: white;
+	-fx-alignment: center;
+}
+
 .pagination > .pagination-control > .control-box {
     -fx-spacing: 0;
 }

@@ -109,7 +109,7 @@
             </AnchorPane>
             <AnchorPane layoutX="401.0" layoutY="359.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="40.0">
                <children>
-                  <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="close-btn" stylesheets="@../../Designs/CustomerWindow.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <Button fx:id="edit_btn" layoutX="88.0" mnemonicParsing="false" onAction="#editCustomer" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" text="Sửa" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>

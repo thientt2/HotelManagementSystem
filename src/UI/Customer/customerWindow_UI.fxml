@@ -3,7 +3,6 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TextField?>
@@ -34,7 +33,6 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <CheckBox mnemonicParsing="false" style="-fx-font-weight: bold;" text="Khách hàng gần đây" />
                   <Region prefHeight="60.0" prefWidth="128.0" HBox.hgrow="ALWAYS" />
                   <Pane prefHeight="60.0" prefWidth="231.0">
                      <children>

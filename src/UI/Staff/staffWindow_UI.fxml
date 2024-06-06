@@ -21,7 +21,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="898.0" spacing="20.0" AnchorPane.bottomAnchor="481.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Button fx:id="addStaff_btn" mnemonicParsing="false" onAction="#addStaff" prefHeight="30.0" prefWidth="155.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #1570EF; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13;" text="Thêm nhân viên" textFill="#0f50aa">
+                  <Button fx:id="addStaff_btn" mnemonicParsing="false" onAction="#addStaff" prefHeight="30.0" prefWidth="155.0" styleClass="unselected-btn" stylesheets="@../../Designs/StaffWindow.css" text="Thêm nhân viên" textFill="#0f50aa">
                      <font>
                         <Font name="Inter SemiBold" size="13.0" />
                      </font>
@@ -33,7 +33,7 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <Button fx:id="addUser_btn" mnemonicParsing="false" onAction="#createUser" prefHeight="30.0" prefWidth="114.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #1570EF; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 13px;" text="Cấp tài khoản" textFill="#0f50aa">
+                  <Button fx:id="addUser_btn" mnemonicParsing="false" onAction="#createUser" prefHeight="30.0" prefWidth="114.0" styleClass="unselected-btn" stylesheets="@../../Designs/StaffWindow.css" text="Cấp tài khoản" textFill="#0f50aa">
                      <font>
                         <Font name="Inter SemiBold" size="13.0" />
                      </font>
