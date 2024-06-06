@@ -171,7 +171,7 @@
                               <Font name="Bauhaus 93" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER_RIGHT" layoutX="591.0" layoutY="15.0" prefHeight="38.0" prefWidth="305.0" spacing="20.0" AnchorPane.rightAnchor="0.1999999999999318" AnchorPane.topAnchor="15.0">
+                        <HBox alignment="CENTER_RIGHT" layoutX="591.0" layoutY="15.0" prefHeight="48.0" prefWidth="291.0" spacing="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <FontAwesomeIcon fill="#a48d75" glyphName="BELL" size="20" stroke="#0d0202" strokeWidth="0.0" />
                               <Label fx:id="username_label" styleClass="pane-text" stylesheets="@../Designs/MainWindow.css" text="Trần Trung Thông" />
