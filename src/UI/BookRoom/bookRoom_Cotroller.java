@@ -100,17 +100,17 @@ public class bookRoom_Cotroller implements Initializable {
                 String selectedValue = newVal.toString();
                 for(LOAIPHONG loai : roomTypes) {
                     if(loai.getTENLOAI().equals(selectedValue)) {
-                        price_txt.setText(String.valueOf(loai.getGIA()));
-//                        Double gia = Double.parseDouble(String.valueOf(loai.getGIA()));
-//                    	String formattedPrice = String.format("%.0f", gia);
-//                    	StringBuilder sb = new StringBuilder(formattedPrice);
-//                    	int length = sb.length();
-//                    	for (int i = length - 3; i > 0; i -= 3) {
-//                    	    sb.insert(i, ".");
-//                    	}
-//                    	//sb2.append(" VND");
-//                    	String finalPrice = sb.toString();
-//                    	price_txt.setText(finalPrice);
+                        //price_txt.setText(String.valueOf(loai.getGIA()));
+                        Double gia = Double.parseDouble(String.valueOf(loai.getGIA()));
+                    	String formattedPrice = String.format("%.0f", gia);
+                    	StringBuilder sb = new StringBuilder(formattedPrice);
+                    	int length = sb.length();
+                    	for (int i = length - 3; i > 0; i -= 3) {
+                    	    sb.insert(i, ".");
+                    	}
+                    	//sb2.append(" VND");
+                    	String finalPrice = sb.toString();
+                    	price_txt.setText(finalPrice);
                     	
                         showQuantity(loai.getMALOAI());
                         break;
@@ -149,6 +149,7 @@ public class bookRoom_Cotroller implements Initializable {
     
     public void showQuantity(int roomTypeId) {
         ObservableList<Integer> list = FXCollections.observableArrayList();
+        //quantity_cb.getItems().clear();
         try {
             LocalDate checkinDate = checkin_datepicker.getValue();
             LocalDate checkoutDate = checkout_datepicker.getValue();

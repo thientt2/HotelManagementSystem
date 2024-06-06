@@ -101,8 +101,6 @@ public class PHONG_DAO {
     }
     
     public static void addRoom(Map<String, String> data) {
-    	
-
     	String maphong = data.get("maphong");
     	int maloai = Integer.parseInt(data.get("maloai"));
     	int matrangthai = Integer.parseInt(data.get("matrangthai"));

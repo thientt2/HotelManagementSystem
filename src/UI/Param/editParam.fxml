@@ -8,20 +8,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Param.editParam_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="276.0" prefWidth="330.0" stylesheets="@../../Designs/addDichVu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Param.editParam_Controller">
    <children>
       <BorderPane prefHeight="277.0" prefWidth="328.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <AnchorPane prefHeight="30.0" prefWidth="200.0" styleClass="blue-bg" stylesheets="@../Designs/editThamSo.css" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="31.0" layoutY="12.0" text="Sửa tham số" textFill="WHITE" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="5.0">
-                     <font>
-                        <Font name="Inter Medium" size="17.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </top>
          <center>
             <StackPane prefHeight="277.0" prefWidth="328.0" BorderPane.alignment="CENTER">
                <children>

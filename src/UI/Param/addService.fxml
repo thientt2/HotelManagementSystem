@@ -10,24 +10,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="358.0" prefWidth="352.0" styleClass="radius" stylesheets="@../Designs/addDichVu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Param.addService_Controller">
+<AnchorPane prefHeight="340.0" prefWidth="352.0" styleClass="radius" stylesheets="@../../Designs/addDichVu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Param.addService_Controller">
    <children>
       <BorderPane prefHeight="452.0" prefWidth="617.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <AnchorPane prefHeight="30.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane prefHeight="30.0" prefWidth="617.0" styleClass="blue-bg" stylesheets="@../Designs/editThamSo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label text="Thêm dịch vụ" textFill="WHITE" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="5.0">
-                           <font>
-                              <Font name="Inter Medium" size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </top>
          <center>
             <StackPane prefHeight="352.0" prefWidth="328.0" stylesheets="@../Designs/addDichVu.css" BorderPane.alignment="CENTER">
                <children>

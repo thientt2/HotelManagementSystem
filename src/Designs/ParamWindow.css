@@ -1,9 +1,9 @@
 
-.header-pain {
-	-fx-background-color: #F7F9FC;
+.header-pane {
+	-fx-background-color: #D8E6F0;
 	-fx-background-radius: 10px 10px 0px 0px;
 	-fx-border-color: #E8F1FD;
-	-fx-border-radius: 10px 10px 0px 0px;	
+	-fx-border-radius: 5px 5px 0px 0px;	
 }
 
 .button {
@@ -19,11 +19,12 @@
 
 .button-design{
 	-fx-background-color: #E8F1FD;
-	-fx-background-radius: 100;
+	-fx-background-radius: 10;
 	-fx-border-color: 1570EF;
 	-fx-border-radius:100;
 	-fx-font-size: 12px;
 }
+
 
 .selected-button {
 	-fx-pref-width: 120;
