@@ -7,44 +7,44 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="30.0" prefWidth="875.0" style="-fx-background-color: #ffff; -fx-border-width: 1px 0px 1px 0px; -fx-border-color: #E8F1FD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBookRoom_Controller">
+<AnchorPane prefHeight="30.0" prefWidth="838.0" style="-fx-background-color: #ffff; -fx-border-width: 1px; -fx-border-color: #E8F1FD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBookRoom_Controller">
    <children>
-      <Label fx:id="id_txt" layoutX="10.0" layoutY="8.0" text="MaPhieu" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="id_txt" layoutX="10.0" layoutY="8.0" text="MaPhieu" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="8.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="customerName_txt" layoutX="80.0" layoutY="8.0" text="TenKhachHang" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="customerName_txt" layoutX="91.0" layoutY="9.0" text="TenKhachHang" AnchorPane.bottomAnchor="8.599999999999994" AnchorPane.topAnchor="9.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="roomType_txt" layoutX="280.0" layoutY="7.0" text="LoaiPhong" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="roomType_txt" layoutX="263.0" layoutY="10.0" text="LoaiPhong" AnchorPane.bottomAnchor="10.799999999999997" AnchorPane.topAnchor="10.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="arrivalDay_txt" layoutX="380.0" layoutY="7.0" text="NgayNhan" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="arrivalDay_txt" layoutX="362.0" layoutY="11.0" text="NgayNhan" AnchorPane.bottomAnchor="11.399999999999999" AnchorPane.topAnchor="11.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="departmentDay_txt" layoutX="510.0" layoutY="7.0" text="NgayTra" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="departmentDay_txt" layoutX="495.0" layoutY="10.0" text="NgayTra" AnchorPane.bottomAnchor="12.399999999999999" AnchorPane.topAnchor="10.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="status_txt" layoutX="630.0" layoutY="7.0" text="TrangThai" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="7.0">
+      <Label fx:id="status_txt" layoutX="608.0" layoutY="9.0" text="TrangThai" AnchorPane.bottomAnchor="10.199999999999996" AnchorPane.topAnchor="9.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="checkIn_btn" layoutX="720.0" layoutY="7.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="83.0" style="-fx-background-color: #E8F1FD; -fx-background-radius: 100; -fx-border-color: #1570EF; -fx-border-radius: 100;" text="Check-in" textFill="#0f50aa" AnchorPane.bottomAnchor="6.0" AnchorPane.topAnchor="6.0">
+      <Button fx:id="checkIn_btn" layoutX="703.0" layoutY="8.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="83.0" style="-fx-background-color: #E8F1FD; -fx-background-radius: 100; -fx-border-color: #1570EF; -fx-border-radius: 100;" text="Check-in" textFill="#0f50aa" AnchorPane.bottomAnchor="9.599999999999994" AnchorPane.topAnchor="8.0">
          <font>
             <Font name="Inter Medium" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="contextMenu_btn" layoutX="833.0" layoutY="8.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="7.0" AnchorPane.topAnchor="8.0">
+      <Button fx:id="contextMenu_btn" layoutX="796.0" layoutY="8.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="9.599999999999994" AnchorPane.topAnchor="8.0">
          <graphic>
             <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                <image>

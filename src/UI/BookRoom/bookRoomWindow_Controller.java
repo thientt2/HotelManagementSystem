@@ -32,6 +32,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Pagination;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -57,6 +58,9 @@ public class bookRoomWindow_Controller implements Initializable{
 
     @FXML
     private Button today_btn;
+    
+    @FXML
+    private Pagination pagination;
     
     @FXML
     private void handleNotYetButtonAction(ActionEvent event) {
@@ -91,15 +95,22 @@ public class bookRoomWindow_Controller implements Initializable{
 //        showListBookRoom(PHIEUDATPHONG_BLL.listBookRoom()); 
 //    }
     
+    private static final int ITEMS_PER_PAGE = 8;
+    private ObservableList<Object[]> listBookRoom= PHIEUDATPHONG_BLL.listBookRoomWithReceiveCount();
+    
+    private int calculatePageCount() {
+        return (int) Math.ceil((double) listBookRoom.size() / ITEMS_PER_PAGE);
+    }
+    
     private ContextMenu contextMenu = new ContextMenu();
     
     private double x = 0;
 	private double y = 0;
 	
 	public void refreshBookRoomList() {
-        listBookRoom_vbox.getChildren().clear();
-        ObservableList<Object[]> listBookRoom = PHIEUDATPHONG_BLL.listBookRoomWithReceiveCount();
-        showListBookRoom(listBookRoom);
+        listBookRoom = PHIEUDATPHONG_BLL.listBookRoomWithReceiveCount();
+		pagination.setPageCount(calculatePageCount());
+	    pagination.setPageFactory(this::createPage);
     }
     
 	private Set<String> selectedStatuses = new HashSet<>();
@@ -115,111 +126,110 @@ public class bookRoomWindow_Controller implements Initializable{
 	    filterBookRoomList();
 	}
 	
-	public void showListBookRoom(ObservableList<Object[]> list) {
-		//listBookRoom_vbox.getChildren().clear();
-	    for (Object[] item : list) {
-	    	int receivedRoom =(int) item[7]; 
-	        int allBookRoom = (int) item[6]; 
-	    	int soLuong = allBookRoom - receivedRoom;
-	        for (int i = 0; i < soLuong; i++) {
-	            try {
-	                FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemBookRoom.fxml"));
-	                Parent bookRoomDataPane = loader.load();
-	                itemBookRoom_Controller controller = loader.getController();
-	                controller.setBookRoom(item);
+	private VBox createPage(int pageIndex) {	    
+		VBox page = new VBox();
+	    int startIndex = pageIndex * ITEMS_PER_PAGE;
+	    int endIndex = Math.min(startIndex + ITEMS_PER_PAGE, listBookRoom.size());
 
-	                Button checkIn_btn = controller.getCheckIn_btn();
-	                Button contextMenu_btn = controller.getContextMenu_btn();
+	    for (int i = startIndex; i < endIndex; i++) {
+	        Object[] bookRoom = listBookRoom.get(i);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemBookRoom.fxml"));
+                Parent bookRoomDataPane = loader.load();
+                itemBookRoom_Controller controller = loader.getController();
+                controller.setBookRoom(bookRoom);
 
-	                checkIn_btn.setOnAction(eventCheckIn -> {
-	                    try {
-	                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/UI/BookRoom/receiveRoom.fxml"));
-	                        Parent root = loader1.load();
+                Button checkIn_btn = controller.getCheckIn_btn();
+                Button contextMenu_btn = controller.getContextMenu_btn();
 
-	                        root.setOnMousePressed((MouseEvent event1) -> {
-	                            x = event1.getSceneX();
-	                            y = event1.getSceneY();
-	                        });
+                checkIn_btn.setOnAction(eventCheckIn -> {
+                    try {
+                        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/UI/BookRoom/receiveRoom.fxml"));
+                        Parent root = loader1.load();
 
-	                        Stage stage = new Stage();
-	                        stage.initStyle(StageStyle.TRANSPARENT);
-	                        stage.initModality(Modality.WINDOW_MODAL);
-	                        stage.initOwner(checkIn_btn.getScene().getWindow());
-	                        Scene scene = new Scene(root);
+                        root.setOnMousePressed((MouseEvent event1) -> {
+                            x = event1.getSceneX();
+                            y = event1.getSceneY();
+                        });
 
-	                        receiveRoom_Controller receiveRoom = loader1.getController();
-	                        receiveRoom.setData(item);
-	                        
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+                        stage.initModality(Modality.WINDOW_MODAL);
+                        stage.initOwner(checkIn_btn.getScene().getWindow());
+                        Scene scene = new Scene(root);
 
-	                        root.setOnMouseDragged((MouseEvent event1) -> {
-	                            stage.setX(event1.getScreenX() - x);
-	                            stage.setY(event1.getScreenY() - y);
-	                        });
+                        receiveRoom_Controller receiveRoom = loader1.getController();
+                        receiveRoom.setData(bookRoom);
+                        
 
-	                        stage.setScene(scene);
-	                        stage.showAndWait();
+                        root.setOnMouseDragged((MouseEvent event1) -> {
+                            stage.setX(event1.getScreenX() - x);
+                            stage.setY(event1.getScreenY() - y);
+                        });
 
-	                        refreshBookRoomList();
-	                    } catch (IOException e) {
-	                        e.printStackTrace();
-	                    }
-	                });
+                        stage.setScene(scene);
+                        stage.showAndWait();
 
-	                contextMenu_btn.setOnMouseClicked(event -> {
-	                    if (contextMenu.isShowing()) {
-	                        contextMenu.hide();
-	                        return;
-	                    }
-	                    contextMenu.getItems().clear();
+                        refreshBookRoomList();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
 
-	                    MenuItem billItem = new MenuItem("Xem hóa đơn");
-	                    MenuItem countdownItem = new MenuItem("Thời gian còn lại");
-	                    MenuItem deleteItem = new MenuItem("Xóa");
+                contextMenu_btn.setOnMouseClicked(event -> {
+                    if (contextMenu.isShowing()) {
+                        contextMenu.hide();
+                        return;
+                    }
+                    contextMenu.getItems().clear();
 
-	                    billItem.setOnAction(eventEditStaff -> {
-	                        try {
-	                            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
-	                            Parent root = loader2.load();
+                    MenuItem billItem = new MenuItem("Xem hóa đơn");
+                    MenuItem countdownItem = new MenuItem("Thời gian còn lại");
+                    MenuItem deleteItem = new MenuItem("Xóa");
 
-	                            root.setOnMousePressed((MouseEvent event1) -> {
-	                                x = event1.getSceneX();
-	                                y = event1.getSceneY();
-	                            });
+                    billItem.setOnAction(eventEditStaff -> {
+                        try {
+                            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
+                            Parent root = loader2.load();
 
-	                            Stage stage = new Stage();
-	                            stage.initStyle(StageStyle.TRANSPARENT);
-	                            Scene scene = new Scene(root);
+                            root.setOnMousePressed((MouseEvent event1) -> {
+                                x = event1.getSceneX();
+                                y = event1.getSceneY();
+                            });
 
-	                            billBookRoom_Controller billBookRoom = loader2.getController();
+                            Stage stage = new Stage();
+                            stage.initStyle(StageStyle.TRANSPARENT);
+                            Scene scene = new Scene(root);
 
-	                            root.setOnMouseDragged((MouseEvent event1) -> {
-	                                stage.setX(event1.getScreenX() - x);
-	                                stage.setY(event1.getScreenY() - y);
-	                            });
+                            root.setOnMouseDragged((MouseEvent event1) -> {
+                                stage.setX(event1.getScreenX() - x);
+                                stage.setY(event1.getScreenY() - y);
+                            });
 
-	                            stage.setScene(scene);
-	                            stage.showAndWait();
+                            stage.setScene(scene);
+                            stage.showAndWait();
 
-	                            refreshBookRoomList();
-	                        } catch (IOException e) {
-	                            e.printStackTrace();
-	                        }
-	                    });
+                            refreshBookRoomList();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
 
-	                    deleteItem.setOnAction(deleteEvent -> {
-	                        // Delete item logic here
-	                    });
+                    deleteItem.setOnAction(deleteEvent -> {
+                        // Delete item logic here
+                    });
 
-	                    contextMenu.getItems().addAll(billItem, countdownItem, deleteItem);
-	                    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
-	                });
+                    contextMenu.getItems().addAll(billItem, countdownItem, deleteItem);
+                    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
+                });
 
-	                Platform.runLater(() -> listBookRoom_vbox.getChildren().add(bookRoomDataPane));
-	            } catch (IOException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	    }
+                page.getChildren().add(bookRoomDataPane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+	    
+	    return page; // Return an empty VBox as a placeholder
 	}
 
 	
@@ -345,16 +355,18 @@ public class bookRoomWindow_Controller implements Initializable{
 	            filteredList.add(item);
 	        }
 	    }
-	    listBookRoom_vbox.getChildren().clear();
-	    showListBookRoom(filteredList);
+	    listBookRoom = filteredList;
+		pagination.setPageCount(calculatePageCount());
+	    pagination.setPageFactory(this::createPage);
 	}
 	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		ObservableList<Object[]> listBookRoom = PHIEUDATPHONG_BLL.listBookRoomWithReceiveCount();
-		showListBookRoom(listBookRoom);
+		listBookRoom = PHIEUDATPHONG_BLL.listBookRoomWithReceiveCount();
+		pagination.setPageCount(calculatePageCount());
+	    pagination.setPageFactory(this::createPage);
 	}
 
 }
