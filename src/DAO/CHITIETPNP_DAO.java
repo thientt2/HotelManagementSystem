@@ -23,6 +23,9 @@ public class CHITIETPNP_DAO {
 				prepare.setString(1, maPNP);
 				prepare.setString(2, customer);				
 				prepare.executeUpdate();
+				System.out.println("Thêm chi tiết phiếu nhận phòng thành công");
+				System.out.println("Mã phiếu nhận phòng: " + maPNP);
+				System.out.println("Mã khách hàng: " + customer);
 				System.out.println(maPNP + " " + customer);
 			} catch (SQLException e) {
 				e.printStackTrace();

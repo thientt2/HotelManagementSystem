@@ -31,7 +31,7 @@ public class PHIEUNHANPHONG_DAO {
 	
 	public static String getLastReceiveRoom() {
 		String lastReceiveRoom = null;		
-		String query = "SELECT TOP 1 MAPNP FROM PHIEUNHANPHONG ORDER BY MAPDP DESC";
+		String query = "SELECT TOP 1 MAPNP FROM PHIEUNHANPHONG ORDER BY MAPNP DESC";
 		try(Connection connection = DatabaseConnection.connectDb();
 			PreparedStatement prepare = connection.prepareStatement(query);) {
 			ResultSet resultSet = prepare.executeQuery();

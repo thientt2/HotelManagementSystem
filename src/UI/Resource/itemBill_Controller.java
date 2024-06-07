@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import BLL.PHIEUNHANPHONG_BLL;
 import BLL.PHONG_BLL;
 import DTO.PHONG;
 import UI.Bill.billService_Controller;
@@ -84,7 +85,8 @@ public class itemBill_Controller implements Initializable{
 		checkoutDate_txt.setText(checkout.toString());
 		//Đoạn này để set bấm được nút thanh toán, thanh toán chỉ hiện khi phòng đang dọn dẹp
 		PHONG currentRoom = PHONG_BLL.getRoom(room_txt.getText());
-		if(currentRoom.getMATRANGTHAI() == 2) {
+		String currentReceiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(room_txt.getText());
+		if(currentRoom.getMATRANGTHAI() == 2 && currentReceiveRoom != null) {
 			pay_btn.setDisable(false);
 		}else {
 			pay_btn.setDisable(true);

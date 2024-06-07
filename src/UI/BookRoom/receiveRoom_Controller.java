@@ -176,7 +176,8 @@ public class receiveRoom_Controller implements Initializable {
 		}else {			
 			PHONG_BLL.changeInUseRoomStatus(roomNumber_cb.getValue());
 			String maPNP = PHIEUNHANPHONG_BLL.getLastReceiveRoom();
-			
+			System.out.println(maPNP);
+			System.out.println(listOrtherCustomer.toString());
 			CHITIETPNP_BLL.insertDetailRecieveRoom(maPNP, listOrtherCustomer);
 			alert.successMessage("Nhận phòng " + roomNumber_cb.getValue() + " thành công!");
 			
