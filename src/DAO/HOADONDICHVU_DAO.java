@@ -62,7 +62,7 @@ public class HOADONDICHVU_DAO {
 		String maPNP = data.get("maPNP").toString();
 		String maNVNhap = data.get("maNVNhap").toString();
 		String ngayTao = data.get("ngayTao").toString();
-		double tienDichVu = (double) data.get("giaDV");
+		int tienDichVu = (int) data.get("giaDV");
 		int phuThu = 0;
 		int trangThai = 0;
 		double tongTien = tienDichVu + phuThu;
