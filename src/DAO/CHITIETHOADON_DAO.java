@@ -44,13 +44,9 @@ public class CHITIETHOADON_DAO {
 				Object[] rowData = new Object[5];
 				rowData[0] = resultSet.getString("TENLOAIDV");
 				rowData[1] = resultSet.getString("TENDV");
-				double price = resultSet.getDouble("GIA");
-				String formattedPrice = String.format("%.0f", price);
-				rowData[2] = formattedPrice;
-				rowData[3] = resultSet.getString("SOLUONG");
-				double total = resultSet.getDouble("TONGTIEN");
-				String formattedTotal = String.format("%.0f", total);
-				rowData[4] = formattedTotal;
+				rowData[2] = resultSet.getInt("GIA");				
+				rowData[3] = resultSet.getString("SOLUONG");				
+				rowData[4] = resultSet.getInt("TONGTIEN");
 				list.add(rowData);
 			}
 		} catch (SQLException e) {

@@ -178,5 +178,28 @@ public class LOAIPHONG_DAO {
 	        e.printStackTrace();
 	    }
 	}
+
+	public static LOAIPHONG getRoomTypeByRoomNumber(String roomNumber) {
+		// TODO Auto-generated method stub
+		LOAIPHONG data = null;
+		try (Connection connection = DatabaseConnection.connectDb();
+				Statement statement = connection.createStatement()) {
+			String query = "SELECT LP.MALOAIP,LP.TENLOAI,LP.GIA,LP.DIENTICH,LP.LOAIGIUONG,LP.NGUOITOIDA "
+					+ "FROM PHONG P, LOAIPHONG LP "
+					+ "WHERE P.MALOAIP = LP.MALOAIP AND MAPHONG =  '" + roomNumber + "'";
+			ResultSet resultSet = statement.executeQuery(query);
+			if (resultSet.next()) {
+				 data = new LOAIPHONG(resultSet.getInt("MALOAIP")
+						 ,resultSet.getString("TENLOAI")
+						 ,resultSet.getString("LOAIGIUONG")
+						 ,resultSet.getDouble("GIA")
+						 ,resultSet.getInt("NGUOITOIDA")
+						 ,resultSet.getDouble("DIENTICH"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
 	
 }

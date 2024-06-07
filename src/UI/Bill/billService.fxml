@@ -104,42 +104,39 @@
                   <Button fx:id="printBill_btn" layoutX="88.0" mnemonicParsing="false" onAction="#printBill" prefHeight="40.0" prefWidth="92.0" styleClass="add-btn" text="In hóa đơn" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
-            <VBox layoutX="20.0" layoutY="274.0" prefHeight="177.0" prefWidth="456.0">
+            <VBox layoutX="20.0" layoutY="274.0" prefHeight="177.0" prefWidth="456.0" spacing="10.0">
                <children>
-                  <VBox fx:id="detailSevice_vbox" prefHeight="39.0" prefWidth="456.0">
+                  <AnchorPane prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;">
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F7F9FC; -fx-background-radius: 10px 10px 0px 0px; -fx-border-color: #E8F1FD; -fx-border-radius: 10px 10px 0px 0px;">
-                           <children>
-                              <Label layoutX="6.0" layoutY="10.0" prefHeight="18.0" prefWidth="94.0" text="Tên dịch vụ">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="139.0" layoutY="10.0" text="Đơn giá">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="244.0" layoutY="10.0" text="Số lượng">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="337.0" layoutY="10.0" text="Thành tiền">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </AnchorPane>
+                        <Label layoutX="6.0" layoutY="10.0" prefHeight="18.0" prefWidth="94.0" text="Tên dịch vụ">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="139.0" layoutY="10.0" text="Đơn giá">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="244.0" layoutY="10.0" text="Số lượng">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="337.0" layoutY="10.0" text="Thành tiền">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </VBox>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <VBox fx:id="detailSevice_vbox" prefHeight="39.0" prefWidth="456.0" />
                   <Line endX="280.0" startX="-175.0" />
                   <Pane prefHeight="108.0" prefWidth="456.0">
                      <children>

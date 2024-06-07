@@ -158,4 +158,28 @@ public class HOADONDICHVU_DAO {
 			e.printStackTrace();
 		}
 	}
+
+	public static HOADONDICHVU getBillServiceByBillId(String billId) {
+		// TODO Auto-generated method stub
+		HOADONDICHVU billService = null;
+		String query = "SELECT * FROM HOADONDICHVU WHERE MAHD = '" + billId + "'";
+		try(Connection connection = DatabaseConnection.connectDb();
+			PreparedStatement prepare = connection.prepareStatement(query);) {			
+			ResultSet resultSet = prepare.executeQuery();
+			while(resultSet.next()) {
+				billService = new HOADONDICHVU(resultSet.getString("MAHD"),
+						resultSet.getString("MAPNP"),
+						resultSet.getString("NVNHAP"),
+						resultSet.getString("NGAYTAO"),
+						resultSet.getInt("GIADICHVU"),
+						resultSet.getInt("PHUTHU"),
+						resultSet.getInt("TRANGTHAI"),
+						resultSet.getInt("TONGTIEN"));
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return billService;
+	}
 }

@@ -32,6 +32,10 @@ public class LOAIPHONG_BLL {
 	public static String getRoomTypeName(int id) { 
 		return LOAIPHONG_DAO.getRoomTypeName(id);
 	}
+	
+	public static LOAIPHONG getRoomTypeByRoomNumber(String roomNumber) {
+		return LOAIPHONG_DAO.getRoomTypeByRoomNumber(roomNumber);
+	}
 
 	public static void editRoomType(Map<String, String> data) throws SQLException {
 		int maLoai = Integer.parseInt(data.get("type"));

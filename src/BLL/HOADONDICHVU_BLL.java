@@ -34,4 +34,9 @@ public class HOADONDICHVU_BLL {
 	public static void updateBillService(String maHD, double totalPrice) {
 		HOADONDICHVU_DAO.updateBillService(maHD,totalPrice);
 	}
+
+	public static HOADONDICHVU getBillServiceByBillId(String billId) {
+		// TODO Auto-generated method stub
+		return HOADONDICHVU_DAO.getBillServiceByBillId(billId);
+	}
 }
