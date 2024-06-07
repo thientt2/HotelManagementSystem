@@ -271,7 +271,7 @@ public class bookRoomWindow_Controller implements Initializable{
 
 
             stage.setScene(scene);     
-    		stage.show();
+    		stage.showAndWait();
             
     		refreshBookRoomList();
 		} catch(Exception e) {
@@ -363,7 +363,9 @@ public class bookRoomWindow_Controller implements Initializable{
 	
 	private void filterBookRoomList() {
 	    ObservableList<Object[]> filteredList = FXCollections.observableArrayList();
-	    for (Object[] item : PHIEUDATPHONG_BLL.listBookRoomWithReceiveCount()) { 
+	    ObservableList<Object[]> list = PHIEUDATPHONG_BLL.listBookRoomWithReceiveCount();
+	    list = createListBookRoom(list);
+	    for (Object[] item : list) { 
 	        String status = getStatus(item[3].toString(), item[5].toString());
 	        if (selectedStatuses.isEmpty() || selectedStatuses.contains(status)) {
 	            filteredList.add(item);
