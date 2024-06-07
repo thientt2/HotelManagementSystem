@@ -85,8 +85,8 @@ public class servicesRoom_Controller implements Initializable{
     
     private HOADONDICHVU billService = null;
     
-    public void setData(Object[] item) {
-		roomNumber_txt.setText(item[0].toString());	
+    public void setData(String roomNumber) {
+		roomNumber_txt.setText(roomNumber);	
 		String pnp = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber_txt.getText());
 		billService = HOADONDICHVU_BLL.getBillServiceByReceiveRoomID(pnp);
 		if(billService != null) {

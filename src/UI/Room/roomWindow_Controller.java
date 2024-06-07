@@ -169,23 +169,6 @@ public class roomWindow_Controller implements Initializable {
 	                Parent roomData = loader.load();
 	                itemRoom_Controller controller = loader.getController();
 	                controller.setData(room[0], room[1], room[2]);
-
-	                Button bookService = controller.getBookServiceBtn();
-	                bookService.setOnAction(event1 -> {
-	                    try {
-	                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-	                        Parent root = loaderServices.load();
-	                        servicesRoom_Controller servicesController = loaderServices.getController();
-	                        servicesController.setData(room);
-	                        Scene scene = new Scene(root);
-	                        Stage stage = new Stage();
-	                        stage.initStyle(StageStyle.TRANSPARENT);
-	                        stage.setScene(scene);
-	                        stage.show();
-	                    } catch (IOException e) {
-	                        e.printStackTrace();
-	                    }
-	                });
 	                
 	                Button showDetail = controller.getDetailBtn();
 	                showDetail.setOnAction(event1 -> {
@@ -205,12 +188,8 @@ public class roomWindow_Controller implements Initializable {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-	                });
-	                
-	                Button checkOut = controller.getCheckOutBtn();
-	                checkOut.setOnAction(event1 -> {
-	                    
-	                });
+	                });            
+
 	                
 	                Button clean = controller.getControlBtn();
 	                clean.setOnAction(event1 -> {
@@ -269,26 +248,8 @@ public class roomWindow_Controller implements Initializable {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 					Parent roomData = loader.load();
 					itemRoom_Controller controller = loader.getController();
-					controller.setData(room[0],room[1],room[2]);
-					
-					Button bookService = controller.getBookServiceBtn();
-	                bookService.setOnAction(event1 -> {
-	                    try {
-	                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-	                        Parent root = loaderServices.load();
-	                        servicesRoom_Controller servicesController = loaderServices.getController();
-	                        servicesController.setData(room);
-	                        Scene scene = new Scene(root);
-	                        Stage stage = new Stage();
-	                        stage.initStyle(StageStyle.TRANSPARENT);
-	                        stage.setScene(scene);
-	                        stage.show();
-	                    } catch (IOException e) {
-	                        e.printStackTrace();
-	                    }
-	                });
-	                
-					
+					controller.setData(room[0],room[1],room[2]);           
+			
 	                Button showDetail = controller.getDetailBtn();
 	                showDetail.setOnAction(event1 -> {
 	                    try {
@@ -307,11 +268,6 @@ public class roomWindow_Controller implements Initializable {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-	                });
-	                
-	                Button checkOut = controller.getCheckOutBtn();
-	                checkOut.setOnAction(event1 -> {
-	                    
 	                });
 	                
 	                Button clean = controller.getControlBtn();
@@ -364,23 +320,6 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2]);
-				
-				Button bookService = controller.getBookServiceBtn();
-                bookService.setOnAction(event1 -> {
-                    try {
-                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-                        Parent root = loaderServices.load();
-                        servicesRoom_Controller servicesController = loaderServices.getController();
-                        servicesController.setData(room);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
                 
                 Button showDetail = controller.getDetailBtn();
                 showDetail.setOnAction(event1 -> {
@@ -400,11 +339,6 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button checkOut = controller.getCheckOutBtn();
-                checkOut.setOnAction(event1 -> {
-                    
                 });
                 
                 Button clean = controller.getControlBtn();
@@ -456,23 +390,6 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2]);
-				
-				Button bookService = controller.getBookServiceBtn();
-                bookService.setOnAction(event1 -> {
-                    try {
-                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-                        Parent root = loaderServices.load();
-                        servicesRoom_Controller servicesController = loaderServices.getController();
-                        servicesController.setData(room);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
                 
                 Button showDetail = controller.getDetailBtn();
                 showDetail.setOnAction(event1 -> {
@@ -492,11 +409,6 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button checkOut = controller.getCheckOutBtn();
-                checkOut.setOnAction(event1 -> {
-                    
                 });
                 
                 Button clean = controller.getControlBtn();
@@ -547,23 +459,6 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2]);
-				
-				Button bookService = controller.getBookServiceBtn();
-                bookService.setOnAction(event1 -> {
-                    try {
-                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-                        Parent root = loaderServices.load();
-                        servicesRoom_Controller servicesController = loaderServices.getController();
-                        servicesController.setData(room);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
                 
                 Button showDetail = controller.getDetailBtn();
                 showDetail.setOnAction(event1 -> {
@@ -583,11 +478,6 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button checkOut = controller.getCheckOutBtn();
-                checkOut.setOnAction(event1 -> {
-                    
                 });
                 
                 Button clean = controller.getControlBtn();
@@ -638,23 +528,6 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2]);
-				
-				Button bookService = controller.getBookServiceBtn();
-                bookService.setOnAction(event1 -> {
-                    try {
-                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-                        Parent root = loaderServices.load();
-                        servicesRoom_Controller servicesController = loaderServices.getController();
-                        servicesController.setData(room);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
                 
                 Button showDetail = controller.getDetailBtn();
                 showDetail.setOnAction(event1 -> {
@@ -674,11 +547,6 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button checkOut = controller.getCheckOutBtn();
-                checkOut.setOnAction(event1 -> {
-                    
                 });
                 
                 Button clean = controller.getControlBtn();
@@ -729,23 +597,6 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2]);
-				
-				Button bookService = controller.getBookServiceBtn();
-                bookService.setOnAction(event1 -> {
-                    try {
-                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-                        Parent root = loaderServices.load();
-                        servicesRoom_Controller servicesController = loaderServices.getController();
-                        servicesController.setData(room);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
                 
                 Button showDetail = controller.getDetailBtn();
                 showDetail.setOnAction(event1 -> {
@@ -765,12 +616,7 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button checkOut = controller.getCheckOutBtn();
-                checkOut.setOnAction(event1 -> {
-                    
-                });
+                });              
                 
                 Button clean = controller.getControlBtn();
                 clean.setOnAction(event1 -> {
@@ -820,23 +666,6 @@ public class roomWindow_Controller implements Initializable {
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2]);
-				
-				Button bookService = controller.getBookServiceBtn();
-                bookService.setOnAction(event1 -> {
-                    try {
-                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-                        Parent root = loaderServices.load();
-                        servicesRoom_Controller servicesController = loaderServices.getController();
-                        servicesController.setData(room);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
                 
                 Button showDetail = controller.getDetailBtn();
                 showDetail.setOnAction(event1 -> {
@@ -856,12 +685,7 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button checkOut = controller.getCheckOutBtn();
-                checkOut.setOnAction(event1 -> {
-                    
-                });
+                });             
                 
                 Button clean = controller.getControlBtn();
                 clean.setOnAction(event1 -> {
@@ -910,25 +734,8 @@ public class roomWindow_Controller implements Initializable {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoom.fxml"));
 				Parent roomData = loader.load();
 				itemRoom_Controller controller = loader.getController();
-				controller.setData(room[0],room[1],room[2]);
-				
-				Button bookService = controller.getBookServiceBtn();
-                bookService.setOnAction(event1 -> {
-                    try {
-                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-                        Parent root = loaderServices.load();
-                        servicesRoom_Controller servicesController = loaderServices.getController();
-                        servicesController.setData(room);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-                
+				controller.setData(room[0],room[1],room[2]);				
+
                 Button showDetail = controller.getDetailBtn();
                 showDetail.setOnAction(event1 -> {
                     try {
@@ -947,12 +754,7 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button checkOut = controller.getCheckOutBtn();
-                checkOut.setOnAction(event1 -> {
-                    
-                });
+                });             
                 
                 Button clean = controller.getControlBtn();
                 clean.setOnAction(event1 -> {
@@ -1003,23 +805,6 @@ public class roomWindow_Controller implements Initializable {
 				itemRoom_Controller controller = loader.getController();
 				controller.setData(room[0],room[1],room[2]);
 				
-				Button bookService = controller.getBookServiceBtn();
-                bookService.setOnAction(event1 -> {
-                    try {
-                        FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
-                        Parent root = loaderServices.load();
-                        servicesRoom_Controller servicesController = loaderServices.getController();
-                        servicesController.setData(room);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-                
                 Button showDetail = controller.getDetailBtn();
                 showDetail.setOnAction(event1 -> {
                     try {
@@ -1038,12 +823,7 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button checkOut = controller.getCheckOutBtn();
-                checkOut.setOnAction(event1 -> {
-                    
-                });
+                });            
                 
                 Button clean = controller.getControlBtn();
                 clean.setOnAction(event1 -> {

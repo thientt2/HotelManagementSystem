@@ -4,4 +4,23 @@
 
 .blue-bg{
 	-fx-background-color: #0f50aa;
-}		
+}	
+
+.cancel-btn{
+	-fx-border-radius: 10;
+	-fx-border-color: grey;
+	-fx-background-radius: 10;
+	-fx-background-color:  transparent;
+	-fx-font-size: 13px;
+	-fx-alignment: center;
+	-fx-cursor: hand;
+}
+
+.cancel-btn:hover{
+	-fx-border-radius: 10;
+	-fx-background-radius: 10;
+	-fx-background-color:  #BC3636;
+	-fx-font-size: 13px;
+	-fx-text-fill: white;
+	-fx-alignment: center;
+}	

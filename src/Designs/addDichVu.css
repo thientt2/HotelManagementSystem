@@ -23,22 +23,33 @@
 }
 
 .cancel-btn:hover{
-	-fx-background-color: #f8a9a3;
+	-fx-background-color: #BC3636;
 	-fx-text-fill: #fff;
 	-fx-background-radius:8px;
-	-fx-border-color: #f8a9a3;
 	-fx-border-radius:8px;
 	-fx-border-width:1px;
 }
 
 .add-btn{
 	-fx-background-color: #1570EF;
-	-fx-background-radius:8px;
+	-fx-background-radius:10px;
 	-fx-text-fill:#fff;
 	-fx-font-size:14px;
 	-fx-font-family:"Inter Medium";
 	-fx-border-color: #1570EF;
-	-fx-border-radius:8px;
+	-fx-border-radius:10px;
+	-fx-border-width:1px;
+	-fx-cursor: hand;
+}
+
+.add-btn:hover{
+	-fx-background-color: #152FEF;
+	-fx-background-radius:10px;
+	-fx-text-fill:#fff;
+	-fx-font-size:14px;
+	-fx-font-family:"Inter Medium";
+	-fx-border-color: #152FEF;
+	-fx-border-radius:10px;
 	-fx-border-width:1px;
 }
 

@@ -2,4 +2,32 @@
 	-fx-background-color: white;
 }
 
+.pane{
+	-fx-border-radius: 10px;
+	-fx-background-color: white;
+	-fx-background-radius: 10px;
+	
+}
 
+.text-field{
+	-fx-background-color: transparent;
+	-fx-border-color: #858d9d;
+	-fx-border-radius: 8px;	
+	-fx-text-fill: #2b2f38;	
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter Medium";
+}
+
+
+.custom-date-picker .text-field {    
+    -fx-border-color: #fff;
+}
+
+.custom-date-picker .arrow-button {
+	-fx-background-color: transparent;
+}
+
+.header-text{
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
+}

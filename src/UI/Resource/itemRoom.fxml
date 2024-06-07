@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="16.0" prefWidth="724.0" style="-fx-background-color: #ffff; -fx-border-color: #E8F1FD; -fx-border-width: 1px 0px 1px 0px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemRoom_Controller">
+<AnchorPane prefHeight="16.0" prefWidth="724.0" style="-fx-background-color: #ffff; -fx-border-color: #E8F1FD; -fx-border-width: 1px 0px 1px 0px;" stylesheets="@../../Designs/BookRoomWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemRoom_Controller">
    <children>
       <Label fx:id="roomId_txt" layoutX="18.0" layoutY="5.0" style="-fx-font-weight: bold;" text="MaPhong" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0">
          <font>
@@ -24,7 +24,7 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="bookService_btn" layoutX="480.0" layoutY="5.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" styleClass="select-btn" stylesheets="@../../Designs/BookRoomWindow.css" text="Đặt dịch vụ" textFill="#0f50aa" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0">
+      <Button fx:id="bookService_btn" layoutX="480.0" layoutY="5.0" mnemonicParsing="false" onAction="#bookService" prefHeight="26.0" prefWidth="91.0" styleClass="select-btn" text="Đặt dịch vụ" textFill="#0f50aa" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0">
          <font>
             <Font name="Inter Medium" size="13.0" />
          </font>
@@ -45,7 +45,7 @@
             <Font name="Inter Medium" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="checkOut_btn" layoutX="370.0" layoutY="17.6" mnemonicParsing="false" prefHeight="39.0" prefWidth="91.0" styleClass="select-btn" stylesheets="@../../Designs/BookRoomWindow.css" text="Check out" textFill="#0f50aa" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0">
+      <Button fx:id="checkOut_btn" layoutX="370.0" layoutY="17.6" mnemonicParsing="false" onAction="#checkOut" prefHeight="39.0" prefWidth="91.0" styleClass="select-btn" stylesheets="@../../Designs/BookRoomWindow.css" text="Check out" textFill="#0f50aa" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0">
          <font>
             <Font name="Inter Medium" size="13.0" />
          </font>

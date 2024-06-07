@@ -1,12 +1,21 @@
 package UI.Resource;
 
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import UI.Room.servicesRoom_Controller;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class itemRoom_Controller implements Initializable {
 	
@@ -56,6 +65,31 @@ public class itemRoom_Controller implements Initializable {
 		    	checkOut_btn.setVisible(true);
 		    }
 		    	
+	    }
+	    
+	    public void checkOut() {	    
+	    	LocalDateTime now = LocalDateTime.now();
+	    	DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+	    	String checkOut = now.format(inputFormatter);
+	    	System.out.println(checkOut);
+	    	String roomNumber = roomId_txt.getText();
+	    }
+	    
+	    public void bookService() {
+	    	try {
+                FXMLLoader loaderServices = new FXMLLoader(getClass().getResource("/UI/Room/servicesRoom.fxml"));
+                Parent root = loaderServices.load();
+                servicesRoom_Controller servicesController = loaderServices.getController();
+                String roomNumber = roomId_txt.getText();
+                servicesController.setData(roomNumber);
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 	    }
 	    
 	    public Button getDetailBtn() {
