@@ -1,66 +1,97 @@
 .white-bg{
-	-fx-background-color:#fff;
+	-fx-background-color: white;
 }
 
-.text-field{
-	-fx-background-color: transparent;
-	-fx-border-color: #858d9d;
-	-fx-border-radius: 8px;	
-	-fx-text-fill: #2b2f38;	
+.check-box{
+	-fx-background-color:transparent;
+	-fx-text-fill: #5D6679;
+	-fx-font-family:"Inter";	
+	-fx-alignment:center;
+	-fx-cell-size: 30px;
 	-fx-font-size: 14px;
-	-fx-font-family: "Inter Medium";
 }
 
-.blue-bg{
-	-fx-background-color:#0f50aa;
+.check-box .box{
+	-fx-background-color:transparent;
+	-fx-border-color: #E2E8F0;
+	-fx-border-width: 1.5px;
+	-fx-border-radius: 3px;
 }
 
-
-.custom-date-picker .text-field {    
-    -fx-border-color: #fff;
-}
-
-.custom-date-picker .arrow-button {
-	-fx-background-color: transparent;
-}
-
-.add-btn{
-	-fx-background-color: #1570EF;
-	-fx-background-radius:8px;
-	-fx-text-fill:#fff;
-	-fx-font-size:14px;
-	-fx-font-family:"Inter Medium";
-	-fx-border-color: #1570EF;
+.search-text-field{
+	-fx-background-color:transparent;	
+	-fx-border-color:#D0D3D9;
 	-fx-border-radius:8px;
 	-fx-border-width:1px;
+	-fx-padding:0px 0px 0px 30px;
+	-fx-font-size: 16px;
+	-fx-font-family:"Inter";
+	-fx-alignment:center-left;
 }
 
-.add-btn:hover{
-	-fx-background-color: #152FEF;
-	-fx-background-radius:10px;
-	-fx-text-fill:#fff;
-	-fx-font-size:14px;
-	-fx-font-family:"Inter Medium";
-	-fx-border-color: #152FEF;
-	-fx-border-radius:10px;
-	-fx-border-width:1px;
+.pagination .control-button,
+.pagination .number-button,
+.pagination .bullet-button {
+    -fx-background-insets: 0, 1;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-radius: 5px;
+    -fx-min-width: 50px;
+    -fx-min-height: 30px;
+    -fx-text-fill: black;
+	-fx-font-family: "Inter-Medium";
+    -fx-font-size: 14px;
 }
 
-.cancel-btn{
-	-fx-background-color: transparent;
-	-fx-text-fill: #2b2f38;
-	-fx-font-size: 14px;
-	-fx-font-family: "Inter Medium";
-	-fx-border-color: #858D9D;
-	-fx-border-radius: 8px;
-	-fx-border-width: 1px;
-	-fx-cursor:hand;
+/* Colors on hover */
+.pagination .control-button:hover,
+.pagination .number-button:hover,
+.pagination .bullet-button:hover {
+    -fx-background-color: transparent;
 }
 
-.cancel-btn:hover{
-	-fx-background-color: #BC3636;
-	-fx-text-fill: #fff;
-	-fx-background-radius:8px;
-	-fx-border-radius:8px;
-	-fx-border-width:1px;
+/* Selected toggle color */
+.pagination .number-button:selected,
+.pagination .bullet-button:selected {
+    -fx-background-color: #F7F9FC;
+    -fx-text-fill: #1366D9;
+    -fx-border-color: transparent;
+}
+
+/* Remove default background and border */
+.pagination .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: black; /* Màu chữ */
+    -fx-font-family: "Inter-Medium"; /* Font chữ */
+    -fx-font-size: 14px; /* Kích thước font chữ */
+}
+
+/* Change hover effect for arrow buttons */
+.pagination .arrow-button:hover {
+    -fx-background-color: #e0e0e0; /* Màu nền khi hover */
+}
+
+.pagination .left-arrow,
+.pagination .right-arrow {
+    -fx-background-color: black;
+    -fx-border-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-family: "Inter-Medium";
+    -fx-font-size: 14px;
+}
+
+/* Change the shape to remove any unwanted borders or backgrounds */
+.pagination .arrow-button .arrow {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+
+.pagination .page-information {
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+    -fx-padding: 0;
+    -fx-border-width: 0;
 }
