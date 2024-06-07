@@ -35,6 +35,17 @@
 	-fx-border-width:1px;
 }
 
+.add-btn:hover{
+	-fx-background-color: #152FEF;
+	-fx-background-radius:10px;
+	-fx-text-fill:#fff;
+	-fx-font-size:14px;
+	-fx-font-family:"Inter Medium";
+	-fx-border-color: #152FEF;
+	-fx-border-radius:10px;
+	-fx-border-width:1px;
+}
+
 .cancel-btn{
 	-fx-background-color: transparent;
 	-fx-text-fill: #2b2f38;
