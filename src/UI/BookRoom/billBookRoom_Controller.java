@@ -69,45 +69,42 @@ public class billBookRoom_Controller implements Initializable {
     
     public void setData(String checkin,String checkout,HOADONPHONG hoadonphong, ObservableList<Object[]> list) {
     	checkinDate_txt.setText(checkin);
-		checkoutDate_txt.setText(checkout);
-		
-		//midPrice_txt.setText(hoadonphong.getTONGTIEN().toString());
-		Double gia1 = Double.parseDouble(hoadonphong.getTONGTIEN().toString());
-    	String formattedPrice1 = String.format("%.0f", gia1);
-    	StringBuilder sb1 = new StringBuilder(formattedPrice1);
-    	int length1 = sb1.length();
-    	for (int i = length1 - 3; i > 0; i -= 3) {
-    	    sb1.insert(i, ".");
+		checkoutDate_txt.setText(checkout);	
+
+		int midPrice = list.stream().mapToInt(item -> Integer.parseInt(item[4].toString())*Integer.parseInt(item[3].toString())).sum();
+    	String midPriceString = String.valueOf(midPrice);
+    	StringBuilder sbMidPrice = new StringBuilder(midPriceString);
+    	int lngMidPrice = sbMidPrice.length();
+    	for (int i = lngMidPrice - 3; i > 0; i -= 3) {
+    		sbMidPrice.insert(i, ".");
     	}
-    	sb1.append(" VND");
-    	String finalPrice1 = sb1.toString();
-    	midPrice_txt.setText(finalPrice1);
+    	sbMidPrice.append(" VND");
+    	String finalMidPrice = sbMidPrice.toString();
+    	midPrice_txt.setText(finalMidPrice);
 		
-		//surcharge_txt.setText(hoadonphong.getGIAMGIA().toString());
-		Double gia2 = Double.parseDouble(hoadonphong.getGIAMGIA().toString());
-    	String formattedPrice2 = String.format("%.0f", gia2);
-    	StringBuilder sb2 = new StringBuilder(formattedPrice2);
-    	int length2 = sb2.length();
-    	for (int i = length2 - 3; i > 0; i -= 3) {
-    	    sb2.insert(i, ".");
+
+		int surcharge = (int) hoadonphong.getGIAMGIA();
+    	String formattedSurcharge = String.valueOf(surcharge);
+    	StringBuilder sbSurcharge = new StringBuilder(formattedSurcharge);
+    	int lngSurcharge = sbSurcharge.length();
+    	for (int i = lngSurcharge - 3; i > 0; i -= 3) {
+    		sbSurcharge.insert(i, ".");
     	}
-    	sb2.append(" VND");
-    	String finalPrice2 = sb2.toString();
-    	surcharge_txt.setText(finalPrice2);
+    	sbSurcharge.append(" VND");
+    	String finalSurcharge = sbSurcharge.toString();
+    	surcharge_txt.setText(finalSurcharge);
 		
-		int total = (int) (hoadonphong.getTONGTIEN() - hoadonphong.getGIAMGIA());
+		int total =  hoadonphong.getTONGTIEN();				
 		
-		//totalPrice_txt.setText(String.valueOf(total));
-		Double gia3 = Double.parseDouble(String.valueOf(total));
-    	String formattedPrice3 = String.format("%.0f", gia3);
-    	StringBuilder sb3 = new StringBuilder(formattedPrice3);
-    	int length3 = sb3.length();
-    	for (int i = length3 - 3; i > 0; i -= 3) {
-    	    sb3.insert(i, ".");
+    	String formattedTotal = String.valueOf(total);
+    	StringBuilder sbTotal = new StringBuilder(formattedTotal);
+    	int lngTotal = sbTotal.length();
+    	for (int i = lngTotal - 3; i > 0; i -= 3) {
+    		sbTotal.insert(i, ".");
     	}
-    	sb3.append(" VND");
-    	String finalPrice3 = sb3.toString();
-    	totalPrice_txt.setText(finalPrice3);
+    	sbTotal.append(" VND");
+    	String finalTotal = sbTotal.toString();
+    	totalPrice_txt.setText(finalTotal);
 		
 		billId_txt.setText(hoadonphong.getMAHDP().toString());
 		staffName_txt.setText(NHANVIEN_BLL.getStaffById(hoadonphong.getNVNHAP()).getTENNV());

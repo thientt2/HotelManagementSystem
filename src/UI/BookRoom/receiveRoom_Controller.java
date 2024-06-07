@@ -128,6 +128,7 @@ public class receiveRoom_Controller implements Initializable {
 	    rowdata[1] = birthday;
 	    
 	    listOrtherCustomer.add(kh.getMAKH());
+	    System.out.println(listOrtherCustomer);
 	      
 	    listDetailReceiveRoom.add(rowdata);
 	    

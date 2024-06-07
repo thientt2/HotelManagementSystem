@@ -167,9 +167,9 @@ public class bookRoom_Cotroller implements Initializable {
     
 	public void addDetailBill() {
 	    String selectedRoomType = roomType_cb.getValue().toString();
-	    double selectedPrice = Double.parseDouble(price_txt.getText().replace(".", ""));
+	    int selectedPrice = Integer.parseInt(price_txt.getText().replace(".", ""));
 	    int selectedQuantity = Integer.parseInt(quantity_cb.getValue().toString());
-	    double selectedTotal = selectedPrice * selectedQuantity;
+	    int selectedTotal = selectedPrice * selectedQuantity;
 	    long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue()) + 1;
 	    	    
 	    
@@ -188,7 +188,7 @@ public class bookRoom_Cotroller implements Initializable {
 	    	.filter(row -> rowdata[0].equals(row[0]))
 	    	.forEach(row -> {	    		
 		    	row[2] = Integer.parseInt(row[2].toString()) + Integer.parseInt(rowdata[2].toString());
-		    	row[3] = Double.parseDouble(row[3].toString()) + Double.parseDouble(rowdata[3].toString());
+		    	row[3] = Integer.parseInt(row[3].toString()) + Integer.parseInt(rowdata[3].toString());
 	    	});
 	    } else {
 	    	listDetailBookRoom.add(rowdata);
@@ -212,7 +212,8 @@ public class bookRoom_Cotroller implements Initializable {
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-	    }
+	    }    
+
 	    showPrice();
 	}	
 
@@ -221,15 +222,7 @@ public class bookRoom_Cotroller implements Initializable {
 		Map<String, Object> data  = new HashMap<String, Object>();
 		data.put("maKH", khachHang.getMAKH());
 		data.put("ngayNhan", checkin_datepicker.getValue().toString());
-		data.put("ngayTra", checkout_datepicker.getValue().toString());
-		String totalPriceString = totalPrice_txt.getText();
-		// 
-		totalPriceString = totalPriceString.replace(".", "");
-		// Chuyển đổi chuỗi thành số
-		double totalPrice = Double.parseDouble(totalPriceString);
-
-		// Sử dụng giá trị totalPrice
-		data.put("gia", totalPrice);
+		data.put("ngayTra", checkout_datepicker.getValue().toString());		
 		
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -256,8 +249,8 @@ public class bookRoom_Cotroller implements Initializable {
 			Map<String, Object> dataBillBookRoom = new HashMap<String, Object>();
 			dataBillBookRoom.put("maPDP",lastBookRoom.getMAPDP());
 			dataBillBookRoom.put("maNV", MANV);
-			dataBillBookRoom.put("ngTao", formatter.format(now).toString());			
-			dataBillBookRoom.put("tongTien", totalPrice);
+			dataBillBookRoom.put("ngTao", formatter.format(now).toString());	
+			
 			HOADONPHONG_BLL.insertBillBookRoom(dataBillBookRoom);			
 			Stage stage = (Stage) close_btn.getScene().getWindow();
 			stage.close();

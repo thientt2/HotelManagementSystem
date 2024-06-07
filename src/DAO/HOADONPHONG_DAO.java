@@ -39,17 +39,13 @@ public class HOADONPHONG_DAO {
 		String maNV = (String) data.get("maNV");
 		String ngayTao = (String) data.get("ngTao");
 		int trangThai = 1;
-		int giamGia = 0;
-		double tongTien = (double) data.get("tongTien");
-		String query = "INSERT INTO HOADONPHONG(MAPDP, NVNHAP, NGAYTAO, TRANGTHAI, GIAMGIA, TONGTIEN) VALUES(?,?,?,?,?,?)";
+		String query = "INSERT INTO HOADONPHONG(MAPDP, NVNHAP, NGAYTAO, TRANGTHAI) VALUES(?,?,?,?)";
 		try (Connection connection = DatabaseConnection.connectDb()) {
 			PreparedStatement prepare = connection.prepareStatement(query);
 			prepare.setString(1, maPDP);
 			prepare.setString(2, maNV);
 			prepare.setString(3, ngayTao);
 			prepare.setInt(4, trangThai);
-			prepare.setInt(5, giamGia);
-			prepare.setDouble(6, tongTien);
 			prepare.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

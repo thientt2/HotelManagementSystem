@@ -21,10 +21,10 @@ public class PHIEUDATPHONG_BLL {
 		String ngayNhan = (String) data.get("ngayNhan");
 		String ngayTra = (String) data.get("ngayTra");		
 		String ngayDat = (String) data.get("tgDat");
-		Double gia = (Double) data.get("gia");
+		
 		
 		//điều kiện giá nữa
-		if(maKH.isEmpty() ||ngayNhan.isEmpty() || ngayTra.isEmpty() || ngayDat.isEmpty() || gia == 0) {
+		if(maKH.isEmpty() ||ngayNhan.isEmpty() || ngayTra.isEmpty() || ngayDat.isEmpty()) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
 		}else {
 			PHIEUDATPHONG_DAO.insertBookRoom(data);
