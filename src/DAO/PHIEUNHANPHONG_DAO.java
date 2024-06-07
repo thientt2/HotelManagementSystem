@@ -61,4 +61,17 @@ public class PHIEUNHANPHONG_DAO {
 		return receiveRoomID;
 	}
 
+	public static void updateCheckOut(String mapdp, String checkout) {
+		// TODO Auto-generated method stub
+		String query = "UPDATE PHIEUNHANPHONG SET TGTRA = ? WHERE MAPNP = ?";
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setString(1, checkout);
+			prepare.setString(2, mapdp);
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

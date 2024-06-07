@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +29,7 @@ import UI.Resource.itemDetailsRoomService_Controller;
 import UI.Resource.itemRoom_Controller;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -123,80 +125,55 @@ public class detailsRoom_Controller implements Initializable{
     }
     
 
-//    private void calculateTimeLeft(String checkoutStr) {
-//        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//            LocalDate today = LocalDate.now();
-//            LocalDate checkoutDate = LocalDate.parse(checkoutStr, formatter);
-//
-//            if (checkoutDate.isAfter(today)) {
-//                Duration duration = Duration.between(today.atStartOfDay(), checkoutDate.atStartOfDay());
-//                long daysLeft = duration.toDays();
-//                long hoursLeft = duration.toHoursPart();
-//                long minutesLeft = duration.toMinutesPart();
-//                long secondsLeft = duration.toSecondsPart();
-//
-//                String timeLeft = String.format("%d ngày, %d giờ, %d phút, %d giây", daysLeft, hoursLeft, minutesLeft, secondsLeft);
-//                timeLeft_txt.setText(timeLeft);
-//            } else {
-//                timeLeft_txt.setText("Tới hạn check-out");
-//                timeline.stop(); // Dừng timeline nếu đã tới hạn
-//            }
-//        }));
-//        timeline.setCycleCount(Timeline.INDEFINITE);
-//        timeline.play();
-//    }
-    
-//    private ScheduledExecutorService scheduler;
-    
-//    private void calculateTimeLeft(String checkoutStr) {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
-//        LocalDateTime now = LocalDateTime.now();
-//        LocalDateTime checkoutDateTime = LocalDateTime.parse(checkoutStr, formatter);
-//
-//        Runnable updateTimeLeftTask = new Runnable() {
-//            @Override
-//            public void run() {
-//                if (checkoutDateTime.isAfter(now)) {
-//                    Duration duration = Duration.between(now, checkoutDateTime);
-//                    long secondsLeft = duration.getSeconds();
-//
-//                    long daysLeft = secondsLeft / (24 * 3600); // Số giây trong một ngày = 24 * 3600
-//                    secondsLeft = secondsLeft % (24 * 3600); // Cập nhật lại số giây còn lại
-//
-//                    long hoursLeft = secondsLeft / 3600; // Số giây trong một giờ = 3600
-//                    secondsLeft = secondsLeft % 3600; // Cập nhật lại số giây còn lại
-//
-//                    long minutesLeft = secondsLeft / 60; // Số giây trong một phút = 60
-//                    secondsLeft = secondsLeft % 60; // Số giây còn lại sau khi tính toán phút
-//
-//                    String timeLeft = String.format("%d ngày, %02d:%02d:%02d", daysLeft, hoursLeft, minutesLeft, secondsLeft);
-//                    timeLeft_txt.setText(timeLeft);
-//                } else {
-//                    timeLeft_txt.setText("Tới hạn check-out");
-//                    scheduler.shutdown(); // Dừng scheduler nếu đã tới hạn
-//                }
-//            }
-//        };
-//
-//        // Cập nhật thời gian còn lại mỗi giây
-//        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-//        scheduler.scheduleAtFixedRate(updateTimeLeftTask, 0, 1, TimeUnit.SECONDS);
-//    }
-    
-    private void calculateTimeLeft(String checkoutStr) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate now = LocalDate.now();
-        LocalDate checkoutDate = LocalDate.parse(checkoutStr, formatter);
 
-        if (checkoutDate.isAfter(now)) {
-            long daysLeft = ChronoUnit.DAYS.between(now, checkoutDate);
-            String timeLeft = String.format("%d ngày", daysLeft);
-            timeLeft_txt.setText(timeLeft);
-        } else {
-            timeLeft_txt.setText("Tới hạn check-out");
+    private ScheduledExecutorService scheduler;
+   
+    private void calculateTimeLeft(String checkoutStr) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime checkoutDateTime;
+
+        try {
+            checkoutDateTime = LocalDateTime.parse(checkoutStr, dateTimeFormatter);
+        } catch (DateTimeParseException e) {
+            checkoutDateTime = LocalDate.parse(checkoutStr, dateFormatter).atStartOfDay();
         }
+
+        final LocalDateTime checkoutDateTimeFinal = checkoutDateTime; 
+
+        if (scheduler != null && !scheduler.isShutdown()) {
+            scheduler.shutdown();
+        }
+
+        scheduler = Executors.newSingleThreadScheduledExecutor();
+        Runnable updateTimeLeftTask = new Runnable() {
+            @Override
+            public void run() {
+                LocalDateTime now = LocalDateTime.now();
+                if (checkoutDateTimeFinal.isAfter(now)) { 
+                    Duration duration = Duration.between(now, checkoutDateTimeFinal);
+                    long secondsLeft = duration.getSeconds();
+
+                    long daysLeft = secondsLeft / (24 * 3600);
+                    secondsLeft = secondsLeft % (24 * 3600);
+
+                    long hoursLeft = secondsLeft / 3600;
+                    secondsLeft = secondsLeft % 3600;
+
+                    long minutesLeft = secondsLeft / 60;
+                    secondsLeft = secondsLeft % 60;
+                    String timeLeft = String.format("%d ngày, %02d:%02d:%02d", daysLeft, hoursLeft, minutesLeft, secondsLeft);
+                    Platform.runLater(() -> timeLeft_txt.setText(timeLeft));
+                } else {
+                    Platform.runLater(() -> timeLeft_txt.setText("Tới hạn check-out"));
+                    scheduler.shutdown();
+                }
+            }
+        };
+
+        scheduler.scheduleAtFixedRate(updateTimeLeftTask, 0, 1, TimeUnit.SECONDS);
     }
+
 
 
     

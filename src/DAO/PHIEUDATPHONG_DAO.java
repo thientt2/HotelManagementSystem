@@ -206,20 +206,20 @@ public class PHIEUDATPHONG_DAO {
 
 	public static Object[] getRoomDetails(String maPhong) {
         Object[] rowData = null;
-        String query = "SELECT P.MAPHONG, LP.TENLOAI, KH.TENKH, PNP.TGNHAN, PDP.NGAYTRA, PNP.MAPNP " +
-                       "FROM PHONG P " +
-                       "JOIN LOAIPHONG LP ON P.MALOAIP = LP.MALOAIP " +
-                       "JOIN CHITIETPDP CTP ON LP.MALOAIP = CTP.MALOAIP " +
-                       "JOIN PHIEUDATPHONG PDP ON CTP.MAPDP = PDP.MAPDP " +
-                       "JOIN PHIEUNHANPHONG PNP ON PDP.MAPDP = PNP.MAPDP " +
-                       "JOIN KHACHHANG KH ON PDP.MAKH = KH.MAKH " +
-                       "WHERE P.MAPHONG = ? AND P.MATRANGTHAI = ?";
+        String query = "SELECT TOP 1 P.MAPHONG, LP.TENLOAI, KH.TENKH, PNP.TGNHAN, PDP.NGAYTRA, PNP.MAPNP " +
+                "FROM PHONG P " +
+                "JOIN LOAIPHONG LP ON P.MALOAIP = LP.MALOAIP " +
+                "JOIN CHITIETPDP CTP ON LP.MALOAIP = CTP.MALOAIP " +
+                "JOIN PHIEUDATPHONG PDP ON CTP.MAPDP = PDP.MAPDP " +
+                "JOIN PHIEUNHANPHONG PNP ON PDP.MAPDP = PNP.MAPDP " +
+                "JOIN KHACHHANG KH ON PDP.MAKH = KH.MAKH " +
+                "WHERE P.MAPHONG = ? " +
+                "ORDER BY PNP.MAPNP DESC";
 
         try (Connection connection = DatabaseConnection.connectDb();
              PreparedStatement pst = connection.prepareStatement(query)) {
              
             pst.setString(1, maPhong);
-            pst.setInt(2, 3);
             ResultSet resultSet = pst.executeQuery();
             
             if (resultSet.next()) {

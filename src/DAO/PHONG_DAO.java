@@ -154,7 +154,7 @@ public class PHONG_DAO {
     }
 
     
-    public static PHONG layPhong(String maphong) {
+    public static PHONG getRoom(String maphong) {
 		
 		try (Connection connection = DatabaseConnection.connectDb();
 				Statement statement = connection.createStatement()) {

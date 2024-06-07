@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAnchor" prefHeight="326.0" prefWidth="524.0" style="-fx-background-color: white;" stylesheets="@../../Designs/bookRoom.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.receiveRoom_Controller">
+<AnchorPane fx:id="mainAnchor" prefHeight="326.0" prefWidth="524.0" style="-fx-background-color: white;" stylesheets="@../../Designs/addDichVu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.receiveRoom_Controller">
    <children>
       <AnchorPane prefHeight="266.0" prefWidth="190.0">
          <children>

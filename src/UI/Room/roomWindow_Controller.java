@@ -188,13 +188,10 @@ public class roomWindow_Controller implements Initializable {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-	                });            
+	                });       
 
 	                
-	                Button clean = controller.getControlBtn();
-	                clean.setOnAction(event1 -> {
-	                	//changeEmptyRoomStatus
-	                });
+
 	                            
 	                showRoom_vbox.getChildren().add(roomData);
 	            } catch (IOException e) {
@@ -268,12 +265,7 @@ public class roomWindow_Controller implements Initializable {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-	                });
-	                
-	                Button clean = controller.getControlBtn();
-	                clean.setOnAction(event1 -> {
-	                    
-	                });
+	                });                
 	                            
 	                showRoom_vbox.getChildren().add(roomData);
 				} catch (IOException e) {
@@ -339,12 +331,8 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button clean = controller.getControlBtn();
-                clean.setOnAction(event1 -> {
-                    
-                });
+                });      
+
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -409,13 +397,7 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button clean = controller.getControlBtn();
-                clean.setOnAction(event1 -> {
-                    
-                });
-                            
+                });                                            
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -478,12 +460,7 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });
-                
-                Button clean = controller.getControlBtn();
-                clean.setOnAction(event1 -> {
-                    
-                });
+                });                
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -548,11 +525,6 @@ public class roomWindow_Controller implements Initializable {
 						e.printStackTrace();
 					}
                 });
-                
-                Button clean = controller.getControlBtn();
-                clean.setOnAction(event1 -> {
-                    
-                });
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -616,13 +588,8 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });              
-                
-                Button clean = controller.getControlBtn();
-                clean.setOnAction(event1 -> {
-                    
-                });
-                            
+                });          
+                                           
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -685,12 +652,8 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });             
+                });      
                 
-                Button clean = controller.getControlBtn();
-                clean.setOnAction(event1 -> {
-                    
-                });
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -755,11 +718,6 @@ public class roomWindow_Controller implements Initializable {
 						e.printStackTrace();
 					}
                 });             
-                
-                Button clean = controller.getControlBtn();
-                clean.setOnAction(event1 -> {
-                    
-                });
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -824,11 +782,6 @@ public class roomWindow_Controller implements Initializable {
 						e.printStackTrace();
 					}
                 });            
-                
-                Button clean = controller.getControlBtn();
-                clean.setOnAction(event1 -> {
-                    
-                });
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {

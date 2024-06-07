@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import BLL.PHIEUNHANPHONG_BLL;
+import BLL.PHONG_BLL;
 import UI.Room.servicesRoom_Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,6 +75,9 @@ public class itemRoom_Controller implements Initializable {
 	    	String checkOut = now.format(inputFormatter);
 	    	System.out.println(checkOut);
 	    	String roomNumber = roomId_txt.getText();
+	    	String mapnp = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber);
+	    	PHIEUNHANPHONG_BLL.updateCheckOut(mapnp, checkOut);
+	    	PHONG_BLL.changeNotCleanRoomStatus(roomNumber);
 	    }
 	    
 	    public void bookService() {
@@ -92,22 +97,15 @@ public class itemRoom_Controller implements Initializable {
             }
 	    }
 	    
+	    public void cleanRoom() {
+	    	PHONG_BLL.changeEmptyRoomStatus(roomId_txt.getText());
+	    }
+	    
 	    public Button getDetailBtn() {
 	    	return detail_btn;
 	    }
 	    
-	    public Button getBookServiceBtn() {
-	    	return bookService_btn;
-	    }
-	    
-	    public Button getControlBtn() {
-	    	return control_btn;
-	    }
-	    
-	    public Button getCheckOutBtn() {
-	    	return checkOut_btn;
-	    }
-	    
+	    	    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

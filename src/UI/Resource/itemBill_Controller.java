@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import BLL.PHONG_BLL;
+import DTO.PHONG;
 import UI.Bill.billService_Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,8 +46,8 @@ public class itemBill_Controller implements Initializable{
     private Label surcharge_txt;
     
     public void setData(Object[] item) {
-		billId_txt.setText(item[0].toString());		
-		room_txt.setText(item[1].toString());
+    	billId_txt.setText(item[0].toString());		
+		room_txt.setText(item[1].toString());		
 		
 		//priceService_txt.setText(item[2].toString());
 		Double gia1 = Double.parseDouble(item[2].toString());
@@ -80,6 +82,13 @@ public class itemBill_Controller implements Initializable{
 		
 		checkinDate_txt.setText(checkin.toString());		
 		checkoutDate_txt.setText(checkout.toString());
+		//Đoạn này để set bấm được nút thanh toán, thanh toán chỉ hiện khi phòng đang dọn dẹp
+		PHONG currentRoom = PHONG_BLL.getRoom(room_txt.getText());
+		if(currentRoom.getMATRANGTHAI() == 2) {
+			pay_btn.setDisable(false);
+		}else {
+			pay_btn.setDisable(true);
+		}
     }
     
     public void printBill() {
@@ -110,16 +119,13 @@ public class itemBill_Controller implements Initializable{
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-    }
-    
-    public Button getPay_btn() {
-		return pay_btn;
-	}
+    }   
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

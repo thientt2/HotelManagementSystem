@@ -39,7 +39,7 @@ public class PHONG_BLL {
 		 }
 	 }
 	 
-	 public static PHONG layPhong(String maphong) {return PHONG_DAO.layPhong(maphong);}
+	 public static PHONG getRoom(String maphong) {return PHONG_DAO.getRoom(maphong);}
 	 
 	 public static int getAvailableRooms(int roomTypeId, LocalDate checkinDate, LocalDate checkoutDate) throws SQLException
 	 {

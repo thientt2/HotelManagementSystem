@@ -28,4 +28,8 @@ public class PHIEUNHANPHONG_BLL {
 	public static String getReceiveRoomIDByRoomID(String roomID) {
 		return PHIEUNHANPHONG_DAO.getReceiveRoomIDByRoomID(roomID);
 	}
+	
+	public static void updateCheckOut(String mapdp, String checkout) {
+		PHIEUNHANPHONG_DAO.updateCheckOut(mapdp, checkout);
+	}
 }
