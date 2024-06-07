@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -63,7 +64,7 @@
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="276.0" layoutY="6.0" prefHeight="20.0" prefWidth="54.0" style="-fx-font-weight: bold;" text="Đơn giá">
+                                    <Label layoutX="269.0" layoutY="6.0" prefHeight="20.0" prefWidth="54.0" style="-fx-font-weight: bold;" text="Đơn giá">
                                        <font>
                                           <Font name="Inter Medium" size="14.0" />
                                        </font>
@@ -86,7 +87,10 @@
                         </VBox>
                         <Pane prefHeight="85.0" prefWidth="366.0">
                            <children>
-                              <Button fx:id="addService_btn" layoutX="317.0" layoutY="13.0" mnemonicParsing="false" onAction="#addService" prefHeight="37.0" prefWidth="107.0" style="-fx-font-weight: bold; -fx-background-color: #1570EF; -fx-text-fill: white; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Thêm dịch vụ" />
+                              <Button fx:id="addService_btn" layoutX="317.0" layoutY="13.0" mnemonicParsing="false" onAction="#addService" prefHeight="37.0" prefWidth="107.0" styleClass="unselected-btn" stylesheets="@../../Designs/CustomerWindow.css" text="Thêm dịch vụ">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
                            <effect>
                               <DropShadow>

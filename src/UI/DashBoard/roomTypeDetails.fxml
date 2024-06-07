@@ -66,9 +66,9 @@
                         </DropShadow>
                      </effect>
                   </Pane>
-                  <Pane prefHeight="68.0" prefWidth="659.0">
+                  <Pane prefHeight="68.0" prefWidth="659.0" stylesheets="@../../Designs/bookRoom.css">
                      <children>
-                        <Button fx:id="cancel_btn" layoutX="521.0" layoutY="21.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Đóng" />
+                        <Button fx:id="cancel_btn" layoutX="521.0" layoutY="21.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" text="Đóng" />
                      </children>
                   </Pane>
                </children>

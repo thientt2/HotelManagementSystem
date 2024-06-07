@@ -5,72 +5,80 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="340.0" prefWidth="352.0" styleClass="radius" stylesheets="@../../Designs/addDichVu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Param.addService_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="358.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Param.addService_Controller">
    <children>
-      <BorderPane prefHeight="452.0" prefWidth="617.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
-            <StackPane prefHeight="352.0" prefWidth="328.0" stylesheets="@../Designs/addDichVu.css" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="340.0" prefWidth="352.0" styleClass="radius" stylesheets="@../../Designs/addDichVu.css">
+         <children>
+            <BorderPane prefHeight="452.0" prefWidth="617.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <center>
+                  <StackPane prefHeight="352.0" prefWidth="328.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="296.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+                        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="14.0" text="Tên dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="name_txt" layoutX="4.0" layoutY="21.0" prefHeight="40.0" prefWidth="296.0" promptText="Nhập tên dịch vụ" stylesheets="@../Designs/addDichVu.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="16.0" layoutY="109.0" prefHeight="67.0" prefWidth="296.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="99.0">
-                           <children>
-                              <Label layoutX="14.0" layoutY="14.0" text="Loại dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="type_cb" layoutX="73.0" layoutY="28.0" prefHeight="40.0" prefWidth="296.0" promptText="Chọn loại dịch vụ" styleClass="text-field" stylesheets="@../Designs/addDichVu.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="16.0" layoutY="196.0" prefHeight="67.0" prefWidth="296.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="190.0">
-                           <children>
-                              <Label layoutX="14.0" layoutY="14.0" text="Đơn giá" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="price_txt" layoutX="4.0" layoutY="21.0" prefHeight="40.0" prefWidth="296.0" promptText="Nhập đơn giá (VND)" stylesheets="@../Designs/addDichVu.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="124.0" layoutY="298.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
-                           <children>
-                              <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Button fx:id="add_btn" layoutX="88.0" mnemonicParsing="false" onAction="#addService" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Thêm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="296.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Tên dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="name_txt" layoutX="4.0" layoutY="21.0" prefHeight="40.0" prefWidth="296.0" promptText="Nhập tên dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="16.0" layoutY="109.0" prefHeight="67.0" prefWidth="296.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="99.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Loại dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="type_cb" layoutX="73.0" layoutY="28.0" prefHeight="40.0" prefWidth="296.0" promptText="Chọn loại dịch vụ" styleClass="text-field" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="16.0" layoutY="196.0" prefHeight="67.0" prefWidth="296.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="190.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Đơn giá" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="price_txt" layoutX="4.0" layoutY="21.0" prefHeight="40.0" prefWidth="296.0" promptText="Nhập đơn giá (VND)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="124.0" layoutY="298.0" prefHeight="40.0" prefWidth="176.0" stylesheets="@../../Designs/addDichVu.css" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                                 <children>
+                                    <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button fx:id="add_btn" layoutX="88.0" mnemonicParsing="false" onAction="#addService" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" text="Thêm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
                      </children>
-                  </AnchorPane>
-               </children>
-               <styleClass>
-                  <String fx:value="white-bg" />
-                  <String fx:value="radius" />
-               </styleClass>
-            </StackPane>
-         </center>
-      </BorderPane>
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                  </StackPane>
+               </center>
+            </BorderPane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

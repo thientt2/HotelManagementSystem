@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -13,9 +14,18 @@
          <children>
             <AnchorPane prefHeight="50.0" prefWidth="897.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <CheckBox layoutY="6.0" mnemonicParsing="false" text="Hóa đơn hiện tại" />
-                  <Button layoutX="219.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../../Designs/MainWindow.css" text="Chưa thanh toán" />
-                  <Button layoutX="372.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../../Designs/MainWindow.css" text="Đã thanh toán" />
+                  <CheckBox layoutY="6.0" mnemonicParsing="false" text="Hóa đơn hiện tại">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></CheckBox>
+                  <Button layoutX="219.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../../Designs/MainWindow.css" text="Chưa thanh toán">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button layoutX="372.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../../Designs/MainWindow.css" text="Đã thanh toán">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
