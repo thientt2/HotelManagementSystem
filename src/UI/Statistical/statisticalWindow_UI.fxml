@@ -1,15 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
-<AnchorPane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: #ffff;" stylesheets="@../Designs/StatisticalWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: #ffff;" stylesheets="@../../Designs/StatisticalWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Statistical.statisticalWindow_Controller">
    <children>
-      <AnchorPane fx:id="statisticalWindow_form" prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox prefHeight="541.0" prefWidth="897.0">
          <children>
-            <AnchorPane layoutX="532.0" layoutY="311.0" prefHeight="116.0" prefWidth="297.0" style="-fx-border-color: lightgray; -fx-border-radius: 8px;" />
-            <PieChart fx:id="pieChart" layoutX="66.0" layoutY="129.0" prefHeight="341.0" prefWidth="396.0" />
+            <VBox prefHeight="542.0" prefWidth="486.0">
+               <children>
+                  <Pane prefHeight="82.0" prefWidth="359.0">
+                     <children>
+                        <HBox alignment="CENTER" layoutX="43.0" layoutY="7.0" prefHeight="50.0" prefWidth="289.0" spacing="20.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <DatePicker stylesheets="@../../Designs/StatisticalWindow.css">
+                                 <styleClass>
+                                    <String fx:value="text-field" />
+                                    <String fx:value="custom-date-picker" />
+                                 </styleClass>
+                              </DatePicker>
+                              <DatePicker stylesheets="@../../Designs/StatisticalWindow.css">
+                                 <styleClass>
+                                    <String fx:value="text-field" />
+                                    <String fx:value="custom-date-picker" />
+                                 </styleClass>
+                              </DatePicker>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="144.0" prefWidth="375.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" layoutX="49.0" prefHeight="111.0" prefWidth="278.0" spacing="5.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Tổng doanh thu:" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="266.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-font-family: Arial;" text="400.000.000">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="23.0" prefWidth="18.0" style="-fx-font-weight: bold; -fx-font-size: 28px; -fx-font-family: Arial;" text="₫">
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="25.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="295.0" prefWidth="335.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="49.0" prefHeight="287.0" prefWidth="278.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Doanh thu loại phòng" />
+                              <Pane prefHeight="257.0" prefWidth="278.0">
+                                 <children>
+                                    <PieChart fx:id="pieChart" layoutX="36.0" maxHeight="238.0" maxWidth="206.0" prefHeight="238.0" prefWidth="206.0" style="-fx: red;" />
+                                 </children>
+                              </Pane>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox prefHeight="542.0" prefWidth="650.0">
+               <children>
+                  <Pane prefHeight="254.0" prefWidth="531.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" layoutY="8.0" prefHeight="232.0" prefWidth="500.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Biến động doanh thu">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <AreaChart fx:id="areaChart" prefHeight="189.0" prefWidth="500.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="287.0" prefWidth="531.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" layoutY="8.0" prefHeight="254.0" prefWidth="500.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9058823585510254" green="0.6784313917160034" blue="0.6784313917160034" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Hiệu suất thuê phòng">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <BarChart prefHeight="213.0" prefWidth="500.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children></VBox>
          </children>
-      </AnchorPane>
+      </HBox>
    </children>
 </AnchorPane>
