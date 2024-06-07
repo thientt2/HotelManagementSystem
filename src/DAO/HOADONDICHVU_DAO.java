@@ -121,4 +121,41 @@ public class HOADONDICHVU_DAO {
 			e.printStackTrace();
 		}
 	}
+
+	public static HOADONDICHVU getBillServiceByReceiveRoomID(String receiveRoomID) {
+		// TODO Auto-generated method stub
+		HOADONDICHVU billService = null;
+		String query = "SELECT * FROM HOADONDICHVU WHERE MAPNP = '" + receiveRoomID + "'";
+		try(Connection connection = DatabaseConnection.connectDb();
+			PreparedStatement prepare = connection.prepareStatement(query);) {			
+			ResultSet resultSet = prepare.executeQuery();
+			while(resultSet.next()) {
+				billService = new HOADONDICHVU(resultSet.getString("MAHD"),
+						resultSet.getString("MAPNP"),
+						resultSet.getString("NVNHAP"),
+						resultSet.getString("NGAYTAO"),
+						resultSet.getInt("GIADICHVU"),
+						resultSet.getInt("PHUTHU"),
+						resultSet.getInt("TRANGTHAI"),
+						resultSet.getInt("TONGTIEN"));
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return billService;
+	}
+
+	public static void updateBillService(String maHD, double totalPrice) {
+		// TODO Auto-generated method stub
+		String query = "UPDATE HOADONDICHVU SET TONGTIEN = ? WHERE MAHD = ?";
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setDouble(1, totalPrice);
+			prepare.setString(2, maHD);
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

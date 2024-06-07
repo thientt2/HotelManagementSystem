@@ -173,7 +173,7 @@ public class receiveRoom_Controller implements Initializable {
 			alert.errorMessage("Vui lòng nhập đầy đủ thông tin!");
 			SystemMessage.ERROR_MESSAGE = "";
 		}else {			
-			PHONG_BLL.changeRoomStatus(roomNumber_cb.getValue());
+			PHONG_BLL.changeInUseRoomStatus(roomNumber_cb.getValue());
 			String maPNP = PHIEUNHANPHONG_BLL.getLastReceiveRoom();
 			
 			CHITIETPNP_BLL.insertDetailRecieveRoom(maPNP, listOrtherCustomer);

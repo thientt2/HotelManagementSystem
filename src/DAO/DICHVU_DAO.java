@@ -123,14 +123,14 @@ public class DICHVU_DAO {
 	    }
 	}
 	
-	public static double getPriceService(String serviceName) {
-		double price = 0;
+	public static int getPriceService(String serviceName) {
+		int price = 0;
 		String query = "SELECT GIA FROM DICHVU WHERE TENDV = N'" + serviceName + "'";
 		try (Connection connection = DatabaseConnection.connectDb();
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery(query)) {
 			if (resultSet.next()) {
-				price = resultSet.getDouble("GIA");
+				price = resultSet.getInt("GIA");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

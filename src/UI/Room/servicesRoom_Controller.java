@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import BLL.CHITIETHOADON_BLL;
@@ -25,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import system.SystemMessage;
@@ -33,6 +35,18 @@ public class servicesRoom_Controller implements Initializable{
 	
 	@FXML
     private Button addDetail_btn;
+
+    @FXML
+    private AnchorPane bookService_pane;
+
+    @FXML
+    private VBox bookService_vbox;
+
+    @FXML
+    private AnchorPane bookedService_pane;
+
+    @FXML
+    private VBox bookedService_vbox;	   
 
     @FXML
     private Button close_btn;
@@ -61,12 +75,36 @@ public class servicesRoom_Controller implements Initializable{
     @FXML
     private Label totalPrice_txt;
     
+    private ObservableList<Object[]> listDetailService = FXCollections.observableArrayList();
+    
+    private boolean isNew = false;
+    
+    private boolean isDelete = false;
+    
+//    private double totalPrice = 0;
+    
+    private HOADONDICHVU billService = null;
+    
     public void setData(Object[] item) {
-		roomNumber_txt.setText(item[0].toString());		
+		roomNumber_txt.setText(item[0].toString());	
+		String pnp = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber_txt.getText());
+		billService = HOADONDICHVU_BLL.getBillServiceByReceiveRoomID(pnp);
+		if(billService != null) {
+			bookedService_pane.setVisible(true);
+			bookService_pane.setVisible(false);
+			isNew = false;
+			listDetailService = CHITIETHOADON_BLL.getListDetailService(billService.getMAHD());					
+			totalPrice_txt.setText(String.valueOf(billService.getTONGTIEN()));
+			showListService(bookedService_vbox, listDetailService);			
+		}else {
+			bookService_pane.setVisible(true);
+			bookedService_pane.setVisible(false);
+			isNew = true;
+			isDelete = true;
+		}
 		showListServiceType();
 		showListQuantity();
-    }
-
+    }	
 
 	public void showListServiceType() {
 		ObservableList<String> listServiceType = FXCollections.observableArrayList();
@@ -97,15 +135,14 @@ public class servicesRoom_Controller implements Initializable{
 		quantity_cb.setItems(listQuantity);
 	}
 	
-	private ObservableList<Object[]> listDetailService = FXCollections.observableArrayList();
+	private ObservableList<Object[]> listData = FXCollections.observableArrayList();
+	
 	public void addDetail() {	
-		
 		String selectedRoomType = serviceType_cb.getValue();
 		String selectedServiceName = serviceName_cb.getValue();
-		double selectedPrice = Double.parseDouble(price_txt.getText());
+		int selectedPrice = Integer.parseInt(price_txt.getText());
 		String selectedQuantity = quantity_cb.getValue();
-		double selectedTotal = selectedPrice* Integer.parseInt(selectedQuantity);
-		
+		int selectedTotal = selectedPrice * Integer.parseInt(selectedQuantity);
 		
 		Object[] rowdata = new Object[5];
 		rowdata[0] = selectedRoomType;
@@ -114,27 +151,68 @@ public class servicesRoom_Controller implements Initializable{
 		rowdata[3] = selectedQuantity;
 		rowdata[4] = selectedTotal;
 		
-		boolean isExists = listDetailService.stream()
+		boolean isExists = listData.stream()
 	    		.anyMatch(row -> selectedServiceName.equals(row[1]));
 	    if(isExists) {
-	    	listDetailService.stream()
+	    	listData.stream()
 	    	.filter(row -> rowdata[1].equals(row[1]))
 	    	.forEach(row -> {   				    	
 		    	row[3] = Integer.parseInt(row[3].toString()) + Integer.parseInt(rowdata[3].toString());
-		    	row[4] = Double.parseDouble(row[4].toString()) + Double.parseDouble(rowdata[4].toString());		    	
+		    	row[4] = Integer.parseInt(row[4].toString()) + Integer.parseInt(rowdata[4].toString());		    	
 	    	});
 	    } else {
-	    	listDetailService.add(rowdata);
+	    	listData.add(rowdata);
 	    }	    
+	    
+	    int totalPriceItem = listData.stream()
+			    .mapToInt(item -> Integer.parseInt(item[4].toString()))
+			    .sum();
+	    if(billService != null) {
+	    	int totalPrice = billService.getTONGTIEN() + totalPriceItem;
+	    	totalPrice_txt.setText(String.valueOf(totalPrice));
+	    }else {
+	    	totalPrice_txt.setText(String.valueOf(totalPriceItem));
+	    }    
 
-		detailServiceRoom_vbox.getChildren().clear();		
-		for (Object[] row : listDetailService) {
+    	
+		if(isNew) {
+			showListService(detailServiceRoom_vbox,listData);	
+		}else {
+			isDelete = true;
+			showListService(bookService_vbox,listData);
+			
+		}			
+	}
+	
+	public void showListService(VBox vbox,ObservableList<Object[]> listData) {
+		vbox.getChildren().clear();		
+		for (Object[] item : listData) {
 			try {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemServicesRoom.fxml"));
 				Parent billData = loader.load();
 				itemServicesRoom_Controller controller = loader.getController();
-				controller.setData(row);
-				detailServiceRoom_vbox.getChildren().add(billData);
+				controller.setData(item);
+				Button deleteItem_btn = controller.getDeleteItem_btn();
+				if(isDelete == true) {
+					deleteItem_btn.setVisible(true);
+					deleteItem_btn.setOnAction(event -> {
+						listData.remove(item);
+//						totalPrice -= Double.parseDouble(item[4].toString());
+//		                String formattedPrice = String.format("%.0f", totalPrice);
+//		                StringBuilder sb = new StringBuilder(formattedPrice);
+//		                int length = sb.length();
+//		                for (int i = length - 3; i > 0; i -= 3) {
+//		                    sb.insert(i, ".");
+//		                }
+//		                String finalPrice = sb.toString();
+//		                totalPrice_txt.setText(finalPrice);
+		                vbox.getChildren().remove(billData);
+					});				
+					
+				}else {
+					deleteItem_btn.setVisible(false);
+				}
+				vbox.getChildren().add(billData);
 			}catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
@@ -142,40 +220,78 @@ public class servicesRoom_Controller implements Initializable{
 		}		
 	}
 	
-	public void addDetailBill() {
+	public void addDetailBill() {	
+		
+		System.out.println(isNew);
+		if(isNew) {
+			insertBillService(listData);
+		}else {
+			updateBillService(listData);
+		}	
+
+		AlertMessage alert = new AlertMessage();
+		alert.successMessage("Đặt dịch vụ thành công!");
+		close();
+	}
+		
+	
+	
+	private void insertBillService(ObservableList<Object[]> listDetailService) {
+		// TODO Auto-generated method stub
 		Map<String, Object> dataBillService = new HashMap<String, Object>();
 		String maPNP = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber_txt.getText());
 		String maNVNhap = SystemMessage.getMANV();
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		String ngayTao = formatter.format(now);
-		double totalPrice = listDetailService.stream()
-			    .mapToDouble(item -> Double.parseDouble(item[4].toString()))
-			    .sum();
-		totalPrice_txt.setText(String.valueOf(totalPrice));
-
+		
+		int totalPrice = Integer.parseInt(totalPrice_txt.getText());
 		
 		dataBillService.put("maPNP", maPNP);
 		dataBillService.put("maNVNhap", maNVNhap);
 		dataBillService.put("ngayTao", ngayTao);
 		dataBillService.put("giaDV", totalPrice);	
 		HOADONDICHVU_BLL.insertBillService(dataBillService);
-		
 		HOADONDICHVU billService = HOADONDICHVU_BLL.getLastBill();
+		
 		for(Object[] item : listDetailService) {			
 			String serviceId = DICHVU_BLL.getServiceIdByName(item[1].toString());
 			Map<String, Object> billDetailService = new HashMap<String, Object>();
 			billDetailService.put("maHD", billService.getMAHD());
-			billDetailService.put("maDV", serviceId);
-			billDetailService.put("donGia", item[2]);
-			billDetailService.put("soLuong", item[3]);
-			billDetailService.put("tongTien", item[4]);
+			billDetailService.put("maDV", serviceId);			
+			billDetailService.put("soLuong", Integer.parseInt(item[3].toString()));
+			billDetailService.put("tongTien", Integer.parseInt(item[4].toString()));
+
 			CHITIETHOADON_BLL.insertBillDetailService(billDetailService);			
 		}
-		AlertMessage alert = new AlertMessage();
-		alert.successMessage("Đặt dịch vụ thành công!");
-		close();
+	}
+
+	public void updateBillService(ObservableList<Object[]> listData) {
 		
+		int totalPriceItem = listData.stream()
+			    .mapToInt(item -> Integer.parseInt(item[4].toString()))
+			    .sum();
+		int totalPrice = billService.getTONGTIEN() + totalPriceItem; 
+		String maHD = billService.getMAHD();
+		
+		HOADONDICHVU_BLL.updateBillService(maHD,totalPrice);
+		
+		for(Object[] item : listData) {
+			String serviceId = DICHVU_BLL.getServiceIdByName(item[1].toString());
+			Map<String, Object> billDetailService = new HashMap<String, Object>();
+			billDetailService.put("maHD", maHD);
+			billDetailService.put("maDV", serviceId);			
+			billDetailService.put("soLuong", Integer.parseInt(item[3].toString()));
+			billDetailService.put("tongTien", Integer.parseInt(item[4].toString()));
+			boolean isExist = CHITIETHOADON_BLL.isBillDetailServiceExist(maHD, serviceId);			
+			if(isExist) {
+				CHITIETHOADON_BLL.updateDetailBillService(billDetailService);
+			}else {
+				CHITIETHOADON_BLL.insertBillDetailService(billDetailService);					
+			}				
+		}
+		
+			
 	}
 	
 	public void close() {

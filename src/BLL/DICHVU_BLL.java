@@ -66,7 +66,7 @@ public class DICHVU_BLL {
 		DICHVU_DAO.deleteService(dichVu);
 	}
 
-	public static double getPriceService(String serviceName) {
+	public static int getPriceService(String serviceName) {
 		return DICHVU_DAO.getPriceService(serviceName);
 	}
 }

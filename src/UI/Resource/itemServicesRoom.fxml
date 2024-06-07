@@ -9,27 +9,27 @@
 
 <AnchorPane prefHeight="40.0" prefWidth="514.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemServicesRoom_Controller">
    <children>
-      <Label fx:id="serviceType_txt" layoutX="157.0" layoutY="10.0" prefHeight="20.0" prefWidth="75.0" text="LoaiDV">
+      <Label fx:id="serviceType_txt" layoutX="157.0" layoutY="10.0" prefHeight="20.0" text="LoaiDV">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="serviceName_txt" layoutX="14.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="TenDV">
+      <Label fx:id="serviceName_txt" layoutX="14.0" layoutY="10.0" prefHeight="20.0" text="TenDV">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="price_txt" layoutX="249.0" layoutY="10.0" prefHeight="20.0" prefWidth="55.0" text="DonGia">
+      <Label fx:id="price_txt" layoutX="249.0" layoutY="10.0" prefHeight="20.0" text="DonGia">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="number_txt" layoutX="347.0" layoutY="10.0" prefHeight="20.0" prefWidth="23.0" text="SL">
+      <Label fx:id="number_txt" layoutX="347.0" layoutY="10.0" prefHeight="20.0" text="SL">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="totalPrice_txt" layoutX="407.0" layoutY="10.0" prefHeight="20.0" prefWidth="82.0" text="ThanhTien">
+      <Label fx:id="totalPrice_txt" layoutX="407.0" layoutY="10.0" prefHeight="20.0" text="ThanhTien">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>

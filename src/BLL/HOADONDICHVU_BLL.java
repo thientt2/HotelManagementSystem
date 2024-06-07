@@ -26,4 +26,12 @@ public class HOADONDICHVU_BLL {
 	public static void updateBillService(Map<String, Object> data) {
 		HOADONDICHVU_DAO.updateBillService(data);
 	}
+	
+	public static HOADONDICHVU getBillServiceByReceiveRoomID(String receiveRoomID) {
+		return HOADONDICHVU_DAO.getBillServiceByReceiveRoomID(receiveRoomID);
+	}
+
+	public static void updateBillService(String maHD, double totalPrice) {
+		HOADONDICHVU_DAO.updateBillService(maHD,totalPrice);
+	}
 }
