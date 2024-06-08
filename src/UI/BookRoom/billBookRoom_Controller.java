@@ -71,7 +71,7 @@ public class billBookRoom_Controller implements Initializable {
     	checkinDate_txt.setText(checkin);
 		checkoutDate_txt.setText(checkout);	
 
-		int midPrice = list.stream().mapToInt(item -> Integer.parseInt(item[4].toString())*Integer.parseInt(item[3].toString())).sum();
+		int midPrice = list.stream().mapToInt(item -> Integer.parseInt(item[4].toString())).sum();
     	String midPriceString = String.valueOf(midPrice);
     	StringBuilder sbMidPrice = new StringBuilder(midPriceString);
     	int lngMidPrice = sbMidPrice.length();

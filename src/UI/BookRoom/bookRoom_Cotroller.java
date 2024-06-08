@@ -168,18 +168,16 @@ public class bookRoom_Cotroller implements Initializable {
 	public void addDetailBill() {
 	    String selectedRoomType = roomType_cb.getValue().toString();
 	    int selectedPrice = Integer.parseInt(price_txt.getText().replace(".", ""));
-	    int selectedQuantity = Integer.parseInt(quantity_cb.getValue().toString());
-	    int selectedTotal = selectedPrice * selectedQuantity;
+	    int selectedQuantity = Integer.parseInt(quantity_cb.getValue().toString());	    
 	    long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue()) + 1;
-	    	    
+	    int selectedTotal = selectedPrice * selectedQuantity * (int)numberOfDays;
 	    
 	    Object[] rowdata = new Object[5];
 	    rowdata[0] = selectedRoomType;
 	    rowdata[1] = selectedPrice;
-	    rowdata[2] = selectedQuantity;	    
-	    rowdata[3] = selectedTotal;
-	    rowdata[4] = numberOfDays;
-	    
+	    rowdata[2] = selectedQuantity;
+	    rowdata[3] = numberOfDays;
+	    rowdata[4] = selectedTotal;	    
 	    
 	    boolean isExists = listDetailBookRoom.stream()
 	    		.anyMatch(row -> selectedRoomType.equals(row[0]));

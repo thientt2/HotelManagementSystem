@@ -44,9 +44,10 @@ public class itemBookRoomDetail_Controller implements Initializable {
     	price_txt.setText(finalPrice1);
 		
 		quanlity_txt.setText(String.valueOf(item[2]));
+		numOfDay_txt.setText(String.valueOf(item[3]));
 		
 		//totalPrice_txt.setText(String.valueOf(item[3]));
-		int gia2 = Integer.parseInt(item[3].toString());
+		int gia2 = Integer.parseInt(item[4].toString());
     	String formattedPrice2 = String.valueOf(gia2);
     	StringBuilder sb2 = new StringBuilder(formattedPrice2);
     	int length2 = sb2.length();
@@ -57,7 +58,7 @@ public class itemBookRoomDetail_Controller implements Initializable {
     	String finalPrice2 = sb2.toString();
     	totalPrice_txt.setText(finalPrice2);
 		
-		numOfDay_txt.setText(String.valueOf(item[4]));
+		
 	}
     
     public Button getDeleteItem_btn() {

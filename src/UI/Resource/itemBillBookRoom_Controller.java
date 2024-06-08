@@ -26,7 +26,7 @@ public class itemBillBookRoom_Controller implements Initializable{
     private Label totalPrice_txt;
     
     public void setData(Object[] item) {
-		numOfDays_txt.setText(item[4].toString());
+		numOfDays_txt.setText(item[3].toString());
 		
 		//price_txt.setText(item[1].toString());
 		int gia1 = Integer.parseInt(item[1].toString().replace(".", ""));
@@ -44,7 +44,7 @@ public class itemBillBookRoom_Controller implements Initializable{
 		roomType_txt.setText(item[0].toString());
 		
 		//totalPrice_txt.setText(item[3].toString());
-		int gia2 = Integer.parseInt(item[3].toString().replace(".", ""));
+		int gia2 = Integer.parseInt(item[4].toString().replace(".", ""));
     	String formattedPrice2 = String.valueOf(gia2);
     	StringBuilder sb2 = new StringBuilder(formattedPrice2);
     	int length2 = sb2.length();

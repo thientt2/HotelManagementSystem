@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -78,7 +79,9 @@ public class paramWindow_Controller implements Initializable {
 	                    });
 	                    
 	                    Stage stage = new Stage();        
-	                    stage.initStyle(StageStyle.TRANSPARENT);        
+	                    stage.initStyle(StageStyle.TRANSPARENT);  
+	                    stage.initModality(Modality.WINDOW_MODAL);
+	                    stage.initOwner(edit_btn.getScene().getWindow());
 	                    Scene scene = new Scene(root);
 	
 	                    editService_Controller editService = loader1.getController();
@@ -128,7 +131,9 @@ public class paramWindow_Controller implements Initializable {
             });
             
             Stage stage = new Stage();        
-            stage.initStyle(StageStyle.TRANSPARENT);        
+            stage.initStyle(StageStyle.TRANSPARENT);  
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(addService_btn.getScene().getWindow());
             Scene scene = new Scene(root);
         
             root.setOnMouseDragged((MouseEvent event)->{
@@ -166,7 +171,9 @@ public class paramWindow_Controller implements Initializable {
 	                    });
 	                    
 	                    Stage stage = new Stage();        
-	                    stage.initStyle(StageStyle.TRANSPARENT);        
+	                    stage.initStyle(StageStyle.TRANSPARENT);       
+	                    stage.initModality(Modality.WINDOW_MODAL);
+	                    stage.initOwner(edit_btn.getScene().getWindow());
 	                    Scene scene = new Scene(root);
 	
 	                    editParam_Controller editParam = loader1.getController();

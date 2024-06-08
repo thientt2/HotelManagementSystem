@@ -28,6 +28,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -200,7 +201,9 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);        
+                        stage.initStyle(StageStyle.TRANSPARENT);   
+                        stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(dashBoard_form.getScene().getWindow());
                         Scene scene = new Scene(root);
 
                         editRoomType_Controller editRoomType = loader.getController();
@@ -231,7 +234,9 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);        
+                        stage.initStyle(StageStyle.TRANSPARENT);     
+						stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(dashBoard_form.getScene().getWindow());
                         Scene scene = new Scene(root);
 
                         roomTypeDetails_Controller roomTypeDetails = loader.getController();
@@ -306,7 +311,9 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);        
+                        stage.initStyle(StageStyle.TRANSPARENT); 
+						stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(dashBoard_form.getScene().getWindow());
                         Scene scene = new Scene(root);
 
                         editRoomType_Controller editRoomType = loader.getController();
@@ -337,7 +344,9 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);        
+                        stage.initStyle(StageStyle.TRANSPARENT);  
+						stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(dashBoard_form.getScene().getWindow());
                         Scene scene = new Scene(root);
 
                         roomTypeDetails_Controller roomTypeDetails = loader.getController();
@@ -412,7 +421,9 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);        
+                        stage.initStyle(StageStyle.TRANSPARENT);   
+						stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(dashBoard_form.getScene().getWindow());
                         Scene scene = new Scene(root);
 
                         editRoomType_Controller editRoomType = loader.getController();
@@ -443,7 +454,9 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);        
+                        stage.initStyle(StageStyle.TRANSPARENT);  
+						stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(dashBoard_form.getScene().getWindow());
                         Scene scene = new Scene(root);
 
                         roomTypeDetails_Controller roomTypeDetails = loader.getController();

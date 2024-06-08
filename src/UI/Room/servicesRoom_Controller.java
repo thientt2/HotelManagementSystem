@@ -174,15 +174,21 @@ public class servicesRoom_Controller implements Initializable{
 	    }else {
 	    	totalPrice_txt.setText(String.valueOf(totalPriceItem));
 	    }    
-
+	    
     	
 		if(isNew) {
 			showListService(detailServiceRoom_vbox,listData);	
 		}else {
 			isDelete = true;
-			showListService(bookService_vbox,listData);
-			
+			showListService(bookService_vbox,listData);			
 		}			
+		// Đặt lại giá trị của ComboBox và TextField
+		serviceType_cb.setValue(null);
+		serviceName_cb.setValue(null);
+		price_txt.setText("");
+		quantity_cb.setValue(null);
+
+
 	}
 	
 	public void showListService(VBox vbox,ObservableList<Object[]> listData) {
@@ -208,8 +214,7 @@ public class servicesRoom_Controller implements Initializable{
 //		                String finalPrice = sb.toString();
 //		                totalPrice_txt.setText(finalPrice);
 		                vbox.getChildren().remove(billData);
-					});				
-					
+					});									
 				}else {
 					deleteItem_btn.setVisible(false);
 				}
