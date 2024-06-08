@@ -7,6 +7,7 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -33,13 +34,13 @@
                               </DropShadow>
                            </effect>
                            <children>
-                              <DatePicker stylesheets="@../../Designs/StatisticalWindow.css">
+                              <DatePicker fx:id="startDay_cb" stylesheets="@../../Designs/StatisticalWindow.css">
                                  <styleClass>
                                     <String fx:value="text-field" />
                                     <String fx:value="custom-date-picker" />
                                  </styleClass>
                               </DatePicker>
-                              <DatePicker stylesheets="@../../Designs/StatisticalWindow.css">
+                              <DatePicker fx:id="endDay_txt" stylesheets="@../../Designs/StatisticalWindow.css">
                                  <styleClass>
                                     <String fx:value="text-field" />
                                     <String fx:value="custom-date-picker" />
@@ -50,6 +51,9 @@
                               <Insets left="10.0" right="10.0" />
                            </padding>
                         </HBox>
+                        <ComboBox fx:id="year_cb" layoutX="34.0" layoutY="56.0" prefHeight="25.0" prefWidth="82.0" promptText="Năm" />
+                        <ComboBox fx:id="month_cb" layoutX="128.0" layoutY="56.0" prefHeight="25.0" prefWidth="82.0" promptText="Tháng" />
+                        <ComboBox fx:id="day_cb" layoutX="224.0" layoutY="56.0" prefHeight="25.0" prefWidth="82.0" promptText="Ngày" />
                      </children>
                   </Pane>
                   <Pane prefHeight="144.0" prefWidth="375.0">
@@ -66,7 +70,7 @@
                               <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Tổng doanh thu:" />
                               <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="266.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-font-family: Arial;" text="400.000.000">
+                                    <Label fx:id="value_txt" style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-font-family: Arial;" text="400.000.000">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
@@ -157,7 +161,7 @@
                                     <Insets left="25.0" />
                                  </VBox.margin>
                               </Label>
-                              <BarChart prefHeight="213.0" prefWidth="500.0">
+                              <BarChart fx:id="barChart" prefHeight="213.0" prefWidth="500.0">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>

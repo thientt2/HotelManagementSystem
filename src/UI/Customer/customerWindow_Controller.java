@@ -162,7 +162,6 @@ public class customerWindow_Controller implements Initializable {
 	
 
 	public void refreshCustomerList() {
-        // Xóa tất cả các nút con trong VBox
         listCustomer = KHACHHANG_BLL.listCustomer();
 		pagination.setPageCount(calculatePageCount());
 	    pagination.setPageFactory(this::createPage);	

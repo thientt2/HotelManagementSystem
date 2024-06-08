@@ -248,42 +248,42 @@
                   </DropShadow>
                </effect>
             </VBox>
-            <VBox alignment="CENTER" layoutX="36.0" layoutY="127.0" prefHeight="172.0" prefWidth="246.0" spacing="10.0">
+            <VBox alignment="CENTER" layoutX="36.0" layoutY="127.0" prefHeight="172.0" prefWidth="261.0" spacing="10.0">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
                      <children>
                         <Label prefHeight="20.0" prefWidth="102.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Họ và tên:" />
-                        <Label fx:id="name_txt" prefHeight="23.0" prefWidth="110.0" text="Nguyễn Hữu Trường" />
+                        <Label fx:id="name_txt" prefHeight="20.0" prefWidth="154.0" text="Nguyễn Hữu Trường" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
                      <children>
                         <Label prefHeight="20.0" prefWidth="172.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Email:" />
-                        <Label fx:id="email_txt" prefHeight="23.0" prefWidth="201.0" text="truongbmt4@gmail.com" />
+                        <Label fx:id="email_txt" prefHeight="20.0" prefWidth="222.0" text="truongbmt4@gmail.com" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
                      <children>
                         <Label prefHeight="20.0" prefWidth="141.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="SDT:" />
-                        <Label fx:id="sdt_txt" prefHeight="23.0" prefWidth="173.0" text="0914259475" />
+                        <Label fx:id="sdt_txt" prefHeight="20.0" prefWidth="190.0" text="0914259475" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
                      <children>
                         <Label prefHeight="20.0" prefWidth="142.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="CCCD:" />
-                        <Label fx:id="cccd_txt" prefHeight="23.0" prefWidth="173.0" text="066204002069" />
+                        <Label fx:id="cccd_txt" prefHeight="20.0" prefWidth="190.0" text="066204002069" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
                      <children>
                         <Label prefHeight="20.0" prefWidth="140.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Ngày sinh:" />
-                        <Label fx:id="birthday_txt" prefHeight="23.0" prefWidth="173.0" text="05/01/2004" />
+                        <Label fx:id="birthday_txt" prefHeight="20.0" prefWidth="188.0" text="05/01/2004" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="262.0" spacing="10.0">
                      <children>
                         <Label prefHeight="20.0" prefWidth="142.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Ngày vào làm:" />
-                        <Label fx:id="startdate_txt" prefHeight="23.0" prefWidth="173.0" text="01/04/2024" />
+                        <Label fx:id="startdate_txt" prefHeight="20.0" prefWidth="190.0" text="01/04/2024" />
                      </children>
                   </HBox>
                </children>

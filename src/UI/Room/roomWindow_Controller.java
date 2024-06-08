@@ -189,9 +189,6 @@ public class roomWindow_Controller implements Initializable {
 							e.printStackTrace();
 						}
 	                });       
-
-	                
-
 	                            
 	                showRoom_vbox.getChildren().add(roomData);
 	            } catch (IOException e) {

@@ -123,7 +123,7 @@ public class billBookRoom_Controller implements Initializable {
     }
     
     public void print() {
-        WritableImage snapshot = new WritableImage(496, 530);
+        WritableImage snapshot = new WritableImage(490, 532);
         detail_vbox.getScene().getRoot().snapshot(new SnapshotParameters(), snapshot);
 
         // Chuyển đổi ảnh thành byte array

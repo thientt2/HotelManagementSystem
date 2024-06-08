@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="shadowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="627.0" style="-fx-background-color: transparent; -fx-background-radius: 10px; -fx-border-color: transparent; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Customer.addCustomer_Controller">
+<AnchorPane fx:id="shadowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="627.0" style="-fx-background-color: transparent; -fx-background-radius: 10px; -fx-border-color: transparent; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Customer.addCustomer_Controller">
    <children>
       <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@../../Designs/addCustomer.css" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
          <children>
@@ -108,7 +108,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="401.0" layoutY="359.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="40.0">
+            <AnchorPane layoutX="401.0" layoutY="340.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="40.0">
                <children>
                   <Button fx:id="cancel_btn" layoutX="-4.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" text="Hủy" AnchorPane.leftAnchor="-4.0" AnchorPane.topAnchor="0.0" />
                   <Button fx:id="addCustomer_btn" layoutX="96.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" text="Thêm" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
