@@ -25,23 +25,11 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="editService_btn" layoutX="349.0" layoutY="8.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="7.199999999999996" AnchorPane.topAnchor="8.0">
+      <Button fx:id="editService_btn" layoutX="365.0" layoutY="9.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="7.799999999999997" AnchorPane.topAnchor="9.0">
          <graphic>
             <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/editcolor.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="deleteService_btn" layoutX="377.0" layoutY="8.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="7.199999999999996" AnchorPane.topAnchor="8.0">
-         <graphic>
-            <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Images/recycle.png" />
                </image>
             </ImageView>
          </graphic>

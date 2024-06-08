@@ -12,8 +12,6 @@ import javafx.scene.control.Label;
 
 public class itemService_Controller implements Initializable{
 	
-    @FXML
-    private Button deleteService_btn;
 
     @FXML
     private Button editService_btn;
@@ -31,9 +29,6 @@ public class itemService_Controller implements Initializable{
 		return editService_btn;
 	}	
     
-    public Button getDeleteService_btn() {
-		return deleteService_btn;
-	}	
 	  
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

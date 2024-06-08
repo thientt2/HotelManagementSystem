@@ -4,29 +4,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #E8F1FD; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBillBookRoom_Controller">
+<AnchorPane prefHeight="30.0" prefWidth="408.0" style="-fx-background-color: white; -fx-border-color: #E8F1FD; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBillBookRoom_Controller">
    <children>
-      <Label fx:id="roomType_txt" layoutY="5.0" prefHeight="20.0" text="TenLoai">
+      <Label fx:id="roomType_txt" layoutX="14.0" layoutY="5.0" prefHeight="20.0" style="-fx-font-size: 13px;" text="TenLoai">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="numOfDays_txt" layoutX="89.0" layoutY="5.0" prefHeight="20.0" prefWidth="26.0" text="SN">
+      <Label fx:id="numOfDays_txt" layoutX="110.0" layoutY="5.0" prefHeight="20.0" prefWidth="26.0" style="-fx-font-size: 13px;" text="SN">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="price_txt" layoutX="159.0" layoutY="5.0" prefHeight="20.0" text="DonGia">
+      <Label fx:id="price_txt" layoutX="172.0" layoutY="4.0" prefHeight="20.0" style="-fx-font-size: 13px;" text="DonGia">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="quanlity_txt" layoutX="258.0" layoutY="5.0" prefHeight="20.0" prefWidth="26.0" text="SL">
+      <Label fx:id="quanlity_txt" layoutX="268.0" layoutY="5.0" prefHeight="20.0" prefWidth="26.0" style="-fx-font-size: 13px;" text="SL">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="totalPrice_txt" layoutX="335.0" layoutY="5.0" prefHeight="20.0" text="ThanhTien">
+      <Label fx:id="totalPrice_txt" layoutX="326.0" layoutY="5.0" prefHeight="20.0" style="-fx-font-size: 13px;" text="ThanhTien">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>

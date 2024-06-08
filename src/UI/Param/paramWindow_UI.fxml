@@ -87,7 +87,7 @@
                         </VBox>
                         <Pane prefHeight="85.0" prefWidth="366.0">
                            <children>
-                              <Button fx:id="addService_btn" layoutX="317.0" layoutY="13.0" mnemonicParsing="false" onAction="#addService" prefHeight="37.0" prefWidth="107.0" styleClass="unselected-btn" stylesheets="@../../Designs/CustomerWindow.css" text="Thêm dịch vụ">
+                              <Button fx:id="addService_btn" layoutX="331.0" layoutY="27.0" mnemonicParsing="false" onAction="#addService" prefHeight="37.0" prefWidth="107.0" styleClass="unselected-btn" stylesheets="@../../Designs/CustomerWindow.css" text="Thêm dịch vụ">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>

@@ -1,170 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="493.0" stylesheets="@../../Designs/BillWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.billBookRoom_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="499.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.billBookRoom_Controller">
    <children>
-      <VBox prefHeight="400.0" prefWidth="493.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="493.0" stylesheets="@../../Designs/BillWindow.css">
          <children>
-            <AnchorPane prefHeight="560.0" prefWidth="493.0" style="-fx-background-color: white;">
+            <VBox alignment="TOP_CENTER" prefHeight="580.0" prefWidth="493.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane layoutX="21.0" layoutY="253.0" prefHeight="168.0" prefWidth="447.0" AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="253.0">
+                  <HBox prefHeight="120.0" prefWidth="494.0">
                      <children>
-                        <AnchorPane prefHeight="30.0" prefWidth="428.0" styleClass="header-pain" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Pane prefHeight="113.0" prefWidth="226.0" />
+                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="356.0" spacing="5.0">
                            <children>
-                              <Label layoutY="5.0" prefHeight="20.0" prefWidth="57.0" text="Tên loại">
+                              <Label style="-fx-font-size: 12px;" text="Địa chỉ: 01 Ngô Văn Nam, Quận 1, TP. Hồ Chí Minh  ">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="75.0" layoutY="5.0" prefHeight="20.0" prefWidth="56.0" text="Số ngày">
+                              <Label style="-fx-font-size: 12px;" text="Số điện thoại: 028.39150505  ">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="159.0" layoutY="5.0" prefHeight="20.0" prefWidth="62.0" text="Đơn giá">
+                              <Label style="-fx-font-size: 12px;" text="Website: https://www.laoperasghotel.com">
                                  <font>
                                     <Font name="Inter Medium" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="242.0" layoutY="5.0" prefHeight="20.0" prefWidth="62.0" text="Số lượng">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="335.0" layoutY="5.0" prefHeight="20.0" prefWidth="80.0" text="Thành tiền">
-                                 <font>
-                                    <Font name="Inter Medium" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <VBox layoutX="11.0" layoutY="31.0" prefHeight="137.0" prefWidth="428.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                           <children>
-                              <VBox fx:id="detail_vbox" prefHeight="37.0" prefWidth="428.0" />
-                              <Line endX="265.5" startX="-175.0" />
-                              <AnchorPane prefHeight="55.0" prefWidth="456.0">
-                                 <children>
-                                    <Label layoutX="42.0" layoutY="13.0" text="Thành tiền:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0">
-                                       <font>
-                                          <Font name="Inter Medium" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="midPrice_txt" layoutX="311.0" layoutY="12.0" text="thanhtien" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="16.0">
-                                       <font>
-                                          <Font name="Inter Medium" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutY="-9.0" text="Giảm giá:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font name="Inter Medium" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="surcharge_txt" layoutX="301.0" layoutY="17.0" text="giamgia" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font name="Inter Medium" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                              <Line endX="264.5" startX="-175.0" />
-                              <AnchorPane prefHeight="35.0" prefWidth="456.0">
-                                 <children>
-                                    <Label layoutX="26.0" layoutY="3.0" text="Tổng tiền:" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font name="Inter Medium" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="totalPrice_txt" layoutX="243.0" layoutY="14.0" text="tongtien" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font name="Inter Medium" size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
                            </children>
                         </VBox>
                      </children>
-                  </AnchorPane>
-                  <Label layoutX="162.0" layoutY="14.0" text="La Opera Hotel" textFill="#073390">
-                     <font>
-                        <Font name="Inter ExtraBold" size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="96.0" layoutY="59.0" text="Địa chỉ: 01 Ngô Văn Nam, Quận 1, TP. Hồ Chí Minh  ">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="96.0" layoutY="85.0" text="Số điện thoại: 028.39150505  ">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="96.0" layoutY="108.0" text="Website: https://www.laoperasghotel.com">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="100.0" layoutY="145.0" text="HÓA ĐƠN THANH TOÁN" textFill="#06421b">
-                     <font>
-                        <Font name="Inter ExtraBold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="30.0" layoutY="190.0" text="Mã hóa đơn:">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="billId_txt" layoutX="118.0" layoutY="190.0" text="mahoadon">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="245.0" layoutY="190.0" text="Nhân viên:">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="staffName_txt" layoutX="322.0" layoutY="190.0" text="tennhanvien">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="30.0" layoutY="215.0" text="Check-in:">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="checkinDate_txt" layoutX="100.0" layoutY="215.0" text="ngaycheckin">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="245.0" layoutY="215.0" text="Check-out:">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="checkoutDate_txt" layoutX="324.0" layoutY="215.0" text="ngaycheckout">
-                     <font>
-                        <Font name="Inter Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <AnchorPane layoutX="266.0" layoutY="496.0" prefHeight="40.0" prefWidth="195.0" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="24.0">
+                  </HBox>
+                  <Pane prefHeight="46.0" prefWidth="494.0">
                      <children>
-                        <Button fx:id="cancel_btn" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Button fx:id="print_btn" layoutX="88.0" mnemonicParsing="false" onAction="#print" prefHeight="40.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../../Designs/addDichVu.css" text="In hóa đơn" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label layoutX="128.0" layoutY="-1.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="HÓA ĐƠN THANH TOÁN" textFill="#06421b">
+                           <font>
+                              <Font name="Inter ExtraBold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="403.0">
+                     <children>
+                        <VBox prefHeight="57.0" prefWidth="183.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="210.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Mã hóa đơn:">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="billId_txt" style="-fx-font-size: 13px;" text="mahoadon">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="210.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Check-in:">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="checkinDate_txt" style="-fx-font-size: 13px;" text="ngaycheckin">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="60.0" prefWidth="227.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Nhân viên:">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="staffName_txt" style="-fx-font-size: 13px;" text="Nguyễn Hữu Trường Sơn">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Check-out:">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="checkoutDate_txt" style="-fx-font-size: 13px;" text="ngaycheckout">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="318.0" prefWidth="494.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="43.0" layoutY="7.0" prefHeight="288.0" prefWidth="397.0" spacing="1.0">
+                           <children>
+                              <AnchorPane prefHeight="30.0" prefWidth="420.0" style="-fx-border-radius: 0px; -fx-background-radius: 0px;" styleClass="header-pain">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="5.0" prefHeight="20.0" prefWidth="57.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Tên loại">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="94.0" layoutY="5.0" prefHeight="20.0" prefWidth="56.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Số ngày">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="173.0" layoutY="5.0" prefHeight="20.0" prefWidth="53.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Đơn giá">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="248.0" layoutY="5.0" prefHeight="20.0" prefWidth="62.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Số lượng">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="321.0" layoutY="5.0" prefHeight="20.0" prefWidth="71.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Thành tiền">
+                                       <font>
+                                          <Font name="Inter Medium" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="257.0" prefWidth="441.0" spacing="10.0">
+                                 <children>
+                                    <VBox fx:id="detail_vbox" prefHeight="134.0" prefWidth="408.0" />
+                                    <Line endX="261.8929138183594" endY="1.2981891813979018E-5" startX="-144.59169006347656" startY="2.5975703465519473E-5" />
+                                    <AnchorPane prefHeight="55.0" prefWidth="420.0">
+                                       <children>
+                                          <Label layoutX="-1.0" layoutY="31.200000000000003" text="Thành tiền:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0">
+                                             <font>
+                                                <Font name="Inter Medium" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="midPrice_txt" contentDisplay="RIGHT" layoutX="346.6" layoutY="30.4" text="thanhtien" textAlignment="RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-1.0">
+                                             <font>
+                                                <Font name="Inter Medium" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="-1.0" text="Giảm giá:" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Inter Medium" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="surcharge_txt" contentDisplay="RIGHT" layoutX="356.59999999999997" text="giamgia" textAlignment="RIGHT" AnchorPane.rightAnchor="1.8000000000000114" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Inter Medium" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <Line endX="261.8929138183594" endY="1.2981891813979018E-5" startX="-144.59169006347656" startY="-3.430843207752332E-5" />
+                                    <AnchorPane prefHeight="35.0" prefWidth="456.0">
+                                       <children>
+                                          <Label layoutX="-1.0" layoutY="7.2" style="-fx-font-weight: bold;" text="Tổng tiền:" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="7.2">
+                                             <font>
+                                                <Font name="Inter Medium" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalPrice_txt" contentDisplay="RIGHT" layoutX="328.20000000000005" layoutY="4.8" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-alignment: right;" text="tongtien" textAlignment="RIGHT" AnchorPane.rightAnchor="-1.8000000000000682" AnchorPane.topAnchor="4.8">
+                                             <font>
+                                                <Font name="Inter Medium" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <AnchorPane prefHeight="70.0" prefWidth="494.0">
+                     <children>
+                        <Button fx:id="cancel_btn" layoutX="247.0" layoutY="6.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="247.0" AnchorPane.topAnchor="6.0" />
+                        <Button fx:id="print_btn" layoutX="358.0" layoutY="6.0" mnemonicParsing="false" onAction="#print" prefHeight="40.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../../Designs/addDichVu.css" text="In hóa đơn" AnchorPane.rightAnchor="40.400000000000034" AnchorPane.topAnchor="6.0" />
                      </children>
                   </AnchorPane>
                </children>
-            </AnchorPane>
+            </VBox>
          </children>
-      </VBox>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

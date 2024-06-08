@@ -66,7 +66,6 @@ public class paramWindow_Controller implements Initializable {
 				itemService_Controller controller = loader.getController();
 				controller.setService(item);
 	            Button edit_btn = controller.getEditService_btn();
-	            Button delete_btn = controller.getDeleteService_btn();
 	            edit_btn.setOnAction(eventEditService -> {
 	            	try {
 	                    
@@ -100,17 +99,8 @@ public class paramWindow_Controller implements Initializable {
 	                    e.printStackTrace();
 	                }
                 });
-
-	            delete_btn.setOnAction(deleteEvent -> {
-	            	try {
-	                    DICHVU_BLL.deleteService(item);
-	                } catch (SQLException e) {
-	                    e.printStackTrace();
-	                }
-	                refreshServiceList();
-                });
 			
-	            
+	      
 				listService_vbox.getChildren().add(serviceDataPane);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
