@@ -97,7 +97,11 @@
                   </Label>
                </children>
             </AnchorPane>
-            <VBox fx:id="detailCustomer_vbox" layoutX="264.0" layoutY="101.0" prefHeight="118.0" prefWidth="302.0" />
+            <ScrollPane layoutX="264.0" layoutY="100.0" prefHeight="101.0" prefWidth="302.0">
+               <content>
+                  <VBox fx:id="detailCustomer_vbox" prefHeight="102.0" prefWidth="286.0" />
+               </content>
+            </ScrollPane>
             <Label layoutX="264.0" layoutY="221.0" text="Các dịch vụ đã đặt:">
                <font>
                   <Font name="Inter Medium" size="14.0" />

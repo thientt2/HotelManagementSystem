@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="437.0" prefWidth="494.0" style="-fx-background-image: transparent;" stylesheets="@../../Designs/customerDetails.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Staff.staffDetails_Controller">
+<AnchorPane prefHeight="437.0" prefWidth="494.0" style="-fx-background-color: transparent;" stylesheets="@../../Designs/customerDetails.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Staff.staffDetails_Controller">
    <children>
       <AnchorPane prefHeight="437.0" prefWidth="494.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
          <children>

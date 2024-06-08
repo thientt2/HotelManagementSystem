@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
@@ -66,26 +67,41 @@
 		                     <font>
 		                        <Font name="Inter Medium" size="14.0" />
 		                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
 		                  </Button>
 		                  <Button fx:id="notyet_btn" layoutX="190.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleNotYetButtonAction" prefHeight="37.0" prefWidth="60.0" style="-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2;" styleClass="button-control" text="Chưa" AnchorPane.topAnchor="11.0">
 		                     <font>
 		                        <Font name="Inter Medium" size="14.0" />
 		                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
 		                  </Button>
 		                  <Button fx:id="outofdate_btn" layoutX="258.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleOutOfDateButtonAction" prefHeight="38.0" prefWidth="78.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" text="Quá hạn" AnchorPane.topAnchor="11.0">
 		                     <font>
 		                        <Font name="Inter Medium" size="14.0" />
 		                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
 		                  </Button>
 		                  <Button fx:id="today_btn" layoutX="95.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleTodayButtonAction" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" text="Hôm nay" AnchorPane.topAnchor="11.0">
 		                     <font>
 		                        <Font name="Inter Medium" size="14.0" />
 		                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
 		                  </Button>
-                  <Button fx:id="bookRoom_btn" layoutX="718.0" layoutY="10.0" mnemonicParsing="false" onAction="#bookRoom" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #1570EF; -fx-text-fill: #FFFFFF;" styleClass="button-control" text="Đặt phòng" AnchorPane.topAnchor="10.0">
+                  <Button fx:id="bookRoom_btn" layoutX="718.0" layoutY="10.0" mnemonicParsing="false" onAction="#bookRoom" prefHeight="40.0" prefWidth="105.0" styleClass="unselected-btn" stylesheets="@../../Designs/CustomerWindow.css" text="Đặt phòng" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="Inter Medium" size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </AnchorPane>
