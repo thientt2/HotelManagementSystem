@@ -4,24 +4,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="39.0" prefWidth="456.0" style="-fx-background-color: white; -fx-border-color: #E8F1FD; -fx-border-width: 2px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBillService_Controller">
+<AnchorPane prefHeight="39.0" prefWidth="408.0" style="-fx-background-color: white; -fx-border-color: #E8F1FD; -fx-border-width: 2px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemBillService_Controller">
    <children>
-      <Label fx:id="serviceName_txt" layoutX="6.0" layoutY="11.0" prefHeight="18.0" text="TenDichVu">
+      <Label fx:id="serviceName_txt" layoutX="14.0" layoutY="11.0" prefHeight="18.0" style="-fx-font-size: 13px;" text="TenDichVu">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="price_txt" layoutX="150.0" layoutY="11.0" text="DonGia">
+      <Label fx:id="price_txt" layoutX="160.0" layoutY="11.0" style="-fx-font-size: 13px;" text="DonGia">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="quanlity_txt" layoutX="260.0" layoutY="11.0" text="SL">
+      <Label fx:id="quanlity_txt" layoutX="280.0" layoutY="11.0" style="-fx-font-size: 13px;" text="SL">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="totalPrice_txt" layoutX="337.0" layoutY="11.0" text="ThanhTien">
+      <Label fx:id="totalPrice_txt" layoutX="334.0" layoutY="11.0" style="-fx-font-size: 13px;" text="ThanhTien">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
