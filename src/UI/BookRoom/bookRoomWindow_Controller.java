@@ -14,8 +14,10 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import BLL.HOADONPHONG_BLL;
 import BLL.KHACHHANG_BLL;
 import BLL.PHIEUDATPHONG_BLL;
+import DTO.HOADONPHONG;
 import DTO.KHACHHANG;
 import DTO.PHIEUDATPHONG;
 import UI.MainWindow_Controller;
@@ -193,24 +195,31 @@ public class bookRoomWindow_Controller implements Initializable{
                             FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
                             Parent root = loader2.load();
 
-                            root.setOnMousePressed((MouseEvent event1) -> {
-                                x = event1.getSceneX();
-                                y = event1.getSceneY();
-                            });
+//                            root.setOnMousePressed((MouseEvent event1) -> {
+//                                x = event1.getSceneX();
+//                                y = event1.getSceneY();
+//                            });
 
+                            PHIEUDATPHONG bookRoomBill = PHIEUDATPHONG_BLL.getBookRoom(bookRoom[0].toString());
+                            HOADONPHONG roomBill = HOADONPHONG_BLL.getRoomBill(bookRoom[0].toString());
+                            ObservableList<Object[]> listDetail = HOADONPHONG_BLL.listDetailBill(bookRoom[0].toString());
+                            billBookRoom_Controller controllerBill = loader2.getController();
+                            controllerBill.setData(bookRoomBill.getNGAYNHAN(), bookRoomBill.getNGAYTRA(), roomBill, listDetail);
                             Stage stage = new Stage();
                             stage.initStyle(StageStyle.TRANSPARENT);
+							stage.initModality(Modality.WINDOW_MODAL);
+							stage.initOwner(contextMenu_btn.getScene().getWindow());
                             Scene scene = new Scene(root);
 
-                            root.setOnMouseDragged((MouseEvent event1) -> {
-                                stage.setX(event1.getScreenX() - x);
-                                stage.setY(event1.getScreenY() - y);
-                            });
+//                            root.setOnMouseDragged((MouseEvent event1) -> {
+//                                stage.setX(event1.getScreenX() - x);
+//                                stage.setY(event1.getScreenY() - y);
+//                            });
 
                             stage.setScene(scene);
                             stage.showAndWait();
 
-                            refreshBookRoomList();
+//                            refreshBookRoomList();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

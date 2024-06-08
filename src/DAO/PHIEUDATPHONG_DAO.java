@@ -238,5 +238,28 @@ public class PHIEUDATPHONG_DAO {
 
         return rowData != null ? rowData : new Object[0];
     }
+
+
+	public static PHIEUDATPHONG getBookRoom(String bookRoomId) {
+		// TODO Auto-generated method stub
+		PHIEUDATPHONG phieuDatPhong = null;
+		String query = "SELECT * FROM PHIEUDATPHONG WHERE MAPDP = ?";
+		try(Connection con = DatabaseConnection.connectDb();
+			PreparedStatement pst = con.prepareStatement(query);){			
+			pst.setString(1, bookRoomId);
+			pst.executeQuery();
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				phieuDatPhong = new PHIEUDATPHONG(rs.getString("MAPDP")
+						,rs.getString("MAKH")
+						,rs.getString("TGDAT")
+						,rs.getString("NGAYNHAN")
+						,rs.getString("NGAYTRA")
+						,rs.getString("HINHTHUC"));}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return phieuDatPhong;
+	}
 	
 }

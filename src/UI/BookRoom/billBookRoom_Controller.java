@@ -5,6 +5,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
@@ -68,8 +70,14 @@ public class billBookRoom_Controller implements Initializable {
     private Label totalPrice_txt;
     
     public void setData(String checkin,String checkout,HOADONPHONG hoadonphong, ObservableList<Object[]> list) {
-    	checkinDate_txt.setText(checkin);
-		checkoutDate_txt.setText(checkout);	
+    	DateTimeFormatter formatterInput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    	DateTimeFormatter formatterOut = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    	LocalDate checkinDate = LocalDate.parse(checkin, formatterInput);
+		LocalDate checkoutDate = LocalDate.parse(checkout, formatterInput);
+		String formattedCheckin = checkinDate.format(formatterOut);
+		String formattedCheckout = checkoutDate.format(formatterOut);
+    	checkinDate_txt.setText(formattedCheckin);
+		checkoutDate_txt.setText(formattedCheckout);	
 
 		int midPrice = list.stream().mapToInt(item -> Integer.parseInt(item[4].toString())).sum();
     	String midPriceString = String.valueOf(midPrice);

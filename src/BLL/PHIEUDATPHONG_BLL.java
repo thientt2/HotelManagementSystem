@@ -42,4 +42,9 @@ public class PHIEUDATPHONG_BLL {
 	public static Object[] getRoomDetails(String maPhong) {
 		return PHIEUDATPHONG_DAO.getRoomDetails(maPhong);
 	}
+
+	public static PHIEUDATPHONG getBookRoom(String bookRoomId) {
+		// TODO Auto-generated method stub
+		return PHIEUDATPHONG_DAO.getBookRoom(bookRoomId);
+	}
 }

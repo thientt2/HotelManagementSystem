@@ -75,5 +75,58 @@ public class HOADONPHONG_DAO {
 		}
 		return hoaDonPhong;
 	}
+
+
+	public static HOADONPHONG getRoomBill(String bookRoomID) {
+		// TODO Auto-generated method stub
+		HOADONPHONG hoaDonPhong = null;
+		String query = "SELECT * FROM HOADONPHONG WHERE MAPDP = ?";
+		try(Connection con = DatabaseConnection.connectDb();
+		PreparedStatement pst = con.prepareStatement(query);){			
+			pst.setString(1, bookRoomID);
+			pst.executeQuery();
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				hoaDonPhong = new HOADONPHONG(rs.getString("MAHDP")   
+						,rs.getString("MAPDP")
+	   					,rs.getString("NVNHAP")                		   					
+	   					,rs.getString("NGAYTAO")
+	   					,rs.getInt("TRANGTHAI")
+	   					,rs.getInt("GIAMGIA")
+	   					,rs.getInt("TONGTIEN"));}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return hoaDonPhong;
+	}
+
+
+	public static ObservableList<Object[]> listDetailBill(String roomID) {
+		// TODO Auto-generated method stub
+		String query = "SELECT"
+				+ " LP.TENLOAI,DATEDIFF(day, PDP.NGAYNHAN, PDP.NGAYTRA) + 1 AS SoNgayO,"
+				+ " LP.GIA, CT.SOLUONG,((DATEDIFF(day, PDP.NGAYNHAN, PDP.NGAYTRA) + 1) * LP.GIA * CT.SOLUONG) AS TongChiPhi "
+				+ "FROM PHIEUDATPHONG PDP, CHITIETPDP CT, LOAIPHONG LP "
+				+ "WHERE PDP.MAPDP = CT.MAPDP AND CT.MALOAIP = LP.MALOAIP AND PDP.MAPDP = '"+ roomID +"'";
+		ObservableList<Object[]> list = FXCollections.observableArrayList();
+		try(Connection con = DatabaseConnection.connectDb();
+		PreparedStatement pst = con.prepareStatement(query);){
+			pst.executeQuery();
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				Object[] rowData = new Object[5];
+				rowData[0] = rs.getString("TENLOAI");				
+				rowData[1] = rs.getInt("GIA");
+				rowData[2] = rs.getInt("SOLUONG");
+				rowData[3] = rs.getInt("SoNgayO");
+				rowData[4] = rs.getInt("TongChiPhi");
+				list.add(rowData);
+			}			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 	
 }

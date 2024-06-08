@@ -19,5 +19,15 @@ public class HOADONPHONG_BLL {
 		HOADONPHONG_DAO.insertBillBookRoom(data);
 	}
 
+	public static HOADONPHONG getRoomBill(String bookRoomID) {
+		// TODO Auto-generated method stub
+		return HOADONPHONG_DAO.getRoomBill(bookRoomID);
+	}
+
+	public static ObservableList<Object[]> listDetailBill(String roomID) {
+		// TODO Auto-generated method stub
+		return HOADONPHONG_DAO.listDetailBill(roomID);
+	}
+
 	
 }
