@@ -51,11 +51,12 @@ public class addService_Controller implements Initializable {
 		
 		String check = SystemMessage.ERROR_MESSAGE;
 		AlertMessage alert = new AlertMessage();
+		DICHVU_BLL.addService(data);
 		if(check.equals("ERROR_EMPTY")) {
 			alert.errorMessage("Vui lòng điền đầy đủ thông tin!");
 			SystemMessage.ERROR_MESSAGE = "";
 		}else {
-			DICHVU_BLL.addService(data);
+			
 			alert.successMessage("Thêm dịch vụ thành công!");
 			clearService();
 		}

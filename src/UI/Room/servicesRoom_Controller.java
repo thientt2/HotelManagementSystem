@@ -95,7 +95,7 @@ public class servicesRoom_Controller implements Initializable{
 			bookService_pane.setVisible(false);
 			isNew = false;
 			listDetailService = CHITIETHOADON_BLL.getListDetailService(billService.getMAHD());					
-			totalPrice_txt.setText(String.valueOf(billService.getTONGTIEN()));
+			totalPrice_txt.setText(String.valueOf(billService.getGIADICHVU()));
 			showListService(bookedService_vbox, listDetailService);			
 		}else {
 			bookService_pane.setVisible(true);
@@ -169,7 +169,7 @@ public class servicesRoom_Controller implements Initializable{
 			    .mapToInt(item -> Integer.parseInt(item[4].toString()))
 			    .sum();
 	    if(billService != null) {
-	    	int totalPrice = billService.getTONGTIEN() + totalPriceItem;
+	    	int totalPrice = billService.getGIADICHVU() + totalPriceItem;
 	    	totalPrice_txt.setText(String.valueOf(totalPrice));
 	    }else {
 	    	totalPrice_txt.setText(String.valueOf(totalPriceItem));
@@ -272,7 +272,7 @@ public class servicesRoom_Controller implements Initializable{
 		int totalPriceItem = listData.stream()
 			    .mapToInt(item -> Integer.parseInt(item[4].toString()))
 			    .sum();
-		int totalPrice = billService.getTONGTIEN() + totalPriceItem; 
+		int totalPrice = billService.getGIADICHVU() + totalPriceItem; 
 		String maHD = billService.getMAHD();
 		
 		HOADONDICHVU_BLL.updateBillService(maHD,totalPrice);

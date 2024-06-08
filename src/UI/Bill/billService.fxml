@@ -113,7 +113,7 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="139.0" layoutY="10.0" text="Đơn giá">
+                        <Label layoutX="150.0" layoutY="10.0" text="Đơn giá">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>

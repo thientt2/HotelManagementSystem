@@ -73,14 +73,7 @@ public class detailsRoom_Controller implements Initializable{
     @FXML
     private TextField timeLeft_txt;
     
-    public void setData(String roomNumber) throws SQLException, IOException {
-//    	Object[] room = PHIEUDATPHONG_BLL.getRoomDetails(roomNumber);
-//    	System.out.println(roomNumber);
-//    	System.out.println(room[0].toString() + " " + room[1].toString() + " " + room[2].toString() + " " + room[3].toString() + " " + room[4].toString() + " " + room[5].toString());
-//    	customerName_txt.setText(room[2].toString());
-//    	roomNumber_txt.setText(room[0].toString());
-//    	roomType_txt.setText(room[1].toString());
-    	
+    public void setData(String roomNumber) throws SQLException, IOException {    	
     	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber);
     	KHACHHANG customer = KHACHHANG_BLL.getCustomerByReceiveRoomId(receiveRoom.getMAPNP());
     	LOAIPHONG roomType = LOAIPHONG_BLL.getRoomTypeByRoomNumber(roomNumber);
@@ -89,9 +82,6 @@ public class detailsRoom_Controller implements Initializable{
     	roomNumber_txt.setText(roomNumber);
     	roomType_txt.setText(roomType.getTENLOAI());
     	
-//		String checkin = item[3].toString();
-//        String formattedDate1 = formatDate(checkin);
-//        checkIn_txt.setText(formattedDate1);
     	
 		String checkout = receiveRoom.getTGTRA();
         String formattedDate2 = formatDate(checkout);
@@ -105,7 +95,6 @@ public class detailsRoom_Controller implements Initializable{
 		
 		calculateTimeLeft(checkout);
 		
-        //String mapnp = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(room[0].toString());
 		List<Object[]> list = CHITIETPNP_BLL.getCustomerId(receiveRoom.getMAPNP());
 		list.forEach(System.out::println);
 		for (Object[] customerOrther : list) {

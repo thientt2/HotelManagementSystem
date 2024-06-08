@@ -182,4 +182,21 @@ public class HOADONDICHVU_DAO {
 		}
 		return billService;
 	}
+
+	public static void updateBillServiceAfterPrint(Map<String, Object> data) {
+		// TODO Auto-generated method stub
+		String billId = (String) data.get("billId");
+		String staffId = (String) data.get("staffId");
+		int statusBill = (int) data.get("statusBill");
+		try (Connection connection = DatabaseConnection.connectDb();) {
+			String query = "UPDATE HOADONDICHVU SET TRANGTHAI = ?, NVNHAP = ? WHERE MAHD = ?";
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setInt(1, statusBill);
+			prepare.setString(2, staffId);
+			prepare.setString(3, billId);
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

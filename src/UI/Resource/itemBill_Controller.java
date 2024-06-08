@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import BLL.HOADONDICHVU_BLL;
 import BLL.PHIEUNHANPHONG_BLL;
 import BLL.PHONG_BLL;
+import DTO.HOADONDICHVU;
 import DTO.PHONG;
 import UI.Bill.billService_Controller;
 import javafx.fxml.FXML;
@@ -16,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -46,10 +49,15 @@ public class itemBill_Controller implements Initializable{
     @FXML
     private Label surcharge_txt;
     
+    @FXML
+    private AnchorPane bill_anchorpane;
+    
+    private HOADONDICHVU billService;
+    
     public void setData(Object[] item) {
     	billId_txt.setText(item[0].toString());		
 		room_txt.setText(item[1].toString());		
-		
+		billService = HOADONDICHVU_BLL.getBillServiceByBillId(item[0].toString());
 		//priceService_txt.setText(item[2].toString());
 		Double gia1 = Double.parseDouble(item[2].toString());
     	String formattedPrice1 = String.format("%.0f", gia1);
@@ -84,14 +92,17 @@ public class itemBill_Controller implements Initializable{
 		checkinDate_txt.setText(checkin.toString());		
 		checkoutDate_txt.setText(checkout.toString());
 		//Đoạn này để set bấm được nút thanh toán, thanh toán chỉ hiện khi phòng đang dọn dẹp
-//		PHONG currentRoom = PHONG_BLL.getRoom(room_txt.getText());
-//		String currentReceiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(room_txt.getText());
-//		
-//		if(currentRoom.getMATRANGTHAI() == 2 && currentReceiveRoom != null) {
-//			pay_btn.setDisable(false);
-//		}else {
-//			pay_btn.setDisable(true);
-//		}
+		PHONG currentRoom = PHONG_BLL.getRoom(room_txt.getText());
+		
+		if(currentRoom.getMATRANGTHAI() == 2 || billService.getTRANGTHAI() == 0){
+			priceService_txt.setStyle("-fx-background-color: #fac5c1");
+			surcharge_txt.setStyle("-fx-background-color: #fac5c1");			
+			pay_btn.setDisable(false);
+		}else {
+			priceService_txt.setStyle("-fx-background-color: #b6e9d1");
+			surcharge_txt.setStyle("-fx-background-color: #b6e9d1");
+			pay_btn.setDisable(true);
+		}
     }
     
     public void printBill() {

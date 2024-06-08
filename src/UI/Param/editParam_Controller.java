@@ -2,6 +2,8 @@ package UI.Param;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -40,6 +42,10 @@ public class editParam_Controller implements Initializable{
     	Map<String, String> data  = new HashMap<String, String>();
     	data.put("ten", ten_txt.getText());
     	data.put("tile", tile_txt.getText());  	
+    	LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		String ngaysua = now.format(dateFormatter);
+		data.put("ngaysua", ngaysua);
 		
     	THAMSO_BLL.editParam(data);
     	
@@ -52,7 +58,8 @@ public class editParam_Controller implements Initializable{
 	    	alert.errorMessage("Tỉ lệ phải nằm trong khoảng từ 0 đến 1!");
 	    	SystemMessage.ERROR_MESSAGE = "";
     	} else {	      	
-    		alert.successMessage("Thay đổi tham số thành công!");
+    		alert.successMessage("Thay đổi tham số thành công!");    	
+    		cancel();
     	}
     }
 	    

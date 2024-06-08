@@ -33,11 +33,9 @@ public class THAMSO_DAO {
 	
 	public static void editParam(Map<String, String> data) throws SQLException {
 		String ten = data.get("ten");
-		Float tile = Float.parseFloat(data.get("giatri"));
-		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		String ngaysua = now.format(dateFormatter);
-
+		Float tile = Float.parseFloat(data.get("tile"));
+		String ngaysua = data.get("ngaysua");
+		
 	    String sql = "UPDATE THAMSO SET GIATRI=?, NGAYSUA=? WHERE TENTHAMSO=?";
 	    Connection con = DatabaseConnection.connectDb();
 	    PreparedStatement pst;

@@ -39,4 +39,9 @@ public class HOADONDICHVU_BLL {
 		// TODO Auto-generated method stub
 		return HOADONDICHVU_DAO.getBillServiceByBillId(billId);
 	}
+
+	public static void updateBillServiceAfterPrint(Map<String, Object> data) {
+		// TODO Auto-generated method stub
+		HOADONDICHVU_DAO.updateBillServiceAfterPrint(data);
+	}
 }

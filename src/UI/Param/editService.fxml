@@ -35,7 +35,7 @@
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="name_txt" layoutX="4.0" layoutY="21.0" prefHeight="40.0" prefWidth="296.0" promptText="Tên dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+                                          <TextField fx:id="name_txt" editable="false" layoutX="4.0" layoutY="21.0" prefHeight="40.0" prefWidth="296.0" promptText="Tên dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
@@ -49,7 +49,7 @@
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="type_txt" layoutY="32.0" prefHeight="40.0" prefWidth="296.0" promptText="Loại dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                          <TextField fx:id="type_txt" editable="false" layoutY="32.0" prefHeight="40.0" prefWidth="296.0" promptText="Loại dịch vụ" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>

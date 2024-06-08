@@ -30,11 +30,11 @@ public class DICHVU_BLL {
 	}
 	
 	public static void addService(Map<String, String> data) throws SQLException {
-		String tenDV = data.get("tenDV");
-		int loaiDV = Integer.parseInt(data.get("loaiDV"));
-		String gia = data.get("gia");
+		String tenDV = data.get("name");
+		int loaiDV = Integer.parseInt(data.get("type"));
+		String gia = data.get("price");
 		
-		String regexGia = "^[1-9][0-9]{8,9}$";
+		String regexGia = "^[1-9][0-9]*$";
 		
 		if(tenDV.isEmpty() || loaiDV == 0 || gia.isEmpty() ) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
@@ -46,19 +46,18 @@ public class DICHVU_BLL {
 	}
 	
 	public static void editService(Map<String, String> data) throws SQLException {
-		String tenDV = data.get("tenDV");
-		int loaiDV = Integer.parseInt(data.get("loaiDV"));
-		String gia = data.get("gia");
+		String maDV = data.get("serviceid");		
+		String gia = data.get("price");
 		
-		String regexGia = "^[1-9][0-9]{8,9}$";
-		
-		if(tenDV.isEmpty() || loaiDV == 0 || gia.isEmpty() ) {
+		String regexGia = "^[1-9][0-9]*$";
+        
+		if(gia.isEmpty() || maDV.isEmpty()) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
 		} else if (Pattern.matches(regexGia, gia) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_GIA";
 		} else {
 			DICHVU_DAO.editService(data);
-		}		
+		}
 	}
 	
 	

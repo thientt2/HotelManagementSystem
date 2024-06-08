@@ -12,6 +12,7 @@ import UI.MainWindow_Controller;
 import UI.Resource.itemParam_Controller;
 import UI.Resource.itemService_Controller;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,23 +37,28 @@ public class paramWindow_Controller implements Initializable {
     @FXML
     private Button addService_btn;
     
+    private ObservableList<Object[]> listService = FXCollections.observableArrayList();
+    private ObservableList<THAMSO> listParam = FXCollections.observableArrayList();
+    
     private double x = 0;
     private double y = 0;
     
     public void refreshServiceList() {
         listService_vbox.getChildren().clear();
-        ObservableList<Object[]> listService = DICHVU_BLL.listService();
-        showListService(listService);
+        listService = DICHVU_BLL.listService();
+        showListService();
     }
     
     public void refreshParamList() {
         listParam_vbox.getChildren().clear();
-        ObservableList<THAMSO> listParam = THAMSO_BLL.listParam();
-        showListParam(listParam);
+        listParam = THAMSO_BLL.listParam();
+        showListParam();
     }
     
-    public void showListService(ObservableList<Object[]> list) {
-        for(Object[] item : list) {
+    public void showListService() {
+    	listService_vbox.getChildren().clear();
+		listService = DICHVU_BLL.listService();		
+        for(Object[] item : listService) {
         	try {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemService.fxml"));
 				Parent serviceDataPane = loader.load();
@@ -102,7 +108,7 @@ public class paramWindow_Controller implements Initializable {
                 });
 			
 	            
-				Platform.runLater(() -> listService_vbox.getChildren().add(serviceDataPane));
+				listService_vbox.getChildren().add(serviceDataPane);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -111,32 +117,38 @@ public class paramWindow_Controller implements Initializable {
         }        
     }
     
-    public void addService() throws IOException {              
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("addService.fxml"));
-        Parent root = loader.load();
+    public void addService(){              
+        try{
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("addService.fxml"));
+        	Parent root = loader.load();
+            
+            root.setOnMousePressed((MouseEvent event)->{            
+                x = event.getSceneX();            
+                y = event.getSceneY();    
+            });
+            
+            Stage stage = new Stage();        
+            stage.initStyle(StageStyle.TRANSPARENT);        
+            Scene scene = new Scene(root);
         
-        root.setOnMousePressed((MouseEvent event)->{            
-            x = event.getSceneX();            
-            y = event.getSceneY();    
-        });
-        
-        Stage stage = new Stage();        
-        stage.initStyle(StageStyle.TRANSPARENT);        
-        Scene scene = new Scene(root);
-    
-        root.setOnMouseDragged((MouseEvent event)->{
-            stage.setX(event.getScreenX() - x);            
-            stage.setY(event.getScreenY() - y);       
-        });            
-        
-        stage.setScene(scene);     
-        stage.showAndWait();
-        
-        refreshServiceList();
+            root.setOnMouseDragged((MouseEvent event)->{
+                stage.setX(event.getScreenX() - x);            
+                stage.setY(event.getScreenY() - y);       
+            });            
+            
+            stage.setScene(scene);     
+            stage.showAndWait();
+            
+            refreshServiceList();
+		} catch (IOException e) {
+			e.printStackTrace();
+        }        
     }
     
-    public void showListParam(ObservableList<THAMSO> list) {
-        for(THAMSO item : list) {
+    public void showListParam() {
+		listParam_vbox.getChildren().clear();
+		listParam = THAMSO_BLL.listParam();
+        for(THAMSO item : listParam) {
         	try {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemParam.fxml"));
 				Parent paramDataPane = loader.load();
@@ -168,7 +180,7 @@ public class paramWindow_Controller implements Initializable {
 	                    stage.setScene(scene);     
 	                    stage.showAndWait();
 	                    
-	                    refreshServiceList();
+	                    refreshParamList();
 	                } catch (IOException e) {
 	                    e.printStackTrace();
 	                }
@@ -181,12 +193,11 @@ public class paramWindow_Controller implements Initializable {
 			}	    	
         }        
     }
-    private ObservableList<Object[]> listService = DICHVU_BLL.listService();
-    private ObservableList<THAMSO> listParam = THAMSO_BLL.listParam();
+   
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        showListService(listService);
-        showListParam(listParam);
+        showListService();
+        showListParam();
     }
 }

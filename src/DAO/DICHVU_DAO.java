@@ -90,24 +90,23 @@ public class DICHVU_DAO {
 	}
 	
 	public static void editService(Map<String, String> data) throws SQLException {
-		String maDV = data.get("id");
-		String tenDV = data.get("name");
-		int loaiDV = Integer.parseInt(data.get("type"));
+		String maDV = data.get("serviceid");
 		String gia = data.get("price");
-
-	    String sql = "UPDATE DICHVU SET TENDV=?, LOAIDV=?, GIA=? WHERE MADV=?";
-	    Connection con = DatabaseConnection.connectDb();
-	    PreparedStatement pst;
-	    try {
-	        pst = con.prepareStatement(sql);
-	        pst.setString(1, tenDV);
-	        pst.setInt(2, loaiDV);
-	        pst.setString(3, gia);
-	        pst.setString(4, maDV);
-	        pst.executeUpdate();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+		System.out.println(gia);
+		System.out.println(maDV);
+		String sql = "UPDATE DICHVU SET GIA=? WHERE MADV=?";
+		Connection con = DatabaseConnection.connectDb();
+		PreparedStatement pst;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, gia);
+			pst.setString(2, maDV);
+			pst.executeUpdate();
+			System.out.println("Success");
+			System.out.println(pst.executeUpdate());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void deleteService(Object[] dichVu) throws SQLException{

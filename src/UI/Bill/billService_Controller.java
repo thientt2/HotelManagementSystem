@@ -4,16 +4,20 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import BLL.CHITIETHOADON_BLL;
 import BLL.HOADONDICHVU_BLL;
 import BLL.LOAIPHONG_BLL;
 import BLL.NHANVIEN_BLL;
+import BLL.PHONG_BLL;
 import DTO.HOADONDICHVU;
 import DTO.LOAIPHONG;
 import DTO.NHANVIEN;
 import UI.Resource.itemBillService_Controller;
+import application.AlertMessage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -62,10 +66,12 @@ public class billService_Controller implements Initializable {
 
     @FXML
     private Label totalPrice_txt;    
+    
+    private String roomNumber;
 
     public void setData(Object[] item) {
     	String billId = item[0].toString();
-    	String roomNumber = item[1].toString();
+    	roomNumber = item[1].toString();
     	LOAIPHONG roomType = LOAIPHONG_BLL.getRoomTypeByRoomNumber(roomNumber);
     	HOADONDICHVU billService = HOADONDICHVU_BLL.getBillServiceByBillId(billId);
     	ObservableList<Object[]> listData = CHITIETHOADON_BLL.getListDetailService(billId);
@@ -118,6 +124,15 @@ public class billService_Controller implements Initializable {
     }
     
     public void printBill() {
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("billId", billId_txt.getText());
+		data.put("staffId", SystemMessage.getMANV());
+		data.put("statusBill", 1);
+		HOADONDICHVU_BLL.updateBillServiceAfterPrint(data);
+		PHONG_BLL.changeEmptyRoomStatus(roomNumber);
+		AlertMessage alert = new AlertMessage();
+		alert.successMessage("In hoa đơn địch vụ thành công");
+		close();
 		
 	}
     

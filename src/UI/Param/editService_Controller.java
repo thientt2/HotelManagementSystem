@@ -38,18 +38,14 @@ public class editService_Controller implements Initializable{
 	    
     public void setService(Object[] item) {
     	price_txt.setText(item[3].toString());
-    	
-    	
     	name_txt.setText(item[2].toString());
     	type_txt.setText(item[1].toString());   
 		madv = item[0].toString();
 	}   
 	    
-    public void editService() throws SQLException {
-    	Map<String, String> data  = new HashMap<String, String>();
-    	data.put("name", name_txt.getText());
-    	data.put("price", price_txt.getText());
-    	data.put("type", String.valueOf(LOAIDICHVU_BLL.getServiceTypeId(type_txt.getText())));
+    public void editService() throws SQLException {    	
+    	Map<String, String> data  = new HashMap<String, String>();    	
+    	data.put("price", price_txt.getText());    	
     	data.put("serviceid", madv);	    	
 		
     	DICHVU_BLL.editService(data);
@@ -61,6 +57,7 @@ public class editService_Controller implements Initializable{
 	    	SystemMessage.ERROR_MESSAGE = "";
     	} else {	      	
     		alert.successMessage("Thay đổi giá dịch vụ thành công!");
+    		cancel();
     	}
     }
 	    
