@@ -93,4 +93,8 @@ public class KHACHHANG_BLL {
 	public static KHACHHANG getCustomerByCCCD(String customerId) throws SQLException {
 		return KHACHHANG_DAO.getCustomerByCCCD(customerId);
 	}
+	
+	public static KHACHHANG getCustomerByReceiveRoomId(String receiveRoomId) throws SQLException {
+		return KHACHHANG_DAO.getCustomerByReceiveRoomId(receiveRoomId);
+	}
 }

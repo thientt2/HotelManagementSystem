@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import BLL.PHIEUNHANPHONG_BLL;
 import BLL.PHONG_BLL;
+import DTO.PHIEUNHANPHONG;
 import UI.Room.servicesRoom_Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,8 +77,8 @@ public class itemRoom_Controller implements Initializable {
 	    	String checkOut = now.format(inputFormatter);
 	    	System.out.println(checkOut);
 	    	String roomNumber = roomId_txt.getText();
-	    	String mapnp = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber);
-	    	PHIEUNHANPHONG_BLL.updateCheckOut(mapnp, checkOut);
+	    	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber);
+	    	PHIEUNHANPHONG_BLL.updateCheckOut(receiveRoom.getMAPDP(), checkOut);
 	    	PHONG_BLL.changeNotCleanRoomStatus(roomNumber);
 	    }
 	    

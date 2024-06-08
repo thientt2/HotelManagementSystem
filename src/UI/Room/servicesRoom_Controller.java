@@ -14,6 +14,7 @@ import BLL.HOADONDICHVU_BLL;
 import BLL.LOAIDICHVU_BLL;
 import BLL.PHIEUNHANPHONG_BLL;
 import DTO.HOADONDICHVU;
+import DTO.PHIEUNHANPHONG;
 import UI.Resource.itemServicesRoom_Controller;
 import application.AlertMessage;
 import javafx.collections.FXCollections;
@@ -87,8 +88,8 @@ public class servicesRoom_Controller implements Initializable{
     
     public void setData(String roomNumber) {
 		roomNumber_txt.setText(roomNumber);	
-		String pnp = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber_txt.getText());
-		billService = HOADONDICHVU_BLL.getBillServiceByReceiveRoomID(pnp);
+		PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber_txt.getText());
+		billService = HOADONDICHVU_BLL.getBillServiceByReceiveRoomID(receiveRoom.getMAPNP());
 		if(billService != null) {
 			bookedService_pane.setVisible(true);
 			bookService_pane.setVisible(false);
@@ -239,7 +240,7 @@ public class servicesRoom_Controller implements Initializable{
 	private void insertBillService(ObservableList<Object[]> listDetailService) {
 		// TODO Auto-generated method stub
 		Map<String, Object> dataBillService = new HashMap<String, Object>();
-		String maPNP = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber_txt.getText());
+		PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber_txt.getText());
 		String maNVNhap = SystemMessage.getMANV();
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -247,7 +248,7 @@ public class servicesRoom_Controller implements Initializable{
 		
 		int totalPrice = Integer.parseInt(totalPrice_txt.getText());
 		
-		dataBillService.put("maPNP", maPNP);
+		dataBillService.put("maPNP", receiveRoom.getMAPNP());
 		dataBillService.put("maNVNhap", maNVNhap);
 		dataBillService.put("ngayTao", ngayTao);
 		dataBillService.put("giaDV", totalPrice);	

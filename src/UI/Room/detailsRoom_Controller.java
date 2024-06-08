@@ -21,9 +21,12 @@ import java.util.concurrent.TimeUnit;
 import BLL.CHITIETHOADON_BLL;
 import BLL.CHITIETPNP_BLL;
 import BLL.KHACHHANG_BLL;
+import BLL.LOAIPHONG_BLL;
 import BLL.PHIEUDATPHONG_BLL;
 import BLL.PHIEUNHANPHONG_BLL;
 import DTO.KHACHHANG;
+import DTO.LOAIPHONG;
+import DTO.PHIEUNHANPHONG;
 import UI.Resource.itemDetailsRoomCustomer_Controller;
 import UI.Resource.itemDetailsRoomService_Controller;
 import UI.Resource.itemRoom_Controller;
@@ -71,38 +74,51 @@ public class detailsRoom_Controller implements Initializable{
     private TextField timeLeft_txt;
     
     public void setData(String roomNumber) throws SQLException, IOException {
-    	Object[] room = PHIEUDATPHONG_BLL.getRoomDetails(roomNumber);
-    	customerName_txt.setText(room[2].toString());
-    	roomNumber_txt.setText(room[0].toString());
-    	roomType_txt.setText(room[1].toString());
+//    	Object[] room = PHIEUDATPHONG_BLL.getRoomDetails(roomNumber);
+//    	System.out.println(roomNumber);
+//    	System.out.println(room[0].toString() + " " + room[1].toString() + " " + room[2].toString() + " " + room[3].toString() + " " + room[4].toString() + " " + room[5].toString());
+//    	customerName_txt.setText(room[2].toString());
+//    	roomNumber_txt.setText(room[0].toString());
+//    	roomType_txt.setText(room[1].toString());
+    	
+    	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber);
+    	KHACHHANG customer = KHACHHANG_BLL.getCustomerByReceiveRoomId(receiveRoom.getMAPNP());
+    	LOAIPHONG roomType = LOAIPHONG_BLL.getRoomTypeByRoomNumber(roomNumber);
+		
+    	customerName_txt.setText(customer.getTENKH());
+    	roomNumber_txt.setText(roomNumber);
+    	roomType_txt.setText(roomType.getTENLOAI());
     	
 //		String checkin = item[3].toString();
 //        String formattedDate1 = formatDate(checkin);
 //        checkIn_txt.setText(formattedDate1);
     	
-		String checkout = room[4].toString();
+		String checkout = receiveRoom.getTGTRA();
         String formattedDate2 = formatDate(checkout);
         checkOut_txt.setText(formattedDate2);
         
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
 		DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-		LocalDateTime checkindate = LocalDateTime.parse(room[3].toString(), inputFormatter);
+		LocalDateTime checkindate = LocalDateTime.parse(receiveRoom.getTGNHAN(), inputFormatter);
 		String checkin = checkindate.format(outputFormatter);	
 		checkIn_txt.setText(checkin);
 		
 		calculateTimeLeft(checkout);
 		
         //String mapnp = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(room[0].toString());
-		List<Object[]> list = CHITIETPNP_BLL.getCustomerId(room[5].toString());
-		for (Object[] customer : list) {
+		List<Object[]> list = CHITIETPNP_BLL.getCustomerId(receiveRoom.getMAPNP());
+		list.forEach(System.out::println);
+		for (Object[] customerOrther : list) {
 			FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/UI/Resource/itemDetailsRoomCustomer.fxml"));
 	        Parent customerData = loader1.load();
 	        itemDetailsRoomCustomer_Controller controller = loader1.getController();
-	        controller.setData(customer);
+	        controller.setData(customerOrther);
 	        detailCustomer_vbox.getChildren().add(customerData);
 		}
 
-		List<Object[]> listService = CHITIETHOADON_BLL.getServiceDetailsByMapnp(room[5].toString());
+		List<Object[]> listService = CHITIETHOADON_BLL.getServiceDetailsByMapnp(receiveRoom.getMAPNP());
+		listService.forEach(System.out::println);
+		System.out.println(listService.toString());
 		for (Object[] service : listService) {
 			FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/UI/Resource/itemDetailsRoomService.fxml"));
 	        Parent serviceData = loader2.load();

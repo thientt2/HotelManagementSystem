@@ -3,6 +3,7 @@ package BLL;
 import java.util.Map;
 
 import DAO.PHIEUNHANPHONG_DAO;
+import DTO.PHIEUNHANPHONG;
 import system.SystemMessage;
 
 public class PHIEUNHANPHONG_BLL {
@@ -25,7 +26,7 @@ public class PHIEUNHANPHONG_BLL {
 		return PHIEUNHANPHONG_DAO.getLastReceiveRoom();
 	}
 	
-	public static String getReceiveRoomIDByRoomID(String roomID) {
+	public static PHIEUNHANPHONG getReceiveRoomIDByRoomID(String roomID) {
 		return PHIEUNHANPHONG_DAO.getReceiveRoomIDByRoomID(roomID);
 	}
 	

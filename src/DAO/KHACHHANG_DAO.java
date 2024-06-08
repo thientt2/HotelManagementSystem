@@ -215,5 +215,34 @@ public class KHACHHANG_DAO {
 		}
 		return kh;
 	}
+	
+	public static KHACHHANG getCustomerByReceiveRoomId(String receiveRoomId) {
+		KHACHHANG kh = null;
+		String sql = "SELECT * "
+					+ "FROM KHACHHANG KH, PHIEUDATPHONG PDP, PHIEUNHANPHONG PNP "
+					+ "WHERE PNP.MAPDP = PDP.MAPDP AND PDP.MAKH = KH.MAKH AND PNP.MAPNP = '" + receiveRoomId + "'";
+		
+		PreparedStatement pst;
+		try(Connection con = DatabaseConnection.connectDb();) {
+			pst = con.prepareStatement(sql);			
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				kh = new KHACHHANG(rs.getString("MAKH")
+						,rs.getString("TENKH")
+						,rs.getString("CCCD")
+						,rs.getString("GIOITINH")
+						,rs.getString("NGAYSINH")
+						,rs.getString("EMAIL")
+						,rs.getInt("LOAIKH")
+						,rs.getString("DIACHI")
+						,rs.getString("SDT")
+						,rs.getString("QUOCTICH")
+						,rs.getInt("TINHTRANG"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return kh;
+	}
     
 }
