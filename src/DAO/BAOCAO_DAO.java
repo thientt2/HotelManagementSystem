@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import DTO.BAOCAO;
 import javafx.collections.FXCollections;
@@ -180,13 +182,53 @@ public class BAOCAO_DAO {
         return roomDataList;
     }
 
-    // Phương thức để gộp các cột THANG, tính tổng GIATRI và SOLUOTTHUE, và nhóm theo THANG
+    public static ObservableList<Object[]> getDailyReport(int startDay, int endDay, int month, int year) {
+        ObservableList<Object[]> dailyReportList = FXCollections.observableArrayList();
+        String query = "SELECT NGAY, COALESCE(SUM(GIATRI), 0) AS TONGGIATRI, COALESCE(SUM(SOLUOTTHUE), 0) AS TONGSOLUOTTHUE " +
+                       "FROM BAOCAO " +
+                       "WHERE NAM = ? AND THANG = ? AND NGAY BETWEEN ? AND ? " +
+                       "GROUP BY NGAY " +
+                       "ORDER BY NGAY";
+
+        try (Connection conn = DatabaseConnection.connectDb();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, year);
+            stmt.setInt(2, month);
+            stmt.setInt(3, startDay);
+            stmt.setInt(4, endDay);
+            ResultSet rs = stmt.executeQuery();
+
+            // Create a map to store the results with NGAY as the key
+            Map<Integer, Object[]> resultMap = new HashMap<>();
+            for (int i = startDay; i <= endDay; i++) {
+                resultMap.put(i, new Object[]{i, 0.0, 0});
+            }
+
+            // Populate the map with the query results
+            while (rs.next()) {
+                int ngay = rs.getInt("NGAY");
+                double tongGiaTri = rs.getDouble("TONGGIATRI");
+                int tongSoLuotThue = rs.getInt("TONGSOLUOTTHUE");
+                resultMap.put(ngay, new Object[]{ngay, tongGiaTri, tongSoLuotThue});
+            }
+
+            // Add the results to the list
+            dailyReportList.addAll(resultMap.values());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return dailyReportList;
+    }
+    
     public static ObservableList<Object[]> getMonthlyReport(int year) {
-    	ObservableList<Object[]> monthlyReportList = FXCollections.observableArrayList();
-        String query = "SELECT THANG, SUM(GIATRI) AS TONGGIATRI, SUM(SOLUOTTHUE) AS TONGSOLUOTTHUE " +
+        ObservableList<Object[]> monthlyReportList = FXCollections.observableArrayList();
+        String query = "SELECT THANG, COALESCE(SUM(GIATRI), 0) AS TONGGIATRI, COALESCE(SUM(SOLUOTTHUE), 0) AS TONGSOLUOTTHUE " +
                        "FROM BAOCAO " +
                        "WHERE NAM = ? " +
-                       "GROUP BY THANG";
+                       "GROUP BY THANG " +
+                       "ORDER BY THANG";
 
         try (Connection conn = DatabaseConnection.connectDb();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -194,16 +236,78 @@ public class BAOCAO_DAO {
             stmt.setInt(1, year);
             ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {
-                Object[] data = new Object[]{rs.getInt("THANG"), rs.getDouble("TONGGIATRI"), rs.getInt("TONGSOLUOTTHUE")};
-                monthlyReportList.add(data);
+            // Create a map to store the results with THANG as the key
+            Map<Integer, Object[]> resultMap = new HashMap<>();
+            for (int i = 1; i <= 12; i++) {
+                resultMap.put(i, new Object[]{i, 0.0, 0});
             }
+
+            // Populate the map with the query results
+            while (rs.next()) {
+                int thang = rs.getInt("THANG");
+                double tongGiaTri = rs.getDouble("TONGGIATRI");
+                int tongSoLuotThue = rs.getInt("TONGSOLUOTTHUE");
+                resultMap.put(thang, new Object[]{thang, tongGiaTri, tongSoLuotThue});
+            }
+
+            // Add the results to the list
+            monthlyReportList.addAll(resultMap.values());
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return monthlyReportList;
     }
+//    // Phương thức để gộp các cột THANG, tính tổng GIATRI và SOLUOTTHUE, và nhóm theo THANG
+//    public static ObservableList<Object[]> getMonthlyReport(int year) {
+//    	ObservableList<Object[]> monthlyReportList = FXCollections.observableArrayList();
+//        String query = "SELECT THANG, SUM(GIATRI) AS TONGGIATRI, SUM(SOLUOTTHUE) AS TONGSOLUOTTHUE " +
+//                       "FROM BAOCAO " +
+//                       "WHERE NAM = ? " +
+//                       "GROUP BY THANG";
+//
+//        try (Connection conn = DatabaseConnection.connectDb();
+//             PreparedStatement stmt = conn.prepareStatement(query)) {
+//
+//            stmt.setInt(1, year);
+//            ResultSet rs = stmt.executeQuery();
+//
+//            while (rs.next()) {
+//                Object[] data = new Object[]{rs.getInt("THANG"), rs.getDouble("TONGGIATRI"), rs.getInt("TONGSOLUOTTHUE")};
+//                monthlyReportList.add(data);
+//            }
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return monthlyReportList;
+//    }
+//    
+// // Phương thức để gộp các cột NGAY, tính tổng GIATRI và SOLUOTTHUE, và nhóm theo NGAY
+//    public static ObservableList<Object[]> getDailyReport(int month, int year) {
+//        ObservableList<Object[]> dailyReportList = FXCollections.observableArrayList();
+//        String query = "SELECT NGAY, SUM(GIATRI) AS TONGGIATRI, SUM(SOLUOTTHUE) AS TONGSOLUOTTHUE " +
+//                       "FROM BAOCAO " +
+//                       "WHERE NAM = ? AND THANG = ? " +
+//                       "GROUP BY NGAY";
+//
+//        try (Connection conn = DatabaseConnection.connectDb();
+//             PreparedStatement stmt = conn.prepareStatement(query)) {
+//
+//            stmt.setInt(1, year);
+//            stmt.setInt(2, month);
+//            ResultSet rs = stmt.executeQuery();
+//
+//            while (rs.next()) {
+//                Object[] data = new Object[]{rs.getInt("NGAY"), rs.getDouble("TONGGIATRI"), rs.getInt("TONGSOLUOTTHUE")};
+//                dailyReportList.add(data);
+//            }
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return dailyReportList;
+//    }
     
 //	public static List<BAOCAO> getRoomData(int day, int month, int year) {
 //  List<BAOCAO> roomDataList = new ArrayList<>();

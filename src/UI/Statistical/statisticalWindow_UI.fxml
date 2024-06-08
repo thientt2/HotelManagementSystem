@@ -134,7 +134,7 @@
                               </Label>
                               <AreaChart fx:id="areaChart" prefHeight="189.0" prefWidth="500.0">
                                 <xAxis>
-                                  <CategoryAxis side="BOTTOM" />
+                                  <CategoryAxis prefHeight="17.0" prefWidth="384.0" side="BOTTOM" />
                                 </xAxis>
                                 <yAxis>
                                   <NumberAxis side="LEFT" />

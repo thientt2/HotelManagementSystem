@@ -22,7 +22,23 @@ public class BAOCAO_BLL {
 		return BAOCAO_DAO.getRoomDataByType();
 	}
 	
+	public static ObservableList<Object[]> getRoomDataByTypeAndYear(int year) {
+		return BAOCAO_DAO.getRoomDataByTypeAndYear(year);
+	}
+	
+	public static ObservableList<Object[]> getRoomDataByTypeAndMonth(int year, int month) {
+		return BAOCAO_DAO.getRoomDataByTypeAndMonth(year, month);
+	}
+	
+	public static ObservableList<Object[]> getRoomDataByTypeAndDateRange(int startDay, int endDay, int month, int year) {
+		return BAOCAO_DAO.getRoomDataByTypeAndDateRange(startDay, endDay, month, year);
+	}
+	
 	public static ObservableList<Object[]> getMonthlyReport(int year) {
 		return BAOCAO_DAO.getMonthlyReport(year);
+	}
+	
+	public static ObservableList<Object[]> getDailyReport(int startDay, int endDay, int month, int year) {
+		return BAOCAO_DAO.getDailyReport(startDay, endDay, month, year);
 	}
 }

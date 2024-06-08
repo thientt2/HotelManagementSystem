@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import BLL.BAOCAO_BLL;
+import DAO.BAOCAO_DAO;
 import DTO.LOAIPHONG;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,6 +51,8 @@ public class statisticalWindow_Controller implements Initializable {
 
     @FXML
     private ComboBox<Integer> year_cb;
+    
+    private long value = 0;
     
     public void showListYear() {
     	List<Integer> listYear = BAOCAO_BLL.getYears();
@@ -104,38 +107,80 @@ public class statisticalWindow_Controller implements Initializable {
         startDay_cb.setItems(listQuantity);
 	}
     
-    @SuppressWarnings("unchecked")
-	@Override
-    public void initialize(URL url, ResourceBundle rb) {
-    	showListYear();
-    	year_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal != null) {
-            	showListMoth(newVal);
-            }
-        });
-    	
-    	month_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal != null) {
-            	showListDay(newVal, year_cb.getValue());
-            }
-        });
-    		
-    	//showListDay(month_cb.getValue(), year_cb.getValue());
-    	//showListDay();
-    	startDay_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal != null) {
-            	endDay_txt.setText(String.valueOf(newVal + 7));
-            }
-        });
-    	
-    	// Pie chart setup
-        PieChart.Data slice1 = new PieChart.Data("Standard", 42);
-        PieChart.Data slice2 = new PieChart.Data("Premium", 20);
-        PieChart.Data slice3 = new PieChart.Data("Deluxe", 26);
-        PieChart.Data slice4 = new PieChart.Data("Laopera", 12);
+    public void setUpPieChartByYear(int year) {
+    	//value_txt.setText(String.valueOf(0));
+        ObservableList<Object[]> data = BAOCAO_BLL.getRoomDataByTypeAndYear(year);
+        pieChart.getData().clear();
 
-        pieChart.getData().addAll(slice1, slice2, slice3, slice4);
+        for (Object[] row : data) {
+            String roomType = (String) row[0];
+            long totalValue = (Long) row[1];
+            //value += totalValue;
+            PieChart.Data slice = new PieChart.Data(roomType, totalValue);
+            pieChart.getData().add(slice);
+        }
+//        int gia = Integer.parseInt(String.valueOf(value));
+//        String formattedPrice = String.format("%.0f", gia);
+//    	StringBuilder sb = new StringBuilder(formattedPrice);
+//    	int length = sb.length();
+//    	for (int i = length - 3; i > 0; i -= 3) {
+//    	    sb.insert(i, ".");
+//    	}
+//    	String finalPrice = sb.toString();
+//    	value_txt.setText(finalPrice);
+        setPieChartColors();
+    }
 
+    public void setUpPieChartByMonth(int month, int year) {
+    	//value_txt.setText(String.valueOf(0));
+        ObservableList<Object[]> data = BAOCAO_BLL.getRoomDataByTypeAndMonth(year, month);
+        pieChart.getData().clear();
+
+        for (Object[] row : data) {
+            String roomType = (String) row[0];
+            long totalValue = (Long) row[1];
+            //value += totalValue;
+            PieChart.Data slice = new PieChart.Data(roomType, totalValue);
+            pieChart.getData().add(slice);
+        }
+        //value_txt.setText(String.valueOf(value));
+//        int gia = Integer.parseInt(String.valueOf(value));
+//    	String formattedPrice = String.format("%.0f", gia);
+//    	StringBuilder sb = new StringBuilder(formattedPrice);
+//    	int length = sb.length();
+//    	for (int i = length - 3; i > 0; i -= 3) {
+//    	    sb.insert(i, ".");
+//    	}
+//    	String finalPrice = sb.toString();
+//    	value_txt.setText(finalPrice);
+        setPieChartColors();
+    }
+
+    public void setUpPieChartBy7Days(int startDay, int endDays, int month, int year) {
+    	value_txt.setText(String.valueOf(0));
+        ObservableList<Object[]> data = BAOCAO_BLL.getRoomDataByTypeAndDateRange(startDay, endDays, month, year);
+        pieChart.getData().clear();
+
+        for (Object[] row : data) {
+            String roomType = (String) row[0];
+            long totalValue = (Long) row[1];
+            //value += totalValue;
+            PieChart.Data slice = new PieChart.Data(roomType, totalValue);
+            pieChart.getData().add(slice);
+        }
+//        int gia = Integer.parseInt(String.valueOf(value));
+//        String formattedPrice = String.format("%.0f", gia);
+//    	StringBuilder sb = new StringBuilder(formattedPrice);
+//    	int length = sb.length();
+//    	for (int i = length - 3; i > 0; i -= 3) {
+//    	    sb.insert(i, ".");
+//    	}
+//    	String finalPrice = sb.toString();
+//    	value_txt.setText(finalPrice);
+        setPieChartColors();
+    }
+
+    private void setPieChartColors() {
         for (PieChart.Data data : pieChart.getData()) {
             switch (data.getName()) {
                 case "Standard":
@@ -153,57 +198,112 @@ public class statisticalWindow_Controller implements Initializable {
             }
             data.nameProperty().set(data.getName());
         }
-
         pieChart.setLabelLineLength(10);
         pieChart.setLabelsVisible(false);
         pieChart.setLegendVisible(true);
+    }
+    
+    public void setUpAreaChartByMonth(int year) {
+        ObservableList<Object[]> data = BAOCAO_BLL.getMonthlyReport(year);
+        areaChart.getData().clear();
 
-        // Tạo một loạt dữ liệu
-        NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Doanh thu");
-
-        // Tạo một loạt dữ liệu
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Doanh thu");
 
-        // Thêm dữ liệu vào loạt
-        series.getData().add(new XYChart.Data<>("Trường", 200)); // Ví dụ: (Tháng 1, Doanh thu 100)
-        series.getData().add(new XYChart.Data<>("Thông", 20)); // Ví dụ: (Tháng 2, Doanh thu 150)
-        series.getData().add(new XYChart.Data<>("Thiện", 60)); // Ví dụ: (Tháng 3, Doanh thu 200)
-        // Tiếp tục thêm dữ liệu cho các tháng tiếp theo nếu cần
+        for (Object[] row : data) {
+            int day = (int) row[0];
+            double totalValue = (double) row[1];
+            series.getData().add(new XYChart.Data<>(String.valueOf(day), totalValue));
+        }
 
-        // Thêm loạt dữ liệu vào AreaChart
         areaChart.getData().add(series);
-
-        // Truy cập trực tiếp vào trục x và thiết lập các thuộc tính của nó
-        CategoryAxis xAxis = (CategoryAxis) areaChart.getXAxis();
-        xAxis.setCategories(FXCollections.observableArrayList("Trường", "Thông", "Thiện")); // Đặt các nhãn trục x
-
-
-        //barchart
-        CategoryAxis xAxis1 = new CategoryAxis();
-        NumberAxis yAxis1 = new NumberAxis();
-        
-        xAxis1.setLabel("Category");
-        yAxis1.setLabel("Value");
-        
-        barChart.setTitle("Sample Bar Chart");
-        barChart.getXAxis().setLabel("Category");
-        barChart.getYAxis().setLabel("Value");
-
-        // Dữ liệu mẫu
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-        series1.setName("2019");
-        series1.getData().add(new XYChart.Data<>("A", 1));
-        series1.getData().add(new XYChart.Data<>("B", 4));
-        series1.getData().add(new XYChart.Data<>("C", 3));
-
-        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
-        series2.setName("2020");
-        series2.getData().add(new XYChart.Data<>("A", 3));
-        series2.getData().add(new XYChart.Data<>("B", 5));
-        series2.getData().add(new XYChart.Data<>("C", 6));
-
-        barChart.getData().addAll(series1, series2);
     }
+
+    public void setUpAreaChartBy7Days(int startDay, int endDays, int month, int year) {
+        ObservableList<Object[]> data = BAOCAO_BLL.getDailyReport(startDay, endDays, month, year);
+        areaChart.getData().clear();
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Doanh thu");
+
+        for (Object[] row : data) {
+            int day = (int) row[0];
+            double totalValue = (double) row[1];
+            series.getData().add(new XYChart.Data<>(String.valueOf(day), totalValue));
+        }
+
+        areaChart.getData().add(series);
+    }
+    
+    public void setUpBarChartByMonth(int year) {
+        ObservableList<Object[]> data = BAOCAO_BLL.getMonthlyReport(year);
+        barChart.getData().clear();
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Số lượt thuê");
+
+        for (Object[] row : data) {
+            int day = (int) row[0];
+            int totalRent = (int) row[2];
+            series.getData().add(new XYChart.Data<>(String.valueOf(day), totalRent));
+        }
+
+        barChart.getData().add(series);
+    }
+
+    public void setUpBarChartBy7Days(int startDay, int endDays, int month, int year) {
+        ObservableList<Object[]> data = BAOCAO_BLL.getDailyReport(startDay, endDays, month, year);
+        barChart.getData().clear();
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Số lượt thuê");
+
+        for (Object[] row : data) {
+            int day = (int) row[0];
+            int totalRent = (int) row[2];
+            series.getData().add(new XYChart.Data<>(String.valueOf(day), totalRent));
+        }
+
+        barChart.getData().add(series);
+    }
+    
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		//getRoomDataByType()
+	    showListYear();
+	    year_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
+	        if (newVal != null) {
+	            showListMoth(newVal);
+	            setUpPieChartByYear(newVal);
+	            setUpAreaChartByMonth(year_cb.getValue());
+	            setUpBarChartByMonth(year_cb.getValue());
+	        }
+	    });
+
+	    month_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
+	        if (newVal != null) {
+	            showListDay(newVal, year_cb.getValue());
+	            setUpPieChartByMonth(newVal, year_cb.getValue());
+	        }
+	    });
+
+	    startDay_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
+	        if (newVal != null) {
+	            int endDay = newVal + 9;
+	            endDay_txt.setText(String.valueOf(endDay));
+	            setUpPieChartBy7Days(newVal, Integer.parseInt(endDay_txt.getText()), month_cb.getValue(), year_cb.getValue());
+	            setUpAreaChartBy7Days(newVal, Integer.parseInt(endDay_txt.getText()), month_cb.getValue(), year_cb.getValue());
+	            setUpBarChartBy7Days(newVal, Integer.parseInt(endDay_txt.getText()), month_cb.getValue(), year_cb.getValue());
+	        }
+	    });
+
+	    // Example data for PieChart
+	    //setUpPieChartByYear(year_cb.getValue() != null ? year_cb.getValue() : 2023);
+
+	    // Example data for AreaChart
+	    //setUpAreaChartByMonth(1, 2023);
+
+	    // Example data for BarChart
+	    //setUpBarChartByMonth(1, 2023);
+	}
 }
