@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -207,11 +208,14 @@
             </Pane>
             <AnchorPane prefHeight="70.0" prefWidth="494.0">
                <children>
-                  <Button fx:id="cancel_btn" layoutX="247.0" layoutY="6.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="247.0" AnchorPane.topAnchor="6.0" />
+                  <Button fx:id="cancel_btn" layoutX="256.0" layoutY="6.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="256.0" AnchorPane.topAnchor="6.0" />
                   <Button fx:id="print_btn" layoutX="358.0" layoutY="6.0" mnemonicParsing="false" onAction="#print" prefHeight="40.0" prefWidth="95.0" styleClass="add-btn" stylesheets="@../../Designs/addDichVu.css" text="In hóa đơn" AnchorPane.rightAnchor="40.400000000000034" AnchorPane.topAnchor="6.0" />
                </children>
             </AnchorPane>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </VBox>
    </children>
 </AnchorPane>
