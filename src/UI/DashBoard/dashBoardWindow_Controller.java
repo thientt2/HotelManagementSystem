@@ -28,7 +28,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -176,10 +175,10 @@ public class dashBoardWindow_Controller implements Initializable{
         	//numberOfPaymentLabel1.setText(item[2].toString());
         	roomTypeLabel1.setText(item[0].toString());
         		
-        	if (item[1].toString().equalsIgnoreCase("Giường King & Giường Queen"))
-        		typeBedLabel1.setText("King & Queen");
-        	else
-        		typeBedLabel1.setText(item[1].toString());
+//        	if (item[1].toString().equalsIgnoreCase("Giường King & Giường Queen"))
+//        		typeBedLabel1.setText("King & Queen");
+//        	else
+        	typeBedLabel1.setText(item[1].toString());
         	    	    
         	contextMenu_btn1.setOnMouseClicked(eventContextMenu -> {
         		if (contextMenu.isShowing()) {
@@ -201,9 +200,7 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);   
-                        stage.initModality(Modality.WINDOW_MODAL);
-						stage.initOwner(dashBoard_form.getScene().getWindow());
+                        stage.initStyle(StageStyle.TRANSPARENT);        
                         Scene scene = new Scene(root);
 
                         editRoomType_Controller editRoomType = loader.getController();
@@ -234,9 +231,7 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);     
-						stage.initModality(Modality.WINDOW_MODAL);
-						stage.initOwner(dashBoard_form.getScene().getWindow());
+                        stage.initStyle(StageStyle.TRANSPARENT);        
                         Scene scene = new Scene(root);
 
                         roomTypeDetails_Controller roomTypeDetails = loader.getController();
@@ -311,9 +306,7 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT); 
-						stage.initModality(Modality.WINDOW_MODAL);
-						stage.initOwner(dashBoard_form.getScene().getWindow());
+                        stage.initStyle(StageStyle.TRANSPARENT);        
                         Scene scene = new Scene(root);
 
                         editRoomType_Controller editRoomType = loader.getController();
@@ -344,9 +337,7 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);  
-						stage.initModality(Modality.WINDOW_MODAL);
-						stage.initOwner(dashBoard_form.getScene().getWindow());
+                        stage.initStyle(StageStyle.TRANSPARENT);        
                         Scene scene = new Scene(root);
 
                         roomTypeDetails_Controller roomTypeDetails = loader.getController();
@@ -421,9 +412,7 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);   
-						stage.initModality(Modality.WINDOW_MODAL);
-						stage.initOwner(dashBoard_form.getScene().getWindow());
+                        stage.initStyle(StageStyle.TRANSPARENT);        
                         Scene scene = new Scene(root);
 
                         editRoomType_Controller editRoomType = loader.getController();
@@ -454,9 +443,7 @@ public class dashBoardWindow_Controller implements Initializable{
                         });
                         
                         Stage stage = new Stage();        
-                        stage.initStyle(StageStyle.TRANSPARENT);  
-						stage.initModality(Modality.WINDOW_MODAL);
-						stage.initOwner(dashBoard_form.getScene().getWindow());
+                        stage.initStyle(StageStyle.TRANSPARENT);        
                         Scene scene = new Scene(root);
 
                         roomTypeDetails_Controller roomTypeDetails = loader.getController();

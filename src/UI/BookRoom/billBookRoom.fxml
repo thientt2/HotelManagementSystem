@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
@@ -19,7 +20,10 @@
                <children>
                   <HBox prefHeight="120.0" prefWidth="494.0">
                      <children>
-                        <Pane prefHeight="113.0" prefWidth="226.0" />
+                        <Pane prefHeight="113.0" prefWidth="226.0">
+                           <children>
+                              <Circle fx:id="top_circle" fill="DODGERBLUE" layoutX="105.0" layoutY="56.0" radius="48.0" stroke="#818181" strokeType="INSIDE" />
+                           </children></Pane>
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="356.0" spacing="5.0">
                            <children>
                               <Label style="-fx-font-size: 12px;" text="Địa chỉ: 01 Ngô Văn Nam, Quận 1, TP. Hồ Chí Minh  ">
@@ -160,22 +164,22 @@
                                     <Line endX="261.8929138183594" endY="1.2981891813979018E-5" startX="-144.59169006347656" startY="2.5975703465519473E-5" />
                                     <AnchorPane prefHeight="55.0" prefWidth="420.0">
                                        <children>
-                                          <Label layoutX="-1.0" layoutY="31.200000000000003" text="Thành tiền:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0">
+                                          <Label text="Thành tiền:" AnchorPane.bottomAnchor="29.6" AnchorPane.leftAnchor="0.0">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="midPrice_txt" contentDisplay="RIGHT" layoutX="346.6" layoutY="30.4" text="thanhtien" textAlignment="RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-1.0">
+                                          <Label fx:id="midPrice_txt" contentDisplay="RIGHT" layoutX="347.8" text="thanhtien" textAlignment="RIGHT" AnchorPane.bottomAnchor="29.6" AnchorPane.rightAnchor="1.0">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="-1.0" text="Giảm giá:" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                          <Label layoutY="26.0" text="Giảm giá:" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="26.0">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="surcharge_txt" contentDisplay="RIGHT" layoutX="356.59999999999997" text="giamgia" textAlignment="RIGHT" AnchorPane.rightAnchor="1.8000000000000114" AnchorPane.topAnchor="0.0">
+                                          <Label fx:id="surcharge_txt" contentDisplay="RIGHT" layoutX="355.79999999999995" layoutY="26.4" text="giamgia" textAlignment="RIGHT" AnchorPane.rightAnchor="2.6000000000000227" AnchorPane.topAnchor="26.4">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
@@ -190,7 +194,7 @@
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="totalPrice_txt" contentDisplay="RIGHT" layoutX="328.20000000000005" layoutY="4.8" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-alignment: right;" text="tongtien" textAlignment="RIGHT" AnchorPane.rightAnchor="-1.8000000000000682" AnchorPane.topAnchor="4.8">
+                                          <Label fx:id="totalPrice_txt" contentDisplay="RIGHT" layoutX="324.6" layoutY="4.8" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-alignment: right;" text="tongtien" textAlignment="RIGHT" AnchorPane.rightAnchor="1.7999999999999545" AnchorPane.topAnchor="4.8">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>

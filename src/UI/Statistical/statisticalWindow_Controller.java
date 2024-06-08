@@ -1,10 +1,12 @@
 package UI.Statistical;
 
 import java.net.URL;
+import java.time.YearMonth;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import BLL.BAOCAO_BLL;
+import DTO.LOAIPHONG;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +20,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class statisticalWindow_Controller implements Initializable {
 
@@ -34,10 +37,10 @@ public class statisticalWindow_Controller implements Initializable {
     private ComboBox<Integer> day_cb;
 
     @FXML
-    private DatePicker startDay_cb;
+    private ComboBox<Integer> startDay_cb;
     
     @FXML
-    private DatePicker endDay_txt;
+    private TextField endDay_txt;
 
     @FXML
     private ComboBox<Integer> month_cb;
@@ -66,22 +69,64 @@ public class statisticalWindow_Controller implements Initializable {
 		month_cb.setItems(listQuantity);
 	}
     
+//    public void showListDay(int month, int year) {
+//    	List<Integer> listDay = BAOCAO_BLL.getDays(month, year);
+//		ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
+//		for(Integer i : listDay) {
+//			listQuantity.add(i);
+//		}
+//		day_cb.setItems(listQuantity);
+//	}
+    
     public void showListDay(int month, int year) {
-    	List<Integer> listDay = BAOCAO_BLL.getDays(month, year);
-		ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
-		for(Integer i : listDay) {
-			listQuantity.add(i);
-		}
-		day_cb.setItems(listQuantity);
+    	ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
+        int maxDays;
+        
+        // Determine the maximum days in the month
+        YearMonth yearMonth = YearMonth.of(year, month);
+        maxDays = yearMonth.lengthOfMonth();
+        
+        // Determine the limit for the ComboBox
+        int limit;
+        if (maxDays == 28) {
+            limit = 21;
+        } else if (maxDays == 29) {
+            limit = 22;
+        } else if (maxDays == 30) {
+            limit = 23;
+        } else {
+            limit = 24;
+        }
+        
+        for (int i = 1; i <= limit; i++) {
+            listQuantity.add(i);
+        }
+        startDay_cb.setItems(listQuantity);
 	}
     
     @SuppressWarnings("unchecked")
 	@Override
     public void initialize(URL url, ResourceBundle rb) {
     	showListYear();
-    	if (year_cb.getValue() != null)
-    		showListMoth(year_cb.getValue());
+    	year_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+            	showListMoth(newVal);
+            }
+        });
+    	
+    	month_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+            	showListDay(newVal, year_cb.getValue());
+            }
+        });
+    		
     	//showListDay(month_cb.getValue(), year_cb.getValue());
+    	//showListDay();
+    	startDay_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+            	endDay_txt.setText(String.valueOf(newVal + 7));
+            }
+        });
     	
     	// Pie chart setup
         PieChart.Data slice1 = new PieChart.Data("Standard", 42);

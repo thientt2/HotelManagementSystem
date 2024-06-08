@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.scene.image.Image;
 
 import BLL.CHITIETPDP_BLL;
 import BLL.HOADONPHONG_BLL;
@@ -25,6 +26,7 @@ import DTO.LOAIPHONG;
 import DTO.PHIEUDATPHONG;
 import UI.MainWindow_Controller;
 import UI.Resource.itemBookRoomDetail_Controller;
+import UI.Resource.itemBookRoom_Controller;
 import application.AlertMessage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,6 +42,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import system.SystemMessage;
 
@@ -257,13 +261,16 @@ public class bookRoom_Cotroller implements Initializable {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
 			Parent root;
 			try {
-	
+
 				root = loader.load();
 				String checkin = checkin_datepicker.getValue().toString();
 				String checkout = checkout_datepicker.getValue().toString();
 				HOADONPHONG lastBillBookRoom = HOADONPHONG_BLL.getLastBill();
 				
 				billBookRoom_Controller controller = loader.getController();
+	            Circle image = controller.getCircle();
+	        	Image defaultImage = new Image("/Images/LAOPERA.jpg");
+	        	image.setFill(new ImagePattern(defaultImage));
 				
 				controller.setData(checkin, checkout, lastBillBookRoom, listDetailBookRoom);
 				Scene scene = new Scene(root);

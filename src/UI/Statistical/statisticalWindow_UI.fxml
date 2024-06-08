@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
@@ -8,8 +7,8 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -23,9 +22,9 @@
          <children>
             <VBox prefHeight="542.0" prefWidth="486.0">
                <children>
-                  <Pane prefHeight="82.0" prefWidth="359.0">
+                  <Pane prefHeight="124.0" prefWidth="367.0" stylesheets="@../../Designs/StatisticalWindow.css">
                      <children>
-                        <HBox alignment="CENTER" layoutX="43.0" layoutY="7.0" prefHeight="50.0" prefWidth="289.0" spacing="20.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
+                        <HBox alignment="CENTER" layoutX="39.0" layoutY="7.0" prefHeight="111.0" prefWidth="289.0" spacing="20.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
                            <effect>
                               <DropShadow>
                                  <color>
@@ -33,32 +32,29 @@
                                  </color>
                               </DropShadow>
                            </effect>
-                           <children>
-                              <DatePicker fx:id="startDay_cb" stylesheets="@../../Designs/StatisticalWindow.css">
-                                 <styleClass>
-                                    <String fx:value="text-field" />
-                                    <String fx:value="custom-date-picker" />
-                                 </styleClass>
-                              </DatePicker>
-                              <DatePicker fx:id="endDay_txt" stylesheets="@../../Designs/StatisticalWindow.css">
-                                 <styleClass>
-                                    <String fx:value="text-field" />
-                                    <String fx:value="custom-date-picker" />
-                                 </styleClass>
-                              </DatePicker>
-                           </children>
                            <padding>
                               <Insets left="10.0" right="10.0" />
                            </padding>
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="111.0" prefWidth="115.0" spacing="15.0">
+                                 <children>
+                                    <ComboBox fx:id="year_cb" prefHeight="31.0" prefWidth="115.0" promptText="Năm" styleClass="text-field" />
+                                    <ComboBox fx:id="startDay_cb" prefHeight="31.0" prefWidth="118.0" promptText="Ngày" styleClass="text-field" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="111.0" prefWidth="115.0" spacing="15.0">
+                                 <children>
+                                    <ComboBox fx:id="month_cb" prefHeight="31.0" prefWidth="115.0" promptText="Tháng" styleClass="text-field" />
+                                    <TextField fx:id="endDay_txt" promptText="Ngày (1 tuần)" styleClass="text-field" />
+                                 </children>
+                              </VBox>
+                           </children>
                         </HBox>
-                        <ComboBox fx:id="year_cb" layoutX="34.0" layoutY="56.0" prefHeight="25.0" prefWidth="82.0" promptText="Năm" />
-                        <ComboBox fx:id="month_cb" layoutX="128.0" layoutY="56.0" prefHeight="25.0" prefWidth="82.0" promptText="Tháng" />
-                        <ComboBox fx:id="day_cb" layoutX="224.0" layoutY="56.0" prefHeight="25.0" prefWidth="82.0" promptText="Ngày" />
                      </children>
                   </Pane>
-                  <Pane prefHeight="144.0" prefWidth="375.0">
+                  <Pane prefHeight="104.0" prefWidth="367.0">
                      <children>
-                        <VBox alignment="CENTER_LEFT" layoutX="49.0" prefHeight="111.0" prefWidth="278.0" spacing="5.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
+                        <VBox alignment="CENTER_LEFT" layoutX="39.0" layoutY="8.0" prefHeight="89.0" prefWidth="289.0" spacing="3.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
                            <effect>
                               <DropShadow>
                                  <color>
@@ -70,12 +66,12 @@
                               <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Tổng doanh thu:" />
                               <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="266.0" spacing="10.0">
                                  <children>
-                                    <Label fx:id="value_txt" style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-font-family: Arial;" text="400.000.000">
+                                    <Label fx:id="value_txt" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-font-family: Arial; -fx-text-fill: green;" text="400.000.000">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label prefHeight="23.0" prefWidth="18.0" style="-fx-font-weight: bold; -fx-font-size: 28px; -fx-font-family: Arial;" text="₫">
+                                    <Label prefHeight="23.0" prefWidth="18.0" style="-fx-font-weight: bold; -fx-font-size: 28px; -fx-font-family: Arial; -fx-text-fill: green;" text="₫">
                                        <HBox.margin>
                                           <Insets top="5.0" />
                                        </HBox.margin>
@@ -89,9 +85,9 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane prefHeight="295.0" prefWidth="335.0">
+                  <Pane prefHeight="282.0" prefWidth="367.0">
                      <children>
-                        <VBox alignment="CENTER" layoutX="49.0" prefHeight="287.0" prefWidth="278.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
+                        <VBox alignment="CENTER" layoutX="39.0" layoutY="9.0" prefHeight="280.0" prefWidth="289.0" styleClass="pane" stylesheets="@../../Designs/StatisticalWindow.css">
                            <effect>
                               <DropShadow>
                                  <color>
@@ -100,7 +96,10 @@
                               </DropShadow>
                            </effect>
                            <children>
-                              <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Doanh thu loại phòng" />
+                              <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Doanh thu loại phòng">
+                                 <VBox.margin>
+                                    <Insets right="30.0" />
+                                 </VBox.margin></Label>
                               <Pane prefHeight="257.0" prefWidth="278.0">
                                  <children>
                                     <PieChart fx:id="pieChart" layoutX="36.0" maxHeight="238.0" maxWidth="206.0" prefHeight="238.0" prefWidth="206.0" style="-fx: red;" />

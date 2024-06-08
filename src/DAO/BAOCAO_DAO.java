@@ -97,6 +97,88 @@ public class BAOCAO_DAO {
         }
         return roomDataList;
     }
+    
+ // Nhóm giá trị theo loại phòng và năm
+    public static ObservableList<Object[]> getRoomDataByTypeAndYear(int year) {
+        ObservableList<Object[]> roomDataList = FXCollections.observableArrayList();
+        String query = "SELECT lp.TENLOAI, SUM(b.GIATRI) AS TONGGIATRI " +
+                       "FROM BAOCAO b " +
+                       "JOIN LOAIPHONG lp ON b.MALOAIP = lp.MALOAIP " +
+                       "WHERE b.NAM = ? " +
+                       "GROUP BY lp.TENLOAI";
+
+        try (Connection conn = DatabaseConnection.connectDb();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, year);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Object[] data = new Object[]{rs.getString("TENLOAI"), rs.getLong("TONGGIATRI")};
+                roomDataList.add(data);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return roomDataList;
+    }
+
+    // Nhóm giá trị theo loại phòng và tháng trong năm
+    public static ObservableList<Object[]> getRoomDataByTypeAndMonth(int year, int month) {
+        ObservableList<Object[]> roomDataList = FXCollections.observableArrayList();
+        String query = "SELECT lp.TENLOAI, SUM(b.GIATRI) AS TONGGIATRI " +
+                       "FROM BAOCAO b " +
+                       "JOIN LOAIPHONG lp ON b.MALOAIP = lp.MALOAIP " +
+                       "WHERE b.NAM = ? AND b.THANG = ? " +
+                       "GROUP BY lp.TENLOAI";
+
+        try (Connection conn = DatabaseConnection.connectDb();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, year);
+            stmt.setInt(2, month);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Object[] data = new Object[]{rs.getString("TENLOAI"), rs.getLong("TONGGIATRI")};
+                roomDataList.add(data);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return roomDataList;
+    }
+
+    // Nhóm giá trị theo loại phòng trong giai đoạn ngày
+    public static ObservableList<Object[]> getRoomDataByTypeAndDateRange(int startDay, int endDay, int month, int year) {
+        ObservableList<Object[]> roomDataList = FXCollections.observableArrayList();
+        String query = "SELECT lp.TENLOAI, SUM(b.GIATRI) AS TONGGIATRI " +
+                       "FROM BAOCAO b " +
+                       "JOIN LOAIPHONG lp ON b.MALOAIP = lp.MALOAIP " +
+                       "WHERE b.NAM = ? AND b.THANG = ? AND b.NGAY BETWEEN ? AND ? " +
+                       "GROUP BY lp.TENLOAI";
+
+        try (Connection conn = DatabaseConnection.connectDb();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, year);
+            stmt.setInt(2, month);
+            stmt.setInt(3, startDay);
+            stmt.setInt(4, endDay);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Object[] data = new Object[]{rs.getString("TENLOAI"), rs.getLong("TONGGIATRI")};
+                roomDataList.add(data);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return roomDataList;
+    }
 
     // Phương thức để gộp các cột THANG, tính tổng GIATRI và SOLUOTTHUE, và nhóm theo THANG
     public static ObservableList<Object[]> getMonthlyReport(int year) {

@@ -28,6 +28,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
  
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -69,7 +71,14 @@ public class billBookRoom_Controller implements Initializable {
     @FXML
     private Label totalPrice_txt;
     
-    public void setData(String checkin,String checkout,HOADONPHONG hoadonphong, ObservableList<Object[]> list) {
+    @FXML
+    private Circle top_circle;
+    
+    public Circle getCircle() {
+		return top_circle;
+	}	
+    
+    public void setData(String checkin,String checkout,HOADONPHONG hoadonphong, ObservableList<Object[]> list) {     
     	DateTimeFormatter formatterInput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     	DateTimeFormatter formatterOut = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     	LocalDate checkinDate = LocalDate.parse(checkin, formatterInput);

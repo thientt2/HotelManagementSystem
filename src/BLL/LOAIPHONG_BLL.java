@@ -48,7 +48,7 @@ public class LOAIPHONG_BLL {
 		//String regexGia = "^[1-9][0-9]{8,9}$";
 		
 		//còn maxNguoi
-		if(tenLoai.isEmpty() || Objects.isNull(gia) || loaiGiuong.isEmpty() || Objects.isNull(dienTich)) {
+		if(tenLoai.isEmpty() || Objects.isNull(gia) || loaiGiuong.isEmpty()) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
 //		} else if (Pattern.matches(regexGia, gia) == false) {
 //			SystemMessage.ERROR_MESSAGE = "ERROR_GIA";

@@ -20,9 +20,6 @@ import system.SystemMessage;
 
 public class editRoomType_Controller implements Initializable {
 
-	@FXML
-    private TextField area_txt;
-
     @FXML
     private Button cancel_btn;
 
@@ -45,6 +42,8 @@ public class editRoomType_Controller implements Initializable {
     
     private String type;
     
+    private String area;
+    
     
     public void showNumberList() {
     	ObservableList<String> listNumbers = FXCollections.observableArrayList(numbers);
@@ -52,7 +51,6 @@ public class editRoomType_Controller implements Initializable {
     }
  
     public void setRoomType(Object[] item) {
-    	area_txt.setText(item[4].toString());
     	//availabelRoomLabel1.setText(item[2].toString());
     	maxCustomer_cb.setValue(item[3].toString());   
     	price_txt.setText(item[2].toString());
@@ -72,6 +70,9 @@ public class editRoomType_Controller implements Initializable {
     		type = "3";
     	else
     		type = "4";
+    	
+    	area = item[5].toString();
+    	
 	}  
     
     public void editRoomType() throws SQLException {
@@ -80,7 +81,7 @@ public class editRoomType_Controller implements Initializable {
     	data.put("bed", typeBed_txt.getText());
     	data.put("price", price_txt.getText());
     	data.put("max", maxCustomer_cb.getValue());
-    	data.put("area", area_txt.getText());
+    	data.put("area", area);
     	data.put("type", type);	    	
 		
     	LOAIPHONG_BLL.editRoomType(data);

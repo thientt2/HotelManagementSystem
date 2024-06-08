@@ -10,29 +10,29 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="286.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DashBoard.editRoomType_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DashBoard.editRoomType_Controller">
    <children>
-      <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="420.0" prefWidth="277.0" stylesheets="@../../Designs/addDichVu.css">
+      <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="281.0" prefWidth="302.0" stylesheets="@../../Designs/addDichVu.css">
          <children>
             <BorderPane layoutX="30.0" layoutY="30.0" prefHeight="512.0" prefWidth="677.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <center>
                   <StackPane prefHeight="432.0" prefWidth="627.0" styleClass="white-bg" stylesheets="@../../Designs/addCustomer.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="431.0" prefWidth="439.0">
+                        <AnchorPane prefHeight="420.0" prefWidth="282.0">
                            <children>
-                              <AnchorPane layoutX="91.0" layoutY="54.0" prefHeight="316.0" prefWidth="250.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="20.0">
+                              <AnchorPane layoutX="31.2" layoutY="54.0" prefHeight="170.0" prefWidth="250.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="20.0">
                                  <children>
-                                    <AnchorPane prefHeight="67.0" prefWidth="220.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane prefHeight="67.0" prefWidth="112.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <Label layoutX="27.0" layoutY="25.0" text="Loại phòng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="typeRoom_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Tên loại phòng" styleClass="text-field" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+                                          <TextField fx:id="typeRoom_txt" editable="false" layoutY="41.0" prefHeight="40.0" prefWidth="113.0" promptText="Tên loại phòng" styleClass="text-field" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutY="83.0" prefHeight="67.0" prefWidth="220.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="30.0">
+                                    <AnchorPane layoutX="125.0" prefHeight="67.0" prefWidth="118.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="7.0">
                                        <children>
                                           <Label layoutX="27.0" layoutY="25.0" text="Loại giường" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <font>
@@ -42,27 +42,17 @@
                                           <TextField fx:id="typeBed_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Tên loại giường" styleClass="text-field" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutY="248.0" prefHeight="67.0" prefWidth="224.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <AnchorPane layoutX="127.2" layoutY="90.0" prefHeight="67.0" prefWidth="116.0" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="7.0">
                                        <children>
                                           <Label layoutX="27.0" layoutY="25.0" text="Số người tối đa" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox fx:id="maxCustomer_cb" layoutX="14.0" layoutY="34.0" prefHeight="40.0" prefWidth="100.0" promptText="Số người tối đa" styleClass="text-field" stylesheets="@../../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="27.0" />
-                                          <AnchorPane layoutX="119.0" prefHeight="67.0" prefWidth="100.0">
-                                             <children>
-                                                <Label layoutX="27.0" layoutY="25.0" text="Diện tích" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                   <font>
-                                                      <Font name="Inter Medium" size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="area_txt" layoutY="41.0" prefHeight="40.0" prefWidth="250.0" promptText="Diện tích" styleClass="text-field" stylesheets="@../../Designs/addCustomer.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
-                                             </children>
-                                          </AnchorPane>
+                                          <ComboBox fx:id="maxCustomer_cb" layoutX="14.0" layoutY="34.0" prefHeight="40.0" prefWidth="250.0" promptText="Số người tối đa" styleClass="text-field" stylesheets="@../../Designs/addCustomer.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutY="165.0" prefHeight="67.0" prefWidth="220.0">
+                                    <AnchorPane layoutX="2.0" layoutY="90.0" prefHeight="67.0" prefWidth="112.0">
                                        <children>
                                           <Label layoutX="27.0" layoutY="25.0" text="Giá phòng" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <font>
@@ -74,7 +64,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="105.0" layoutY="368.0" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="23.19999999999999" AnchorPane.rightAnchor="30.19999999999999">
+                              <AnchorPane layoutX="99.39999999999998" layoutY="218.40000000000003" prefHeight="40.0" prefWidth="176.0" AnchorPane.bottomAnchor="23.19999999999999" AnchorPane.rightAnchor="27.0">
                                  <children>
                                     <Button fx:id="cancel_btn" layoutX="1.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../../Designs/addDichVu.css" text="Hủy" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="0.0" />
                                     <Button fx:id="edit_btn" layoutX="92.6" mnemonicParsing="false" onAction="#editRoomType" prefHeight="40.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../../Designs/addDichVu.css" text="Sửa" AnchorPane.rightAnchor="3.4000000000000057" AnchorPane.topAnchor="0.0" />
