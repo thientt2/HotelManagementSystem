@@ -25,7 +25,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -139,6 +142,9 @@ public class itemBill_Controller implements Initializable{
             Scene scene = new Scene(root);
 
 			billService_Controller billServiceController = loader.getController();
+		    Circle image = billServiceController.getCircle();
+		    Image defaultImage = new Image("/Images/LAOPERA.jpg");
+		    image.setFill(new ImagePattern(defaultImage));
             Object[] item = new Object[6];
 			item[0] = billId_txt.getText();
 			item[1] = room_txt.getText();
@@ -192,8 +198,12 @@ public class itemBill_Controller implements Initializable{
             stage.initModality(Modality.WINDOW_MODAL);
             stage.initOwner(pay_btn.getScene().getWindow());
             Scene scene = new Scene(root);
+            
 
 			billService_Controller billServiceController = loader.getController();
+			Circle image = billServiceController.getCircle();
+		    Image defaultImage = new Image("/Images/LAOPERA.jpg");
+		    image.setFill(new ImagePattern(defaultImage));
             Object[] item = new Object[6];
 			item[0] = billId_txt.getText();
 			item[1] = room_txt.getText();

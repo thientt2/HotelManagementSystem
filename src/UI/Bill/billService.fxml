@@ -187,7 +187,7 @@
                               </AnchorPane>
                               <VBox alignment="TOP_CENTER" prefHeight="298.0" prefWidth="408.0">
                                  <children>
-                                    <VBox fx:id="detailSevice_vbox" fillWidth="false" prefHeight="186.0" prefWidth="408.0">
+                                    <VBox fx:id="detailSevice_vbox" fillWidth="false" prefHeight="21.0" prefWidth="408.0">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>

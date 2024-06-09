@@ -110,7 +110,8 @@ public class billWindow_Controller implements Initializable {
 	            pay_btn.setOnAction(eventPay -> {
 	            	controller.printBill();
 	            	refreshBillList();
-	            });   
+	            });
+	            
 	            
 	            page.getChildren().add(billData);
 	        } catch (IOException e) {

@@ -71,6 +71,12 @@ public class itemBookRoom_Controller implements Initializable{
     	
     	status_txt.setText(getStatus(item[3].toString(), item[5].toString()));   
     	status_txt.setStyle(getStatusStyle(status_txt.getText()));
+    	String status = getStatus(item[3].toString(), item[5].toString());
+    	if(status.equals("Chưa") || status.equals("Quá hạn")) {
+    		checkIn_btn.setDisable(true);
+		}else {
+			checkIn_btn.setDisable(false);
+    	}
     	//status_txt.setPadding(new Insets(0,5,0,5));
 	}
     
@@ -105,8 +111,6 @@ public class itemBookRoom_Controller implements Initializable{
             month = calendar.get(Calendar.MONTH) + 1;
             year = calendar.get(Calendar.YEAR);    
             
-           System.out.println(day);
-           System.out.println(ngaynow);
            
             if (hinhThuc.equals("Offline")) {
             	status = "Trực tiếp";

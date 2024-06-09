@@ -41,6 +41,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import system.SystemMessage;
 
@@ -77,13 +79,21 @@ public class billService_Controller implements Initializable {
 
     @FXML
     private Label surcharge_txt;
+    
+    @FXML
+    private Circle top_circle;
 
     @FXML
     private Label totalPrice_txt;    
     
+    public Circle getCircle() {
+		return top_circle;
+	}
+    
     private String roomNumber;
 
     public void setData(Object[] item) {
+	   
     	String billId = item[0].toString();
     	roomNumber = item[1].toString();
     	LOAIPHONG roomType = LOAIPHONG_BLL.getRoomTypeByRoomNumber(roomNumber);
@@ -158,6 +168,8 @@ public class billService_Controller implements Initializable {
     	sbTotal.append(" VND");
     	String finalTotal = sbTotal.toString();
     	totalPrice_txt.setText(finalTotal);    	
+    	
+    	
     	
 
     	
@@ -245,6 +257,6 @@ public class billService_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
