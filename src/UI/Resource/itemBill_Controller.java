@@ -14,6 +14,8 @@ import BLL.HOADONDICHVU_BLL;
 import BLL.PHIEUNHANPHONG_BLL;
 import BLL.PHONG_BLL;
 import DTO.HOADONDICHVU;
+import DTO.LOAIPHONG;
+import DTO.PHIEUNHANPHONG;
 import DTO.PHONG;
 import UI.Bill.billService_Controller;
 import javafx.fxml.FXML;
@@ -40,7 +42,7 @@ public class itemBill_Controller implements Initializable{
 	private Label checkoutDate_txt;
 
     @FXML
-    private Button control_btn;
+    private Button printAgain_btn;
 
     @FXML
     private Button pay_btn;
@@ -70,6 +72,7 @@ public class itemBill_Controller implements Initializable{
     	billId_txt.setText(item[0].toString());		
 		room_txt.setText(item[1].toString());		
 		billService = HOADONDICHVU_BLL.getBillServiceByBillId(item[0].toString());
+//		PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(item[1].toString());
 		//priceService_txt.setText(item[2].toString());
 		Double gia1 = Double.parseDouble(item[2].toString());
     	String formattedPrice1 = String.format("%.0f", gia1);
@@ -108,12 +111,20 @@ public class itemBill_Controller implements Initializable{
 		
 		status_txt.setText(getStatus(billService.getTRANGTHAI()));   
     	status_txt.setStyle(getStatusStyle(status_txt.getText()));
-		
-		if((status_txt.getText() == "Chưa thanh toán") && (currentRoom.getMATRANGTHAI() == 2)){	
+    	
+//    	 DateTimeFormatter inputFormatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//
+//         // Chuyển đổi chuỗi ngày tháng sang LocalDate
+////         LocalDate checkOutReceive = LocalDate.parse(receiveRoom.getTGTRA(), inputFormatter2);
+//
+//         // Lấy ngày hiện tại
+//         LocalDate now = LocalDate.now();
+		if((status_txt.getText() == "Chưa thanh toán") && (currentRoom.getMATRANGTHAI() == 2) ) {
 			pay_btn.setDisable(false);
 		}else {
 			pay_btn.setDisable(true);
 		}
+			
     }
     
     public void printBill() {
@@ -127,7 +138,7 @@ public class itemBill_Controller implements Initializable{
             stage.initOwner(pay_btn.getScene().getWindow());
             Scene scene = new Scene(root);
 
-			billService_Controller receiveRoom = loader.getController();
+			billService_Controller billServiceController = loader.getController();
             Object[] item = new Object[6];
 			item[0] = billId_txt.getText();
 			item[1] = room_txt.getText();
@@ -135,7 +146,7 @@ public class itemBill_Controller implements Initializable{
 			item[3] = surcharge_txt.getText();
 			item[4] = checkinDate_txt.getText();
 			item[5] = checkoutDate_txt.getText();
-			receiveRoom.setData(item);
+			billServiceController.setData(item);
 			
 			stage.setScene(scene);
             stage.showAndWait();
@@ -170,6 +181,38 @@ public class itemBill_Controller implements Initializable{
 	    return String.format("-fx-background-color: %s; -fx-text-fill: %s; -fx-background-radius: 20; ", bgColor, textColor);
 	}
 
+    public void printBillAgain() {
+    	
+    	try {
+			// TODO Auto-generated method stub
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Bill/billService.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(pay_btn.getScene().getWindow());
+            Scene scene = new Scene(root);
+
+			billService_Controller billServiceController = loader.getController();
+            Object[] item = new Object[6];
+			item[0] = billId_txt.getText();
+			item[1] = room_txt.getText();
+			item[2] = priceService_txt.getText();
+			item[3] = surcharge_txt.getText();
+			item[4] = checkinDate_txt.getText();
+			item[5] = checkoutDate_txt.getText();
+			billServiceController.setData(item);
+			
+			stage.setScene(scene);
+            stage.showAndWait();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+    	
+    }
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

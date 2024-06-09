@@ -74,6 +74,8 @@ public class PHIEUNHANPHONG_DAO {
 			prepare.setString(1, checkout);
 			prepare.setString(2, mapdp);
 			prepare.executeUpdate();
+			System.out.println("Update thanh cong");
+			System.out.println(mapdp + " " + checkout);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

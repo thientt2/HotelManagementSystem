@@ -94,8 +94,16 @@ public class servicesRoom_Controller implements Initializable{
 			bookedService_pane.setVisible(true);
 			bookService_pane.setVisible(false);
 			isNew = false;
-			listDetailService = CHITIETHOADON_BLL.getListDetailService(billService.getMAHD());					
-			totalPrice_txt.setText(String.valueOf(billService.getGIADICHVU()));
+			listDetailService = CHITIETHOADON_BLL.getListDetailService(billService.getMAHD());			
+			int totalPrice = billService.getGIADICHVU();
+			String formattedTotalPrice = String.valueOf(totalPrice);
+			StringBuilder sb2 = new StringBuilder(formattedTotalPrice);
+			int length2 = sb2.length();
+			for (int i = length2 - 3; i > 0; i -= 3) {
+				sb2.insert(i, ".");
+			}
+			String finalTotalPrice = sb2.toString();
+			totalPrice_txt.setText(finalTotalPrice);
 			showListService(bookedService_vbox, listDetailService);			
 		}else {
 			bookService_pane.setVisible(true);
@@ -170,9 +178,24 @@ public class servicesRoom_Controller implements Initializable{
 			    .sum();
 	    if(billService != null) {
 	    	int totalPrice = billService.getGIADICHVU() + totalPriceItem;
-	    	totalPrice_txt.setText(String.valueOf(totalPrice));
+	    	String formattedPrice = String.valueOf(totalPrice);
+            StringBuilder sb = new StringBuilder(formattedPrice);
+            int length = sb.length();
+            for (int i = length - 3; i > 0; i -= 3) {
+                sb.insert(i, ".");
+            }
+            String finalPrice = sb.toString();
+			totalPrice_txt.setText(finalPrice);
+	    	
 	    }else {
-	    	totalPrice_txt.setText(String.valueOf(totalPriceItem));
+	    	String formattedPrice = String.valueOf(totalPriceItem);
+			StringBuilder sb = new StringBuilder(formattedPrice);
+			int length = sb.length();
+			for (int i = length - 3; i > 0; i -= 3) {
+				sb.insert(i, ".");
+			}
+			String finalPrice = sb.toString();
+	    	totalPrice_txt.setText(finalPrice);
 	    }    
 	    
     	
@@ -200,19 +223,21 @@ public class servicesRoom_Controller implements Initializable{
 				itemServicesRoom_Controller controller = loader.getController();
 				controller.setData(item);
 				Button deleteItem_btn = controller.getDeleteItem_btn();
+				
 				if(isDelete == true) {
 					deleteItem_btn.setVisible(true);
 					deleteItem_btn.setOnAction(event -> {
 						listData.remove(item);
-//						totalPrice -= Double.parseDouble(item[4].toString());
-//		                String formattedPrice = String.format("%.0f", totalPrice);
-//		                StringBuilder sb = new StringBuilder(formattedPrice);
-//		                int length = sb.length();
-//		                for (int i = length - 3; i > 0; i -= 3) {
-//		                    sb.insert(i, ".");
-//		                }
-//		                String finalPrice = sb.toString();
-//		                totalPrice_txt.setText(finalPrice);
+						int totalPrice = Integer.parseInt(totalPrice_txt.getText());
+						totalPrice -= Integer.parseInt(item[4].toString());
+		                String formattedPrice = String.valueOf(totalPrice);
+		                StringBuilder sb = new StringBuilder(formattedPrice);
+		                int length = sb.length();
+		                for (int i = length - 3; i > 0; i -= 3) {
+		                    sb.insert(i, ".");
+		                }
+		                String finalPrice = sb.toString();
+		                totalPrice_txt.setText(finalPrice);
 		                vbox.getChildren().remove(billData);
 					});									
 				}else {
@@ -251,7 +276,7 @@ public class servicesRoom_Controller implements Initializable{
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		String ngayTao = formatter.format(now);
 		
-		int totalPrice = Integer.parseInt(totalPrice_txt.getText());
+		int totalPrice = Integer.parseInt(totalPrice_txt.getText().replace(".", ""));
 		
 		dataBillService.put("maPNP", receiveRoom.getMAPNP());
 		dataBillService.put("maNVNhap", maNVNhap);
@@ -272,15 +297,9 @@ public class servicesRoom_Controller implements Initializable{
 		}
 	}
 
-	public void updateBillService(ObservableList<Object[]> listData) {
-		
-		int totalPriceItem = listData.stream()
-			    .mapToInt(item -> Integer.parseInt(item[4].toString()))
-			    .sum();
-		int totalPrice = billService.getGIADICHVU() + totalPriceItem; 
+	public void updateBillService(ObservableList<Object[]> listData) {	
+
 		String maHD = billService.getMAHD();
-		
-		HOADONDICHVU_BLL.updateBillService(maHD,totalPrice);
 		
 		for(Object[] item : listData) {
 			String serviceId = DICHVU_BLL.getServiceIdByName(item[1].toString());
@@ -295,9 +314,7 @@ public class servicesRoom_Controller implements Initializable{
 			}else {
 				CHITIETHOADON_BLL.insertBillDetailService(billDetailService);					
 			}				
-		}
-		
-			
+		}			
 	}
 	
 	public void close() {

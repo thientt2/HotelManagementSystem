@@ -30,10 +30,28 @@ public class itemServicesRoom_Controller implements Initializable {
 	    
 	    public void setData(Object[] item) {
 	    	serviceType_txt.setText(item[0].toString());
-	    	serviceName_txt.setText(item[1].toString());	    	    	
-	    	price_txt.setText(item[2].toString());
-	    	number_txt.setText(item[3].toString());	 	    	
-	    	totalPrice_txt.setText(item[4].toString());
+	    	serviceName_txt.setText(item[1].toString());
+	    	int price = Integer.parseInt(item[2].toString());
+	    	System.out.println(price);
+	    	String formattedPrice = String.valueOf(price);
+	    	StringBuilder sb = new StringBuilder(formattedPrice);
+	    	int length = sb.length();
+	    	for (int i = length - 3; i > 0; i -= 3) {
+	    		sb.insert(i, ".");
+	    	}
+	    	String finalPrice = sb.toString();
+	    	price_txt.setText(finalPrice);
+	    	number_txt.setText(item[3].toString());	 	
+	    	int totalPrice = Integer.parseInt(item[4].toString());
+	    	System.out.println(totalPrice);
+	    	String formattedTotalPrice = String.valueOf(totalPrice);
+	    	StringBuilder sb2 = new StringBuilder(formattedTotalPrice);
+	    	int length2 = sb2.length();
+	    	for (int i = length2 - 3; i > 0; i -= 3) {
+	    		sb2.insert(i, ".");
+	    	}
+	    	String finalTotalPrice = sb2.toString();
+	    	totalPrice_txt.setText(finalTotalPrice);	    	
 	    }
 	    
 	    public Button getDeleteItem_btn() {

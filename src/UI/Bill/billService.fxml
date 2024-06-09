@@ -12,7 +12,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Bill.billService_Controller">
    <children>
       <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="602.0" prefWidth="494.0" styleClass="white-bg" stylesheets="@../../Designs/billBookRoom.css">
@@ -226,7 +225,7 @@
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="totalPrice_txt" contentDisplay="RIGHT" layoutX="326.0" layoutY="5.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-alignment: right;" text="tongtien" textAlignment="RIGHT" AnchorPane.rightAnchor="0.0">
+                                          <Label fx:id="totalPrice_txt" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="326.0" layoutY="5.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="tongtien" textAlignment="RIGHT" AnchorPane.rightAnchor="0.0">
                                              <font>
                                                 <Font name="Inter Medium" size="14.0" />
                                              </font>
