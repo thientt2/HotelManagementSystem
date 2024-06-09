@@ -2,8 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -13,7 +15,7 @@
 
 <AnchorPane prefHeight="541.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="541.0" prefWidth="897.0" style="-fx-background-color: #fff;">
+      <VBox prefHeight="542.0" prefWidth="898.0">
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="128.0" prefWidth="898.0" spacing="20.0">
                <children>
@@ -176,12 +178,178 @@
                   </Pane>
                </children>
             </HBox>
-            <ScrollPane layoutX="-1.0" layoutY="128.0" prefHeight="415.0" prefWidth="897.0" style="-fx-background-color: white;">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-              </content>
-            </ScrollPane>
+            <Pane prefHeight="414.0" prefWidth="898.0">
+               <children>
+                  <Pagination layoutX="26.0" prefHeight="414.0" prefWidth="846.0" stylesheets="@../../Designs/CustomerWindow.css" />
+                  <VBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="7.0" prefHeight="160.0" prefWidth="846.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="816.0" spacing="3.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="75.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Đánh giá:" />
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/borderStar.png" />
+                                 </image>
+                              </ImageView>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="146.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Phòng:" />
+                                    <Label style="-fx-font-size: 15px;" text="P.802" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="197.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Loại phòng:" />
+                                    <Label style="-fx-font-size: 15px;" text="Standard" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="42.0" prefWidth="270.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="31001231231 ngày trước" textAlignment="RIGHT" />
+                                 </children>
+                              </Pane>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="816.0">
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                           <children>
+                              <Region prefHeight="34.0" prefWidth="0.0" />
+                              <Label fx:id="dynamicLabel" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Tăng Thanh Thiện" wrapText="true">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="19.0" prefWidth="178.0" style="-fx-font-size: 13px;" text="(thongtulen134@gmail.com)" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="66.0" prefWidth="846.0">
+                           <children>
+                              <Label maxWidth="520.0" prefHeight="55.0" prefWidth="520.0" text="Phòng rất sạch sẽ, thoáng mát. Nhân viên nhanh nhạy. Buffet nhà hàng cần đa dạng món hơn." wrapText="true" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="187.0" prefHeight="160.0" prefWidth="846.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="816.0" spacing="3.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="75.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Đánh giá:" />
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="146.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Phòng:" />
+                                    <Label style="-fx-font-size: 15px;" text="P.502" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="197.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Loại phòng:" />
+                                    <Label style="-fx-font-size: 15px;" text="Standard" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="42.0" prefWidth="270.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="31001231231 ngày trước" textAlignment="RIGHT" />
+                                 </children>
+                              </Pane>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="816.0">
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                           <children>
+                              <Region prefHeight="34.0" prefWidth="0.0" />
+                              <Label fx:id="dynamicLabel1" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Trần Trung Thông" wrapText="true">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="19.0" prefWidth="178.0" style="-fx-font-size: 13px;" text="(thongtulen134@gmail.com)" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="66.0" prefWidth="846.0">
+                           <children>
+                              <Label maxWidth="520.0" prefHeight="55.0" prefWidth="520.0" text="Phòng rất sạch sẽ, thoáng mát. Nhân viên nhanh nhạy. Không gian yên tĩnh." wrapText="true" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </VBox>
+               </children>
+            </Pane>
          </children>
-      </Pane>
+      </VBox>
    </children>
 </AnchorPane>
