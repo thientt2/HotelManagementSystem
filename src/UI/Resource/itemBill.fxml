@@ -20,27 +20,27 @@
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="priceService_txt" alignment="CENTER" layoutX="164.0" layoutY="2.0" prefHeight="51.0" prefWidth="99.0" text="TIENDV" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="1.0">
+      <Label fx:id="priceService_txt" alignment="CENTER" layoutX="135.0" layoutY="2.0" prefHeight="51.0" prefWidth="99.0" text="TIENDV" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="1.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="surcharge_txt" alignment="CENTER" layoutX="269.0" layoutY="2.0" prefHeight="51.0" prefWidth="99.0" text="TIENPT" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="1.0">
+      <Label fx:id="surcharge_txt" alignment="CENTER" layoutX="230.0" layoutY="2.0" prefHeight="51.0" prefWidth="99.0" text="TIENPT" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="1.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="checkinDate_txt" layoutX="370.0" layoutY="15.0" text="TGCHECKIN">
+      <Label fx:id="checkinDate_txt" layoutX="330.0" layoutY="15.0" text="TGCHECKIN">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="checkoutDate_txt" layoutX="534.0" layoutY="15.0" text="TGCHECKOUT">
+      <Label fx:id="checkoutDate_txt" layoutX="460.0" layoutY="15.0" text="TGCHECKOUT">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="pay_btn" layoutX="691.0" layoutY="9.0" mnemonicParsing="false" onAction="#printBill" styleClass="select-btn" stylesheets="@../../Designs/BillWindow.css" text="Thanh toán" AnchorPane.bottomAnchor="10.199999999999996" AnchorPane.topAnchor="9.0">
+      <Button fx:id="pay_btn" layoutX="700.0" layoutY="9.0" mnemonicParsing="false" onAction="#printBill" styleClass="select-btn" stylesheets="@../../Designs/BillWindow.css" text="Thanh toán" AnchorPane.bottomAnchor="10.199999999999996" AnchorPane.topAnchor="9.0">
          <font>
             <Font name="Inter Medium" size="14.0" />
          </font>
@@ -52,7 +52,7 @@
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Images/ellipsis_v.png" />
+                  <Image url="@../../Images/printer.png" />
                </image>
             </ImageView>
          </graphic>
@@ -60,5 +60,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label fx:id="status_txt" layoutX="590.0" layoutY="15.0" text="TRANGTHAI">
+         <font>
+            <Font name="Inter Medium" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
