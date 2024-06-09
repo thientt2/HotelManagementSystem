@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.billBookRoom_Controller">
+<AnchorPane fx:id="mainBill_anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BookRoom.billBookRoom_Controller">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="3.0" prefHeight="608.0" prefWidth="494.0" style="-fx-background-color: white;" stylesheets="@../../Designs/BillWindow.css">
+      <VBox fx:id="shadow_vbox" alignment="TOP_CENTER" layoutX="3.0" layoutY="3.0" prefHeight="608.0" prefWidth="494.0" style="-fx-background-color: white;" stylesheets="@../../Designs/BillWindow.css">
          <children>
             <HBox prefHeight="128.0" prefWidth="494.0">
                <children>
@@ -159,7 +159,7 @@
                         </AnchorPane>
                         <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="257.0" prefWidth="441.0" spacing="10.0">
                            <children>
-                              <VBox fx:id="detail_vbox" prefHeight="134.0" prefWidth="408.0" />
+                              <VBox fx:id="detail_vbox" prefHeight="16.0" prefWidth="408.0" />
                               <Line endX="261.8929138183594" endY="1.2981891813979018E-5" startX="-144.59169006347656" startY="2.5975703465519473E-5" />
                               <AnchorPane prefHeight="55.0" prefWidth="420.0">
                                  <children>

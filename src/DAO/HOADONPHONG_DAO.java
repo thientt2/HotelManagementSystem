@@ -104,8 +104,8 @@ public class HOADONPHONG_DAO {
 	public static ObservableList<Object[]> listDetailBill(String roomID) {
 		// TODO Auto-generated method stub
 		String query = "SELECT"
-				+ " LP.TENLOAI,DATEDIFF(day, PDP.NGAYNHAN, PDP.NGAYTRA) + 1 AS SoNgayO,"
-				+ " LP.GIA, CT.SOLUONG,((DATEDIFF(day, PDP.NGAYNHAN, PDP.NGAYTRA) + 1) * LP.GIA * CT.SOLUONG) AS TongChiPhi "
+				+ " LP.TENLOAI,DATEDIFF(day, PDP.NGAYNHAN, PDP.NGAYTRA) AS SoNgayO,"
+				+ " LP.GIA, CT.SOLUONG,(DATEDIFF(day, PDP.NGAYNHAN, PDP.NGAYTRA)  * LP.GIA * CT.SOLUONG) AS TongChiPhi "
 				+ "FROM PHIEUDATPHONG PDP, CHITIETPDP CT, LOAIPHONG LP "
 				+ "WHERE PDP.MAPDP = CT.MAPDP AND CT.MALOAIP = LP.MALOAIP AND PDP.MAPDP = '"+ roomID +"'";
 		ObservableList<Object[]> list = FXCollections.observableArrayList();

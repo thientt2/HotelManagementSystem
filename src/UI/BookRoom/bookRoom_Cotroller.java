@@ -173,7 +173,7 @@ public class bookRoom_Cotroller implements Initializable {
 	    String selectedRoomType = roomType_cb.getValue().toString();
 	    int selectedPrice = Integer.parseInt(price_txt.getText().replace(".", ""));
 	    int selectedQuantity = Integer.parseInt(quantity_cb.getValue().toString());	    
-	    long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue()) + 1;
+	    long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue());
 	    int selectedTotal = selectedPrice * selectedQuantity * (int)numberOfDays;
 	    
 	    Object[] rowdata = new Object[5];
@@ -286,7 +286,7 @@ public class bookRoom_Cotroller implements Initializable {
 	}
     
     private void showPrice() { 	   	
-    	long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue()) + 1;			
+    	long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue());		
 	    double roomPrice = 0;
 	    for(Object[] item : listDetailBookRoom) {	    	
 		    roomPrice += Double.parseDouble(item[3].toString());

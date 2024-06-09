@@ -26,7 +26,10 @@ import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -71,6 +74,13 @@ public class billBookRoom_Controller implements Initializable {
     @FXML
     private Label totalPrice_txt;
     
+    @FXML
+    private VBox shadow_vbox;
+    
+
+    @FXML
+    private AnchorPane mainBill_anchor;
+
     @FXML
     private Circle top_circle;
     
@@ -140,9 +150,14 @@ public class billBookRoom_Controller implements Initializable {
     }
     
     public void print() {
-        WritableImage snapshot = new WritableImage(490, 532);
+    	print_btn.setVisible(false);
+        cancel_btn.setVisible(false);
+        shadow_vbox.setEffect(null);
+        mainBill_anchor.setStyle("-fx-background-color: transparent");
+        
+        WritableImage snapshot = new WritableImage(510, 620);
         detail_vbox.getScene().getRoot().snapshot(new SnapshotParameters(), snapshot);
-
+        
         // Chuyển đổi ảnh thành byte array
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
@@ -201,6 +216,17 @@ public class billBookRoom_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		print_btn.setVisible(true);
+        cancel_btn.setVisible(true);
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
+        dropShadow.setWidth(21.0);
+        dropShadow.setHeight(21.0);
+        dropShadow.setRadius(10.0);
+        dropShadow.setOffsetX(0.0);
+        dropShadow.setOffsetY(0.0);
+        dropShadow.setSpread(0.0);
+        shadow_vbox.setEffect(dropShadow);
 		
 	}
 
