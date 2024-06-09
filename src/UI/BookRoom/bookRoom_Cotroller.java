@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.scene.image.Image;
 
 import BLL.CHITIETPDP_BLL;
 import BLL.HOADONPHONG_BLL;
@@ -19,15 +18,13 @@ import BLL.KHACHHANG_BLL;
 import BLL.LOAIPHONG_BLL;
 import BLL.PHIEUDATPHONG_BLL;
 import BLL.PHONG_BLL;
-import DAO.PHONG_DAO;
 import DTO.HOADONPHONG;
 import DTO.KHACHHANG;
 import DTO.LOAIPHONG;
 import DTO.PHIEUDATPHONG;
-import UI.MainWindow_Controller;
 import UI.Resource.itemBookRoomDetail_Controller;
-import UI.Resource.itemBookRoom_Controller;
 import application.AlertMessage;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -40,7 +37,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -62,7 +59,7 @@ public class bookRoom_Cotroller implements Initializable {
     private TextField price_txt;
     
     @FXML
-    private DatePicker checkin_datepicker;
+    private TextField checkin_datepicker;
 
     @FXML
     private DatePicker checkout_datepicker;
@@ -89,6 +86,8 @@ public class bookRoom_Cotroller implements Initializable {
     private ComboBox<String> roomType_cb;
     
     private String MANV = SystemMessage.getMANV();
+    
+    private boolean dateChanged = false;
     
     private List<LOAIPHONG> roomTypes = LOAIPHONG_BLL.getRoomTypes();
     
@@ -155,7 +154,12 @@ public class bookRoom_Cotroller implements Initializable {
         ObservableList<Integer> list = FXCollections.observableArrayList();
         //quantity_cb.getItems().clear();
         try {
-            LocalDate checkinDate = checkin_datepicker.getValue();
+            String checkin = checkin_datepicker.getText();
+            DateTimeFormatter formatterInput = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter formatterOutput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate checkinDateInput = LocalDate.parse(checkin, formatterInput);
+			LocalDate checkinDate = LocalDate.parse(checkinDateInput.format(formatterOutput), formatterOutput);
+			
             LocalDate checkoutDate = checkout_datepicker.getValue();
             int availableRooms = PHONG_BLL.getAvailableRooms(roomTypeId, checkinDate, checkoutDate);
             for (int i = 1; i <= availableRooms; i++) {
@@ -172,8 +176,13 @@ public class bookRoom_Cotroller implements Initializable {
 	public void addDetailBill() {
 	    String selectedRoomType = roomType_cb.getValue().toString();
 	    int selectedPrice = Integer.parseInt(price_txt.getText().replace(".", ""));
-	    int selectedQuantity = Integer.parseInt(quantity_cb.getValue().toString());	    
-	    long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue());
+	    int selectedQuantity = Integer.parseInt(quantity_cb.getValue().toString());	
+	    
+        DateTimeFormatter formatterInput = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatterOutput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate checkinDateInput = LocalDate.parse(checkin_datepicker.getText(), formatterInput);
+		LocalDate checkinDate = LocalDate.parse(checkinDateInput.format(formatterOutput), formatterOutput);
+	    long numberOfDays = ChronoUnit.DAYS.between(checkinDate, checkout_datepicker.getValue());
 	    int selectedTotal = selectedPrice * selectedQuantity * (int)numberOfDays;
 	    
 	    Object[] rowdata = new Object[5];
@@ -215,22 +224,35 @@ public class bookRoom_Cotroller implements Initializable {
 	            e.printStackTrace();
 	        }
 	    }    
-
 	    showPrice();
+	    
+	    roomType_cb.getSelectionModel().clearSelection();
+	    quantity_cb.getSelectionModel().clearSelection();
+	    quantity_cb.getItems().clear();
+	    
+	    roomType_cb.setPromptText("Chọn	loại phòng");
+	    quantity_cb.setPromptText("0");
+
+	    // Đặt lại giá trị cho TextField price_txt
+	    price_txt.setText(null);
+	    price_txt.setPromptText("Giá");
 	}	
 
 
     public void bookRoom() {
 		Map<String, Object> data  = new HashMap<String, Object>();
 		data.put("maKH", khachHang.getMAKH());
-		data.put("ngayNhan", checkin_datepicker.getValue().toString());
+		
 		data.put("ngayTra", checkout_datepicker.getValue().toString());		
 		
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		DateTimeFormatter formatterInputBook = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate checkinDateInput = LocalDate.parse(checkin_datepicker.getText(), formatterInputBook);
+		String checkinBook = formatter.format(checkinDateInput);
+		data.put("tgDat", formatter.format(now).toString());	
 		
-		data.put("tgDat", formatter.format(now).toString());		
-		
+		data.put("ngayNhan", checkinBook);
 		PHIEUDATPHONG_BLL.insertBookRoom(data);
 		String error = SystemMessage.ERROR_MESSAGE;
 		AlertMessage alert = new AlertMessage();
@@ -261,37 +283,48 @@ public class bookRoom_Cotroller implements Initializable {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
 			Parent root;
 			try {
+			    root = loader.load();
+			    String checkin = checkin_datepicker.getText();			    
+		        DateTimeFormatter formatterInput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		        DateTimeFormatter formatterOutput = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			    
+			    
+			    // Get the checkout date from DatePicker and parse it using the correct format
+			    String checkout = checkout_datepicker.getValue().toString();
+			    LocalDate checkoutDate = LocalDate.parse(checkout, formatterInput);
+			    String formattedCheckoutDate = checkoutDate.format(formatterOutput);
+			    
+			    
 
-				root = loader.load();
-				String checkin = checkin_datepicker.getValue().toString();
-				String checkout = checkout_datepicker.getValue().toString();
-				HOADONPHONG lastBillBookRoom = HOADONPHONG_BLL.getLastBill();
-				
-				billBookRoom_Controller controller = loader.getController();
-	            Circle image = controller.getCircle();
-	        	Image defaultImage = new Image("/Images/LAOPERA.jpg");
-	        	image.setFill(new ImagePattern(defaultImage));
-				
-				controller.setData(checkin, checkout, lastBillBookRoom, listDetailBookRoom);
-				Scene scene = new Scene(root);
-				
-				stage.setScene(scene);
-				stage.show();
-				
-				
+			    HOADONPHONG lastBillBookRoom = HOADONPHONG_BLL.getLastBill();
+			    billBookRoom_Controller controller = loader.getController();
+			    
+			    // Set the default image in the circle
+			    Circle image = controller.getCircle();
+			    Image defaultImage = new Image("/Images/LAOPERA.jpg");
+			    image.setFill(new ImagePattern(defaultImage));
+			    
+			    // Set the data for the controller
+			    controller.setData(checkin, formattedCheckoutDate, lastBillBookRoom, listDetailBookRoom);
+			    
+			    Scene scene = new Scene(root);
+			    stage.setScene(scene);
+			    stage.show();
+			    
 			} catch (IOException e) {
-				e.printStackTrace();
+			    e.printStackTrace();
 			}
+
 		}		
 	}
     
-    private void showPrice() { 	   	
-    	long numberOfDays = ChronoUnit.DAYS.between(checkin_datepicker.getValue(), checkout_datepicker.getValue());		
-	    double roomPrice = 0;
+    private void showPrice() {      	
+    				
+	    double totalPrice = 0;
 	    for(Object[] item : listDetailBookRoom) {	    	
-		    roomPrice += Double.parseDouble(item[3].toString());
-	    }	    	   
-		double totalPrice = roomPrice * numberOfDays;
+	    	totalPrice += Double.parseDouble(item[3].toString());
+	    }   	   
+
 //		String formattedTotalPrice = String.format("%.2f", totalPrice); 
 		
 		String formattedPrice = String.format("%.0f", totalPrice);
@@ -313,12 +346,35 @@ public class bookRoom_Cotroller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String formattedDate = formatter.format(now);
-		LocalDate date = LocalDate.parse(formattedDate);
-		checkin_datepicker.setValue(date);
+		
+		checkin_datepicker.setText(formattedDate);
 		showRoomType();				
 		searchCustomer();		
+		checkout_datepicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+			if(dateChanged) {
+				listDetailBookRoom.clear();
+				detailBookRoom_vbox.getChildren().clear();
+
+				// Xóa lựa chọn hiện tại trong ComboBox roomType_cb và quantity_cb
+				roomType_cb.getSelectionModel().clearSelection();
+				quantity_cb.getSelectionModel().clearSelection();
+
+				// Đặt lại giá trị cho TextField price_txt
+				price_txt.setText(null);
+				price_txt.setPromptText("Giá");
+				
+				Platform.runLater(() -> {
+				    roomType_cb.setPromptText("Chọn	loại phòng");
+				    quantity_cb.setPromptText("0");
+				    quantity_cb.getItems().clear();
+				});
+			}else {
+				dateChanged = true;
+			}		
+			
+		});
 			
 	}
 }

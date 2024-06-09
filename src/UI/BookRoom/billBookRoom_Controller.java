@@ -89,14 +89,8 @@ public class billBookRoom_Controller implements Initializable {
 	}	
     
     public void setData(String checkin,String checkout,HOADONPHONG hoadonphong, ObservableList<Object[]> list) {     
-    	DateTimeFormatter formatterInput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    	DateTimeFormatter formatterOut = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    	LocalDate checkinDate = LocalDate.parse(checkin, formatterInput);
-		LocalDate checkoutDate = LocalDate.parse(checkout, formatterInput);
-		String formattedCheckin = checkinDate.format(formatterOut);
-		String formattedCheckout = checkoutDate.format(formatterOut);
-    	checkinDate_txt.setText(formattedCheckin);
-		checkoutDate_txt.setText(formattedCheckout);	
+    	checkinDate_txt.setText(checkin);
+		checkoutDate_txt.setText(checkout);	
 
 		int midPrice = list.stream().mapToInt(item -> Integer.parseInt(item[4].toString())).sum();
     	String midPriceString = String.valueOf(midPrice);
