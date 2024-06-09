@@ -105,36 +105,38 @@ public class itemBookRoom_Controller implements Initializable{
             month = calendar.get(Calendar.MONTH) + 1;
             year = calendar.get(Calendar.YEAR);    
             
+           System.out.println(day);
+           System.out.println(ngaynow);
            
             if (hinhThuc.equals("Offline")) {
             	status = "Trực tiếp";
             } 
             else {            	
             	if (year < namnow) {
-            		status =  "Chưa";
+            		status =  "Quá hạn";
             		
             	}
             	else if (year == namnow) {
             		if (month < thangnow) {
-            			status = "Chưa";
+            			status = "Quá hạn";
             		}
             		else if (month == thangnow) {
             			if (day < ngaynow) {
-            				status = "Chưa";
+            				status = "Quá hạn";
             			}
             			else if (day == ngaynow) {
             				status = "Hôm nay";
             			}
             			else {
-            				status = "Quá hạn";
+            				status = "Chưa";
             			}
             		}
             		else {
-            			status = "Quá hạn";
+            			status = "Chưa";
             		}
             	}
             	else {
-            		status = "Quá hạn";
+            		status = "Chưa";
             	}
             }
         } catch (ParseException e) {
