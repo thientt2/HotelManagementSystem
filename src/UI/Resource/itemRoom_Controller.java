@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import BLL.PHIEUNHANPHONG_BLL;
@@ -15,8 +16,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -72,14 +76,31 @@ public class itemRoom_Controller implements Initializable {
 	    }
 	    
 	    public void checkOut() {	    
-	    	LocalDateTime now = LocalDateTime.now();
-	    	DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-	    	String checkOut = now.format(inputFormatter);
-	    	System.out.println(checkOut);
-	    	String roomNumber = roomId_txt.getText();
-	    	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber);
-	    	PHIEUNHANPHONG_BLL.updateCheckOut(receiveRoom.getMAPDP(), checkOut);
-	    	PHONG_BLL.changeNotCleanRoomStatus(roomNumber);
+	    	Alert alert = new Alert(AlertType.CONFIRMATION);
+	        alert.setTitle("Xác nhận dọn dẹp");
+	        alert.setHeaderText(null);
+	        alert.setContentText("Xác nhận check-out phòng " + roomId_txt.getText() + " ?" );
+	        Optional<ButtonType> option = alert.showAndWait();
+
+	        if (option.get().equals(ButtonType.OK)) {
+		    	LocalDateTime now = LocalDateTime.now();
+		    	DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		    	String checkOut = now.format(inputFormatter);
+		    	System.out.println(checkOut);
+		    	String roomNumber = roomId_txt.getText();
+		    	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber);
+		    	PHIEUNHANPHONG_BLL.updateCheckOut(receiveRoom.getMAPDP(), checkOut);
+		    	PHONG_BLL.changeNotCleanRoomStatus(roomNumber);
+	        	alert = new Alert(AlertType.INFORMATION);
+	            alert.setTitle("Thông báo");
+	            alert.setHeaderText(null);
+	            alert.setContentText("Dọn dẹp phòng " + roomId_txt.getText() + " thành công!");
+	            alert.showAndWait();
+		    	
+	        } else {
+	            return;
+	        }
+
 	    }
 	    
 	    public void bookService() {
@@ -102,12 +123,38 @@ public class itemRoom_Controller implements Initializable {
 	    }
 	    
 	    public void cleanRoom() {
-	    	PHONG_BLL.changeEmptyRoomStatus(roomId_txt.getText());
+	    	Alert alert = new Alert(AlertType.CONFIRMATION);
+	        alert.setTitle("Xác nhận dọn dẹp");
+	        alert.setHeaderText(null);
+	        alert.setContentText("Xác nhận đã dọn dẹp phòng " + roomId_txt.getText() + " ?" );
+	        Optional<ButtonType> option = alert.showAndWait();
+
+	        if (option.get().equals(ButtonType.OK)) {
+		    	PHONG_BLL.changeEmptyRoomStatus(roomId_txt.getText());
+	        	alert = new Alert(AlertType.INFORMATION);
+	            alert.setTitle("Thông báo");
+	            alert.setHeaderText(null);
+	            alert.setContentText("Dọn dẹp phòng " + roomId_txt.getText() + " thành công!");
+	            alert.showAndWait();
+		    	
+	        } else {
+	            return;
+	        }
+
 	    }
 	    
 	    public Button getDetailBtn() {
 	    	return detail_btn;
 	    }
+	    
+	    public Button getCleanBtn() {
+	    	return control_btn;
+	    }
+	    
+	    public Button getCheckOutBtn() {
+	    	return checkOut_btn;
+	    }
+	    
 	    
 	    	    
 	@Override

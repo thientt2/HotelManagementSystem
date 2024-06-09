@@ -187,8 +187,7 @@ public class bookRoomWindow_Controller implements Initializable{
                     contextMenu.getItems().clear();
 
                     MenuItem billItem = new MenuItem("Xem hóa đơn");
-                    MenuItem countdownItem = new MenuItem("Thời gian còn lại");
-                    MenuItem deleteItem = new MenuItem("Xóa");
+                    MenuItem deleteItem = new MenuItem("Hủy");
 
                     billItem.setOnAction(eventEditStaff -> {
                         try {
@@ -229,7 +228,7 @@ public class bookRoomWindow_Controller implements Initializable{
                         // Delete item logic here
                     });
 
-                    contextMenu.getItems().addAll(billItem, countdownItem, deleteItem);
+                    contextMenu.getItems().addAll(billItem, deleteItem);
                     contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
                 });
 
