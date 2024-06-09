@@ -105,16 +105,61 @@ public class billService_Controller implements Initializable {
         checkout_txt.setText(outputCheckOut);
         
         roomType_txt.setText(roomType.getTENLOAI());
-        roomPrice_txt.setText(roomType.getGIA().toString());
+//        roomPrice_txt.setText(roomType.getGIA().toString());
+		double roomPrice = (double) roomType.getGIA();
+		String formattedRoomPrice = String.format("%.0f",roomPrice);
+		StringBuilder sbRoomPrice = new StringBuilder(formattedRoomPrice);
+		int lngRoomPrice = sbRoomPrice.length();
+		for (int i = lngRoomPrice - 3; i > 0; i -= 3) {
+			sbRoomPrice.insert(i, ".");
+		}
+		sbRoomPrice.append(" VND");
+		String finalRoomPrice = sbRoomPrice.toString();
+		roomPrice_txt.setText(finalRoomPrice);
 
     	NHANVIEN staff = NHANVIEN_BLL.getStaffById(SystemMessage.getMANV());
     	
     	billId_txt.setText(billId);
     	staffName_txt.setText(staff.getTENNV());
     	
-    	servicePrice_txt.setText(billService.getGIADICHVU().toString());
-    	surcharge_txt.setText(billService.getPHUTHU().toString());
-    	totalPrice_txt.setText(billService.getTONGTIEN().toString());
+//    	servicePrice_txt.setText(billService.getGIADICHVU().toString());
+    	
+    	int servicePrice = (int) billService.getGIADICHVU();
+    	String midPriceString = String.valueOf(servicePrice);
+    	StringBuilder sbMidPrice = new StringBuilder(midPriceString);
+    	int lngMidPrice = sbMidPrice.length();
+    	for (int i = lngMidPrice - 3; i > 0; i -= 3) {
+    		sbMidPrice.insert(i, ".");
+    	}
+    	sbMidPrice.append(" VND");
+    	String finalMidPrice = sbMidPrice.toString();
+    	servicePrice_txt.setText(finalMidPrice);
+		
+
+		int surcharge = (int) billService.getPHUTHU();
+    	String formattedSurcharge = String.valueOf(surcharge);
+    	StringBuilder sbSurcharge = new StringBuilder(formattedSurcharge);
+    	int lngSurcharge = sbSurcharge.length();
+    	for (int i = lngSurcharge - 3; i > 0; i -= 3) {
+    		sbSurcharge.insert(i, ".");
+    	}
+    	sbSurcharge.append(" VND");
+    	String finalSurcharge = sbSurcharge.toString();
+    	surcharge_txt.setText(finalSurcharge);
+		
+		int total =  (int) billService.getTONGTIEN();	
+		
+    	String formattedTotal = String.valueOf(total);
+    	StringBuilder sbTotal = new StringBuilder(formattedTotal);
+    	int lngTotal = sbTotal.length();
+    	for (int i = lngTotal - 3; i > 0; i -= 3) {
+    		sbTotal.insert(i, ".");
+    	}
+    	sbTotal.append(" VND");
+    	String finalTotal = sbTotal.toString();
+    	totalPrice_txt.setText(finalTotal);    	
+    	
+
     	
     	listData.forEach(itemService -> {
     		try {

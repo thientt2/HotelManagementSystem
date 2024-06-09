@@ -89,7 +89,7 @@ public class itemRoom_Controller implements Initializable {
 		    	System.out.println(checkOut);
 		    	String roomNumber = roomId_txt.getText();
 		    	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(roomNumber);
-		    	PHIEUNHANPHONG_BLL.updateCheckOut(receiveRoom.getMAPDP(), checkOut);
+		    	PHIEUNHANPHONG_BLL.updateCheckOut(receiveRoom.getMAPNP(), checkOut);
 		    	PHONG_BLL.changeNotCleanRoomStatus(roomNumber);
 	        	alert = new Alert(AlertType.INFORMATION);
 	            alert.setTitle("Thông báo");

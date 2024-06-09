@@ -31,6 +31,7 @@ public class PHIEUNHANPHONG_BLL {
 	}
 	
 	public static void updateCheckOut(String mapdp, String checkout) {
+		System.out.println(mapdp + " " + checkout);
 		PHIEUNHANPHONG_DAO.updateCheckOut(mapdp, checkout);
 	}
 }

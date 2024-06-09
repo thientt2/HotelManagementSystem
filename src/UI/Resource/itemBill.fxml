@@ -48,7 +48,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="control_btn" contentDisplay="RIGHT" layoutX="795.0" layoutY="12.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: transparent;" textAlignment="CENTER">
+      <Button fx:id="printAgain_btn" contentDisplay="RIGHT" layoutX="795.0" layoutY="12.0" mnemonicParsing="false" onAction="#printBillAgain" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: transparent;" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
