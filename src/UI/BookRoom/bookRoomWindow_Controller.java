@@ -318,30 +318,30 @@ public class bookRoomWindow_Controller implements Initializable{
             } 
             else {            	
             	if (year < namnow) {
-            		status =  "Chưa";
+            		status =  "Quá hạn";
             		
             	}
             	else if (year == namnow) {
             		if (month < thangnow) {
-            			status = "Chưa";
+            			status = "Quá hạn";
             		}
             		else if (month == thangnow) {
             			if (day < ngaynow) {
-            				status = "Chưa";
+            				status = "Quá hạn";
             			}
             			else if (day == ngaynow) {
             				status = "Hôm nay";
             			}
             			else {
-            				status = "Quá hạn";
+            				status = "Chưa";
             			}
             		}
             		else {
-            			status = "Quá hạn";
+            			status = "Chưa";
             		}
             	}
             	else {
-            		status = "Quá hạn";
+            		status = "Chưa";
             	}
             }
         } catch (ParseException e) {

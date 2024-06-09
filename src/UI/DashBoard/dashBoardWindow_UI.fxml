@@ -38,7 +38,7 @@
                                        <children>
                                           <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Hôm nay" AnchorPane.bottomAnchor="30.0" />
                                           <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Check-in" />
-                                          <Label fx:id="numberCheckInLabel" layoutX="88.0" layoutY="16.0" prefWidth="30.0" styleClass="third-text" text="30" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="104.0" AnchorPane.topAnchor="19.0">
+                                          <Label fx:id="numberCheckInLabel" layoutX="88.0" layoutY="16.0" prefWidth="30.0" styleClass="third-text" text="9" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="104.0" AnchorPane.topAnchor="19.0">
                                              <font>
                                                 <Font name="Inter SemiBold" size="12.0" />
                                              </font>
@@ -60,7 +60,7 @@
                                        <children>
                                           <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" AnchorPane.bottomAnchor="30.0" />
                                           <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Khách hàng" />
-                                          <Label fx:id="numberCustomerLabel" layoutX="115.0" layoutY="16.0" styleClass="third-text" text="60" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
+                                          <Label fx:id="numberCustomerLabel" layoutX="115.0" layoutY="16.0" styleClass="third-text" text="42" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
                                              <font>
                                                 <Font name="Inter SemiBold" size="12.0" />
                                              </font>
@@ -71,7 +71,7 @@
                                        <children>
                                           <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" AnchorPane.bottomAnchor="30.0" />
                                           <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Phòng trống" />
-                                          <Label fx:id="numberEmptyRoomLabel" layoutX="121.0" layoutY="16.0" styleClass="third-text" text="14" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
+                                          <Label fx:id="numberEmptyRoomLabel" layoutX="121.0" layoutY="16.0" styleClass="third-text" text="25" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
                                              <font>
                                                 <Font name="Inter SemiBold" size="12.0" />
                                              </font>
@@ -82,7 +82,7 @@
                                        <children>
                                           <Label layoutX="13.0" layoutY="4.0" styleClass="first-text" text="Tổng số" AnchorPane.bottomAnchor="30.0" />
                                           <Label layoutX="13.0" layoutY="28.0" styleClass="second-text" text="Phòng đã đặt" />
-                                          <Label fx:id="numberBookedRoomLabel" layoutX="127.0" layoutY="16.0" styleClass="third-text" text="11" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
+                                          <Label fx:id="numberBookedRoomLabel" layoutX="127.0" layoutY="16.0" styleClass="third-text" text="18" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="19.0">
                                              <font>
                                                 <Font name="Inter SemiBold" size="12.0" />
                                              </font>
@@ -129,7 +129,7 @@
                                              <children>
                                                 <Label fx:id="roomTypeLabel1" prefHeight="32.0" prefWidth="87.0" styleClass="type-room-text" text="Standard" />
                                                 <Region prefHeight="40.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
-                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="12" />
+                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="9" />
                                                 <Label fx:id="availabelRoomLabel1" style="-fx-font-size: 12px;" styleClass="normal-text" text="/21" />
                                              </children>
                                           </HBox>
@@ -209,7 +209,7 @@
                                              <children>
                                                 <Label fx:id="roomTypeLabel2" prefHeight="32.0" prefWidth="73.0" styleClass="type-room-text" text="Deluxe" />
                                                 <Region prefHeight="40.0" prefWidth="38.0" HBox.hgrow="ALWAYS" />
-                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="3" />
+                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="7" />
                                                 <Label fx:id="availabelRoomLabel2" style="-fx-font-size: 12px;" styleClass="normal-text" text="/10" />
                                              </children>
                                           </HBox>
@@ -373,7 +373,7 @@
                                              <children>
                                                 <Label fx:id="roomTypeLabel4" prefHeight="32.0" prefWidth="87.0" styleClass="type-room-text" text="La Opera" />
                                                 <Region prefHeight="40.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
-                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="1" />
+                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="5" />
                                                 <Label fx:id="availabelRoomLabel4" style="-fx-font-size: 12px;" styleClass="normal-text" text="/6" />
                                              </children>
                                           </HBox>
