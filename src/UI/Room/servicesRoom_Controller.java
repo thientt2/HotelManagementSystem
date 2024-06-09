@@ -274,13 +274,8 @@ public class servicesRoom_Controller implements Initializable{
 
 	public void updateBillService(ObservableList<Object[]> listData) {
 		
-		int totalPriceItem = listData.stream()
-			    .mapToInt(item -> Integer.parseInt(item[4].toString()))
-			    .sum();
-		int totalPrice = billService.getGIADICHVU() + totalPriceItem; 
+
 		String maHD = billService.getMAHD();
-		
-		HOADONDICHVU_BLL.updateBillService(maHD,totalPrice);
 		
 		for(Object[] item : listData) {
 			String serviceId = DICHVU_BLL.getServiceIdByName(item[1].toString());
