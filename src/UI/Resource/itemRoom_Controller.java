@@ -2,6 +2,7 @@ package UI.Resource;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -52,6 +53,9 @@ public class itemRoom_Controller implements Initializable {
 		    roomId_txt.setText(String.valueOf(roomId));
 		    roomtype_txt.setText(String.valueOf(roomtype));
 		    status_txt.setText(String.valueOf(status));
+		    PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(String.valueOf(roomId));
+		    
+		    
 		    
 		    if(status.equals("Trống")) {
 		    	status_txt.setStyle("-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2; -fx-background-radius: 20; -fx-padding: 5 10");
@@ -71,6 +75,28 @@ public class itemRoom_Controller implements Initializable {
 		    	detail_btn.setDisable(false);
 		    	control_btn.setVisible(false);
 		    	checkOut_btn.setVisible(true);
+		    	String checkOut = receiveRoom.getTGTRA();
+		    	DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");		    	
+
+		    	// Lấy thời gian hiện tại
+		    	LocalDate now = LocalDate.now();
+
+		    	// Parse thời gian trả phòng từ chuỗi
+		    	LocalDateTime checkOutTime = LocalDateTime.parse(checkOut, inputFormatter);
+
+		    	// Chuyển đổi LocalDateTime thành LocalDate để so sánh chỉ ngày
+		    	LocalDate formattedCheckOutDate = checkOutTime.toLocalDate();
+		    	// So sánh ngày hiện tại với ngày trả phòng
+		    	if (now.isEqual(formattedCheckOutDate)) {
+		    	    checkOut_btn.setDisable(false);
+		    	} else {
+		    	    checkOut_btn.setDisable(true);
+		    	}
+
+
+		    	
+
+		    	
 		    }
 		    	
 	    }
