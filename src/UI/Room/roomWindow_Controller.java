@@ -148,6 +148,10 @@ public class roomWindow_Controller implements Initializable {
 	    return String.format("-fx-background-color: %s; -fx-text-fill: %s", bgColor, textColor);
 	}
 	
+	private void refreshFilterRoomList() {
+		filterRoomList();
+	}
+	
 	private void filterRoomList() {
 		Task<ObservableList<Object[]>> task = new Task<>() {
 			@Override
@@ -188,7 +192,19 @@ public class roomWindow_Controller implements Initializable {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-	                });       
+	                });      
+	                
+	                Button cleanRoom = controller.getCleanBtn();
+	                cleanRoom.setOnAction(event1 -> {
+	                	controller.cleanRoom();
+	                	refreshFilterRoomList();
+	                });      
+	                
+	                Button checkOut = controller.getCheckOutBtn();
+	                checkOut.setOnAction(event1 -> {
+	                	controller.checkOut();
+	                	refreshFilterRoomList();
+	                });    
 	                            
 	                showRoom_vbox.getChildren().add(roomData);
 	            } catch (IOException e) {
@@ -199,6 +215,10 @@ public class roomWindow_Controller implements Initializable {
 	    new Thread(task).start();
 	}
     
+	private void refreshShowAllRoom() {
+		showAllRoom();
+	}
+	
 	public void showAllRoom() {
 		Platform.runLater(() -> {
 			empty_btn.setDisable(false);
@@ -263,6 +283,18 @@ public class roomWindow_Controller implements Initializable {
 							e.printStackTrace();
 						}
 	                });                
+	                
+	                Button cleanRoom = controller.getCleanBtn();
+	                cleanRoom.setOnAction(event1 -> {
+	                	controller.cleanRoom();
+	                	refreshShowAllRoom();
+	                });      
+	                
+	                Button checkOut = controller.getCheckOutBtn();
+	                checkOut.setOnAction(event1 -> {
+	                	controller.checkOut();
+	                	refreshShowAllRoom();
+	                });   
 	                            
 	                showRoom_vbox.getChildren().add(roomData);
 				} catch (IOException e) {
@@ -272,6 +304,10 @@ public class roomWindow_Controller implements Initializable {
 			}
 		});
 		new Thread(task).start();
+	}
+	
+	private void refreshShowFirstFloor() {
+		showFirstFloor();
 	}
 	
 	public void showFirstFloor() {
@@ -328,7 +364,19 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+                });   
+                
+                Button cleanRoom = controller.getCleanBtn();
+                cleanRoom.setOnAction(event1 -> {
+                	controller.cleanRoom();
+                	refreshShowFirstFloor();
                 });      
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                	controller.checkOut();
+                	refreshShowFirstFloor();
+                });    
 
                             
                 showRoom_vbox.getChildren().add(roomData);
@@ -338,6 +386,10 @@ public class roomWindow_Controller implements Initializable {
 			}
 			
 		}
+	}
+	
+	private void refreshShowSecondFloor() {
+		showSecondFloor();
 	}
 	
 	public void showSecondFloor() {
@@ -394,7 +446,20 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });                                            
+                });     
+                
+                Button cleanRoom = controller.getCleanBtn();
+                cleanRoom.setOnAction(event1 -> {
+                	controller.cleanRoom();
+                	refreshShowSecondFloor();
+                });      
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                	controller.checkOut();
+                	refreshShowSecondFloor();
+                });  
+                
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -404,6 +469,10 @@ public class roomWindow_Controller implements Initializable {
 		}
 	}
 
+	private void refreshShowThirdFloor() {
+		showThirdFloor();
+	}
+	
 	public void showThirdFloor() {
 		Platform.runLater(() -> {
 			empty_btn.setDisable(true);
@@ -459,6 +528,18 @@ public class roomWindow_Controller implements Initializable {
 					}
                 });                
                             
+                Button cleanRoom = controller.getCleanBtn();
+                cleanRoom.setOnAction(event1 -> {
+                	controller.cleanRoom();
+                	refreshShowThirdFloor();
+                });      
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                	controller.checkOut();
+                	refreshShowThirdFloor();
+                });  
+                
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -466,6 +547,10 @@ public class roomWindow_Controller implements Initializable {
 			}
 			
 		}
+	}
+	
+	private void refreshShowFourthFloor() {
+		showFourthFloor();
 	}
 	
 	public void showFourthFloor() {
@@ -522,6 +607,18 @@ public class roomWindow_Controller implements Initializable {
 						e.printStackTrace();
 					}
                 });
+                
+                Button cleanRoom = controller.getCleanBtn();
+                cleanRoom.setOnAction(event1 -> {
+                	controller.cleanRoom();
+                	refreshShowFourthFloor();
+                });      
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                	controller.checkOut();
+                	refreshShowFourthFloor();
+                });  
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -530,6 +627,10 @@ public class roomWindow_Controller implements Initializable {
 			}
 			
 		}
+	}
+	
+	private void refreshShowFifthFloor() {
+		showFifthFloor();
 	}
 
 	public void showFifthFloor() {
@@ -585,7 +686,19 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });          
+                });       
+                
+                Button cleanRoom = controller.getCleanBtn();
+                cleanRoom.setOnAction(event1 -> {
+                	controller.cleanRoom();
+                	refreshShowFifthFloor();
+                });      
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                	controller.checkOut();
+                	refreshShowFifthFloor();
+                });  
                                            
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -594,6 +707,10 @@ public class roomWindow_Controller implements Initializable {
 			}
 			
 		}
+	}
+	
+	private void refreshShowSixthFloor() {
+		showSixthFloor();
 	}
 	
 	public void showSixthFloor() {
@@ -651,6 +768,17 @@ public class roomWindow_Controller implements Initializable {
 					}
                 });      
                 
+                Button cleanRoom = controller.getCleanBtn();
+                cleanRoom.setOnAction(event1 -> {
+                	controller.cleanRoom();
+                	refreshShowSixthFloor();
+                });      
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                	controller.checkOut();
+                	refreshShowSixthFloor();
+                });  
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -659,6 +787,10 @@ public class roomWindow_Controller implements Initializable {
 			}
 			
 		}
+	}
+	
+	private void refreshShowSeventhFloor() {
+		showSeventhFloor();
 	}
 	
 	public void showSeventhFloor() {
@@ -714,7 +846,19 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });             
+                });      
+                
+                Button cleanRoom = controller.getCleanBtn();
+                cleanRoom.setOnAction(event1 -> {
+                	controller.cleanRoom();
+                	refreshShowSeventhFloor();
+                });      
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                	controller.checkOut();
+                	refreshShowSeventhFloor();
+                });  
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {
@@ -723,6 +867,10 @@ public class roomWindow_Controller implements Initializable {
 			}
 			
 		}
+	}
+	
+	private void refreshShowEighthFloor() {
+		showEighthFloor();
 	}
 	
 	public void showEighthFloor() {
@@ -778,7 +926,19 @@ public class roomWindow_Controller implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                });            
+                });    
+                
+                Button cleanRoom = controller.getCleanBtn();
+                cleanRoom.setOnAction(event1 -> {
+                	controller.cleanRoom();
+                	refreshShowEighthFloor();
+                });      
+                
+                Button checkOut = controller.getCheckOutBtn();
+                checkOut.setOnAction(event1 -> {
+                	controller.checkOut();
+                	refreshShowEighthFloor();
+                });  
                             
                 showRoom_vbox.getChildren().add(roomData);
 			} catch (IOException e) {

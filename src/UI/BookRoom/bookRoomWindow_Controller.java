@@ -35,9 +35,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -187,8 +190,7 @@ public class bookRoomWindow_Controller implements Initializable{
                     contextMenu.getItems().clear();
 
                     MenuItem billItem = new MenuItem("Xem hóa đơn");
-                    MenuItem countdownItem = new MenuItem("Thời gian còn lại");
-                    MenuItem deleteItem = new MenuItem("Xóa");
+                    MenuItem deleteItem = new MenuItem("Hủy");
 
                     billItem.setOnAction(eventEditStaff -> {
                         try {
@@ -204,6 +206,9 @@ public class bookRoomWindow_Controller implements Initializable{
                             HOADONPHONG roomBill = HOADONPHONG_BLL.getRoomBill(bookRoom[0].toString());
                             ObservableList<Object[]> listDetail = HOADONPHONG_BLL.listDetailBill(bookRoom[0].toString());
                             billBookRoom_Controller controllerBill = loader2.getController();
+                            Circle image = controllerBill.getCircle();
+            	        	Image defaultImage = new Image("/Images/LAOPERA.jpg");
+            	        	image.setFill(new ImagePattern(defaultImage));
                             controllerBill.setData(bookRoomBill.getNGAYNHAN(), bookRoomBill.getNGAYTRA(), roomBill, listDetail);
                             Stage stage = new Stage();
                             stage.initStyle(StageStyle.TRANSPARENT);
@@ -229,7 +234,7 @@ public class bookRoomWindow_Controller implements Initializable{
                         // Delete item logic here
                     });
 
-                    contextMenu.getItems().addAll(billItem, countdownItem, deleteItem);
+                    contextMenu.getItems().addAll(billItem, deleteItem);
                     contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
                 });
 
