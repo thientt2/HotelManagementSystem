@@ -1,8 +1,13 @@
 package UI.Resource;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import BLL.HOADONDICHVU_BLL;
@@ -48,9 +53,16 @@ public class itemBill_Controller implements Initializable{
 
     @FXML
     private Label surcharge_txt;
+
+    @FXML
+    private Label status_txt;
     
     @FXML
     private AnchorPane bill_anchorpane;
+    
+    public Button getPay_btn() {
+		return pay_btn;
+	}
     
     private HOADONDICHVU billService;
     
@@ -94,13 +106,12 @@ public class itemBill_Controller implements Initializable{
 		//Đoạn này để set bấm được nút thanh toán, thanh toán chỉ hiện khi phòng đang dọn dẹp
 		PHONG currentRoom = PHONG_BLL.getRoom(room_txt.getText());
 		
-		if(currentRoom.getMATRANGTHAI() == 2 || billService.getTRANGTHAI() == 0){
-			priceService_txt.setStyle("-fx-background-color: #fac5c1");
-			surcharge_txt.setStyle("-fx-background-color: #fac5c1");			
+		status_txt.setText(getStatus(billService.getTRANGTHAI()));   
+    	status_txt.setStyle(getStatusStyle(status_txt.getText()));
+		
+		if((status_txt.getText() == "Chưa thanh toán") && (currentRoom.getMATRANGTHAI() == 2)){	
 			pay_btn.setDisable(false);
 		}else {
-			priceService_txt.setStyle("-fx-background-color: #b6e9d1");
-			surcharge_txt.setStyle("-fx-background-color: #b6e9d1");
 			pay_btn.setDisable(true);
 		}
     }
@@ -135,6 +146,29 @@ public class itemBill_Controller implements Initializable{
 		}
     }   
 
+    public static String getStatus(int trangThaiHoaDon) {
+		if(trangThaiHoaDon == 0){
+			return "Chưa thanh toán";
+		}else {
+			return "Đã thanh toán";
+		}            
+	}
+	
+    private String getStatusStyle(String status) {
+	    String textColor = "";
+	    String bgColor = "";
+	    switch (status) {
+	        case "Đã thanh toán":
+	            textColor = "#41C588";
+	            bgColor = "#E7F8F0";
+	            break;
+	        case "Chưa thanh toán":
+	            textColor = "#F36960";
+	            bgColor = "#FEECEB";
+	            break;
+	    }
+	    return String.format("-fx-background-color: %s; -fx-text-fill: %s; -fx-background-radius: 20; ", bgColor, textColor);
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

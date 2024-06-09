@@ -13,14 +13,22 @@
          <children>
             <AnchorPane prefHeight="50.0" prefWidth="897.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button layoutX="1.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" stylesheets="@../../Designs/MainWindow.css" text="Chưa thanh toán">
+                  <Button fx:id="Paid_btn" layoutX="10.0" layoutY="6.0" mnemonicParsing="false" onAction="#handlePaidButtonAction" prefHeight="38.0" prefWidth="114.0" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" text="Đã thanh toán">
+                     <font>
+                        <Font name="Inter Medium" size="14.0" />
+                     </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <Button layoutX="144.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #E7F8F0; -fx-text-fill: #41C588;" styleClass="button-control" stylesheets="@../../Designs/MainWindow.css" text="Đã thanh toán">
+                     </cursor>
+                  </Button>
+                  <Button fx:id="notPaid_btn" layoutX="132.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleNotPaidButtonAction" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: #FEECEB; -fx-text-fill: #F36960;" styleClass="button-control" text="Chưa thanh toán">
+                     <font>
+                        <Font name="Inter Medium" size="14.0" />
+                     </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></Button>
+                     </cursor>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="541.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
@@ -32,32 +40,37 @@
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="82.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Số phòng">
+                        <Label layoutX="82.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Phòng">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="165.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Tiền dịch vụ">
+                        <Label layoutX="150.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Dịch vụ">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="268.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Tiền phụ thu">
+                        <Label layoutX="240.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Phụ thu">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="370.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Thời gian check-in">
+                        <Label layoutX="330.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Check-in">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="536.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Thời gian check-out">
+                        <Label layoutX="460.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Check-out">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="695.0" layoutY="11.0" style="-fx-font-weight: bold;" text="In hóa đơn">
+                        <Label layoutX="710.0" layoutY="11.0" style="-fx-font-weight: bold;" text="In hóa đơn">
+                           <font>
+                              <Font name="Inter Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="590.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Trạng thái">
                            <font>
                               <Font name="Inter Medium" size="14.0" />
                            </font>

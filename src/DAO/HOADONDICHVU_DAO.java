@@ -37,19 +37,20 @@ public class HOADONDICHVU_DAO {
 		
 		ObservableList<Object[]> list = FXCollections.observableArrayList();
 		try (Connection connection = DatabaseConnection.connectDb();) {
-			String query = "SELECT HDV.MAHD, P.MAPHONG, HDV.GIADICHVU,HDV.PHUTHU,PNP.TGNHAN,PNP.TGTRA "
+			String query = "SELECT HDV.MAHD, P.MAPHONG, HDV.GIADICHVU,HDV.PHUTHU,PNP.TGNHAN,PNP.TGTRA, HDV.TRANGTHAI "
 					+ "FROM HOADONDICHVU HDV, PHIEUNHANPHONG PNP, PHONG P "
 					+ "WHERE HDV.MAPNP = PNP.MAPNP AND P.MAPHONG = PNP.MAPHONG ";
 			PreparedStatement prepare = connection.prepareStatement(query);
 			ResultSet resultSet = prepare.executeQuery();
 			while (resultSet.next()) {
-				Object[] rowData = new Object[6];
+				Object[] rowData = new Object[7];
 				rowData[0] = resultSet.getString("MAHD");
 				rowData[1] = resultSet.getString("MAPHONG");
 				rowData[2] = resultSet.getInt("GIADICHVU");
 				rowData[3] = resultSet.getInt("PHUTHU");
 				rowData[4] = resultSet.getString("TGNHAN");
 				rowData[5] = resultSet.getString("TGTRA");
+				rowData[6] = resultSet.getString("TRANGTHAI");
 				list.add(rowData);
 			}
 		} catch (SQLException e) {
