@@ -39,8 +39,15 @@ import javafx.scene.Parent;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -79,6 +86,13 @@ public class billService_Controller implements Initializable {
 
     @FXML
     private Label surcharge_txt;
+    
+    @FXML
+    private AnchorPane shadow_anchor;
+    
+
+    @FXML
+    private AnchorPane mainBill_anchor;
     
     @FXML
     private Circle top_circle;
@@ -195,6 +209,11 @@ public class billService_Controller implements Initializable {
     }
     
     public void printBill() {
+    	printBill_btn.setVisible(false);
+    	cancel_btn.setVisible(false);
+    	mainBill_anchor.setStyle("-fx-background-color: transparent;");
+    	shadow_anchor.setEffect(null);
+    	
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("billId", billId_txt.getText());
 		data.put("staffId", SystemMessage.getMANV());
@@ -257,6 +276,16 @@ public class billService_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-
+		printBill_btn.setVisible(true);
+        cancel_btn.setVisible(true);
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
+        dropShadow.setWidth(21.0);
+        dropShadow.setHeight(21.0);
+        dropShadow.setRadius(10.0);
+        dropShadow.setOffsetX(0.0);
+        dropShadow.setOffsetY(0.0);
+        dropShadow.setSpread(0.0);
+        shadow_anchor.setEffect(dropShadow);
 	}
 }
