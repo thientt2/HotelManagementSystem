@@ -183,10 +183,6 @@ public class billService_Controller implements Initializable {
     	String finalTotal = sbTotal.toString();
     	totalPrice_txt.setText(finalTotal);    	
     	
-    	
-    	
-
-    	
     	listData.forEach(itemService -> {
     		try {
         		FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemBillService.fxml"));
@@ -202,10 +198,7 @@ public class billService_Controller implements Initializable {
         	} catch (IOException e) {
 	            e.printStackTrace();
 	        }
-    	});
-    	
-    	
-
+    	});    	
     }
     
     public void printBill() {

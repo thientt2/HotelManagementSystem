@@ -91,7 +91,10 @@ public class addCustomer_Controller implements Initializable {
 	    	} else if(check.equals("ERROR_PHONE")) {
 		    	alert.errorMessage("Số điện thoại không được chứa kí tự và bắt đầu bằng số 0!");
 		    	SystemMessage.ERROR_MESSAGE = "";
-	    	}else {	      		
+	    	}else if(check.equals("ERROR_CCCD")){
+	    		alert.errorMessage("Thẻ căn cước công dân nhập không đúng định dạng!");
+	    		SystemMessage.ERROR_MESSAGE = "";
+	    	}else {
 	    		alert.successMessage("Thêm khách hàng thành công!");
 	    		clearCustomer();	    		
 	    	}

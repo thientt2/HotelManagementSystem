@@ -68,18 +68,31 @@ public class addStaff_Controller implements Initializable {
     	Map<String,String> data = new HashMap<String,String>();
     	
 		data.put("name", staffName_txt.getText());
-		data.put("birthday", birthday_datepicker.getValue().toString());
+		if (birthday_datepicker.getValue() != null) {
+            String birthday = birthday_datepicker.getValue().toString();
+            data.put("birthday", birthday);
+        } else {
+            data.put("birthday", null);
+        }
+
+        if (startDay_datepicker.getValue() != null) {
+            String startDay = startDay_datepicker.getValue().toString();
+            data.put("startDay", startDay);
+        } else {
+            data.put("startDay", null);
+        }
+        
 		data.put("gender", gender_cb.getValue());
 		data.put("cccd", cccd_txt.getText());
 		data.put("address", address_txt.getText());
 		data.put("phone", phoneNumber_txt.getText());
 		data.put("email", email_txt.getText());
 		data.put("job", String.valueOf(LOAINHANVIEN_BLL.getStaffTypeId(job_cb.getValue())));
-		data.put("startDay", startDay_datepicker.getValue().toString());
 		
-		String check = SystemMessage.ERROR_MESSAGE;
-		AlertMessage alert = new AlertMessage();
+		
 		NHANVIEN_BLL.insertStaff(data);
+		String check = SystemMessage.ERROR_MESSAGE;
+		AlertMessage alert = new AlertMessage();		
 		if(check.equals("ERROR_EMPTY")) {
 			alert.errorMessage("Vui lòng điền đầy đủ thông tin!");
 			SystemMessage.ERROR_MESSAGE = "";
@@ -89,7 +102,10 @@ public class addStaff_Controller implements Initializable {
 		}else if(check.equals("ERROR_PHONE")) {
 			alert.errorMessage("Vui lòng nhập số điện thoại hợp lệ!");
 			SystemMessage.ERROR_MESSAGE = "";
-		}else {			
+		}else if(check.equals("ERROR_BIRTHDAY")){
+			alert.errorMessage("Ngày vào làm không được bé hơn ngày sinh!");
+			SystemMessage.ERROR_MESSAGE = "";
+		}else {
 			alert.successMessage("Thêm nhân viên thành công!");
 			clearStaff();
 		}

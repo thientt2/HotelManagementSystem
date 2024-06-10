@@ -1,5 +1,8 @@
 package BLL;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -50,7 +53,7 @@ public class NHANVIEN_BLL {
 		int type = Integer.parseInt(data.get("job"));
 		
 		String regexEmail = "^(.+)@(\\S+)$";
-		String regexPhong = "^0[1-9][0-9]{8,9}$";
+		String regexPhone = "^0[1-9][0-9]{8,9}$";
 		
 		if(staffName.isEmpty() || birthday.isEmpty() || gender.isEmpty() 
 				|| cccd.isEmpty() || email.isEmpty() || phone.isEmpty() 
@@ -58,7 +61,7 @@ public class NHANVIEN_BLL {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
 		}else if(Pattern.matches(regexEmail, email) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMAIL";
-		}else if(Pattern.matches(regexPhong, phone) == false) {
+		}else if(Pattern.matches(regexPhone, phone) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_PHONE";
 		}else {
 			NHANVIEN_DAO.editStaff(data);
@@ -76,17 +79,30 @@ public class NHANVIEN_BLL {
 		String startDay = data.get("startDay");
 		int type = Integer.parseInt(data.get("job"));
 		
+		
+		
 		String regexEmail = "^(.+)@(\\S+)$";
-		String regexPhong = "^0[1-9][0-9]{8,9}$";
+		String regexPhong = "^0[1-9][0-9]{8,9}$";		
 		
 		if(staffName.isEmpty() || birthday.isEmpty() || gender.isEmpty() || cccd.isEmpty() || email.isEmpty() || phone.isEmpty() || address.isEmpty() || startDay.isEmpty() || type == 0) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
+			System.out.println("Loi tai loi trong");
 		}else if(Pattern.matches(regexEmail, email) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMAIL";
+			System.out.println("Loi tai email");
 		}else if(Pattern.matches(regexPhong, phone) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_PHONE";		
+			System.out.println("Loi tai phone");
 		}else {
-			NHANVIEN_DAO.insertStaff(data);	
+			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate birthDate = LocalDate.parse(birthday, dateFormatter);
+			LocalDate startDate = LocalDate.parse(startDay, dateFormatter);
+			System.out.println(startDate.isBefore(birthDate));
+			if(startDate.isBefore(birthDate)) {
+				SystemMessage.ERROR_MESSAGE = "ERROR_BIRTHDAY";				
+			}else{
+				NHANVIEN_DAO.insertStaff(data);	
+			}
 		}	
 	}
 	

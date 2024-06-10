@@ -308,6 +308,55 @@ public class BAOCAO_DAO {
 //        }
 //        return dailyReportList;
 //    }
+
+	public static void updateReport(int day, int month, int year, int roomTypeId) {
+		// TODO Auto-generated method stub
+		String query = "UPDATE BAOCAO SET SOLUOTTHUE = SOLUOTTHUE + 1 WHERE NGAY = ? AND THANG = ? AND NAM = ? AND MALOAIP = ?";
+		try (Connection conn = DatabaseConnection.connectDb();
+				PreparedStatement stmt = conn.prepareStatement(query)) {
+			stmt.setInt(1, day);
+			stmt.setInt(2, month);
+			stmt.setInt(3, year);
+			stmt.setInt(4, roomTypeId);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void insertReport(int day, int month, int year, int roomTypeId) {
+		// TODO Auto-generated method stub
+		String query = "INSERT INTO BAOCAO (NGAY, THANG, NAM, MALOAIP, SOLUOTTHUE) VALUES (?, ?, ?, ?, 1)";
+		try (Connection conn = DatabaseConnection.connectDb();
+				PreparedStatement stmt = conn.prepareStatement(query)) {
+			stmt.setInt(1, day);
+			stmt.setInt(2, month);
+			stmt.setInt(3, year);
+			stmt.setInt(4, roomTypeId);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static boolean checkReport(int day, int month, int year, int roomTypeId) {
+		// TODO Auto-generated method stub
+		String query = "SELECT * FROM BAOCAO WHERE NGAY = ? AND THANG = ? AND NAM = ? AND MALOAIP = ?";
+		try (Connection conn = DatabaseConnection.connectDb();
+				PreparedStatement stmt = conn.prepareStatement(query)) {
+			stmt.setInt(1, day);
+			stmt.setInt(2, month);
+			stmt.setInt(3, year);
+			stmt.setInt(4, roomTypeId);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
     
 //	public static List<BAOCAO> getRoomData(int day, int month, int year) {
 //  List<BAOCAO> roomDataList = new ArrayList<>();

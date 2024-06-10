@@ -26,14 +26,17 @@ public class KHACHHANG_BLL {
 		String country = data.get("country");
 		
 		String regexEmail = "^(.+)@(\\S+)$";
-		String regexPhong = "^0[1-9][0-9]{8,9}$";
+		String regexPhone = "^0[1-9][0-9]{8,9}$";
+		String regexCCCD = "[0-9]{9,12}";
 		
 		if(tenKH.isEmpty() || cccd.isEmpty() || gender.isEmpty() || birthday.isEmpty() || email.isEmpty() || phone.isEmpty() || address.isEmpty() || country.isEmpty()) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
 		}else if (Pattern.matches(regexEmail, email) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMAIL";
-		} else if (Pattern.matches(regexPhong, phone) == false) {
+		} else if (Pattern.matches(regexPhone, phone) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_PHONE";
+		}else if(country.equals("Việt Nam") && Pattern.matches(regexCCCD, cccd) == false) {
+			SystemMessage.ERROR_MESSAGE = "ERROR_CCCD";
 		} else {
 			KHACHHANG_DAO.insertCustomer(data);
 		}		

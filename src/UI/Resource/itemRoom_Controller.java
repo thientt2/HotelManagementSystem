@@ -8,8 +8,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import BLL.BAOCAO_BLL;
+import BLL.LOAIPHONG_BLL;
 import BLL.PHIEUNHANPHONG_BLL;
 import BLL.PHONG_BLL;
+import DTO.LOAIPHONG;
 import DTO.PHIEUNHANPHONG;
 import UI.Room.servicesRoom_Controller;
 import javafx.fxml.FXML;
@@ -51,9 +54,13 @@ public class itemRoom_Controller implements Initializable {
 
 	    public void setData(Object roomId, Object roomtype, Object status) {
 		    roomId_txt.setText(String.valueOf(roomId));
-		    roomtype_txt.setText(String.valueOf(roomtype));
+		    roomtype_txt.setText(String.valueOf(roomtype));		   
+		    PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(String.valueOf(roomId));
+		    if(receiveRoom == null) {
+			    PHONG_BLL.changeEmptyRoomStatus(String.valueOf(roomId));
+			    status = "Trống" ;
+		    }
 		    status_txt.setText(String.valueOf(status));    
-		    
 		    if(status.equals("Trống")) {
 		    	status_txt.setStyle("-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2; -fx-background-radius: 20; -fx-padding: 5 10");
 		    	bookService_btn.setVisible(false);
@@ -72,10 +79,7 @@ public class itemRoom_Controller implements Initializable {
 		    	detail_btn.setDisable(false);
 		    	control_btn.setVisible(false);
 		    	checkOut_btn.setVisible(true);
-		    	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(String.valueOf(roomId));
-		    	if(receiveRoom == null) {
-			    	return;
-		    	}else {	    		
+		    	 		
 		    	
 			    	String checkOut = receiveRoom.getTGTRA();
 			    	DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");		    	
@@ -94,8 +98,7 @@ public class itemRoom_Controller implements Initializable {
 			    	} else {
 			    	    checkOut_btn.setDisable(true);
 			    	}	   
-		    	}
-		    }
+		    	}    
 		    	
 	    }
 	    
@@ -108,6 +111,17 @@ public class itemRoom_Controller implements Initializable {
 
 	        if (option.get().equals(ButtonType.OK)) {
 		    	LocalDateTime now = LocalDateTime.now();
+		    	int day = now.getDayOfMonth();
+		    	int month = now.getMonthValue();
+		    	int year = now.getYear();
+		    	LOAIPHONG roomType = LOAIPHONG_BLL.getRoomTypeByRoomNumber(roomId_txt.getText().toString());
+		    	boolean check = BAOCAO_BLL.checkReport(day, month, year, roomType.getMALOAI());
+		    	if (check) {
+		    		BAOCAO_BLL.updateReport(day, month, year, roomType.getMALOAI());
+		    	}else {
+		    		BAOCAO_BLL.insertReport(day, month, year, roomType.getMALOAI());
+		    	}
+		    	
 		    	DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		    	String checkOut = now.format(inputFormatter);
 		    	System.out.println(checkOut);
