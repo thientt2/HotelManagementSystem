@@ -34,7 +34,7 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Tổng đánh giá" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="500" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="24" />
                                  </children>
                               </HBox>
                            </children>
@@ -56,7 +56,7 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text=" Đánh giá 1 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="0" />
                                     <Label style="-fx-background-color: #EF4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="1.0">
                                        <padding>
                                           <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
@@ -83,7 +83,7 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 2 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="0" />
                                     <Label style="-fx-background-color: #CA8A04; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="2.0">
                                        <padding>
                                           <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
@@ -110,7 +110,7 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 3 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="2" />
                                     <Label style="-fx-background-color: #FACC15; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="3.0">
                                        <padding>
                                           <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
@@ -137,7 +137,7 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 4 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="4" />
                                     <Label style="-fx-background-color: #4ADE80; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="4.0">
                                        <padding>
                                           <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
@@ -164,7 +164,7 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 5 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="100" />
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="18" />
                                     <Label style="-fx-background-color: #16A34A; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="5.0">
                                        <padding>
                                           <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
@@ -225,7 +225,7 @@
                               </HBox>
                               <Pane prefHeight="42.0" prefWidth="270.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="31001231231 ngày trước" textAlignment="RIGHT" />
+                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="1 ngày trước" textAlignment="RIGHT" />
                                  </children>
                               </Pane>
                            </children>
@@ -244,7 +244,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label prefHeight="19.0" prefWidth="178.0" style="-fx-font-size: 13px;" text="(thongtulen134@gmail.com)" />
+                              <Label prefHeight="19.0" prefWidth="178.0" style="-fx-font-size: 13px;" text="(thientank@gmail.com)" />
                            </children>
                         </HBox>
                         <Pane prefHeight="66.0" prefWidth="846.0">
@@ -308,7 +308,7 @@
                               </HBox>
                               <Pane prefHeight="42.0" prefWidth="270.0">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="31001231231 ngày trước" textAlignment="RIGHT" />
+                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="3 ngày trước" textAlignment="RIGHT" />
                                  </children>
                               </Pane>
                            </children>

@@ -213,6 +213,10 @@ public class MainWindow_Controller implements Initializable {
 	
 	private boolean access = false;
 	
+	public Label getTypelb() {
+		return type_txt;
+	}
+	
 	public void setCreateUserAccess() {
 		
 	}
@@ -457,6 +461,7 @@ public class MainWindow_Controller implements Initializable {
 		cccd_txt.setText(item.getCCCD());
 		id_txt.setText(item.getMANV());
 		type_txt.setText(LOAINHANVIEN_BLL.getStaffTypeName(item.getMALOAINV()));
+        SystemMessage.setType(type_txt.getText());
 		
 	    byte[] photoData = item.getPHOTO();
 	    if (photoData != null && photoData.length > 0) {

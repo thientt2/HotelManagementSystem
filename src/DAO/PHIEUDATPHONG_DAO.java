@@ -175,7 +175,8 @@ public class PHIEUDATPHONG_DAO {
 	                   "FROM PHIEUDATPHONG pdp " +
 	                   "INNER JOIN CHITIETPDP c ON pdp.MAPDP = c.MAPDP " +
 	                   "INNER JOIN LOAIPHONG lp ON c.MALOAIP = lp.MALOAIP " +
-	                   "WHERE lp.MALOAIP = ?";
+	                   "LEFT JOIN PHIEUNHANPHONG pnp ON pdp.MAPDP = pnp.MAPDP " +
+	                   "WHERE lp.MALOAIP = ? AND pnp.MAPDP IS NULL";
 
 	    try (Connection connection = DatabaseConnection.connectDb();
 	         PreparedStatement pst = connection.prepareStatement(query)) {
@@ -203,6 +204,7 @@ public class PHIEUDATPHONG_DAO {
 
 	    return dataList;        
 	}
+
 
 	public static Object[] getRoomDetails(String maPhong) {
         Object[] rowData = null;

@@ -91,19 +91,14 @@ public class itemRoom_Controller implements Initializable {
 		    	    checkOut_btn.setDisable(false);
 		    	} else {
 		    	    checkOut_btn.setDisable(true);
-		    	}
-
-
-		    	
-
-		    	
+		    	}	    	
 		    }
 		    	
 	    }
 	    
 	    public void checkOut() {	    
 	    	Alert alert = new Alert(AlertType.CONFIRMATION);
-	        alert.setTitle("Xác nhận dọn dẹp");
+	        alert.setTitle("Xác nhận trả phòng");
 	        alert.setHeaderText(null);
 	        alert.setContentText("Xác nhận check-out phòng " + roomId_txt.getText() + " ?" );
 	        Optional<ButtonType> option = alert.showAndWait();
@@ -120,7 +115,7 @@ public class itemRoom_Controller implements Initializable {
 	        	alert = new Alert(AlertType.INFORMATION);
 	            alert.setTitle("Thông báo");
 	            alert.setHeaderText(null);
-	            alert.setContentText("Dọn dẹp phòng " + roomId_txt.getText() + " thành công!");
+	            alert.setContentText("Trả phòng " + roomId_txt.getText() + " thành công!");
 	            alert.showAndWait();
 		    	
 	        } else {

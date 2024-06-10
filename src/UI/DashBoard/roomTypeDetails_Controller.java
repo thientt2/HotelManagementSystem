@@ -31,11 +31,7 @@ public class roomTypeDetails_Controller implements Initializable{
 
     public void setRoomType(int id) throws IOException {
     	ObservableList<Object[]> listBookRoom = PHIEUDATPHONG_BLL.showBookRoom(id);
-    	setRoomTypeDetail(listBookRoom);
-	}  
-    
-    public void setRoomTypeDetail(ObservableList<Object[]> list) throws IOException {
-    	for(Object[] item : list) {
+    	for(Object[] item : listBookRoom) {
     		typeName_txt.setText(item[7].toString());
         	FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Resource/itemRoomTypeDetails.fxml"));
             Parent bookRoomDataPane = loader.load();
@@ -43,7 +39,7 @@ public class roomTypeDetails_Controller implements Initializable{
             controller.setBookRoom(item);
             Platform.runLater(() -> detailTypeRoom_vbox.getChildren().add(bookRoomDataPane));
     	}
-    }
+	}  
     
     public void cancel() {
     	Stage stage = (Stage) cancel_btn.getScene().getWindow();

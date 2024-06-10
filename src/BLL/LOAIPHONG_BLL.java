@@ -17,8 +17,8 @@ public class LOAIPHONG_BLL {
 		return LOAIPHONG_DAO.showRoomType(); 
 	}
 	
-	public static ObservableList<Object[]> roomType(int id){ 
-		return LOAIPHONG_DAO.roomType(id); 
+	public static ObservableList<Object[]> roomType(){ 
+		return LOAIPHONG_DAO.roomType(); 
 	}
 	
 	public static List<LOAIPHONG> getRoomTypes(){ 
@@ -35,6 +35,18 @@ public class LOAIPHONG_BLL {
 	
 	public static LOAIPHONG getRoomTypeByRoomNumber(String roomNumber) {
 		return LOAIPHONG_DAO.getRoomTypeByRoomNumber(roomNumber);
+	}
+	
+//	public static ObservableList<Object[]> getRoomCountByTypeWithStatus() {
+//		return LOAIPHONG_DAO.getRoomCountByTypeWithStatus();
+//	}
+	
+	public static int[] countBookingsAndCustomersToday() {
+		return LOAIPHONG_DAO.countBookingsAndCustomersToday();
+	}
+	
+	public static int[] countCheckedOutInvoicesAndUnbookedRooms() {
+		return LOAIPHONG_DAO.countCheckedOutInvoicesAndUnbookedRooms();
 	}
 
 	public static void editRoomType(Map<String, String> data) throws SQLException {

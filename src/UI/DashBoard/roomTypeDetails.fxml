@@ -18,7 +18,7 @@
                <children>
                   <Pane prefHeight="48.0" prefWidth="659.0">
                      <children>
-                        <Label fx:id="typeName_txt" layoutX="280.0" layoutY="-4.0" style="-fx-font-size: 25px;" text="Standard" />
+                        <Label fx:id="typeName_txt" layoutX="269.0" layoutY="-4.0" style="-fx-font-size: 27px; -fx-font-weight: bold;" text="Standard" />
                      </children>
                   </Pane>
                   <Pane prefHeight="260.0" prefWidth="558.0">

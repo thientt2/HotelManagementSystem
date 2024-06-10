@@ -111,7 +111,7 @@
                                           <Label fx:id="numberOfPaymentLabel1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="12 đang được sử dụng" />
                                           <Button fx:id="contextMenu_btn1" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;">
                                              <graphic>
-                                                <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image1" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Images/ellipsis_v.png" />
                                                    </image>
@@ -129,8 +129,8 @@
                                              <children>
                                                 <Label fx:id="roomTypeLabel1" prefHeight="32.0" prefWidth="87.0" styleClass="type-room-text" text="Standard" />
                                                 <Region prefHeight="40.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
-                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="9" />
-                                                <Label fx:id="availabelRoomLabel1" style="-fx-font-size: 12px;" styleClass="normal-text" text="/21" />
+                                                <Label fx:id="availabelRoomLabel1" style="-fx-font-size: 12px;" styleClass="normal-text" text="9" />
+                                                <Label fx:id="total1" style="-fx-font-size: 12px;" styleClass="normal-text" text="/21" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -191,7 +191,7 @@
                                           <Label fx:id="numberOfPaymentLabel2" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="3 đang được sử dụng" />
                                           <Button fx:id="contextMenu_btn2" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;">
                                              <graphic>
-                                                <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image2" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Images/ellipsis_v.png" />
                                                    </image>
@@ -209,8 +209,8 @@
                                              <children>
                                                 <Label fx:id="roomTypeLabel2" prefHeight="32.0" prefWidth="73.0" styleClass="type-room-text" text="Deluxe" />
                                                 <Region prefHeight="40.0" prefWidth="38.0" HBox.hgrow="ALWAYS" />
-                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="7" />
-                                                <Label fx:id="availabelRoomLabel2" style="-fx-font-size: 12px;" styleClass="normal-text" text="/10" />
+                                                <Label fx:id="availabelRoomLabel2" style="-fx-font-size: 12px;" styleClass="normal-text" text="7" />
+                                                <Label fx:id="total2" style="-fx-font-size: 12px;" styleClass="normal-text" text="/10" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -275,7 +275,7 @@
                                           <Label fx:id="numberOfPaymentLabel3" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="4 đang được sử dụng" />
                                           <Button fx:id="contextMenu_btn3" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;">
                                              <graphic>
-                                                <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image3" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Images/ellipsis_v.png" />
                                                    </image>
@@ -293,8 +293,8 @@
                                              <children>
                                                 <Label fx:id="roomTypeLabel3" prefHeight="32.0" prefWidth="87.0" styleClass="type-room-text" text="Premium" />
                                                 <Region prefHeight="40.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
-                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="4" />
-                                                <Label fx:id="availabelRoomLabel3" style="-fx-font-size: 12px;" styleClass="normal-text" text="/8" />
+                                                <Label fx:id="availabelRoomLabel3" style="-fx-font-size: 12px;" styleClass="normal-text" text="4" />
+                                                <Label fx:id="total3" style="-fx-font-size: 12px;" styleClass="normal-text" text="/8" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -355,7 +355,7 @@
                                           <Label fx:id="numberOfPaymentLabel4" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="125.0" styleClass="number-payment-text" text="1 đang được sử dụng" />
                                           <Button fx:id="contextMenu_btn4" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;">
                                              <graphic>
-                                                <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="image4" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Images/ellipsis_v.png" />
                                                    </image>
@@ -373,8 +373,8 @@
                                              <children>
                                                 <Label fx:id="roomTypeLabel4" prefHeight="32.0" prefWidth="87.0" styleClass="type-room-text" text="La Opera" />
                                                 <Region prefHeight="40.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
-                                                <Label style="-fx-font-size: 12px;" styleClass="normal-text" text="5" />
-                                                <Label fx:id="availabelRoomLabel4" style="-fx-font-size: 12px;" styleClass="normal-text" text="/6" />
+                                                <Label fx:id="availabelRoomLabel4" style="-fx-font-size: 12px;" styleClass="normal-text" text="5" />
+                                                <Label fx:id="total4" style="-fx-font-size: 12px;" styleClass="normal-text" text="/6" />
                                              </children>
                                           </HBox>
                                        </children>

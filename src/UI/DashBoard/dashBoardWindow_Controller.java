@@ -8,8 +8,10 @@ import java.util.ResourceBundle;
 import BLL.DICHVU_BLL;
 import BLL.KHACHHANG_BLL;
 import BLL.LOAIPHONG_BLL;
+import BLL.NHANVIEN_BLL;
 import BLL.THAMSO_BLL;
 import DTO.LOAIPHONG;
+import DTO.NHANVIEN;
 import DTO.THAMSO;
 import UI.MainWindow_Controller;
 import UI.Customer.editCustomer_Controller;
@@ -26,10 +28,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import system.SystemMessage;
 
 public class dashBoardWindow_Controller implements Initializable{
     
@@ -100,7 +106,7 @@ public class dashBoardWindow_Controller implements Initializable{
     private Label numberBookedRoomLabel;
 
     @FXML
-    private Label numberCheckInLabel;
+    private Label numberCheckInLabel; 
 
     @FXML
     private Label numberCheckOutLabel;
@@ -147,40 +153,94 @@ public class dashBoardWindow_Controller implements Initializable{
     @FXML
     private Label typeBedLabel4;
     
+    @FXML
+    private Label total1;
+
+    @FXML
+    private Label total2;
+
+    @FXML
+    private Label total3;
+
+    @FXML
+    private Label total4;
+    
+    @FXML
+    private ImageView image1;
+
+    @FXML
+    private ImageView image2;
+
+    @FXML
+    private ImageView image3;
+
+    @FXML
+    private ImageView image4;
+      
+    private String type;
+    
     private double x = 0;
     private double y = 0;
     
     private ContextMenu contextMenu = new ContextMenu();
     
-    public void standardType(ObservableList<Object[]> list) {
-    	for(Object[] item : list)
-    	{
-    		int id = Integer.parseInt(item[5].toString());
-        	areaLabel1.setText(item[4].toString());
-        	//availabelRoomLabel1.setText(item[2].toString());
-        	maxPeopleLabel1.setText(item[3].toString());   
-        	
-        	Double gia = Double.parseDouble(item[2].toString());
-        	String formattedPrice = String.format("đ %.0f", gia);
-        	StringBuilder sb = new StringBuilder(formattedPrice);
-        	int length = sb.length();
-        	for (int i = length - 3; i > 0; i -= 3) {
-        	    sb.insert(i, ".");
-        	}
-        	//sb.append(" VND");
-        	String finalPrice = sb.toString();
-        	//String formattedPrice = String.format("đ %,.0f", gia);
-        	moneyPerNightLabel1.setText(finalPrice);
-        	
-        	//numberOfPaymentLabel1.setText(item[2].toString());
-        	roomTypeLabel1.setText(item[0].toString());
-        		
-//        	if (item[1].toString().equalsIgnoreCase("Giường King & Giường Queen"))
-//        		typeBedLabel1.setText("King & Queen");
-//        	else
-        	typeBedLabel1.setText(item[1].toString());
-        	    	    
-        	contextMenu_btn1.setOnMouseClicked(eventContextMenu -> {
+    public void standardType(Object[] item) {
+    	int id = Integer.parseInt(item[5].toString());
+    	areaLabel1.setText(item[4].toString());
+    	availabelRoomLabel1.setText(item[8].toString());
+    	maxPeopleLabel1.setText(item[3].toString());   
+    	
+    	Double gia = Double.parseDouble(item[2].toString());
+    	String formattedPrice = String.format("đ %.0f", gia);
+    	StringBuilder sb = new StringBuilder(formattedPrice);
+    	int length = sb.length();
+    	for (int i = length - 3; i > 0; i -= 3) {
+    	    sb.insert(i, ".");
+    	}
+    	String finalPrice = sb.toString();
+    	moneyPerNightLabel1.setText(finalPrice);
+    	
+    	numberOfPaymentLabel1.setText(item[7].toString() + " đang được sử dụng");
+    	total1.setText("/" + item[6].toString());
+    	roomTypeLabel1.setText(item[0].toString());
+    	typeBedLabel1.setText(item[1].toString());
+    	    	    
+    	type = SystemMessage.getType();
+    	if (type.equals("Nhân viên lễ tân")) {
+    		Image newImage = new Image("/Images/details.png");
+    		image1.setImage(newImage);
+    		contextMenu_btn1.setOnMouseClicked(eventContextMenu -> {
+    			try {                        
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
+                    Parent root = loader.load();
+
+                    root.setOnMousePressed((MouseEvent event) -> {            
+                        x = event.getSceneX();            
+                        y = event.getSceneY();    
+                    });
+                    
+                    Stage stage = new Stage();        
+                    stage.initStyle(StageStyle.TRANSPARENT);        
+                    Scene scene = new Scene(root);
+
+                    roomTypeDetails_Controller roomTypeDetails = loader.getController();
+                    roomTypeDetails.setRoomType(id);
+
+                    root.setOnMouseDragged((MouseEvent event) -> {
+                        stage.setX(event.getScreenX() - x);            
+                        stage.setY(event.getScreenY() - y);       
+                    });
+                    
+                    stage.setScene(scene);     
+                    stage.showAndWait();
+                    
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+    		});
+    	}
+    	else {
+    		contextMenu_btn1.setOnMouseClicked(eventContextMenu -> {
         		if (contextMenu.isShowing()) {
                     contextMenu.hide();
                     return;
@@ -214,7 +274,7 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        refreshStandardType();
+                        showTypeRoom();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -249,44 +309,72 @@ public class dashBoardWindow_Controller implements Initializable{
                         e.printStackTrace();
                     }
         	    });
-            	
+                	
                 contextMenu.getItems().addAll(editItem, detailItem);  	
-        	    contextMenu.show(contextMenu_btn1, eventContextMenu.getScreenX(), eventContextMenu.getScreenY());
+            	contextMenu.show(contextMenu_btn1, eventContextMenu.getScreenX(), eventContextMenu.getScreenY());
+                
             });
-
     	}
-
+    	
 	}
     
-    public void laoperaType(ObservableList<Object[]> list) {
-    	for(Object[] item : list)
-    	{
-    		int id = Integer.parseInt(item[5].toString());
-        	areaLabel4.setText(item[4].toString());
-        	//availabelRoomLabel1.setText(item[2].toString());
-        	maxPeopleLabel4.setText(item[3].toString()); 
-        	
-        	Double gia = Double.parseDouble(item[2].toString());
-        	String formattedPrice = String.format("đ %.0f", gia);
-        	StringBuilder sb = new StringBuilder(formattedPrice);
-        	int length = sb.length();
-        	for (int i = length - 3; i > 0; i -= 3) {
-        	    sb.insert(i, ".");
-        	}
-        	//sb.append(" VND");
-        	String finalPrice = sb.toString();
-        	//String formattedPrice = String.format("đ %,.0f", gia);
-        	moneyPerNightLabel4.setText(finalPrice);
-        	
-        	//numberOfPaymentLabel1.setText(item[2].toString());
-        	roomTypeLabel4.setText(item[0].toString());
-        		
-        	if (item[1].toString().equalsIgnoreCase("Giường King & Giường Queen"))
-        		typeBedLabel4.setText("King & Queen");
-        	else
-        		typeBedLabel4.setText(item[1].toString());
-        	    	    
-        	contextMenu_btn4.setOnMouseClicked(eventContextMenu -> {
+    public void laoperaType(Object[] item) {
+    	int id = Integer.parseInt(item[5].toString());
+    	areaLabel4.setText(item[4].toString());
+    	availabelRoomLabel4.setText(item[8].toString());
+    	maxPeopleLabel4.setText(item[3].toString());   
+    	
+    	Double gia = Double.parseDouble(item[2].toString());
+    	String formattedPrice = String.format("đ %.0f", gia);
+    	StringBuilder sb = new StringBuilder(formattedPrice);
+    	int length = sb.length();
+    	for (int i = length - 3; i > 0; i -= 3) {
+    	    sb.insert(i, ".");
+    	}
+    	String finalPrice = sb.toString();
+    	moneyPerNightLabel4.setText(finalPrice);
+    	
+    	numberOfPaymentLabel4.setText(item[7].toString() + " đang được sử dụng");
+    	total4.setText("/" + item[6].toString());
+    	roomTypeLabel4.setText(item[0].toString());
+    	typeBedLabel4.setText(item[1].toString());
+    	    	    
+    	type = SystemMessage.getType();
+    	if (type.equals("Nhân viên lễ tân")) {
+    		Image newImage = new Image("/Images/details.png");
+    		image4.setImage(newImage);
+    		contextMenu_btn4.setOnMouseClicked(eventContextMenu -> {
+    			try {                        
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
+                    Parent root = loader.load();
+
+                    root.setOnMousePressed((MouseEvent event) -> {            
+                        x = event.getSceneX();            
+                        y = event.getSceneY();    
+                    });
+                    
+                    Stage stage = new Stage();        
+                    stage.initStyle(StageStyle.TRANSPARENT);        
+                    Scene scene = new Scene(root);
+
+                    roomTypeDetails_Controller roomTypeDetails = loader.getController();
+                    roomTypeDetails.setRoomType(id);
+
+                    root.setOnMouseDragged((MouseEvent event) -> {
+                        stage.setX(event.getScreenX() - x);            
+                        stage.setY(event.getScreenY() - y);       
+                    });
+                    
+                    stage.setScene(scene);     
+                    stage.showAndWait();
+                    
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+    		});
+    	}
+    	else {
+    		contextMenu_btn4.setOnMouseClicked(eventContextMenu -> {
         		if (contextMenu.isShowing()) {
                     contextMenu.hide();
                     return;
@@ -320,14 +408,14 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        refreshStandardType();
+                        showTypeRoom();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 });
         	    
-                detailItem.setOnAction(detailEvent -> {
-        	    	try {
+        	    detailItem.setOnAction(detailEvent -> {
+        	    	try {                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
                         Parent root = loader.load();
 
@@ -355,44 +443,71 @@ public class dashBoardWindow_Controller implements Initializable{
                         e.printStackTrace();
                     }
         	    });
-            	
+                	
                 contextMenu.getItems().addAll(editItem, detailItem);  	
-        	    contextMenu.show(contextMenu_btn1, eventContextMenu.getScreenX(), eventContextMenu.getScreenY());
+            	contextMenu.show(contextMenu_btn1, eventContextMenu.getScreenX(), eventContextMenu.getScreenY());
+                
             });
-
     	}
-
 	}
     
-    public void deluxeType(ObservableList<Object[]> list) {
-    	for(Object[] item : list)
-    	{
-    		int id = Integer.parseInt(item[5].toString());
-        	areaLabel2.setText(item[4].toString());
-        	//availabelRoomLabel1.setText(item[2].toString());
-        	maxPeopleLabel2.setText(item[3].toString());   
-        	
-        	Double gia = Double.parseDouble(item[2].toString());
-        	String formattedPrice = String.format("đ %.0f", gia);
-        	StringBuilder sb = new StringBuilder(formattedPrice);
-        	int length = sb.length();
-        	for (int i = length - 3; i > 0; i -= 3) {
-        	    sb.insert(i, ".");
-        	}
-        	//sb.append(" VND");
-        	String finalPrice = sb.toString();
-        	//String formattedPrice = String.format("đ %,.0f", gia);
-        	moneyPerNightLabel2.setText(finalPrice);
-        	
-        	//numberOfPaymentLabel2.setText(item[2].toString());
-        	roomTypeLabel2.setText(item[0].toString());
-        		
-        	if (item[1].toString().equalsIgnoreCase("Giường King & Giường Queen"))
-        		typeBedLabel2.setText("King & Queen");
-        	else
-        		typeBedLabel2.setText(item[1].toString());
-        	    	    
-        	contextMenu_btn2.setOnMouseClicked(eventContextMenu -> {
+    public void deluxeType(Object[] item) {
+    	int id = Integer.parseInt(item[5].toString());
+    	areaLabel2.setText(item[4].toString());
+    	availabelRoomLabel2.setText(item[8].toString());
+    	maxPeopleLabel2.setText(item[3].toString());   
+    	
+    	Double gia = Double.parseDouble(item[2].toString());
+    	String formattedPrice = String.format("đ %.0f", gia);
+    	StringBuilder sb = new StringBuilder(formattedPrice);
+    	int length = sb.length();
+    	for (int i = length - 3; i > 0; i -= 3) {
+    	    sb.insert(i, ".");
+    	}
+    	String finalPrice = sb.toString();
+    	moneyPerNightLabel2.setText(finalPrice);
+    	
+    	numberOfPaymentLabel2.setText(item[7].toString() + " đang được sử dụng");
+    	total2.setText("/" + item[6].toString());
+    	roomTypeLabel2.setText(item[0].toString());
+    	typeBedLabel2.setText(item[1].toString());
+    	    	    
+    	type = SystemMessage.getType();
+    	if (type.equals("Nhân viên lễ tân")) {
+    		Image newImage = new Image("/Images/details.png");
+    		image2.setImage(newImage);
+    		contextMenu_btn2.setOnMouseClicked(eventContextMenu -> {
+    			try {                        
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
+                    Parent root = loader.load();
+
+                    root.setOnMousePressed((MouseEvent event) -> {            
+                        x = event.getSceneX();            
+                        y = event.getSceneY();    
+                    });
+                    
+                    Stage stage = new Stage();        
+                    stage.initStyle(StageStyle.TRANSPARENT);        
+                    Scene scene = new Scene(root);
+
+                    roomTypeDetails_Controller roomTypeDetails = loader.getController();
+                    roomTypeDetails.setRoomType(id);
+
+                    root.setOnMouseDragged((MouseEvent event) -> {
+                        stage.setX(event.getScreenX() - x);            
+                        stage.setY(event.getScreenY() - y);       
+                    });
+                    
+                    stage.setScene(scene);     
+                    stage.showAndWait();
+                    
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+    		});
+    	}
+    	else {
+    		contextMenu_btn2.setOnMouseClicked(eventContextMenu -> {
         		if (contextMenu.isShowing()) {
                     contextMenu.hide();
                     return;
@@ -426,14 +541,14 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        refreshStandardType();
+                        showTypeRoom();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 });
         	    
-                detailItem.setOnAction(detailEvent -> {
-        	    	try {       
+        	    detailItem.setOnAction(detailEvent -> {
+        	    	try {                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
                         Parent root = loader.load();
 
@@ -461,44 +576,71 @@ public class dashBoardWindow_Controller implements Initializable{
                         e.printStackTrace();
                     }
         	    });
-            	
+                	
                 contextMenu.getItems().addAll(editItem, detailItem);  	
-        	    contextMenu.show(contextMenu_btn1, eventContextMenu.getScreenX(), eventContextMenu.getScreenY());
+            	contextMenu.show(contextMenu_btn1, eventContextMenu.getScreenX(), eventContextMenu.getScreenY());
+                
             });
-
     	}
-
 	}
     
-    public void premiumType(ObservableList<Object[]> list) {
-    	for(Object[] item : list)
-    	{
-    		int id = Integer.parseInt(item[5].toString());
-        	areaLabel3.setText(item[4].toString());
-        	//availabelRoomLabel1.setText(item[2].toString());
-        	maxPeopleLabel3.setText(item[3].toString()); 
-        	
-        	Double gia = Double.parseDouble(item[2].toString());
-        	String formattedPrice = String.format("đ %.0f", gia);
-        	StringBuilder sb = new StringBuilder(formattedPrice);
-        	int length = sb.length();
-        	for (int i = length - 3; i > 0; i -= 3) {
-        	    sb.insert(i, ".");
-        	}
-        	//sb.append(" VND");
-        	String finalPrice = sb.toString();
-        	//String formattedPrice = String.format("đ %,.0f", gia);
-        	moneyPerNightLabel3.setText(finalPrice);
-        	
-        	//numberOfPaymentLabel1.setText(item[2].toString());
-        	roomTypeLabel3.setText(item[0].toString());
-        		
-        	if (item[1].toString().equalsIgnoreCase("Giường King & Giường Queen"))
-        		typeBedLabel3.setText("King & Queen");
-        	else
-        		typeBedLabel3.setText(item[1].toString());
-        	    	    
-        	contextMenu_btn3.setOnMouseClicked(eventContextMenu -> {
+    public void premiumType(Object[] item) {
+    	int id = Integer.parseInt(item[5].toString());
+    	areaLabel3.setText(item[4].toString());
+    	availabelRoomLabel3.setText(item[8].toString());
+    	maxPeopleLabel3.setText(item[3].toString());   
+    	
+    	Double gia = Double.parseDouble(item[2].toString());
+    	String formattedPrice = String.format("đ %.0f", gia);
+    	StringBuilder sb = new StringBuilder(formattedPrice);
+    	int length = sb.length();
+    	for (int i = length - 3; i > 0; i -= 3) {
+    	    sb.insert(i, ".");
+    	}
+    	String finalPrice = sb.toString();
+    	moneyPerNightLabel3.setText(finalPrice);
+    	
+    	numberOfPaymentLabel3.setText(item[7].toString() + " đang được sử dụng");
+    	total3.setText("/" + item[6].toString());
+    	roomTypeLabel3.setText(item[0].toString());
+    	typeBedLabel3.setText(item[1].toString());
+    	    	    
+    	type = SystemMessage.getType();
+    	if (type.equals("Nhân viên lễ tân")) {
+    		Image newImage = new Image("/Images/details.png");
+    		image3.setImage(newImage);
+    		contextMenu_btn3.setOnMouseClicked(eventContextMenu -> {
+    			try {                        
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
+                    Parent root = loader.load();
+
+                    root.setOnMousePressed((MouseEvent event) -> {            
+                        x = event.getSceneX();            
+                        y = event.getSceneY();    
+                    });
+                    
+                    Stage stage = new Stage();        
+                    stage.initStyle(StageStyle.TRANSPARENT);        
+                    Scene scene = new Scene(root);
+
+                    roomTypeDetails_Controller roomTypeDetails = loader.getController();
+                    roomTypeDetails.setRoomType(id);
+
+                    root.setOnMouseDragged((MouseEvent event) -> {
+                        stage.setX(event.getScreenX() - x);            
+                        stage.setY(event.getScreenY() - y);       
+                    });
+                    
+                    stage.setScene(scene);     
+                    stage.showAndWait();
+                    
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+    		});
+    	}
+    	else {
+    		contextMenu_btn3.setOnMouseClicked(eventContextMenu -> {
         		if (contextMenu.isShowing()) {
                     contextMenu.hide();
                     return;
@@ -508,7 +650,7 @@ public class dashBoardWindow_Controller implements Initializable{
                 MenuItem detailItem = new MenuItem("Chi tiết");
                 
                 editItem.setOnAction(editEvent -> {
-                	try {       
+                	try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("editRoomType.fxml"));
                         Parent root = loader.load();
 
@@ -532,14 +674,14 @@ public class dashBoardWindow_Controller implements Initializable{
                         stage.setScene(scene);     
                         stage.showAndWait();
                         
-                        refreshStandardType();
+                        showTypeRoom();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 });
         	    
-                detailItem.setOnAction(detailEvent -> {
-        	    	try {
+        	    detailItem.setOnAction(detailEvent -> {
+        	    	try {                        
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("roomTypeDetails.fxml"));
                         Parent root = loader.load();
 
@@ -567,47 +709,54 @@ public class dashBoardWindow_Controller implements Initializable{
                         e.printStackTrace();
                     }
         	    });
-            	
+                	
                 contextMenu.getItems().addAll(editItem, detailItem);  	
-        	    contextMenu.show(contextMenu_btn1, eventContextMenu.getScreenX(), eventContextMenu.getScreenY());
+            	contextMenu.show(contextMenu_btn1, eventContextMenu.getScreenX(), eventContextMenu.getScreenY());
+                
             });
-
     	}
-
 	}
     
-    public void refreshStandardType() {
-    	ObservableList<Object[]> listRoomType1 = LOAIPHONG_BLL.roomType(1);
-    	standardType(listRoomType1);
-    }
     
-    public void refreshDeluxeType() {
-    	ObservableList<Object[]> listRoomType2 = LOAIPHONG_BLL.roomType(2);
-    	deluxeType(listRoomType2);
+    public void showTypeRoom() {
+    	ObservableList<Object[]> listRoomType = LOAIPHONG_BLL.roomType();
+    	for(Object[] item : listRoomType){
+    		if (Integer.parseInt(item[5].toString()) == 1) {
+    	    	standardType(item);
+    	    	continue;
+    		}
+    		if (Integer.parseInt(item[5].toString()) == 2) {
+    	    	deluxeType(item);
+    	    	continue;
+    		}
+    		if (Integer.parseInt(item[5].toString()) == 3) {
+    			premiumType(item);
+    	    	continue;
+    		}
+    		if (Integer.parseInt(item[5].toString()) == 4) {
+    			laoperaType(item);
+    	    	continue;
+    		}			
+    	}
+    	int emptyRoom = Integer.parseInt(availabelRoomLabel1.getText()) + 
+                Integer.parseInt(availabelRoomLabel2.getText()) + 
+                Integer.parseInt(availabelRoomLabel3.getText()) + 
+                Integer.parseInt(availabelRoomLabel4.getText());
+    	numberEmptyRoomLabel.setText(String.valueOf(emptyRoom));
+    	int[] bookingsAndCustomersToday = LOAIPHONG_BLL.countBookingsAndCustomersToday();
+    	numberCheckInLabel.setText(String.valueOf(bookingsAndCustomersToday[0]));
+    	numberCustomerLabel.setText(String.valueOf(bookingsAndCustomersToday[1]));
+
+        int[] invoicesAndUnbookedRooms = LOAIPHONG_BLL.countCheckedOutInvoicesAndUnbookedRooms();
+        numberCheckOutLabel.setText(String.valueOf(invoicesAndUnbookedRooms[0]));
+        numberBookedRoomLabel.setText(String.valueOf(invoicesAndUnbookedRooms[1]));
     }
-    
-    public void refreshPremiumType() {
-    	ObservableList<Object[]> listRoomType3 = LOAIPHONG_BLL.roomType(3);
-    	premiumType(listRoomType3);
-    }
-    
-    public void refreshLaoperaType() {
-    	ObservableList<Object[]> listRoomType4 = LOAIPHONG_BLL.roomType(4);
-    	laoperaType(listRoomType4);
-    }
-    
+   
 
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-    	ObservableList<Object[]> listRoomType1 = LOAIPHONG_BLL.roomType(1);
-    	ObservableList<Object[]> listRoomType2 = LOAIPHONG_BLL.roomType(2);
-    	ObservableList<Object[]> listRoomType3 = LOAIPHONG_BLL.roomType(3);
-    	ObservableList<Object[]> listRoomType4 = LOAIPHONG_BLL.roomType(4);
-    	standardType(listRoomType1);
-    	deluxeType(listRoomType2);
-    	premiumType(listRoomType3);
-    	laoperaType(listRoomType4);
+    	showTypeRoom();
 	}
 }

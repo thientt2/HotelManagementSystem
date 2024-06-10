@@ -45,7 +45,7 @@
                               <VBox alignment="CENTER" prefHeight="111.0" prefWidth="115.0" spacing="15.0">
                                  <children>
                                     <ComboBox fx:id="month_cb" prefHeight="31.0" prefWidth="115.0" promptText="Tháng" styleClass="text-field" />
-                                    <TextField fx:id="endDay_txt" promptText="Ngày (1 tuần)" styleClass="text-field" />
+                                    <TextField fx:id="endDay_txt" promptText="Ngày (10 ngày)" styleClass="text-field" />
                                  </children>
                               </VBox>
                            </children>
@@ -66,7 +66,7 @@
                               <Label style="-fx-font-family: Arial;" styleClass="header-text" text="Tổng doanh thu:" />
                               <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="266.0" spacing="10.0">
                                  <children>
-                                    <Label fx:id="value_txt" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-font-family: Arial; -fx-text-fill: green;" text="400.000.000">
+                                    <Label fx:id="value_txt" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-font-family: Arial; -fx-text-fill: green;" text="0">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>

@@ -51,27 +51,21 @@ public class editRoomType_Controller implements Initializable {
     }
  
     public void setRoomType(Object[] item) {
-    	//availabelRoomLabel1.setText(item[2].toString());
     	maxCustomer_cb.setValue(item[3].toString());   
     	price_txt.setText(item[2].toString());
-    	//numberOfPaymentLabel1.setText(item[2].toString());
     	typeRoom_txt.setText(item[0].toString());
-    		
-    	if (item[1].toString() == "Giường King & Giường Queen")
-    		typeBed_txt.setText("King & Queen");
-    	else
-    		typeBed_txt.setText(item[1].toString());
+    	typeBed_txt.setText(item[1].toString());
     	
-    	if (item[0].toString() == "Standard")
+    	if (item[0].toString().equals("Standard"))
     		type = "1";
-    	else if (item[0].toString() == "Deluxe")
+    	else if (item[0].toString().equals("Deluxe"))
     		type = "2";
-    	else if (item[0].toString() == "Premium")
+    	else if (item[0].toString().equals("Premium"))
     		type = "3";
     	else
     		type = "4";
     	
-    	area = item[5].toString();
+    	area = item[4].toString();
     	
 	}  
     
@@ -93,6 +87,7 @@ public class editRoomType_Controller implements Initializable {
 	    	SystemMessage.ERROR_MESSAGE = "";
     	} else {	      	
     		alert.successMessage("Thay đổi thông tin loại phòng thành công!");
+    		cancel();
     	}
     }
     

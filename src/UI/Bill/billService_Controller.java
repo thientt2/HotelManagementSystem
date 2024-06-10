@@ -127,7 +127,7 @@ public class billService_Controller implements Initializable {
         
         checkin_txt.setText(outputCheckIn);
         checkout_txt.setText(outputCheckOut);
-        
+     
         roomType_txt.setText(roomType.getTENLOAI());
 //        roomPrice_txt.setText(roomType.getGIA().toString());
 		double roomPrice = (double) roomType.getGIA();
@@ -219,7 +219,7 @@ public class billService_Controller implements Initializable {
 		data.put("staffId", SystemMessage.getMANV());
 		data.put("statusBill", 1);
 		
-    	WritableImage snapshot = new WritableImage(490, 530);
+    	WritableImage snapshot = new WritableImage(500, 683);
     	detailSevice_vbox.getScene().getRoot().snapshot(new SnapshotParameters(), snapshot);
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -257,7 +257,7 @@ public class billService_Controller implements Initializable {
             System.out.println("PDF created successfully.");
             System.out.println("PDF location: " + dest);
     		HOADONDICHVU_BLL.updateBillServiceAfterPrint(data);
-    		PHONG_BLL.changeEmptyRoomStatus(roomNumber);
+    		//PHONG_BLL.changeEmptyRoomStatus(roomNumber);
     		AlertMessage alert = new AlertMessage();
     		alert.successMessage("In hóa đơn và thanh toán dịch vụ thành công");
     		close();

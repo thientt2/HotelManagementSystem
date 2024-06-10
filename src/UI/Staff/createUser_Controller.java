@@ -111,6 +111,7 @@ public class createUser_Controller implements Initializable {
 			check = "";
 		}else {
 			alert.successMessage("Tạo tài khoản thành công!");
+			cancel();
 		}
     }
 
