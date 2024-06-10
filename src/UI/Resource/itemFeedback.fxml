@@ -12,53 +12,57 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemFeedBack_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="157.0" prefWidth="860.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Resource.itemFeedBack_Controller">
    <children>
-      <VBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="20.0" prefHeight="160.0" prefWidth="846.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+      <VBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="5.0" prefHeight="148.0" prefWidth="846.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-radius: 10px;">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="816.0" spacing="3.0">
                <children>
                   <Label prefHeight="22.0" prefWidth="75.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Đánh giá:" />
-                  <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/borderStar.png" />
-                     </image>
-                  </ImageView>
+                  <HBox fx:id="star_hbox" alignment="CENTER" maxHeight="42.0" maxWidth="142.0" prefHeight="42.0" prefWidth="142.0" spacing="5.0">
+                     <children>
+                        <ImageView fx:id="star" fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/star.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/star.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/star.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/star.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="starNot" fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/borderStar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER" prefHeight="30.0" prefWidth="146.0" spacing="10.0">
                      <children>
                         <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Phòng:" />
-                        <Label style="-fx-font-size: 15px;" text="P.802" />
+                        <Label fx:id="room_txt" style="-fx-font-size: 15px;" text="P.802" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="197.0" spacing="10.0">
                      <children>
                         <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Loại phòng:" />
-                        <Label style="-fx-font-size: 15px;" text="Standard" />
+                        <Label fx:id="type_txt" style="-fx-font-size: 15px;" text="Standard" />
                      </children>
                   </HBox>
                   <Pane prefHeight="42.0" prefWidth="270.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="31001231231 ngày trước" textAlignment="RIGHT" />
+                        <Label fx:id="dayBefore_txt" alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="31001231231 ngày trước" textAlignment="RIGHT" />
                      </children>
                   </Pane>
                </children>
@@ -72,17 +76,22 @@
                </VBox.margin>
                <children>
                   <Region prefHeight="34.0" prefWidth="0.0" />
-                  <Label fx:id="dynamicLabel" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Tăng Thanh Thiện" wrapText="true">
+                  <Label fx:id="name" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Tăng Thanh Thiện" wrapText="true">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="19.0" prefWidth="178.0" style="-fx-font-size: 13px;" text="(thongtulen134@gmail.com)" />
+                  <Label fx:id="gmail" prefHeight="19.0" prefWidth="178.0" style="-fx-font-size: 13px;" text="(thongtulen134@gmail.com)" />
                </children>
             </HBox>
-            <Pane prefHeight="66.0" prefWidth="846.0">
+            <Pane prefHeight="66.0" prefWidth="733.0">
                <children>
-                  <Label maxWidth="520.0" prefHeight="55.0" prefWidth="520.0" text="Phòng rất sạch sẽ, thoáng mát. Nhân viên nhanh nhạy. Buffet nhà hàng cần đa dạng món hơn." wrapText="true" />
+                  <Label fx:id="content" maxWidth="626.0" prefHeight="55.0" prefWidth="626.0" text="Phòng rất sạch sẽ, thoáng mát. Nhân viên nhanh nhạy. Buffet nhà hàng cần đa dạng món hơn.PPhòng rất sạch sẽ, thoáng mát. Nhân viên nhanh nhạy. Buffet nhà hàng cần đa dạng món hòng rất sạch sẽ, thoáng mát. Nhân viên nhanh nhạy. Buffet nhà hàng cần đa dạng món " wrapText="true" />
+                  <ImageView fx:id="image" fitHeight="93.0" fitWidth="118.0" layoutX="654.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/Rooms/Standard.jpg" />
+                     </image>
+                  </ImageView>
                </children>
                <VBox.margin>
                   <Insets left="40.0" />

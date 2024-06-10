@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -13,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 
-<AnchorPane prefHeight="541.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="541.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Feedback.feedbackWindow_Controller">
    <children>
       <VBox prefHeight="542.0" prefWidth="898.0">
          <children>
@@ -34,7 +32,8 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Tổng đánh giá" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="24" />
+                                    <Label fx:id="total_txt" style="-fx-font-weight: bold; -fx-font-size: 25px;" text="24" />
+                                    <Button fx:id="one_btn1" mnemonicParsing="false" onAction="#refreshFeedBackList" style="-fx-background-color: #000cb3; -fx-font-weight: bold; -fx-text-fill: white; -fx-background-radius: 5px;" text="All" />
                                  </children>
                               </HBox>
                            </children>
@@ -56,12 +55,8 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text=" Đánh giá 1 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="0" />
-                                    <Label style="-fx-background-color: #EF4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="1.0">
-                                       <padding>
-                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
-                                       </padding>
-                                    </Label>
+                                    <Label fx:id="one_txt" style="-fx-font-weight: bold; -fx-font-size: 25px;" text="0" />
+                                    <Button fx:id="one_btn" mnemonicParsing="false" onAction="#filterOneList" style="-fx-background-color: #EF4444; -fx-font-weight: bold; -fx-text-fill: white; -fx-background-radius: 5px;" text="1.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -83,12 +78,8 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 2 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="0" />
-                                    <Label style="-fx-background-color: #CA8A04; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="2.0">
-                                       <padding>
-                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
-                                       </padding>
-                                    </Label>
+                                    <Label fx:id="two_txt" style="-fx-font-weight: bold; -fx-font-size: 25px;" text="0" />
+                                    <Button fx:id="two_btn" mnemonicParsing="false" onAction="#filterTwoList" style="-fx-background-color: #CA8A04; -fx-font-weight: bold; -fx-text-fill: white; -fx-background-radius: 5px;" text="2.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -110,12 +101,8 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 3 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="2" />
-                                    <Label style="-fx-background-color: #FACC15; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="3.0">
-                                       <padding>
-                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
-                                       </padding>
-                                    </Label>
+                                    <Label fx:id="three_txt" style="-fx-font-weight: bold; -fx-font-size: 25px;" text="2" />
+                                    <Button fx:id="three_btn" mnemonicParsing="false" onAction="#filterThreeList" style="-fx-background-color: #FACC15; -fx-font-weight: bold; -fx-text-fill: white; -fx-background-radius: 5px;" text="3.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -137,12 +124,8 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 4 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="4" />
-                                    <Label style="-fx-background-color: #4ADE80; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="4.0">
-                                       <padding>
-                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
-                                       </padding>
-                                    </Label>
+                                    <Label fx:id="four_txt" style="-fx-font-weight: bold; -fx-font-size: 25px;" text="4" />
+                                    <Button fx:id="four_btn" mnemonicParsing="false" onAction="#filterFourList" style="-fx-background-color: #4ADE80; -fx-font-weight: bold; -fx-text-fill: white; -fx-background-radius: 5px;" text="4.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -164,12 +147,8 @@
                               <Label styleClass="header_text" stylesheets="@../../Designs/feedbackWindow.css" text="Đánh giá 5 sao" />
                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="109.0" spacing="10.0">
                                  <children>
-                                    <Label style="-fx-font-weight: bold; -fx-font-size: 25px;" text="18" />
-                                    <Label style="-fx-background-color: #16A34A; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px;" text="5.0">
-                                       <padding>
-                                          <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
-                                       </padding>
-                                    </Label>
+                                    <Label fx:id="five_txt" style="-fx-font-weight: bold; -fx-font-size: 25px;" text="18" />
+                                    <Button fx:id="five_btn" mnemonicParsing="false" onAction="#filterFiveList" style="-fx-background-color: #16A34A; -fx-font-weight: bold; -fx-text-fill: white; -fx-background-radius: 5px;" text="5.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -180,173 +159,7 @@
             </HBox>
             <Pane prefHeight="414.0" prefWidth="898.0">
                <children>
-                  <Pagination layoutX="26.0" prefHeight="414.0" prefWidth="846.0" stylesheets="@../../Designs/CustomerWindow.css" />
-                  <VBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="7.0" prefHeight="160.0" prefWidth="846.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-radius: 10px;">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="816.0" spacing="3.0">
-                           <children>
-                              <Label prefHeight="22.0" prefWidth="75.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Đánh giá:" />
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/borderStar.png" />
-                                 </image>
-                              </ImageView>
-                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="146.0" spacing="10.0">
-                                 <children>
-                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Phòng:" />
-                                    <Label style="-fx-font-size: 15px;" text="P.802" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="197.0" spacing="10.0">
-                                 <children>
-                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Loại phòng:" />
-                                    <Label style="-fx-font-size: 15px;" text="Standard" />
-                                 </children>
-                              </HBox>
-                              <Pane prefHeight="42.0" prefWidth="270.0">
-                                 <children>
-                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="1 ngày trước" textAlignment="RIGHT" />
-                                 </children>
-                              </Pane>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="40.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="816.0">
-                           <VBox.margin>
-                              <Insets left="40.0" />
-                           </VBox.margin>
-                           <children>
-                              <Region prefHeight="34.0" prefWidth="0.0" />
-                              <Label fx:id="dynamicLabel" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Tăng Thanh Thiện" wrapText="true">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label prefHeight="19.0" prefWidth="178.0" style="-fx-font-size: 13px;" text="(thientank@gmail.com)" />
-                           </children>
-                        </HBox>
-                        <Pane prefHeight="66.0" prefWidth="846.0">
-                           <children>
-                              <Label maxWidth="520.0" prefHeight="55.0" prefWidth="520.0" text="Phòng rất sạch sẽ, thoáng mát. Nhân viên nhanh nhạy. Buffet nhà hàng cần đa dạng món hơn." wrapText="true" />
-                           </children>
-                           <VBox.margin>
-                              <Insets left="40.0" />
-                           </VBox.margin>
-                        </Pane>
-                     </children>
-                     <effect>
-                        <DropShadow>
-                           <color>
-                              <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </VBox>
-                  <VBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="187.0" prefHeight="160.0" prefWidth="846.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-radius: 10px;">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="816.0" spacing="3.0">
-                           <children>
-                              <Label prefHeight="22.0" prefWidth="75.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Đánh giá:" />
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/star.png" />
-                                 </image>
-                              </ImageView>
-                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="146.0" spacing="10.0">
-                                 <children>
-                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Phòng:" />
-                                    <Label style="-fx-font-size: 15px;" text="P.502" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="197.0" spacing="10.0">
-                                 <children>
-                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Loại phòng:" />
-                                    <Label style="-fx-font-size: 15px;" text="Standard" />
-                                 </children>
-                              </HBox>
-                              <Pane prefHeight="42.0" prefWidth="270.0">
-                                 <children>
-                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutY="13.0" prefHeight="17.0" prefWidth="232.0" style="-fx-alignment: right; -fx-text-fill: grey;" text="3 ngày trước" textAlignment="RIGHT" />
-                                 </children>
-                              </Pane>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="40.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="816.0">
-                           <VBox.margin>
-                              <Insets left="40.0" />
-                           </VBox.margin>
-                           <children>
-                              <Region prefHeight="34.0" prefWidth="0.0" />
-                              <Label fx:id="dynamicLabel1" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Trần Trung Thông" wrapText="true">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label prefHeight="19.0" prefWidth="178.0" style="-fx-font-size: 13px;" text="(thongtulen134@gmail.com)" />
-                           </children>
-                        </HBox>
-                        <Pane prefHeight="66.0" prefWidth="846.0">
-                           <children>
-                              <Label maxWidth="520.0" prefHeight="55.0" prefWidth="520.0" text="Phòng rất sạch sẽ, thoáng mát. Nhân viên nhanh nhạy. Không gian yên tĩnh." wrapText="true" />
-                           </children>
-                           <VBox.margin>
-                              <Insets left="40.0" />
-                           </VBox.margin>
-                        </Pane>
-                     </children>
-                     <effect>
-                        <DropShadow>
-                           <color>
-                              <Color red="0.7058823704719543" green="0.7450980544090271" blue="0.9058823585510254" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </VBox>
+                  <Pagination fx:id="pagination" layoutX="26.0" prefHeight="414.0" prefWidth="846.0" stylesheets="@../../Designs/CustomerWindow.css" />
                </children>
             </Pane>
          </children>
