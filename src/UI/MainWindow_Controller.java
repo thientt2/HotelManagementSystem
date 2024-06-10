@@ -12,12 +12,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import BLL.KHACHHANG_BLL;
 import BLL.LOAINHANVIEN_BLL;
 import BLL.NHANVIEN_BLL;
+import BLL.PHIEUDATPHONG_BLL;
 import DTO.KHACHHANG;
 import DTO.NHANVIEN;
+import DTO.PHIEUDATPHONG;
 import UI.BookRoom.bookRoomWindow_Controller;
 import UI.Customer.customerWindow_Controller;
 import UI.DashBoard.dashBoardWindow_Controller;
@@ -220,6 +224,30 @@ public class MainWindow_Controller implements Initializable {
 	public void setCreateUserAccess() {
 		
 	}
+	
+	public void startPolling() {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+            	PHIEUDATPHONG pdp = PHIEUDATPHONG_BLL.getLastBookRoom();
+            	if (pdp.getHINHTHUC().equals("Online"))
+            	{
+            		
+                    Platform.runLater(() -> {
+                    	try {
+                        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Staff/staffWindow_UI.fxml"));
+        			 		Parent newWindow = loader.load();
+        					staffWindow_Controller controller = loader.getController();
+                    	}catch (IOException e) {
+            				e.printStackTrace();
+            			}
+
+                    });
+            	}
+            }
+        }, 0, 5000); 
+    }
 	
 	public void setAccessIcon() {
 		for (String item: listScreens)
@@ -848,6 +876,7 @@ public class MainWindow_Controller implements Initializable {
 		setTime();	
 		changeSceneDashBoardWindow();	
 		//setAccessIcon();
+		//startPolling();
 	}
 
 

@@ -54,58 +54,88 @@ public class statisticalWindow_Controller implements Initializable {
     
     private long value = 0;
     
-    public void showListYear() {
-    	List<Integer> listYear = BAOCAO_BLL.getYears();
-		ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
-		for(Integer i : listYear) {
-			listQuantity.add(i);
-		}
-		year_cb.setItems(listQuantity);
-	}
-    
-    public void showListMoth(int year) {
-    	List<Integer> listMonth = BAOCAO_BLL.getMonths(year);
-		ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
-		for(Integer i : listMonth) {
-			listQuantity.add(i);
-		}
-		month_cb.setItems(listQuantity);
-	}
-    
-//    public void showListDay(int month, int year) {
-//    	List<Integer> listDay = BAOCAO_BLL.getDays(month, year);
+//    public void showListYear() {
+//    	List<Integer> listYear = BAOCAO_BLL.getYears();
 //		ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
-//		for(Integer i : listDay) {
+//		for(Integer i : listYear) {
 //			listQuantity.add(i);
 //		}
-//		day_cb.setItems(listQuantity);
+//		year_cb.setItems(listQuantity);
+//	}
+//    
+//    public void showListMoth(int year) {
+//    	List<Integer> listMonth = BAOCAO_BLL.getMonths(year);
+//		ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
+//		for(Integer i : listMonth) {
+//			listQuantity.add(i);
+//		}
+//		month_cb.setItems(listQuantity);
+//	}
+//    
+////    public void showListDay(int month, int year) {
+////    	List<Integer> listDay = BAOCAO_BLL.getDays(month, year);
+////		ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
+////		for(Integer i : listDay) {
+////			listQuantity.add(i);
+////		}
+////		day_cb.setItems(listQuantity);
+////	}
+//    
+//    public void showListDay(int month, int year) {
+//    	ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
+//        int maxDays;
+//        
+//        // Determine the maximum days in the month
+//        YearMonth yearMonth = YearMonth.of(year, month);
+//        maxDays = yearMonth.lengthOfMonth();
+//        
+//        // Determine the limit for the ComboBox
+//        int limit;
+//        if (maxDays == 28) {
+//            limit = 21;
+//        } else if (maxDays == 29) {
+//            limit = 22;
+//        } else if (maxDays == 30) {
+//            limit = 23;
+//        } else {
+//            limit = 24;
+//        }
+//        
+//        for (int i = 1; i <= limit; i++) {
+//            listQuantity.add(i);
+//        }
+//        startDay_cb.setItems(listQuantity);
 //	}
     
+    public void showListYear() {
+        List<Integer> listYear = BAOCAO_BLL.getYears();
+        ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
+        listQuantity.add(null); 
+        listQuantity.addAll(listYear);
+        year_cb.setItems(listQuantity);
+        year_cb.setValue(null); 
+    }
+    
+    public void showListMonth(int year) {
+        List<Integer> listMonth = BAOCAO_BLL.getMonths(year);
+        ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
+        listQuantity.add(null); 
+        listQuantity.addAll(listMonth);
+        month_cb.setItems(listQuantity);
+        month_cb.setValue(null); 
+    }
+    
     public void showListDay(int month, int year) {
-    	ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
-        int maxDays;
-        
-        // Determine the maximum days in the month
-        YearMonth yearMonth = YearMonth.of(year, month);
-        maxDays = yearMonth.lengthOfMonth();
-        
-        // Determine the limit for the ComboBox
-        int limit;
-        if (maxDays == 28) {
-            limit = 21;
-        } else if (maxDays == 29) {
-            limit = 22;
-        } else if (maxDays == 30) {
-            limit = 23;
-        } else {
-            limit = 24;
-        }
-        
+        ObservableList<Integer> listQuantity = FXCollections.observableArrayList();
+        listQuantity.add(null); 
+        int maxDays = YearMonth.of(year, month).lengthOfMonth();
+        int limit = Math.min(maxDays, 24); 
         for (int i = 1; i <= limit; i++) {
             listQuantity.add(i);
         }
         startDay_cb.setItems(listQuantity);
-	}
+        startDay_cb.setValue(null); 
+    }
     
     public void setUpPieChartByYear(int year) {
     	value = 0;
@@ -127,11 +157,11 @@ public class statisticalWindow_Controller implements Initializable {
     	}
     	String finalMidPrice = sbMidPrice.toString();
     	value_txt.setText(finalMidPrice);
+    	
         setPieChartColors();
     }
 
     public void setUpPieChartByMonth(int month, int year) {
-    	//value_txt.setText(String.valueOf(0));
     	value = 0;
         ObservableList<Object[]> data = BAOCAO_BLL.getRoomDataByTypeAndMonth(year, month);
         pieChart.getData().clear();
@@ -149,24 +179,13 @@ public class statisticalWindow_Controller implements Initializable {
     	for (int i = lngMidPrice - 3; i > 0; i -= 3) {
     		sbMidPrice.insert(i, ".");
     	}
-    	//sbMidPrice.append(" VND");
     	String finalMidPrice = sbMidPrice.toString();
     	value_txt.setText(finalMidPrice);
-        //value_txt.setText(String.valueOf(value));
-//        int gia = Integer.parseInt(String.valueOf(value));
-//    	String formattedPrice = String.format("%.0f", gia);
-//    	StringBuilder sb = new StringBuilder(formattedPrice);
-//    	int length = sb.length();
-//    	for (int i = length - 3; i > 0; i -= 3) {
-//    	    sb.insert(i, ".");
-//    	}
-//    	String finalPrice = sb.toString();
-//    	value_txt.setText(finalPrice);
+
         setPieChartColors();
     }
 
     public void setUpPieChartBy7Days(int startDay, int endDays, int month, int year) {
-    	//value_txt.setText(String.valueOf(0));
     	value = 0;
         ObservableList<Object[]> data = BAOCAO_BLL.getRoomDataByTypeAndDateRange(startDay, endDays, month, year);
         pieChart.getData().clear();
@@ -178,7 +197,6 @@ public class statisticalWindow_Controller implements Initializable {
             PieChart.Data slice = new PieChart.Data(roomType, totalValue);
             pieChart.getData().add(slice);
         }
-        //value_txt.setText(String.valueOf(value));
  
     	String midPriceString = String.valueOf(value);
     	StringBuilder sbMidPrice = new StringBuilder(midPriceString);
@@ -186,18 +204,9 @@ public class statisticalWindow_Controller implements Initializable {
     	for (int i = lngMidPrice - 3; i > 0; i -= 3) {
     		sbMidPrice.insert(i, ".");
     	}
-    	//sbMidPrice.append(" VND");
     	String finalMidPrice = sbMidPrice.toString();
     	value_txt.setText(finalMidPrice);
-//        int gia = Integer.parseInt(String.valueOf(value));
-//        String formattedPrice = String.format("%.0f", gia);
-//    	StringBuilder sb = new StringBuilder(formattedPrice);
-//    	int length = sb.length();
-//    	for (int i = length - 3; i > 0; i -= 3) {
-//    	    sb.insert(i, ".");
-//    	}
-//    	String finalPrice = sb.toString();
-//    	value_txt.setText(finalPrice);
+
         setPieChartColors();
     }
 
@@ -288,13 +297,14 @@ public class statisticalWindow_Controller implements Initializable {
         barChart.getData().add(series);
     }
     
+    
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		//getRoomDataByType()
 	    showListYear();
 	    year_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
 	        if (newVal != null) {
-	            showListMoth(newVal);
+	            showListMonth(newVal);
 	            setUpPieChartByYear(newVal);
 	            setUpAreaChartByMonth(year_cb.getValue());
 	            setUpBarChartByMonth(year_cb.getValue());

@@ -159,7 +159,7 @@
             </HBox>
             <Pane prefHeight="414.0" prefWidth="898.0">
                <children>
-                  <Pagination fx:id="pagination" layoutX="26.0" prefHeight="414.0" prefWidth="846.0" stylesheets="@../../Designs/CustomerWindow.css" />
+                  <Pagination fx:id="pagination" layoutX="26.0" prefHeight="401.0" prefWidth="846.0" stylesheets="@../../Designs/CustomerWindow.css" />
                </children>
             </Pane>
          </children>

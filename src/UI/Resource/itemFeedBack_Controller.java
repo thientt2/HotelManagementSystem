@@ -104,7 +104,7 @@ public class itemFeedBack_Controller implements Initializable {
 //        	star_Hbox.getChildren().add(star);
 //    	}
     	
-    	gmail.setText(String.valueOf(item[1]));
+    	gmail.setText("(" + String.valueOf(item[1]) + ")");
     	content.setText(String.valueOf(item[2]));
     	name.setText(String.valueOf(item[4]));
     	room_txt.setText(String.valueOf(item[5]));
