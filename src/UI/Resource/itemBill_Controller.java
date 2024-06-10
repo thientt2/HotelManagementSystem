@@ -110,7 +110,6 @@ public class itemBill_Controller implements Initializable{
 		checkinDate_txt.setText(checkin.toString());		
 		checkoutDate_txt.setText(checkout.toString());
 		//Đoạn này để set bấm được nút thanh toán, thanh toán chỉ hiện khi phòng đang dọn dẹp
-		PHONG currentRoom = PHONG_BLL.getRoom(room_txt.getText());
 		
 		status_txt.setText(getStatus(billService.getTRANGTHAI()));   
     	status_txt.setStyle(getStatusStyle(status_txt.getText()));
@@ -122,7 +121,7 @@ public class itemBill_Controller implements Initializable{
 //
 //         // Lấy ngày hiện tại
 //         LocalDate now = LocalDate.now();
-		if((status_txt.getText() == "Chưa thanh toán") && (currentRoom.getMATRANGTHAI() == 2) ) {
+		if((status_txt.getText() == "Chưa thanh toán")) {
 			pay_btn.setDisable(false);
 		}else {
 			pay_btn.setDisable(true);
@@ -219,8 +218,7 @@ public class itemBill_Controller implements Initializable{
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
-    	
+		}    	
     }
     
 	@Override

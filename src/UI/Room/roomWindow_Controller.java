@@ -953,7 +953,7 @@ public class roomWindow_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		showAllRoom();
-		
+		System.out.println("Goi ham showAllRoom khi chuyen qua tab phong");
+		showAllRoom();		
 	}
 }

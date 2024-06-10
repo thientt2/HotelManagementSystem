@@ -149,7 +149,7 @@ public class billWindow_Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		listData = HOADONDICHVU_BLL.listBill();		
+		listData = HOADONDICHVU_BLL.listBill();			
 		pagination.setPageCount(calculatePageCount(listData));
 	    pagination.setPageFactory(this::createPage);	    
 	}
