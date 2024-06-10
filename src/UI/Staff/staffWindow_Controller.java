@@ -2,6 +2,7 @@ package UI.Staff;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import BLL.HOADONDICHVU_BLL;
@@ -20,11 +21,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -119,10 +123,24 @@ public class staffWindow_Controller implements Initializable {
                     });
 
                     deleteItem.setOnAction(deleteEvent -> {
-                        if (staff != null) {
+                    	Alert alert = new Alert(AlertType.CONFIRMATION);
+            	        alert.setTitle("Xác nhận");
+            	        alert.setHeaderText(null);
+            	        alert.setContentText("Xác nhận xóa nhân viên?" );
+            	        Optional<ButtonType> option = alert.showAndWait();
+
+            	        if (option.get().equals(ButtonType.OK)) {
                             NHANVIEN_BLL.deleteStaff(staff);
-                            refreshStaffList();
-                        }
+            	        	alert = new Alert(AlertType.INFORMATION);
+            	            alert.setTitle("Thông báo");
+            	            alert.setHeaderText(null);
+            	            alert.setContentText("Xóa nhân viên thành công!");
+            	            alert.showAndWait();
+            	            refreshStaffList();
+            		    	
+            	        } else {
+            	            return;
+            	        }
                     });
 
                     detailItem.setOnAction(detailEvent -> {

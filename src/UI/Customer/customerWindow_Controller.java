@@ -2,9 +2,11 @@ package UI.Customer;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import BLL.KHACHHANG_BLL;
+import BLL.NHANVIEN_BLL;
 import DTO.KHACHHANG;
 import UI.Resource.itemCustomer_Controller;
 import javafx.application.Platform;
@@ -15,11 +17,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -107,8 +112,24 @@ public class customerWindow_Controller implements Initializable {
 	                });
 	        	    
 	        	    deleteItem.setOnAction(deleteEvent -> {
-	        	    	KHACHHANG_BLL.deleteCustomer(customer);
-	        	    	refreshCustomerList();
+	        	    	Alert alert = new Alert(AlertType.CONFIRMATION);
+            	        alert.setTitle("Xác nhận");
+            	        alert.setHeaderText(null);
+            	        alert.setContentText("Xác nhận xóa khách hàng?" );
+            	        Optional<ButtonType> option = alert.showAndWait();
+
+            	        if (option.get().equals(ButtonType.OK)) {
+            	        	KHACHHANG_BLL.deleteCustomer(customer);
+            	        	alert = new Alert(AlertType.INFORMATION);
+            	            alert.setTitle("Thông báo");
+            	            alert.setHeaderText(null);
+            	            alert.setContentText("Xóa khách hàng thành công!");
+            	            alert.showAndWait();
+            	            refreshCustomerList();
+            		    	
+            	        } else {
+            	            return;
+            	        }
 	        	    });
 	        	    
 	        	    detailItem.setOnAction(detailEvent -> {

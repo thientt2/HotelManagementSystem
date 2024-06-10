@@ -125,18 +125,8 @@ public class statisticalWindow_Controller implements Initializable {
     	for (int i = lngMidPrice - 3; i > 0; i -= 3) {
     		sbMidPrice.insert(i, ".");
     	}
-    	//sbMidPrice.append(" VND");
     	String finalMidPrice = sbMidPrice.toString();
     	value_txt.setText(finalMidPrice);
-//        int gia = Integer.parseInt(String.valueOf(value));
-//        String formattedPrice = String.format("%.0f", gia);
-//    	StringBuilder sb = new StringBuilder(formattedPrice);
-//    	int length = sb.length();
-//    	for (int i = length - 3; i > 0; i -= 3) {
-//    	    sb.insert(i, ".");
-//    	}
-//    	String finalPrice = sb.toString();
-//    	value_txt.setText(finalPrice);
         setPieChartColors();
     }
 
