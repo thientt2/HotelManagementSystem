@@ -21,4 +21,8 @@ public class LOAINHANVIEN_BLL {
 	public static List<String> getStaffTypeScreens(int staffTypeId) {
 		return LOAINHANVIEN_DAO.getStaffTypeScreens(staffTypeId);
 	}
+	
+	public static boolean hasPermission(int userId, String screenName) {
+		return LOAINHANVIEN_DAO.hasPermission(userId, screenName);
+	}
 }

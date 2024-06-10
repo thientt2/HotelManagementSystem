@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -72,5 +73,24 @@ public class LOAINHANVIEN_DAO {
             e.printStackTrace();
         }
         return screens;
+    }
+	
+	public static boolean hasPermission(int userId, String screenName) {
+        String query = "SELECT COUNT(*) AS count FROM NHANVIEN nv " +
+                       "JOIN TRUYCAP tc ON nv.MALOAINV = tc.MALOAINV " +
+                       "JOIN CONGVIEC cv ON tc.MACONGVIEC = cv.MACONGVIEC " +
+                       "WHERE nv.MANV = ? AND cv.MANHINH = ?";
+        try (Connection connection = DatabaseConnection.connectDb();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, userId);
+            statement.setString(2, screenName);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("count") > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

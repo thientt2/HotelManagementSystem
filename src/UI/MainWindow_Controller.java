@@ -246,6 +246,13 @@ public class MainWindow_Controller implements Initializable {
 			
 	}
 	
+	public void warning() {
+		Alert alert = new Alert(AlertType.WARNING);
+	    alert.setTitle("Không có quyền truy cập");
+	    alert.setHeaderText(null);
+	    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
+	    alert.showAndWait();
+	}
 	
 	public void accessParam()
 	{
@@ -254,15 +261,10 @@ public class MainWindow_Controller implements Initializable {
 			{
 				changeSceneParamWindow();
 				access = true;
+				break;
 			}
 		if (!access)
-		{
-			Alert alert = new Alert(AlertType.WARNING);
-		    alert.setTitle("Không có quyền truy cập");
-		    alert.setHeaderText(null);
-		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-		    alert.showAndWait();
-		}
+			warning();
 		else
 			access = false;
 	}
@@ -275,15 +277,10 @@ public class MainWindow_Controller implements Initializable {
 				System.out.printf("có");
 				changeSceneCustomerWindow();
 				access = true;
+				break;
 			}		
 		if (!access)
-		{
-			Alert alert = new Alert(AlertType.WARNING);
-		    alert.setTitle("Không có quyền truy cập");
-		    alert.setHeaderText(null);
-		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-		    alert.showAndWait();
-		}
+			warning();
 		else
 			access = false;
 	}
@@ -295,15 +292,10 @@ public class MainWindow_Controller implements Initializable {
 			{
 				changeSceneStaffWindow();
 				access = true;
+				break;
 			}
 		if (!access)
-		{
-			Alert alert = new Alert(AlertType.WARNING);
-		    alert.setTitle("Không có quyền truy cập");
-		    alert.setHeaderText(null);
-		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-		    alert.showAndWait();
-		}
+			warning();
 		else
 			access = false;
 	}
@@ -315,15 +307,10 @@ public class MainWindow_Controller implements Initializable {
 			{
 				changeSceneRoomWindow();
 				access = true;
+				break;
 			}
 		if (!access)
-		{
-			Alert alert = new Alert(AlertType.WARNING);
-		    alert.setTitle("Không có quyền truy cập");
-		    alert.setHeaderText(null);
-		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-		    alert.showAndWait();
-		}
+			warning();
 		else
 			access = false;
 	}
@@ -335,15 +322,10 @@ public class MainWindow_Controller implements Initializable {
 			{
 				changeSceneBookRoomWindow();
 				access = true;
+				break;
 			}
 		if (!access)
-		{
-			Alert alert = new Alert(AlertType.WARNING);
-		    alert.setTitle("Không có quyền truy cập");
-		    alert.setHeaderText(null);
-		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-		    alert.showAndWait();
-		}
+			warning();
 		else
 			access = false;
 	}
@@ -355,15 +337,10 @@ public class MainWindow_Controller implements Initializable {
 			{
 				changeSceneBillWindow();
 				access = true;
+				break;
 			}
 		if (!access)
-		{
-			Alert alert = new Alert(AlertType.WARNING);
-		    alert.setTitle("Không có quyền truy cập");
-		    alert.setHeaderText(null);
-		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-		    alert.showAndWait();
-		}
+			warning();
 		else
 			access = false;
 	}
@@ -375,15 +352,10 @@ public class MainWindow_Controller implements Initializable {
 			{
 				changeSceneStatisticalWindow();
 				access = true;
+				break;
 			}
 		if (!access)
-		{
-			Alert alert = new Alert(AlertType.WARNING);
-		    alert.setTitle("Không có quyền truy cập");
-		    alert.setHeaderText(null);
-		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-		    alert.showAndWait();
-		}
+			warning();
 		else
 			access = false;
 	}
@@ -395,15 +367,10 @@ public class MainWindow_Controller implements Initializable {
 			{
 				changeSceneFeedbackWindow();
 				access = true;
+				break;
 			}
 		if (!access)
-		{
-			Alert alert = new Alert(AlertType.WARNING);
-		    alert.setTitle("Không có quyền truy cập");
-		    alert.setHeaderText(null);
-		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-		    alert.showAndWait();
-		}
+			warning();
 		else
 			access = false;
 	}
@@ -411,22 +378,6 @@ public class MainWindow_Controller implements Initializable {
 	//Trường hợp đặc biệt
 	public void accessDashBoardRoom()
 	{
-//		for (String item: listScreens)
-//			if(item.equalsIgnoreCase("Màn hình trang chủ"))
-//			{
-//				changeSceneDashBoardWindow();
-//				access = true;
-//			}
-//		if (!access)
-//		{
-//			Alert alert = new Alert(AlertType.WARNING);
-//		    alert.setTitle("Không có quyền truy cập");
-//		    alert.setHeaderText(null);
-//		    alert.setContentText("Bạn không có quyền truy cập vào tab này!");
-//		    alert.showAndWait();
-//		}
-//		else
-//			access = false;
 		changeSceneDashBoardWindow();
 	}
 	

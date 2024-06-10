@@ -73,7 +73,6 @@ public class itemRoom_Controller implements Initializable {
 		    	control_btn.setVisible(false);
 		    	checkOut_btn.setVisible(true);
 		    	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(String.valueOf(roomId));
-		    	System.out.println("Lay phieu nhan phong ra de set trang thai check out: "+receiveRoom +"cho phong: "+roomId);
 		    	if(receiveRoom == null) {
 			    	return;
 		    	}else {	    		
