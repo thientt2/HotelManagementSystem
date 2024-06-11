@@ -55,11 +55,8 @@ public class itemRoom_Controller implements Initializable {
 	    public void setData(Object roomId, Object roomtype, Object status) {
 		    roomId_txt.setText(String.valueOf(roomId));
 		    roomtype_txt.setText(String.valueOf(roomtype));		   
-		    PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(String.valueOf(roomId));
-		    if(receiveRoom == null) {
-			    PHONG_BLL.changeEmptyRoomStatus(String.valueOf(roomId));
-			    status = "Trống" ;
-		    }
+		    
+
 		    status_txt.setText(String.valueOf(status));    
 		    if(status.equals("Trống")) {
 		    	status_txt.setStyle("-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2; -fx-background-radius: 20; -fx-padding: 5 10");
@@ -80,6 +77,16 @@ public class itemRoom_Controller implements Initializable {
 		    	control_btn.setVisible(false);
 		    	checkOut_btn.setVisible(true);
 		    	 		
+		    	PHIEUNHANPHONG receiveRoom = PHIEUNHANPHONG_BLL.getReceiveRoomIDByRoomID(String.valueOf(roomId));
+			    if(receiveRoom == null) {
+//				    PHONG_BLL.changeEmptyRoomStatus(String.valueOf(roomId));
+				    status = "Trống" ;
+				    status_txt.setStyle("-fx-background-color: #E8F1FD; -fx-text-fill: #448DF2; -fx-background-radius: 20; -fx-padding: 5 10");
+			    	bookService_btn.setVisible(false);
+			    	detail_btn.setVisible(false);
+			    	control_btn.setVisible(false);
+			    	checkOut_btn.setVisible(false);
+			    }else {
 		    	
 			    	String checkOut = receiveRoom.getTGTRA();
 			    	DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");		    	
@@ -98,7 +105,8 @@ public class itemRoom_Controller implements Initializable {
 			    	} else {
 			    	    checkOut_btn.setDisable(true);
 			    	}	   
-		    	}    
+			    }
+		    }    
 		    	
 	    }
 	    
