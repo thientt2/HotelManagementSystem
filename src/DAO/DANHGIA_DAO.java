@@ -58,7 +58,7 @@ public class DANHGIA_DAO {
         return dataList;
     }
 	
-	public static Object[] getReviewStats() {
+	public static Object[] getReviewStars() {
         Object[] result = new Object[6];
         int totalReviews = 0;
         int totalSao1 = 0;

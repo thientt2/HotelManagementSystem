@@ -8,7 +8,7 @@ public class DANHGIA_BLL {
 		return DANHGIA_DAO.listFeedBack();
 	}
 	
-	public static Object[] getReviewStats() {
-		return DANHGIA_DAO.getReviewStats();
+	public static Object[] getReviewStars() {
+		return DANHGIA_DAO.getReviewStars();
 	}
 }

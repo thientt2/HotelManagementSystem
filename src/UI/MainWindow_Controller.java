@@ -204,6 +204,12 @@ public class MainWindow_Controller implements Initializable {
     @FXML
     private Pane accountInfo_pane;
     
+    @FXML
+    private Button bell;
+    
+    @FXML
+    private ImageView imageBell;
+    
     public Pane getPane() {
         return accountInfo_pane;
     }
@@ -233,21 +239,27 @@ public class MainWindow_Controller implements Initializable {
             	PHIEUDATPHONG pdp = PHIEUDATPHONG_BLL.getLastBookRoom();
             	if (pdp.getHINHTHUC().equals("Online"))
             	{
-            		
-                    Platform.runLater(() -> {
-                    	try {
-                        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Staff/staffWindow_UI.fxml"));
-        			 		Parent newWindow = loader.load();
-        					staffWindow_Controller controller = loader.getController();
-                    	}catch (IOException e) {
-            				e.printStackTrace();
-            			}
-
-                    });
+            		Image newImage = new Image("/Images/bell2.png");
+            		imageBell.setImage(newImage);
+//                    Platform.runLater(() -> {
+//                    	try {
+//                        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Staff/staffWindow_UI.fxml"));
+//        			 		Parent newWindow = loader.load();
+//        					staffWindow_Controller controller = loader.getController();
+//                    	}catch (IOException e) {
+//            				e.printStackTrace();
+//            			}
+//
+//                    });
             	}
             }
         }, 0, 5000); 
     }
+	
+	public void clickBell() {
+		Image newImage = new Image("/Images/bell1.png");
+		imageBell.setImage(newImage);
+	}
 	
 	public void setAccessIcon() {
 		for (String item: listScreens)

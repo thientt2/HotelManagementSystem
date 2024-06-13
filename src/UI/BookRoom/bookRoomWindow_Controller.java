@@ -183,60 +183,98 @@ public class bookRoomWindow_Controller implements Initializable{
                 });
 
                 contextMenu_btn.setOnMouseClicked(event -> {
-                    if (contextMenu.isShowing()) {
-                        contextMenu.hide();
-                        return;
+                	try {
+                        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
+                        Parent root = loader2.load();
+
+//                        root.setOnMousePressed((MouseEvent event1) -> {
+//                            x = event1.getSceneX();
+//                            y = event1.getSceneY();
+//                        });
+
+                        PHIEUDATPHONG bookRoomBill = PHIEUDATPHONG_BLL.getBookRoom(bookRoom[0].toString());
+                        HOADONPHONG roomBill = HOADONPHONG_BLL.getRoomBill(bookRoom[0].toString());
+                        ObservableList<Object[]> listDetail = HOADONPHONG_BLL.listDetailBill(bookRoom[0].toString());
+                        billBookRoom_Controller controllerBill = loader2.getController();
+                        Circle image = controllerBill.getCircle();
+        	        	Image defaultImage = new Image("/Images/LAOPERA.jpg");
+        	        	image.setFill(new ImagePattern(defaultImage));
+                        controllerBill.setData(bookRoomBill.getNGAYNHAN(), bookRoomBill.getNGAYTRA(), roomBill, listDetail);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.TRANSPARENT);
+						stage.initModality(Modality.WINDOW_MODAL);
+						stage.initOwner(contextMenu_btn.getScene().getWindow());
+                        Scene scene = new Scene(root);
+
+//                        root.setOnMouseDragged((MouseEvent event1) -> {
+//                            stage.setX(event1.getScreenX() - x);
+//                            stage.setY(event1.getScreenY() - y);
+//                        });
+
+                        stage.setScene(scene);
+                        stage.showAndWait();
+
+//                        refreshBookRoomList();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                    contextMenu.getItems().clear();
-
-                    MenuItem billItem = new MenuItem("Xem hóa đơn");
-                    MenuItem deleteItem = new MenuItem("Hủy");
-
-                    billItem.setOnAction(eventEditStaff -> {
-                        try {
-                            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
-                            Parent root = loader2.load();
-
-//                            root.setOnMousePressed((MouseEvent event1) -> {
-//                                x = event1.getSceneX();
-//                                y = event1.getSceneY();
-//                            });
-
-                            PHIEUDATPHONG bookRoomBill = PHIEUDATPHONG_BLL.getBookRoom(bookRoom[0].toString());
-                            HOADONPHONG roomBill = HOADONPHONG_BLL.getRoomBill(bookRoom[0].toString());
-                            ObservableList<Object[]> listDetail = HOADONPHONG_BLL.listDetailBill(bookRoom[0].toString());
-                            billBookRoom_Controller controllerBill = loader2.getController();
-                            Circle image = controllerBill.getCircle();
-            	        	Image defaultImage = new Image("/Images/LAOPERA.jpg");
-            	        	image.setFill(new ImagePattern(defaultImage));
-                            controllerBill.setData(bookRoomBill.getNGAYNHAN(), bookRoomBill.getNGAYTRA(), roomBill, listDetail);
-                            Stage stage = new Stage();
-                            stage.initStyle(StageStyle.TRANSPARENT);
-							stage.initModality(Modality.WINDOW_MODAL);
-							stage.initOwner(contextMenu_btn.getScene().getWindow());
-                            Scene scene = new Scene(root);
-
-//                            root.setOnMouseDragged((MouseEvent event1) -> {
-//                                stage.setX(event1.getScreenX() - x);
-//                                stage.setY(event1.getScreenY() - y);
-//                            });
-
-                            stage.setScene(scene);
-                            stage.showAndWait();
-
-//                            refreshBookRoomList();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    });
-
-                    deleteItem.setOnAction(deleteEvent -> {
-                        // Delete item logic here
-                    });
-
-                    contextMenu.getItems().addAll(billItem, deleteItem);
-                    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
                 });
+                
+//                contextMenu_btn.setOnMouseClicked(event -> {
+//                    if (contextMenu.isShowing()) {
+//                        contextMenu.hide();
+//                        return;
+//                    }
+//                    contextMenu.getItems().clear();
+//
+//                    MenuItem billItem = new MenuItem("Xem hóa đơn");
+//                    MenuItem deleteItem = new MenuItem("Hủy");
+//
+//                    billItem.setOnAction(eventEditStaff -> {
+//                        try {
+//                            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("billBookRoom.fxml"));
+//                            Parent root = loader2.load();
+//
+////                            root.setOnMousePressed((MouseEvent event1) -> {
+////                                x = event1.getSceneX();
+////                                y = event1.getSceneY();
+////                            });
+//
+//                            PHIEUDATPHONG bookRoomBill = PHIEUDATPHONG_BLL.getBookRoom(bookRoom[0].toString());
+//                            HOADONPHONG roomBill = HOADONPHONG_BLL.getRoomBill(bookRoom[0].toString());
+//                            ObservableList<Object[]> listDetail = HOADONPHONG_BLL.listDetailBill(bookRoom[0].toString());
+//                            billBookRoom_Controller controllerBill = loader2.getController();
+//                            Circle image = controllerBill.getCircle();
+//            	        	Image defaultImage = new Image("/Images/LAOPERA.jpg");
+//            	        	image.setFill(new ImagePattern(defaultImage));
+//                            controllerBill.setData(bookRoomBill.getNGAYNHAN(), bookRoomBill.getNGAYTRA(), roomBill, listDetail);
+//                            Stage stage = new Stage();
+//                            stage.initStyle(StageStyle.TRANSPARENT);
+//							stage.initModality(Modality.WINDOW_MODAL);
+//							stage.initOwner(contextMenu_btn.getScene().getWindow());
+//                            Scene scene = new Scene(root);
+//
+////                            root.setOnMouseDragged((MouseEvent event1) -> {
+////                                stage.setX(event1.getScreenX() - x);
+////                                stage.setY(event1.getScreenY() - y);
+////                            });
+//
+//                            stage.setScene(scene);
+//                            stage.showAndWait();
+//
+////                            refreshBookRoomList();
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    });
+//
+//                    deleteItem.setOnAction(deleteEvent -> {
+//                        // Delete item logic here
+//                    });
+//
+//                    contextMenu.getItems().addAll(billItem, deleteItem);
+//                    contextMenu.show(contextMenu_btn, event.getScreenX(), event.getScreenY());
+//                });
 
                 page.getChildren().add(bookRoomDataPane);
             } catch (IOException e) {

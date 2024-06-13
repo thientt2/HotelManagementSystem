@@ -50,9 +50,9 @@
       </Button>
       <Button fx:id="contextMenu_btn" layoutX="796.0" layoutY="8.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="9.599999999999994" AnchorPane.topAnchor="8.0">
          <graphic>
-            <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="print_img" fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Images/ellipsis_v.png" />
+                  <Image url="@../../Images/printer.png" />
                </image>
             </ImageView>
          </graphic>

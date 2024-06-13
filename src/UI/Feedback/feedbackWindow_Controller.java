@@ -62,8 +62,19 @@ public class feedbackWindow_Controller implements Initializable{
     private int calculatePageCount() {
         return (int) Math.ceil((double) listFeedBack.size() / ITEMS_PER_PAGE);
     }
+    
+    public void setInfo() {
+    	Object[] listInfo = DANHGIA_BLL.getReviewStars();
+    	total_txt.setText(listInfo[0].toString());
+    	one_txt.setText(listInfo[1].toString());
+    	two_txt.setText(listInfo[2].toString());
+    	three_txt.setText(listInfo[3].toString());
+    	four_txt.setText(listInfo[4].toString());
+    	five_txt.setText(listInfo[5].toString());
+    }
 	
 	public void refreshFeedBackList() {
+	    setInfo();
 		listFeedBack = DANHGIA_BLL.listFeedBack();
 		pagination.setPageCount(calculatePageCount());
 	    pagination.setPageFactory(this::createPage);
@@ -161,6 +172,7 @@ public class feedbackWindow_Controller implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+	    setInfo();
 		listFeedBack = DANHGIA_BLL.listFeedBack();
 		pagination.setPageCount(calculatePageCount());
 	    pagination.setPageFactory(this::createPage);

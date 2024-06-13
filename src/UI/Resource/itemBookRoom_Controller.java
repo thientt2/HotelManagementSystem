@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 public class itemBookRoom_Controller implements Initializable{
 	
@@ -39,6 +40,10 @@ public class itemBookRoom_Controller implements Initializable{
 
     @FXML
     private Label roomType_txt;
+
+    @FXML
+    private ImageView print_img;
+    
     
     public Button getCheckIn_btn() {
 		return checkIn_btn;
@@ -47,6 +52,8 @@ public class itemBookRoom_Controller implements Initializable{
     public Button getContextMenu_btn() {
 		return contextMenu_btn;
 	}
+    
+    
 	  
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
