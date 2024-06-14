@@ -30,6 +30,28 @@
 	-fx-border-width:1px;
 }
 
+.changePW-btn{
+	-fx-background-color: #6D9181;
+	-fx-background-radius: 8px;
+	-fx-text-fill: #fff;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter Medium";
+	-fx-border-radius: 8px;
+	-fx-border-width: 1px;
+	-fx-cursor:hand;
+}
+
+.changePW-btn:hover{
+	-fx-background-color: #6D6981;
+	-fx-background-radius: 8px;
+	-fx-text-fill: #fff;
+	-fx-font-size: 14px;
+	-fx-font-family: "Inter Medium";
+	-fx-border-radius: 8px;
+	-fx-border-width: 1px;
+	-fx-cursor:hand;
+}
+
 .add-btn{
 	-fx-background-color: #1570EF;
 	-fx-background-radius:10px;

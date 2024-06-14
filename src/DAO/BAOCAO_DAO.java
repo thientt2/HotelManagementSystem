@@ -15,6 +15,35 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class BAOCAO_DAO {
+	
+	public static List<Object[]> getReportData() {
+        List<Object[]> reportData = new ArrayList<>();
+        String query = "SELECT NGAY, THANG, NAM, LP.TENLOAIPHONG, BC.GIATRI, BC.SOLUOTTHUE " +
+                       "FROM BAOCAO BC " +
+                       "JOIN LOAIPHONG LP ON BC.MALOAIP = LP.MALOAIP " +
+                       "ORDER BY NAM, THANG, NGAY";
+
+        try (Connection conn = DatabaseConnection.connectDb();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Object[] row = new Object[6];
+                row[0] = rs.getInt("NGAY");
+                row[1] = rs.getInt("THANG");
+                row[2] = rs.getInt("NAM");
+                row[3] = rs.getString("TENLOAIPHONG");
+                row[4] = rs.getDouble("GIATRI");
+                row[5] = rs.getInt("SOLUOTTHUE");
+                reportData.add(row);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reportData;
+    }
+	
 	// Phương thức để lấy danh sách các năm có trong database
     public static List<Integer> getYears() {
         List<Integer> yearsList = new ArrayList<>();

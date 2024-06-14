@@ -301,10 +301,10 @@
                   </HBox>
                </children>
             </VBox>
-            <AnchorPane layoutX="100.0" layoutY="317.0" prefHeight="51.0" prefWidth="206.0">
+            <AnchorPane layoutX="66.0" layoutY="316.0" prefHeight="51.0" prefWidth="240.0">
                <children>
-                  <Button fx:id="exit_btn" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#exit" prefHeight="27.0" prefWidth="80.0" styleClass="cancel-btn" stylesheets="@../Designs/addDichVu.css" text="Thoát" />
-                  <Button fx:id="logOut_btn" layoutX="115.0" layoutY="10.0" mnemonicParsing="false" onAction="#logOut" prefHeight="31.0" prefWidth="90.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Đăng xuất" />
+                  <Button fx:id="exit_btn" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="114.0" styleClass="changePW-btn" stylesheets="@../Designs/addDichVu.css" text="Đổi mật khẩu" />
+                  <Button fx:id="logOut_btn" layoutX="141.0" layoutY="10.0" mnemonicParsing="false" onAction="#logOut" prefHeight="31.0" prefWidth="90.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Đăng xuất" />
                </children>
             </AnchorPane>
          </children>

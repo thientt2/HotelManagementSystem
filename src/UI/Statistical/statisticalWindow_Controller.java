@@ -10,6 +10,7 @@ import DAO.BAOCAO_DAO;
 import DTO.LOAIPHONG;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
@@ -22,6 +23,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+//import org.apache.poi.ss.usermodel.*;
+//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class statisticalWindow_Controller implements Initializable {
 
@@ -297,6 +301,71 @@ public class statisticalWindow_Controller implements Initializable {
         barChart.getData().add(series);
     }
     
+//    public static void exportReportToExcel(String filePath) {
+//        // Define column headers
+//        String[] columns = {"Ngay", "Thang", "Nam", "Ten Loai Phong", "Doanh Thu", "So Luot Thue"};
+//        
+//        // Create a Workbook
+//        Worker workbook = new Worker();
+//        
+//        // Create a Sheet
+//        Sheet sheet = workbook.createSheet("Bao Cao");
+//        
+//        // Create a Font for styling header cells
+//        Font headerFont = workbook.createFont();
+//        headerFont.setBold(true);
+//        headerFont.setFontHeightInPoints((short) 12);
+//        headerFont.setColor(IndexedColors.RED.getIndex());
+//        
+//        // Create a CellStyle with the font
+//        CellStyle headerCellStyle = workbook.createCellStyle();
+//        headerCellStyle.setFont(headerFont);
+//        
+//        // Create a Row
+//        Row headerRow = sheet.createRow(0);
+//        
+//        // Create cells
+//        for (int i = 0; i < columns.length; i++) {
+//            Cell cell = headerRow.createCell(i);
+//            cell.setCellValue(columns[i]);
+//            cell.setCellStyle(headerCellStyle);
+//        }
+//        
+//        // Fetch data from the database
+//        List<Object[]> reportData = BAOCAO_DAO.getReportData();
+//        
+//        // Create Other rows and cells with report data
+//        int rowNum = 1;
+//        for (Object[] rowData : reportData) {
+//            Row row = sheet.createRow(rowNum++);
+//            
+//            row.createCell(0).setCellValue((Integer) rowData[0]);
+//            row.createCell(1).setCellValue((Integer) rowData[1]);
+//            row.createCell(2).setCellValue((Integer) rowData[2]);
+//            row.createCell(3).setCellValue((String) rowData[3]);
+//            row.createCell(4).setCellValue((Double) rowData[4]);
+//            row.createCell(5).setCellValue((Integer) rowData[5]);
+//        }
+//        
+//        // Resize all columns to fit the content size
+//        for (int i = 0; i < columns.length; i++) {
+//            sheet.autoSizeColumn(i);
+//        }
+//        
+//        // Write the output to a file
+//        try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
+//            workbook.write(fileOut);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        
+//        // Closing the workbook
+//        try {
+//            workbook.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
     
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
