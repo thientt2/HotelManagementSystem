@@ -237,5 +237,20 @@ public class NHANVIEN_DAO {
 	    }
 	    return staffNames;
 	}
+
+
+	public static void changePassword(String staffId, String password) {
+		// TODO Auto-generated method stub
+		String query = "UPDATE NHANVIEN SET MATKHAU = ? WHERE MANV = ?";
+		try (Connection connection = DatabaseConnection.connectDb()) {
+			PreparedStatement prepare = connection.prepareStatement(query);
+			prepare.setString(1, password);
+			prepare.setString(2, staffId);
+			prepare.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
 	
 }

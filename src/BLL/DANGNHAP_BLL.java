@@ -3,6 +3,7 @@ package BLL;
 
 import DAO.*;
 import DTO.NHANVIEN;
+import system.Encode;
 import system.SystemMessage;
 
 
@@ -17,7 +18,7 @@ public class DANGNHAP_BLL {
 	public static boolean checkLogin(Map<String,String> data) throws SQLException {
 		
 		String user = data.get("user");
-		String pass = data.get("pass");
+		String pass = Encode.base64EncodeAndMd5Hash(data.get("pass"));
 		if(user.isEmpty()||pass.isEmpty()) {
 			SystemMessage.ERROR_MESSAGE  = "ERROR_1";
 			return false;
@@ -26,6 +27,5 @@ public class DANGNHAP_BLL {
 			return DANGNHAP_DAO.checkLogin(user, pass);        
 		}		
 	}   
-	
     
 }

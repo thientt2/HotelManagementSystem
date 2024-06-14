@@ -65,6 +65,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -176,6 +177,9 @@ public class MainWindow_Controller implements Initializable {
 
     @FXML
     private Button exit_btn;
+    
+    @FXML
+    private Button changePassword_btn;
 
     @FXML
     private Label gender_txt;
@@ -491,6 +495,22 @@ public class MainWindow_Controller implements Initializable {
 		stage.setScene(scene);     
 		stage.show();  
     }
+    
+    public void changePassword() {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("ChangePassword.fxml"));
+			
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.initStyle(StageStyle.TRANSPARENT);
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(changePassword_btn.getScene().getWindow());
+			stage.setScene(scene);
+			stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
     
 
 	public void accountInfo() {

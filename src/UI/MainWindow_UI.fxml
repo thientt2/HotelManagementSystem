@@ -303,7 +303,7 @@
             </VBox>
             <AnchorPane layoutX="66.0" layoutY="316.0" prefHeight="51.0" prefWidth="240.0">
                <children>
-                  <Button fx:id="exit_btn" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="114.0" styleClass="changePW-btn" stylesheets="@../Designs/addDichVu.css" text="Đổi mật khẩu" />
+                  <Button fx:id="changePassword_btn" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="31.0" prefWidth="114.0" styleClass="changePW-btn" stylesheets="@../Designs/addDichVu.css" text="Đổi mật khẩu" />
                   <Button fx:id="logOut_btn" layoutX="141.0" layoutY="10.0" mnemonicParsing="false" onAction="#logOut" prefHeight="31.0" prefWidth="90.0" styleClass="add-btn" stylesheets="@../Designs/addDichVu.css" text="Đăng xuất" />
                </children>
             </AnchorPane>

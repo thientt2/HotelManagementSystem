@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import DAO.NHANVIEN_DAO;
 import DTO.NHANVIEN;
 import javafx.collections.ObservableList;
+import system.Encode;
 import system.SystemMessage;
 
 public class NHANVIEN_BLL {
@@ -114,4 +115,8 @@ public class NHANVIEN_BLL {
 		return NHANVIEN_DAO.getStaffNamesByJob(jobType);
 	}
 	
+	public static void changePassword(String staffId, String newPassword) {
+		String password = Encode.base64EncodeAndMd5Hash(newPassword);
+		NHANVIEN_DAO.changePassword(staffId, password);
+	}
 }
