@@ -18,7 +18,7 @@ public class BAOCAO_DAO {
 	
 	public static List<Object[]> getReportData() {
         List<Object[]> reportData = new ArrayList<>();
-        String query = "SELECT NGAY, THANG, NAM, LP.TENLOAIPHONG, BC.GIATRI, BC.SOLUOTTHUE " +
+        String query = "SELECT NGAY, THANG, NAM, LP.TENLOAI, BC.GIATRI, BC.SOLUOTTHUE " +
                        "FROM BAOCAO BC " +
                        "JOIN LOAIPHONG LP ON BC.MALOAIP = LP.MALOAIP " +
                        "ORDER BY NAM, THANG, NGAY";
@@ -32,7 +32,7 @@ public class BAOCAO_DAO {
                 row[0] = rs.getInt("NGAY");
                 row[1] = rs.getInt("THANG");
                 row[2] = rs.getInt("NAM");
-                row[3] = rs.getString("TENLOAIPHONG");
+                row[3] = rs.getString("TENLOAI");
                 row[4] = rs.getDouble("GIATRI");
                 row[5] = rs.getInt("SOLUOTTHUE");
                 reportData.add(row);

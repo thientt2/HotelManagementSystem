@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 
 import BLL.NHANVIEN_BLL;
 import DTO.NHANVIEN;
+import application.AlertMessage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -57,6 +58,8 @@ public class ChangePassword_Controller implements Initializable {
 		String staffId = SystemMessage.getMANV();
 		String newPassword = confirmPassword_txt.getText();
 		NHANVIEN_BLL.changePassword(staffId, newPassword);
+		AlertMessage alert = new AlertMessage();
+		alert.successMessage("Đổi mật khẩu thành công!");
 		System.out.println("Đổi mật khẩu thành công");
 		cancel_btn.getScene().getWindow().hide();
 	}   
@@ -87,7 +90,7 @@ public class ChangePassword_Controller implements Initializable {
                 statusOldPass_lb.setGraphic(imageView);			
 			}
 		});
-		
+
 		password_txt.textProperty().addListener((observable, oldValue, newValue) -> {
 			if(!newValue.equals("") && !newValue.equals(oldPassword_txt.getText())) {
 				confirmPassword_txt.setDisable(false);				

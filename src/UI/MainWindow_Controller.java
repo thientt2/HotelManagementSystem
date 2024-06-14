@@ -266,26 +266,32 @@ public class MainWindow_Controller implements Initializable {
 	}
 	
 	public void setAccessIcon() {
+		paramWindow_btn.setDisable(true);
+		customerWindow_btn.setDisable(true);
+		staffWindow_btn.setDisable(true);
+		roomWindow_btn.setDisable(true);
+		bookRoomWindow_btn.setDisable(true);
+		statisticalWindow_btn.setDisable(true);
+		billWindow_btn.setDisable(true);
+		feedbackWindow_btn.setDisable(true);
 		for (String item: listScreens)
 		{
-//			if(item.equalsIgnoreCase("Màn hình thông số"))
-//				icon.setVisible(false);
-//			if(item.equalsIgnoreCase("Màn hình trang chủ"))
-//				icon.setVisible(false);
-//			if(item.equalsIgnoreCase("Màn hình khách hàng"))
-//				icon.setVisible(false);
-//			if(item.equalsIgnoreCase("Màn hình nhân viên"))
-//				icon.setVisible(false);
-//			if(item.equalsIgnoreCase("Màn hình phòng"))
-//				icon.setVisible(false);
-//			if(item.equalsIgnoreCase("Màn hình đặt phòng"))
-//				icon.setVisible(false);
-//			if(item.equalsIgnoreCase("Màn hình báo cáo"))
-//				icon.setVisible(false);
-//			if(item.equalsIgnoreCase("Màn hình hóa đơn"))
-//				icon.setVisible(false);
-//			if(item.equalsIgnoreCase("Màn hình đánh giá"))
-//				icon.setVisible(false);
+			if(item.equals("Màn hình thông số"))
+				paramWindow_btn.setDisable(false);
+			if(item.equals("Màn hình khách hàng"))
+				customerWindow_btn.setDisable(false);
+			if(item.equals("Màn hình nhân viên"))
+				staffWindow_btn.setDisable(false);
+			if(item.equals("Màn hình phòng"))
+				roomWindow_btn.setDisable(false);
+			if(item.equals("Màn hình đặt phòng"))
+				bookRoomWindow_btn.setDisable(false);
+			if(item.equals("Màn hình báo cáo"))
+				statisticalWindow_btn.setDisable(false);
+			if(item.equals("Màn hình hóa đơn"))
+				billWindow_btn.setDisable(false);
+			if(item.equals("Màn hình đánh giá"))
+				feedbackWindow_btn.setDisable(false);
 		}
 			
 	}
@@ -301,7 +307,7 @@ public class MainWindow_Controller implements Initializable {
 	public void accessParam()
 	{
 		for (String item: listScreens)
-			if(item.equalsIgnoreCase("Màn hình thông số"))
+			if(item.equals("Màn hình thông số"))
 			{
 				changeSceneParamWindow();
 				access = true;
@@ -316,7 +322,7 @@ public class MainWindow_Controller implements Initializable {
 	public void accessCustomer()
 	{
 		for (String item: listScreens)
-			if(item.equalsIgnoreCase("Màn hình khách hàng"))
+			if(item.equals("Màn hình khách hàng"))
 			{
 				System.out.printf("có");
 				changeSceneCustomerWindow();
@@ -332,7 +338,7 @@ public class MainWindow_Controller implements Initializable {
 	public void accessStaff()
 	{
 		for (String item: listScreens)
-			if(item.equalsIgnoreCase("Màn hình nhân viên"))
+			if(item.equals("Màn hình nhân viên"))
 			{
 				changeSceneStaffWindow();
 				access = true;
@@ -347,7 +353,7 @@ public class MainWindow_Controller implements Initializable {
 	public void accessRoom()
 	{
 		for (String item: listScreens)
-			if(item.equalsIgnoreCase("Màn hình phòng"))
+			if(item.equals("Màn hình phòng"))
 			{
 				changeSceneRoomWindow();
 				access = true;
@@ -362,7 +368,7 @@ public class MainWindow_Controller implements Initializable {
 	public void accessBookRoom()
 	{
 		for (String item: listScreens)
-			if(item.equalsIgnoreCase("Màn hình đặt phòng"))
+			if(item.equals("Màn hình đặt phòng"))
 			{
 				changeSceneBookRoomWindow();
 				access = true;
@@ -377,7 +383,7 @@ public class MainWindow_Controller implements Initializable {
 	public void accessBillRoom()
 	{
 		for (String item: listScreens)
-			if(item.equalsIgnoreCase("Màn hình hóa đơn"))
+			if(item.equals("Màn hình hóa đơn"))
 			{
 				changeSceneBillWindow();
 				access = true;
@@ -392,7 +398,7 @@ public class MainWindow_Controller implements Initializable {
 	public void accessStatisticalRoom()
 	{
 		for (String item: listScreens)
-			if(item.equalsIgnoreCase("Màn hình báo cáo"))
+			if(item.equals("Màn hình báo cáo"))
 			{
 				changeSceneStatisticalWindow();
 				access = true;
@@ -407,7 +413,7 @@ public class MainWindow_Controller implements Initializable {
 	public void accessFeedbackRoom()
 	{
 		for (String item: listScreens)
-			if(item.equalsIgnoreCase("Màn hình đánh giá"))
+			if(item.equals("Màn hình đánh giá"))
 			{
 				changeSceneFeedbackWindow();
 				access = true;
@@ -541,7 +547,7 @@ public class MainWindow_Controller implements Initializable {
 	        Image defaultImage = new Image("/Images/LAOPERA.jpg");
 	        top_circle.setFill(new ImagePattern(defaultImage));
 	    }
-	    
+		setAccessIcon();
     }
     
 
@@ -907,7 +913,6 @@ public class MainWindow_Controller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {		
 		setTime();	
 		changeSceneDashBoardWindow();	
-		//setAccessIcon();
 		//startPolling();
 	}
 

@@ -1,13 +1,26 @@
 package UI.Statistical;
 
+import java.awt.Desktop;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import BLL.BAOCAO_BLL;
+import BLL.LOAIPHONG_BLL;
+import BLL.PHIEUNHANPHONG_BLL;
+import BLL.PHONG_BLL;
 import DAO.BAOCAO_DAO;
 import DTO.LOAIPHONG;
+import DTO.PHIEUNHANPHONG;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
@@ -19,16 +32,23 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
-//import org.apache.poi.ss.usermodel.*;
-//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class statisticalWindow_Controller implements Initializable {
 
+    @FXML
+    private Button print_btn;
+    
     @FXML
     private PieChart pieChart;
 
@@ -301,44 +321,44 @@ public class statisticalWindow_Controller implements Initializable {
         barChart.getData().add(series);
     }
     
-//    public static void exportReportToExcel(String filePath) {
+//    public static void exportReportToExcel() {
 //        // Define column headers
 //        String[] columns = {"Ngay", "Thang", "Nam", "Ten Loai Phong", "Doanh Thu", "So Luot Thue"};
-//        
+//
 //        // Create a Workbook
-//        Worker workbook = new Worker();
-//        
+//        Workbook workbook = new XSSFWorkbook();
+//
 //        // Create a Sheet
 //        Sheet sheet = workbook.createSheet("Bao Cao");
-//        
+//
 //        // Create a Font for styling header cells
 //        Font headerFont = workbook.createFont();
 //        headerFont.setBold(true);
 //        headerFont.setFontHeightInPoints((short) 12);
 //        headerFont.setColor(IndexedColors.RED.getIndex());
-//        
+//
 //        // Create a CellStyle with the font
 //        CellStyle headerCellStyle = workbook.createCellStyle();
 //        headerCellStyle.setFont(headerFont);
-//        
+//
 //        // Create a Row
 //        Row headerRow = sheet.createRow(0);
-//        
+//
 //        // Create cells
 //        for (int i = 0; i < columns.length; i++) {
 //            Cell cell = headerRow.createCell(i);
 //            cell.setCellValue(columns[i]);
 //            cell.setCellStyle(headerCellStyle);
 //        }
-//        
-//        // Fetch data from the database
+//
+//        // Fetch data from the database (replace with your data fetching logic)
 //        List<Object[]> reportData = BAOCAO_DAO.getReportData();
-//        
+//
 //        // Create Other rows and cells with report data
 //        int rowNum = 1;
 //        for (Object[] rowData : reportData) {
 //            Row row = sheet.createRow(rowNum++);
-//            
+//
 //            row.createCell(0).setCellValue((Integer) rowData[0]);
 //            row.createCell(1).setCellValue((Integer) rowData[1]);
 //            row.createCell(2).setCellValue((Integer) rowData[2]);
@@ -346,30 +366,162 @@ public class statisticalWindow_Controller implements Initializable {
 //            row.createCell(4).setCellValue((Double) rowData[4]);
 //            row.createCell(5).setCellValue((Integer) rowData[5]);
 //        }
-//        
+//
 //        // Resize all columns to fit the content size
 //        for (int i = 0; i < columns.length; i++) {
 //            sheet.autoSizeColumn(i);
 //        }
+//
+//        // Write the workbook content to a temporary file
+//        File tempFile = null;
+//        try {
+//            tempFile = File.createTempFile("BaoCao", ".xlsx");
+//            try (FileOutputStream fileOut = new FileOutputStream(tempFile)) {
+//                workbook.write(fileOut);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                workbook.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        // Open the temporary file using Desktop
+//        if (tempFile != null && Desktop.isDesktopSupported()) {
+//            try {
+//                Desktop desktop = Desktop.getDesktop();
+//                desktop.open(tempFile);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+    
+    public static void exportReportToExcel(String filePath) {
+        // Define column headers
+        String[] columns = {"Ngày", "Tháng", "Năm", "Tên Loại Phòng", "Doanh Thu", "Số Lượt Thuê"};
+        
+        // Create a Workbook
+        Workbook workbook = new XSSFWorkbook();
+        
+        // Create a Sheet
+        Sheet sheet = workbook.createSheet("Bao Cao");
+        
+        // Create a Font for styling header cells
+        Font headerFont = workbook.createFont();
+        headerFont.setBold(true);
+        headerFont.setFontHeightInPoints((short) 12);
+        headerFont.setColor(IndexedColors.RED.getIndex());
+        
+        // Create a CellStyle with the font
+        CellStyle headerCellStyle = workbook.createCellStyle();
+        headerCellStyle.setFont(headerFont);
+        
+        // Create a Row
+        Row headerRow = sheet.createRow(0);
+        
+        // Create cells
+        for (int i = 0; i < columns.length; i++) {
+            Cell cell = headerRow.createCell(i);
+            cell.setCellValue(columns[i]);
+            cell.setCellStyle(headerCellStyle);
+        }
+        
+        // Fetch data from the database
+        List<Object[]> reportData = BAOCAO_DAO.getReportData();
+        
+        // Create Other rows and cells with report data
+        int rowNum = 1;
+        for (Object[] rowData : reportData) {
+            Row row = sheet.createRow(rowNum++);
+            
+            row.createCell(0).setCellValue((Integer) rowData[0]);
+            row.createCell(1).setCellValue((Integer) rowData[1]);
+            row.createCell(2).setCellValue((Integer) rowData[2]);
+            row.createCell(3).setCellValue((String) rowData[3]);
+            row.createCell(4).setCellValue((Double) rowData[4]);
+            row.createCell(5).setCellValue((Integer) rowData[5]);
+        }
+        
+        // Resize all columns to fit the content size
+        for (int i = 0; i < columns.length; i++) {
+            sheet.autoSizeColumn(i);
+        }
+        
+        // Write the output to a file
+        try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
+            workbook.write(fileOut);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        // Closing the workbook
+        try {
+            workbook.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+//    public static void exportReportToExcel(String filePath) throws IOException {
+//        List<Object[]> reportData = BAOCAO_DAO.getReportData();
 //        
+//        Workbook workbook = new XSSFWorkbook();
+//        Sheet sheet = workbook.createSheet("BAOCAO");
+//
+//        // Create headers
+//        String[] headers = {"Ngày", "Tháng", "Năm", "Tên Loại Phòng", "Doanh Thu", "Số Lượt Thuê"};
+//        Row headerRow = sheet.createRow(0);
+//        for (int i = 0; i < headers.length; i++) {
+//            Cell cell = headerRow.createCell(i);
+//            cell.setCellValue(headers[i]);
+//        }
+//
+//        // Write data
+//        int rowNum = 1;
+//        for (Object[] row : reportData) {
+//            Row dataRow = sheet.createRow(rowNum++);
+//            for (int colNum = 0; colNum < row.length; colNum++) {
+//                Cell cell = dataRow.createCell(colNum);
+//                cell.setCellValue(row[colNum].toString());
+//            }
+//        }
+//
 //        // Write the output to a file
 //        try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
 //            workbook.write(fileOut);
-//        } catch (IOException e) {
-//            e.printStackTrace();
 //        }
-//        
+//
 //        // Closing the workbook
-//        try {
-//            workbook.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+//        workbook.close();
 //    }
     
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		//getRoomDataByType()
+		//getRoomDataByType(
+		print_btn.setOnAction(event -> {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+	        alert.setTitle("Xác nhận thống kê");
+	        alert.setHeaderText(null);
+	        alert.setContentText("Xác nhận in bảng thống kê?");
+	        Optional<ButtonType> option = alert.showAndWait();
+
+	        if (option.get().equals(ButtonType.OK)) {
+				exportReportToExcel("baocao.xlsx");
+	        	alert = new Alert(AlertType.INFORMATION);
+	            alert.setTitle("Thông báo");
+	            alert.setHeaderText(null);
+	            alert.setContentText("Xuất bảng thống kê thành công!");
+	            alert.showAndWait();
+		    	
+	        } else {
+	            return;
+	        }
+		});
+		
 	    showListYear();
 	    year_cb.valueProperty().addListener((obs, oldVal, newVal) -> {
 	        if (newVal != null) {
