@@ -109,7 +109,11 @@ public class createUser_Controller implements Initializable {
 		}else if(check.equals("ERROR_PASSWORD")) {
 			alert.errorMessage("Mật khẩu không trùng khớp với nhau!\n Vui lòng nhập lại!");
 			check = "";
-		}else {
+		}else if(check.equals("ERROR_USERNAME_EXIST")) {
+			alert.errorMessage("Tài khoản đã tồn tại!\nVui lòng nhập lại!");
+			check = "";
+		}
+		else {
 			alert.successMessage("Tạo tài khoản thành công!");
 			cancel();
 		}

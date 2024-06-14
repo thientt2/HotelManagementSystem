@@ -31,13 +31,19 @@ public class NHANVIEN_BLL {
 		String job = data.get("job");
 		String username = data.get("username");
 		String password = data.get("password");
+		
 		String confirmPassword = data.get("confirmPassword");
 		String photuUrl = data.get("photourl");
+		
 		if(staffName.isEmpty() || job.isEmpty() || photuUrl.isEmpty() || username.isEmpty() || password.isEmpty()) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_EMPTY";
 		}else if(password.equals(confirmPassword) == false) {
 			SystemMessage.ERROR_MESSAGE = "ERROR_PASSWORD";
-		}else {
+		}else if(NHANVIEN_BLL.isExistUsername(username)==true) {
+			SystemMessage.ERROR_MESSAGE = "ERROR_USERNAME_EXIST";
+		} else {
+			String passEncode = Encode.base64EncodeAndMd5Hash(password);
+			data.put("password", passEncode);
 			NHANVIEN_DAO.createUser(data);			
 		}
 	}
@@ -118,5 +124,9 @@ public class NHANVIEN_BLL {
 	public static void changePassword(String staffId, String newPassword) {
 		String password = Encode.base64EncodeAndMd5Hash(newPassword);
 		NHANVIEN_DAO.changePassword(staffId, password);
+	}
+	
+	public static boolean isExistUsername(String username) {
+		return NHANVIEN_DAO.getStaff(username) != null;
 	}
 }
